@@ -1,0 +1,44 @@
+/* ============================================================
+   PRINTKING — Design Tokens
+   Luxury packaging manufacturer design system
+   ============================================================ */
+
+:root {
+  /* ---- Color Architecture ---- */
+  --color-obsidian: #0a0a0b; /* Primary dark surface */
+  --color-carbon: #111114; /* Elevated surface */
+  --color-graphite: #1c1c21; /* Card surface */
+  --color-border: rgba(255, 255, 255, 0.05); /* Hairline borders */
+  --color-gold: #c9a84c; /* Primary luxury accent */
+  --color-gold-soft: #e3c876; /* Lighter gold for gradients/highlights */
+  --color-gold-muted: rgba(201, 168, 76, 0.25); /* Accent glow / fills */
+  --color-platinum: #e8e8e8; /* Primary light text */
+  --color-muted: rgba(255, 255, 255, 0.5); /* Secondary text */
+  --color-whisper: rgba(255, 255, 255, 0.09); /* Ghost elements */
+  --color-white: #fafafa; /* Light mode surfaces */
+  --color-green-tint: #0a0f0a; /* Sustainability surface */
+
+  /* ---- Typography ---- */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ---- Radius ---- */
+  --radius-card: 2px;
+  --radius-hero: 0px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ---- */
+  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+}

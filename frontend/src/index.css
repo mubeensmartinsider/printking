@@ -1,0 +1,225 @@
+@import "./styles/tokens.css";
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-obsidian);
+    color: var(--color-platinum);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "cv01";
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-obsidian);
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-obsidian);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(201, 168, 76, 0.35);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold);
+  }
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+  }
+
+  .label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* Pill chip */
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-1.5;
+  }
+
+  /* Gold filled CTA */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 font-medium tracking-wide transition-all duration-300;
+    height: 48px;
+    padding: 0 28px;
+    font-size: 13px;
+    background: var(--color-gold);
+    color: var(--color-obsidian);
+    border-radius: 2px;
+  }
+  .btn-gold:hover {
+    background: var(--color-gold-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px -16px rgba(201, 168, 76, 0.6);
+  }
+
+  /* Ghost CTA */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 font-medium tracking-wide transition-all duration-300;
+    height: 48px;
+    padding: 0 28px;
+    font-size: 13px;
+    color: var(--color-gold);
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    border-radius: 2px;
+    background: transparent;
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-gold);
+    background: rgba(201, 168, 76, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .hairline {
+    border-color: var(--color-border);
+  }
+
+  .section-pad {
+    @apply px-6 md:px-10 lg:px-16;
+  }
+}
+
+@layer utilities {
+  .text-muted-lux {
+    color: var(--color-muted);
+  }
+
+  /* Film grain / noise overlay */
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* Animated faint grid */
+  .lux-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Hexagon clip */
+  .hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  /* Marquee animations */
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes marquee-right {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  .animate-marquee-left {
+    animation: marquee-left 38s linear infinite;
+  }
+  .animate-marquee-right {
+    animation: marquee-right 38s linear infinite;
+  }
+  .marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* Pulse for map dots */
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+  .pulse-ring {
+    animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* visual-edits helper (do not remove) */
+@layer base {
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+}
