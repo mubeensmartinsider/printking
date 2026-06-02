@@ -1,5 +1,5 @@
 import React from "react";
-import { TRUSTED } from "../../lib/content";
+import { TRUSTED, MEDIA_PARTNERS } from "../../lib/content";
 import SectionHeading from "../common/SectionHeading";
 
 const Tile = ({ name }) => (
@@ -46,6 +46,15 @@ export default function TrustedBy() {
               {i < TRUSTED.metrics.length - 1 && <span className="text-gold">·</span>}
             </React.Fragment>
           ))}
+        </div>
+
+        <div className="mt-14 flex flex-col items-center gap-4">
+          <span className="label text-platinum/35">Our Media Partners</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            {MEDIA_PARTNERS.map((p) => (
+              <span key={p} className="text-sm font-medium tracking-wide text-platinum/55">{p}</span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

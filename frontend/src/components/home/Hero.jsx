@@ -107,6 +107,7 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap gap-4">
             <button
               data-testid="hero-quote-btn"
+              data-magnetic
               onClick={() => navigate("/request-quote")}
               className="btn-gold hero-cta"
             >
@@ -114,6 +115,7 @@ export default function Hero() {
             </button>
             <button
               data-testid="hero-work-btn"
+              data-magnetic
               onClick={() => navigate("/portfolio")}
               className="btn-ghost hero-cta"
             >

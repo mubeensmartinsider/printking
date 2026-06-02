@@ -1,44 +1,59 @@
 /* ============================================================
-   PRINTKING — Design Tokens
-   Luxury packaging manufacturer design system
+   PRINTKING — Design Tokens (Navy + Gold luxury system)
    ============================================================ */
 
 :root {
-  /* ---- Color Architecture ---- */
-  --color-obsidian: #0a0a0b; /* Primary dark surface */
-  --color-carbon: #111114; /* Elevated surface */
-  --color-graphite: #1c1c21; /* Card surface */
-  --color-border: rgba(255, 255, 255, 0.05); /* Hairline borders */
-  --color-gold: #c9a84c; /* Primary luxury accent */
-  --color-gold-soft: #e3c876; /* Lighter gold for gradients/highlights */
-  --color-gold-muted: rgba(201, 168, 76, 0.25); /* Accent glow / fills */
-  --color-platinum: #e8e8e8; /* Primary light text */
-  --color-muted: rgba(255, 255, 255, 0.5); /* Secondary text */
-  --color-whisper: rgba(255, 255, 255, 0.09); /* Ghost elements */
-  --color-white: #fafafa; /* Light mode surfaces */
-  --color-green-tint: #0a0f0a; /* Sustainability surface */
+  /* ---- SURFACES (navy-tinted, not pure black) ---- */
+  --surface-base: #07080f;
+  --surface-primary: #0d0f1e;
+  --surface-elevated: #141628;
+  --surface-floating: #1c1e33;
+  --surface-glass: rgba(20, 22, 40, 0.65);
+
+  /* ---- Legacy aliases (kept for component compatibility) ---- */
+  --color-obsidian: #07080f;
+  --color-carbon: #0d0f1e;
+  --color-graphite: #141628;
+  --color-floating: #1c1e33;
+  --color-border: rgba(255, 255, 255, 0.05);
+  --color-whisper: rgba(255, 255, 255, 0.09);
+  --color-green-tint: #07110d;
+
+  /* ---- GOLD ACCENT SYSTEM ---- */
+  --color-gold: #c9a84c;
+  --gold-primary: #c9a84c;
+  --color-gold-soft: #e2c97e;
+  --gold-light: #e2c97e;
+  --color-gold-muted: rgba(201, 168, 76, 0.37);
+  --gold-whisper: rgba(201, 168, 76, 0.08);
+  --copper: #b87333;
+  --silver: #c0c0c8;
+
+  /* ---- TEXT ---- */
+  --color-platinum: #eeeef2;
+  --color-muted: rgba(255, 255, 255, 0.5);
+  --text-secondary: #9898a8;
+  --text-tertiary: #56566a;
+
+  /* ---- GRADIENTS ---- */
+  --gradient-hero: linear-gradient(135deg, #07080f 0%, #0d1030 50%, #07080f 100%);
+  --gradient-card: linear-gradient(145deg, #141628, #1c1e33);
+  --gradient-gold: linear-gradient(135deg, #c9a84c, #e2c97e, #b87333);
+  --gradient-section: linear-gradient(180deg, #07080f 0%, #0d0f1e 40%, #07080f 100%);
+
+  /* ---- SHADOWS ---- */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-gold-glow: 0 0 40px rgba(201, 168, 76, 0.12);
+  --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.7);
+
+  /* ---- BLUR ---- */
+  --blur-glass: blur(16px) saturate(150%);
 
   /* ---- Typography ---- */
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* ---- Spacing scale (4px base) ---- */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-24: 96px;
-  --space-32: 128px;
-
-  /* ---- Radius ---- */
-  --radius-card: 2px;
-  --radius-hero: 0px;
-  --radius-pill: 999px;
-
   /* ---- Motion ---- */
   --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out-soft: cubic-bezier(0.23, 1, 0.32, 1);
 }

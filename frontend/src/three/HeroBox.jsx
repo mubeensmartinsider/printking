@@ -17,11 +17,13 @@ import {
   Lightformer,
   ContactShadows,
   Float,
+  Sparkles,
 } from "@react-three/drei";
 
 const h = React.createElement;
 const GOLD = "#c9a84c";
-const MATTE = "#16161a";
+const MATTE = "#191a2e";
+const KRAFT = "#b08653";
 
 const lerp = (a, b, t) => a + (b - a) * t;
 
@@ -49,6 +51,15 @@ function LuxuryBox({ progressRef }) {
 
   const mat = (color, roughness, metalness) =>
     h("meshStandardMaterial", { color, roughness, metalness });
+  const physMat = (color) =>
+    h("meshPhysicalMaterial", {
+      color,
+      metalness: 0.15,
+      roughness: 0.35,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.1,
+      reflectivity: 0.8,
+    });
   const goldMat = (roughness, metalness) =>
     h("meshStandardMaterial", {
       color: GOLD,
@@ -65,7 +76,7 @@ function LuxuryBox({ progressRef }) {
     h(
       RoundedBox,
       { args: [2.2, 1.05, 1.6], radius: 0.04, smoothness: 6, castShadow: true, receiveShadow: true },
-      mat(MATTE, 0.5, 0.2)
+      physMat(MATTE)
     ),
     // Gold lining
     h(
@@ -96,7 +107,7 @@ function LuxuryBox({ progressRef }) {
         h(
           RoundedBox,
           { args: [2.32, 0.34, 1.72], radius: 0.04, smoothness: 6, castShadow: true },
-          mat(MATTE, 0.48, 0.22)
+          physMat(MATTE)
         ),
         // Gold foil emboss plate
         h(
@@ -104,6 +115,19 @@ function LuxuryBox({ progressRef }) {
           { position: [0, 0.18, 0], rotation: [-Math.PI / 2, 0, 0] },
           h("planeGeometry", { args: [0.9, 0.42] }),
           goldMat(0.28, 1)
+        ),
+        // Gold ribbon — crossing the lid
+        h(
+          "mesh",
+          { position: [0, 0.172, 0] },
+          h("boxGeometry", { args: [0.16, 0.05, 1.74] }),
+          goldMat(0.18, 1)
+        ),
+        h(
+          "mesh",
+          { position: [0, 0.172, 0] },
+          h("boxGeometry", { args: [2.34, 0.05, 0.16] }),
+          goldMat(0.18, 1)
         ),
         // Thin gold rule on lid front
         h(
@@ -140,6 +164,18 @@ function scene(progressRef) {
       h(Lightformer, { intensity: 1.2, position: [-6, 1, 2], scale: [6, 6, 1], color: GOLD }),
       h(Lightformer, { intensity: 0.8, position: [6, -1, 2], scale: [6, 6, 1], color: "#ffffff" })
     ),
+    // Supporting packaging — a kraft mailer box floating in the back
+    h(
+      Float,
+      { speed: 0.9, rotationIntensity: 0.5, floatIntensity: 1.4 },
+      h(
+        "group",
+        { position: [2.9, 1.5, -2.4], rotation: [0.3, -0.5, 0.15], scale: 0.5 },
+        h(RoundedBox, { args: [1.3, 0.7, 0.95], radius: 0.03 }, h("meshStandardMaterial", { color: KRAFT, roughness: 0.85, metalness: 0.04 }))
+      )
+    ),
+    // Gold dust particles
+    h(Sparkles, { count: 110, scale: [9, 6, 6], size: 1.6, speed: 0.3, color: GOLD, opacity: 0.45 }),
     h(ContactShadows, {
       position: [0, -1.05, 0],
       opacity: 0.55,

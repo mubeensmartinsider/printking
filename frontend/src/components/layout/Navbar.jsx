@@ -53,6 +53,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <button
             data-testid="nav-quote-btn"
+            data-magnetic
             onClick={() => navigate("/request-quote")}
             className="btn-gold hidden h-10 sm:inline-flex"
           >
