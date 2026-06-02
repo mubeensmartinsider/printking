@@ -36,13 +36,28 @@ export default function Hero() {
   const [showScroll, setShowScroll] = useState(false);
   const navigate = useNavigate();
 
+  // auto open box on load + scroll progress
+  useEffect(() => {
+    // Start box opening animation on load
+    const obj = { v: 0 };
+    const t = gsap.to(obj, {
+      v: 1,
+      duration: 1.8,
+      delay: 0.8,
+      ease: "power2.inOut",
+      onUpdate: () => {
+        progressRef.current = obj.v;
+      },
+    });
+    return () => t.kill();
+  }, []);
+
   // drive 3D box scroll progress
   useEffect(() => {
     const onScroll = () => {
       const vh = window.innerHeight;
-      progressRef.current = Math.min(1, Math.max(0, window.scrollY / vh));
+      progressRef.current = Math.max(1, window.scrollY / vh);
     };
-    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -71,7 +86,7 @@ export default function Hero() {
       className="relative flex min-h-screen items-center overflow-hidden"
     >
       {/* 3D scene */}
-      <div className="pointer-events-none absolute inset-0 z-0">
+      <div className="pointer-events-none absolute inset-0 z-0 translate-y-48">
         <HeroBox progressRef={progressRef} />
       </div>
 

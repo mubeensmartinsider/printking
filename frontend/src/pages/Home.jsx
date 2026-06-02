@@ -26,6 +26,7 @@ export default function Home() {
       />
       <Hero />
       <TrustedBy />
+       <ProductionVideo />
       <AboutSection />
       <ExecutiveTeam />
       <Manufacturing />
@@ -33,7 +34,7 @@ export default function Home() {
       <Industries />
       <Process />
       <WhyChooseUs />
-      <ProductionVideo />
+     
       <MachinerySection />
       <Sustainability />
       <Testimonials />
