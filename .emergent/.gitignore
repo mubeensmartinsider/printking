@@ -1,17 +1,17 @@
-# Environment files
-.env
-**/.env
+# # Environment files
+# .env
+# **/.env
 
-# Dependencies
-node_modules/
+# # Dependencies
+# node_modules/
 
-# Logs
-*.log
+# # Logs
+# *.log
 
-# Build
-build/
-dist/
+# # Build
+# build/
+# dist/
 
-# OS
-.DS_Store
-Thumbs.db
+# # OS
+# .DS_Store
+# Thumbs.db
