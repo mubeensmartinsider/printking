@@ -1,91 +1,123 @@
-import React, { useRef } from "react";
-import { Linkedin, ArrowUpRight } from "lucide-react";
-import { TEAM, CEO } from "../../lib/content";
-import { useReveal, useStagger } from "../../lib/animations";
-
-function ExecCard({ m }) {
-  const photoRef = useRef(null);
-
-  const onMove = (e) => {
-    const card = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - card.left) / card.width - 0.5;
-    const y = (e.clientY - card.top) / card.height - 0.5;
-    if (photoRef.current) {
-      photoRef.current.style.transform = `translate(${-x * 12}px, ${-y * 12}px) scale(1.06)`;
-    }
-  };
-  const onLeave = () => {
-    if (photoRef.current) photoRef.current.style.transform = "translate(0,0) scale(1)";
-  };
-
-  return (
-    <article
-      data-exec
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      className="exec-card group flex flex-col overflow-hidden"
-    >
-      {/* Photo slot — EXEC PHOTO: replace placeholder with <img> */}
-      <div className="relative aspect-[7/8] overflow-hidden bg-[#0d0f1e]">
-        <div ref={photoRef} className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out">
-          <div className="grain absolute inset-0 opacity-[0.05]" />
-          <div
-            className="absolute inset-0"
-            style={{ background: "radial-gradient(120% 80% at 50% 20%, rgba(201,168,76,0.12), transparent 60%)" }}
-          />
-          <span className="display relative text-6xl text-gold/30">{m.initials}</span>
-        </div>
-        <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(transparent 55%, #07080f)" }} />
-        <span className="absolute bottom-3 left-4 label text-platinum/40">Photo pending</span>
-      </div>
-
-      {/* Body */}
-      <div className="flex flex-1 flex-col p-6">
-        <span className="label text-gold">{m.role}</span>
-        <h3 className="mt-2 text-lg font-semibold text-platinum">{m.name}</h3>
-        <span className="my-4 block h-px w-10 bg-gold/60" />
-        <p className="display flex-1 text-[15px] italic leading-snug text-platinum/65">“{m.quote}”</p>
-        <div className="mt-6 flex gap-3">
-          <a href={m.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex h-8 items-center gap-1.5 border border-white/10 px-3 text-[11px] text-platinum/70 transition-colors hover:border-gold hover:text-gold">
-            LinkedIn <Linkedin size={12} />
-          </a>
-          <a href="/contact" className="inline-flex h-8 items-center gap-1.5 border border-white/10 px-3 text-[11px] text-platinum/70 transition-colors hover:border-gold hover:text-gold">
-            Contact <ArrowUpRight size={12} />
-          </a>
-        </div>
-      </div>
-    </article>
-  );
-}
+import React from "react";
+import { LEADERSHIP, CEO, TEAM } from "../../lib/content";
+import SectionHeading from "../common/SectionHeading";
 
 export default function ExecutiveTeam() {
-  const headRef = useReveal();
-  const gridRef = useStagger("[data-exec]", { stagger: 0.1, y: 80 });
-
   return (
-    <section data-testid="team-section" className="relative bg-obsidian py-28">
+    <section data-testid="team-section" className="bg-obsidian py-28">
       <div className="section-pad mx-auto max-w-[1400px]">
-        <div ref={headRef} className="mb-8 max-w-3xl">
-          <span className="label text-gold">{TEAM.eyebrow}</span>
-          <h2 className="display mt-6 text-4xl leading-[1.08] text-platinum sm:text-5xl">{TEAM.headline}</h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-platinum/55">{TEAM.sub}</p>
-        </div>
+        {/* Section header */}
+        <SectionHeading
+          eyebrow={LEADERSHIP.eyebrow}
+          title={LEADERSHIP.headline[0]}
+          titleItalic={LEADERSHIP.headline[1]}
+          sub={LEADERSHIP.sub}
+          className="mb-20"
+        />
 
-        {/* CEO pull quote */}
-        <div className="mb-16 border-l-2 border-gold/50 pl-6">
-          <p className="display max-w-2xl text-2xl italic leading-snug text-platinum/80">“{CEO.quote}”</p>
-          <p className="label mt-4 text-platinum/50">{CEO.name} · {CEO.title}</p>
-        </div>
-
-        <div
-          ref={gridRef}
-          className="flex gap-5 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:overflow-visible lg:grid-cols-6"
-        >
-          {TEAM.members.map((m) => (
-            <div key={m.name} className="w-[260px] flex-none md:w-auto">
-              <ExecCard m={m} />
+        {/* CEO Feature Block */}
+        <div className="mb-28 pb-20 border-b border-gold/20">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+            {/* Photo */}
+            <div className="relative">
+              <div className="relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10 flex items-center justify-center">
+                <span className="display text-6xl text-gold/20">CEO</span>
+                <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-gold/40"></div>
+                <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-gold/40"></div>
+              </div>
+              <p className="mt-6 text-center text-sm text-platinum/50">Photo placeholder</p>
+              <p className="text-center font-serif text-lg text-platinum mt-6">{CEO.name}</p>
+              <p className="text-center label text-gold text-xs mt-1">{CEO.title}</p>
             </div>
-          ))}
+
+            {/* Message */}
+            <div>
+              <p className="label text-gold mb-4">{CEO.eyebrow}</p>
+              <h2 className="font-serif text-4xl italic font-light text-platinum mb-8 leading-relaxed">
+                {CEO.headline}
+              </h2>
+              <div className="space-y-5">
+                {CEO.paragraphs.map((para, idx) => (
+                  <p key={idx} className="text-sm leading-relaxed text-platinum/70">
+                    {para}
+                  </p>
+                ))}
+              </div>
+              <div className="mt-10 pt-6 border-t border-gold/20">
+                <p className="font-serif text-2xl italic text-gold mb-2">{CEO.name}</p>
+                <p className="text-xs text-platinum/50">{CEO.title}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* MD Feature Block */}
+        <div className="mb-28 pb-20 border-b border-gold/20">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+            {/* Message */}
+            <div>
+              <p className="label text-gold mb-4">{LEADERSHIP.md.eyebrow}</p>
+              <h2 className="font-serif text-4xl italic font-light text-platinum mb-8 leading-relaxed">
+                {LEADERSHIP.md.headline}
+              </h2>
+              <div className="space-y-5">
+                {LEADERSHIP.md.paragraphs.map((para, idx) => (
+                  <p key={idx} className="text-sm leading-relaxed text-platinum/70">
+                    {para}
+                  </p>
+                ))}
+              </div>
+              <div className="mt-10 pt-6 border-t border-gold/20">
+                <p className="font-serif text-2xl italic text-gold mb-2">{LEADERSHIP.md.name}</p>
+                <p className="text-xs text-platinum/50">{LEADERSHIP.md.title}</p>
+                <p className="text-sm font-semibold text-gold mt-3">{LEADERSHIP.md.signoff}</p>
+              </div>
+            </div>
+
+            {/* Photo */}
+            <div className="relative">
+              <div className="relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10 flex items-center justify-center">
+                <span className="display text-6xl text-gold/20">MD</span>
+                <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-gold/40"></div>
+                <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-gold/40"></div>
+              </div>
+              <p className="mt-6 text-center text-sm text-platinum/50">Photo placeholder</p>
+              <p className="text-center font-serif text-lg text-platinum mt-6">{LEADERSHIP.md.name}</p>
+              <p className="text-center label text-gold text-xs mt-1">{LEADERSHIP.md.title}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Department Heads Grid */}
+        <div className="pt-12 w-full">
+          <h3 className="text-sm font-semibold text-gold mb-16">DEPARTMENT HEADS</h3>
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full auto-rows-max">
+            {TEAM && TEAM.length > 0 ? (
+              TEAM.map((member) => (
+                <article 
+                  key={member.name} 
+                  className="group flex flex-col h-full overflow-hidden rounded-lg border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark shadow-lg transition-all duration-400 hover:shadow-[0_0_32px_rgba(197,160,90,0.2)] hover:-translate-y-1.5"
+                >
+                  {/* Photo area */}
+                  <div className="w-full aspect-[4/3] overflow-hidden bg-graphite/50 flex items-center justify-center border-b border-gold/10 flex-shrink-0 relative">
+                    <span className="display text-4xl text-gold/15">{member.initials}</span>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-obsidian to-transparent p-3">
+                      <span className="label text-gold text-[9px]">{member.role}</span>
+                    </div>
+                  </div>
+                  {/* Content area */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-base font-semibold text-platinum">{member.name}</h3>
+                    <p className="label text-gold mt-1 mb-4">{member.role}</p>
+                    <div className="h-px bg-gradient-to-r from-gold to-transparent w-6 mb-4 flex-shrink-0"></div>
+                    <p className="text-sm leading-relaxed text-platinum/65 flex-grow">{member.desc}</p>
+                  </div>
+                </article>
+              ))
+            ) : (
+              <p className="text-platinum/50">Loading team members...</p>
+            )}
+          </div>
         </div>
       </div>
     </section>

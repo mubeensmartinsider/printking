@@ -21,19 +21,21 @@ module.exports = {
                         sm: 'calc(var(--radius) - 4px)'
                 },
                 colors: {
-                        obsidian: '#07080f',
-                        carbon: '#0d0f1e',
-                        graphite: '#141628',
-                        floating: '#1c1e33',
+                        obsidian: '#0d0b09',
+                        carbon: '#14110d',
+                        graphite: '#1c1814',
+                        'graphite-dark': '#16140c',
+                        'graphite-warm': '#18150e',
+                        floating: '#241f1a',
                         copper: '#b87333',
-                        silver: '#c0c0c8',
+                        silver: '#c8c0b4',
                         gold: {
-                                DEFAULT: '#c9a84c',
-                                soft: '#e2c97e',
-                                muted: 'rgba(201,168,76,0.37)',
+                                DEFAULT: '#c5a05a',
+                                soft: '#d8b978',
+                                muted: 'rgba(197,160,90,0.37)',
                         },
-                        platinum: '#eeeef2',
-                        whisper: 'rgba(255,255,255,0.09)',
+                        platinum: '#f0ebe2',
+                        whisper: 'rgba(255,255,255,0.08)',
                         background: 'hsl(var(--background))',
                         foreground: 'hsl(var(--foreground))',
                         card: {
@@ -92,6 +94,9 @@ module.exports = {
                                         height: '0'
                                 }
                         }
+                },
+                backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 },
                 animation: {
                         'accordion-down': 'accordion-down 0.2s ease-out',

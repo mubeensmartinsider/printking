@@ -1,7 +1,5 @@
 /* ============================================================
    PRINTKING — Content & Copy (single source of truth)
-   Real company profile data. Swap any value freely; the whole
-   site reads from this file.
    ============================================================ */
 
 export const COMPANY = {
@@ -22,13 +20,6 @@ export const COMPANY = {
     facebook: "https://facebook.com/Printking.Pakistan",
     youtube: "#",
   },
-};
-
-export const CEO = {
-  name: "Muhammad Shafiq Chaudhary",
-  title: "Chief Executive Officer",
-  quote:
-    "A company doesn't grow by standing still. It endures by reinventing itself — always striving to satisfy its customer. That is the story of PrintKing.",
 };
 
 export const NAV_LINKS = [
@@ -62,7 +53,6 @@ export const TRUSTED = {
     "ISO 9001:2015 Certified",
     "24-Hour Client Service",
   ],
-  // Real client roster
   brands: [
     "Bareezé", "Firdous", "Baroque", "Warda", "IZNiK", "Zaha", "Imrozia",
     "Taana Baana", "Polo Ralph Lauren", "Armani", "ChenOne", "RajBari",
@@ -99,6 +89,47 @@ export const ABOUT = {
   ],
 };
 
+/* ---- Leadership ---- */
+export const LEADERSHIP = {
+  eyebrow: "OUR LEADERSHIP",
+  headline: ["People Behind", "Precision."],
+  sub: "Every sheet printed, every box folded, every deadline met — is a reflection of the people who lead this company.",
+  ceo: {
+    eyebrow: "CEO'S MESSAGE",
+    headline: "The way we work has never been about standing still.",
+    paragraphs: [
+      "A company doesn't grow by standing still. It endures by reinventing and diversifying — always striving to satisfy its customer. That conviction has shaped PrintKing from the very first sheet.",
+      "With over fifteen years in commercial printing, we have built a reputation for outstanding quality and customer satisfaction — the result of a long-term dedication to brilliance.",
+      "We offer best-in-class pre-press, press and post-press services using state-of-the-art technology, supported by a comprehensive quality control and verification system across every workflow.",
+      "I personally invite you to come forward and experience the difference — and let us help you make a lasting impression in your marketplace.",
+    ],
+    signature: "Muhammad Shafiq Chaudhry",
+    name: "Muhammad Shafiq Chaudhry",
+    title: "Chief Executive Officer",
+  },
+  md: {
+    eyebrow: "MANAGING DIRECTOR",
+    headline: "A success story, fifteen years in the making.",
+    paragraphs: [
+      "PrintKing is a success story — a meritorious fifteen-year history built on an unorthodox way of doing things and a determination to keep improving.",
+      "We have grown from humble beginnings to a 12,000 sq. metre facility running eight state-of-the-art Heidelberg presses from Germany.",
+      "Our team of sixty — graphic designers, mechanical engineers, communication specialists, production managers and a 24-hour client services desk — works across Corporate, Commercial Printing and Packaging.",
+      "Three disciplines, one unwavering vision. Welcome to PrintKing — welcome to the world of great results.",
+    ],
+    signature: "Naveed Ehsan",
+    signoff: "Ready On Press!!!",
+    name: "Naveed Ehsan",
+    title: "Managing & Marketing Director",
+  },
+  heads: [
+    { name: "Waqas Shafiq", role: "Director Operations", initials: "WS", desc: "Takes care of operational detailing, supply-chain and execution of all production efforts. Ensures smooth, hassle-free operations — every job delivered to agreed quality, time-frame, and doorstep delivery." },
+    { name: "Sohail Anjum", role: "Director Finance", initials: "SA", desc: "Holds the portfolio of accounts, financial management, customer receivables, accounts payable, annual financial planning, administration and tax matters of the company." },
+    { name: "Alveena Tasneem", role: "Art Director", initials: "AT", desc: "Courageous in taking on challenges to make customers' imaginary world real on paper. She does not wait for inspiration — she goes after it to make it possible for our customers." },
+    { name: "Hamza Shafiq", role: "Planning Manager", initials: "HS", desc: "Acts as Planning & Development Manager. With an engineering background and a creative mindset, he plans current and future printing and packaging needs, coordinating all operations for client benefit." },
+    { name: "Shaheer Shafiq", role: "Manager Administration", initials: "SS", desc: "Believes the value decade demands top-quality products at the world's lowest price. The best way to hold customers is to constantly find ways to give them more for less." },
+  ],
+};
+
 export const MANUFACTURING = {
   eyebrow: "PRODUCTION CAPABILITY",
   headline: "Industrial Scale. Artisan Precision.",
@@ -114,67 +145,68 @@ export const MANUFACTURING = {
 };
 
 export const SERVICES = [
-  { num: "01", title: "Luxury Rigid Boxes", desc: "Magnetic, telescopic & clamshell rigid boxes for perfumes, watches, jewellery and couture — jewellery-grade tolerances.", slug: "luxury-rigid-boxes" },
-  { num: "02", title: "Folding Cartons", desc: "Reverse-tuck, straight-tuck and gable cartons — food-safe and retail-ready.", slug: "folding-cartons" },
-  { num: "03", title: "Mailer Boxes", desc: "E-commerce mailers from kraft to fully coated, engineered for the unboxing moment.", slug: "mailer-boxes" },
-  { num: "04", title: "Luxury Paper Bags", desc: "300gsm board bags with twisted-rope, ribbon and euro handles — fully recyclable.", slug: "paper-bags" },
-  { num: "05", title: "Food & Personal-Care Packaging", desc: "Food-safe and personal-care packaging with metallized films, UV and matt finishes.", slug: "food-cosmetic-packaging" },
-  { num: "06", title: "Labels & Stickers", desc: "BOPP, kraft, foil and die-cut labels — roll or sheet, on demand.", slug: "labels-stickers" },
-  { num: "07", title: "Hang Tags & Danglers", desc: "Foiled, embossed and string-finished tags for apparel and textile brands.", slug: "hang-tags" },
-  { num: "08", title: "Catalogues & Lookbooks", desc: "Saddle-stitched and perfect-bound fashion lookbooks and magalogues.", slug: "catalogues-lookbooks" },
-  { num: "09", title: "Annual Reports", desc: "Editorial annual reports that tell your brand's story and reinforce trust.", slug: "annual-reports" },
-  { num: "10", title: "Home Textile Packaging", desc: "Insert cards and packaging for bedding, duvet and home textile ranges.", slug: "home-textile" },
-  { num: "11", title: "Corporate Creatives", desc: "Calendars, diaries and New Year packs crafted to last the whole year.", slug: "corporate-creatives" },
-  { num: "12", title: "Real Estate Collateral", desc: "Brochures, magazines and marketing print for property launches.", slug: "real-estate" },
-  { num: "13", title: "Commercial & Security Print", desc: "Offset, digital and specialty security printing at scale.", slug: "commercial-printing" },
+  { num: "01", title: "Luxury Rigid Boxes", icon: "Package", size: "large", desc: "Magnetic closure, telescope lid, clamshell. The apex of packaging engineering, manufactured to jewellery-grade tolerances.", detail: "Finishes: soft-touch, gold foil, emboss, spot UV.", slug: "luxury-rigid-boxes" },
+  { num: "02", title: "Offset Printing", icon: "Printer", size: "large", desc: "8-color Heidelberg precision. Up to 18,000 sheets per hour on German-engineered presses.", detail: "CMYK & Pantone matched. Up to 720×1020mm.", slug: "offset-printing" },
+  { num: "03", title: "Custom Packaging", icon: "Box", size: "large", desc: "Every dimension, every material, every finish. Fully bespoke from structural design to delivery.", detail: "In-house dieline engineering & prototyping.", slug: "custom-packaging" },
+  { num: "04", title: "Folding Cartons", icon: "Boxes", desc: "Reverse tuck, straight tuck, gable top, auto-bottom. High-speed production, premium results.", slug: "folding-cartons" },
+  { num: "05", title: "Mailer Boxes", icon: "PackageOpen", desc: "E-commerce and DTC packaging. Kraft to coated, plain to full bleed. Built for unboxing moments.", slug: "mailer-boxes" },
+  { num: "06", title: "Paper Bags", icon: "ShoppingBag", desc: "Twisted rope, flat ribbon, euro handle. Retail, gifting, and luxury carry bags.", slug: "paper-bags" },
+  { num: "07", title: "Labels & Stickers", icon: "Tag", desc: "BOPP, kraft, foil, clear. Die-cut, roll, and sheet format. Any shape, any size.", slug: "labels-stickers" },
+  { num: "08", title: "Hang Tags", icon: "Tags", desc: "Garment, retail, and product tags. Premium board, full-colour both sides, eyelet punched.", slug: "hang-tags" },
+  { num: "09", title: "Catalogs & Brochures", icon: "BookOpen", desc: "Saddle stitch, perfect bound, gatefold. Printed to make brands look world-class.", slug: "catalogs-brochures" },
+  { num: "10", title: "Corporate Branding", icon: "Briefcase", desc: "Letterheads, business cards, folders, envelopes. Complete corporate identity print.", slug: "corporate-branding" },
+  { num: "11", title: "Commercial Printing", icon: "Newspaper", desc: "High-volume runs for any commercial requirement. Fast turnaround, consistent quality.", slug: "commercial-printing" },
+  { num: "12", title: "Promotional Materials", icon: "Megaphone", desc: "Flyers, posters, banners, inserts. Campaign-ready print at production scale.", slug: "promotional-materials" },
+  { num: "13", title: "UV & Finishing", icon: "Sparkles", desc: "Spot UV, matte lamination, gloss, soft-touch, hot foil, emboss, deboss. The details that make packaging premium.", slug: "uv-finishing" },
 ];
 
 export const INDUSTRIES = [
-  { name: "Fashion & Apparel", desc: "Lookbooks, hang tags, garment boxes & luxury bags." },
-  { name: "Home Textile", desc: "Insert cards & packaging for bedding & home ranges." },
-  { name: "Food & Beverage", desc: "Food-safe cartons & boxes with vivid print." },
-  { name: "Personal Care", desc: "Premium packaging engineered for shelf glamour." },
-  { name: "Real Estate", desc: "Brochures, magazines & launch collateral." },
-  { name: "Corporate & Banking", desc: "Annual reports, profiles & gifting suites." },
-  { name: "Education", desc: "Prospectuses, literature & institutional print." },
-  { name: "Retail", desc: "Shelf-ready, planogram-optimised packaging." },
-  { name: "Startups & SMEs", desc: "Low-MOQ premium packaging that scales with you." },
+  { name: "Fashion & Apparel", icon: "Shirt", desc: "Garment tags, retail bags, luxury boxes." },
+  { name: "Home Textile", icon: "Layers", desc: "Branded packaging and care labels." },
+  { name: "Food & Beverage", icon: "Wheat", desc: "Printed cartons, labels and wraps." },
+  { name: "Personal Care", icon: "Droplet", desc: "Premium boxes and product labels." },
+  { name: "Real Estate", icon: "Building2", desc: "Brochures, folders and corporate print." },
+  { name: "Corporate & Banking", icon: "Briefcase", desc: "Letterheads, reports and stationery." },
+  { name: "Education", icon: "BookOpen", desc: "Catalogs, notebooks and print materials." },
+  { name: "Retail", icon: "ShoppingBag", desc: "Paper bags, swing tags and packaging." },
+  { name: "Startups & SMEs", icon: "Rocket", desc: "Brand kits, mailer boxes and labels." },
 ];
 
 export const PROCESS = [
-  { num: "01", title: "Brief & Concept", desc: "We listen, interrogate the brief, and define success." },
-  { num: "02", title: "Design & Dieline", desc: "Structural engineering and dieline development in-house." },
-  { num: "03", title: "Pre-Press / CTP", desc: "Computer-to-Plate on our Kodak Trendsetter system." },
-  { num: "04", title: "Press Run", desc: "Calibrated Heidelberg offset production at scale." },
-  { num: "05", title: "Post-Press", desc: "Folding, die-cut, foil, emboss, lamination & binding." },
-  { num: "06", title: "Quality Control", desc: "100% inspection to FOGRA & ISO 9001:2015 standards." },
-  { num: "07", title: "Delivery", desc: "Finished work delivered to your doorstep, on time." },
+  { num: "01", title: "Brief & Concept", desc: "We receive your project requirements — dimensions, quantity and finish preferences. Our team asks the right questions so nothing is assumed." },
+  { num: "02", title: "Structural Design", desc: "Our in-house engineers create the dieline and structural specification — optimised for your product, your shelf and your shipping." },
+  { num: "03", title: "Digital Proof", desc: "A full digital proof is produced for approval before any plate is made. Colours are Pantone-matched and verified against your brand guidelines." },
+  { num: "04", title: "Prototype", desc: "A physical sample is produced at full specification. You see, hold and approve the actual product before full production begins." },
+  { num: "05", title: "Press Run", desc: "Approved files go to press on our Heidelberg and KBA machines. Every sheet is monitored for colour, registration and ink density." },
+  { num: "06", title: "Finishing & QC", desc: "Die-cutting, lamination, foiling, UV and embossing applied in sequence. Every finished unit passes our QC checkpoint before packing." },
+  { num: "07", title: "Packing & Delivery", desc: "Units are counted, packed, palletized and dispatched — local delivery or freight-forwarded internationally with full documentation." },
 ];
 
 export const WHY_CHOOSE = [
-  { num: "01", title: "Passionate Specialists", desc: "60+ designers, engineers and press operators obsessed with craft." },
-  { num: "02", title: "Latest Machinery", desc: "Eight German Heidelberg presses plus in-house Kodak CTP." },
-  { num: "03", title: "24-Hour Service", desc: "Round-the-clock client servicing and merchandising team." },
-  { num: "04", title: "Doorstep Delivery", desc: "We deliver finished work to your door — on time, every time." },
-  { num: "05", title: "FOGRA & ISO Quality", desc: "FOGRA standards and ISO 9001:2015 quality management." },
-  { num: "06", title: "Competitive Pricing", desc: "World-class output without enterprise-grade overhead." },
-  { num: "07", title: "One-Stop Shop", desc: "Concept, design, pre-press, press and finishing under one roof." },
-  { num: "08", title: "In-house CTP", desc: "Kodak Trendsetter IV 800 Computer-to-Plate for precision and speed." },
+  { num: "01", title: "Heidelberg Precision", desc: "Our Heidelberg and KBA presses are the same machines used by Europe's finest printers. 8-color, 18,000 sheets per hour, calibrated to ISO standards." },
+  { num: "02", title: "Premium Materials", desc: "FSC-certified boards, imported specialty papers, archival inks and premium coatings sourced from trusted international suppliers." },
+  { num: "03", title: "In-House Design Team", desc: "Structural engineers and graphic designers on staff. From dieline creation to press-ready artwork — concept to production in 24 hours." },
+  { num: "04", title: "Fast Turnaround", desc: "Standard production in 7 to 10 working days. Rush 72-hour production available for qualified orders. We meet deadlines because clients depend on it." },
+  { num: "05", title: "International Quality", desc: "ISO-compliant quality management across every line. 100% inspection before despatch. A zero-compromise policy on every order." },
+  { num: "06", title: "Scalable Volume", desc: "Sample quantities to full production runs. No minimum order penalties. Scale with your brand as your business grows." },
+  { num: "07", title: "Competitive Pricing", desc: "Enterprise-grade manufacturing without enterprise-grade overhead. Transparent quotation with no hidden costs — the best value in the market." },
+  { num: "08", title: "Export Ready", desc: "Palletized, documented and freight-forwarding coordinated. We have shipped to over 30 countries with full export documentation provided." },
 ];
 
 export const MACHINERY = {
   eyebrow: "OUR INFRASTRUCTURE",
-  headline: "The Machines Behind the Craft",
-  sub: "Eight state-of-the-art Heidelberg presses in a custom-designed, temperature and humidity controlled facility — running six days a week.",
+  headline: ["The Machines Behind", "the Craft."],
+  sub: "A controlled, precision-calibrated production environment. Climate-regulated. ISO-audited. Running at international manufacturing standards six days a week.",
+  banner: "Total covered production area: 12,000 sq mtr — 8 Heidelberg presses — 60 production specialists",
   items: [
-    { name: "Heidelberg Speedmaster SM 74-L", spec: "6-Color · UV Coater", size: "large" },
-    { name: "Heidelberg CD 102-LX", spec: "5-Color + Coater", size: "small" },
-    { name: "Heidelberg SM 102", spec: "5-Color + Coater", size: "small" },
-    { name: "Kodak Trendsetter IV 800", spec: "Computer-to-Plate (CTP)", size: "large" },
-    { name: "Heidelberg Stahlfolder", spec: "High-speed folding-gluing", size: "small" },
-    { name: "Polar 92 EMC", spec: "Programmatic guillotine cutter", size: "small" },
-    { name: "Heidelberg Cylinder Die Cutter", spec: "22×32 precision die-cutting", size: "small" },
-    { name: "Hot Foil Stamping Machine", spec: "Metallic foil + emboss", size: "small" },
+    { name: "Heidelberg Speedmaster SX 102", category: "Offset Printing", spec: "8-color · 18,000 sph", size: "hero", specs: ["8-color sheet-fed", "18,000 sheets per hour", "Format up to 720×1020mm"], capability: "The benchmark press for premium commercial and packaging print worldwide." },
+    { name: "KBA Rapida 106", category: "Offset Printing", spec: "6-color large format · UV", size: "small", specs: ["6-color large format", "15,000 sheets per hour", "UV-capable"], capability: "Large-format runs for oversized packaging and high-volume commercial work." },
+    { name: "Bobst SP 102-E", category: "Die Cutting", spec: "±0.1mm tolerance", size: "small", specs: ["±0.1mm cutting tolerance", "7,500 sheets per hour", "Full-format"], capability: "Precision die-cutting for complex packaging structures and intricate shapes." },
+    { name: "Heidelberg Stahlfolder", category: "Folding & Gluing", spec: "300 m/min · inline gluing", size: "wide", specs: ["300 metres per minute", "Multi-format capability", "Inline gluing"], capability: "High-speed folding and gluing for folding cartons and mailer boxes." },
+    { name: "Hot Foil Stamping", category: "Finishing", spec: "Metallic & holographic foil", size: "small", specs: ["Metallic & holographic foil", "Combined emboss capability", "120×160mm max"], capability: "Gold, silver, copper and custom foil application with simultaneous emboss." },
+    { name: "Flat Bed Laminator", category: "Lamination", spec: "Matte / Gloss / Soft-touch", size: "small", specs: ["Matte, gloss & soft-touch films", "200 metres per minute", "Wide format"], capability: "Premium surface lamination for all packaging and print products." },
+    { name: "UV Coating System", category: "UV Coating", spec: "Spot UV · full flood", size: "small", specs: ["Spot UV & full flood", "3D effect coating", "High-gloss & matte UV"], capability: "Selective and full-surface UV coating for premium tactile finishes." },
+    { name: "Rigid Box Assembly Line", category: "Box Assembly", spec: "Semi-automated · hand-finish", size: "small", specs: ["Semi-automated assembly", "Hand-finish stations", "Magnetic, telescopic & clamshell"], capability: "Luxury rigid box production combining mechanical precision with artisan finishing." },
   ],
 };
 
@@ -196,37 +228,25 @@ export const VIDEO = {
   ],
 };
 
-export const TEAM = {
-  eyebrow: "THE PEOPLE BEHIND PRECISION",
-  headline: "Leadership Built on Decades of Craft.",
-  sub: "Every box we manufacture carries the conviction of a leadership team that has spent decades mastering the intersection of technology, materials and human craftsmanship.",
-  members: [
-    { role: "Chief Executive Officer", name: "Muhammad Shafiq Chaudhary", initials: "MS", quote: "A company endures by reinventing itself — always striving to satisfy its customer.", linkedin: "#" },
-    { role: "Managing & Marketing Director", name: "Naveed Ehsan", initials: "NE", quote: "Welcome to PrintKing — welcome to the world of great results.", linkedin: "#" },
-    { role: "Director Operations", name: "Waqas Shafiq", initials: "WS", quote: "Smooth, hassle-free operations — every job delivered on quality, on time.", linkedin: "#" },
-    { role: "Director Finance", name: "Sohail Anjum", initials: "SA", quote: "Disciplined financial stewardship is the quiet backbone of reliable delivery.", linkedin: "#" },
-    { role: "Art Director", name: "Alweena Tasneem", initials: "AT", quote: "We don't wait for inspiration — we chase it to bring your imagination to paper.", linkedin: "#" },
-    { role: "Planning & Development", name: "Hamza Shafiq", initials: "HS", quote: "An engineer's precision with a creative's mindset — every print planned to perfection.", linkedin: "#" },
-  ],
-};
-
 export const SUSTAINABILITY = {
   eyebrow: "RESPONSIBLE MANUFACTURING",
-  headline: "Premium does not have to cost the planet.",
+  headline: ["Built to Last.", "Built Responsibly."],
+  quote: "Premium does not have to cost the planet.",
+  quoteAttribution: "OUR MANUFACTURING COMMITMENT",
   items: [
-    { title: "100% Recyclable Materials", desc: "Our paper bags and boards are 100% recyclable unless a client specifies otherwise." },
-    { title: "Biodegradable Paperboard", desc: "Food packaging built on biodegradable paperboard — appealing, fresh and safe." },
-    { title: "Responsible Sourcing", desc: "Art paper, ivory board, kraft and specialty papers from trusted mills." },
-    { title: "Soy & Eco Inks", desc: "Low-VOC inks and aqueous coatings that protect product and planet." },
-    { title: "Waste Reduction", desc: "Production waste recycled or repurposed across our facility." },
-    { title: "Recyclable by Design", desc: "Mono-material structures engineered for kerbside recycling." },
+    { num: "01", title: "FSC-Certified Materials", desc: "All paper and board sourced from responsibly managed forests with verified chain of custody certification." },
+    { num: "02", title: "Soy-Based Inks", desc: "Zero petroleum-based pigments across all press lines. Pure, vibrant, non-toxic colour with significantly reduced VOC emissions." },
+    { num: "03", title: "Waste Reduction Program", desc: "30% of annual production waste is recycled or repurposed. Offcuts are baled and sold to certified recycling partners." },
+    { num: "04", title: "Recyclable by Design", desc: "Every packaging structure we engineer is designed for end-of-life recyclability. We brief clients on lower-impact material choices." },
+    { num: "05", title: "Water-Based Coatings", desc: "Where UV is not required, we specify water-based aqueous coatings — lower emission, fully recyclable with the substrate." },
+    { num: "06", title: "Responsible Consumption", desc: "Energy-efficient press configurations, LED curing systems, and scheduling optimised to minimise idle time and energy waste." },
   ],
 };
 
 export const TESTIMONIALS = [
-  { quote: "Their rigid boxes turned our seasonal launch into an event — our retail shelves have never looked more premium.", name: "Brand Head", title: "Fashion House", company: "Lahore" },
-  { quote: "Lookbooks and hang tags delivered with flawless colour consistency, season after season.", name: "Creative Lead", title: "Textile Brand", company: "Karachi" },
-  { quote: "Prototypes in 24 hours, doorstep delivery, zero defects. Exactly the partner our brand needed.", name: "Founder", title: "Premium Retail Brand", company: "Islamabad" },
+  { quote: "Their rigid boxes elevated our unboxing experience overnight. Our customers now photograph the packaging before the product — that is brand marketing we did not have to pay for.", name: "Brand Director", title: "Luxury Cosmetics Label", company: "Dubai" },
+  { quote: "We have worked with printers in China, Europe, and locally across Pakistan. These are the only ones who consistently deliver without compromise on quality, timeline, or communication.", name: "Supply Chain Director", title: "Fashion House", company: "Karachi" },
+  { quote: "Prototypes in 24 hours, production in seven days, zero defects across 50,000 units. That is the standard we needed and finally found.", name: "Founder", title: "Premium E-commerce Brand", company: "Lahore" },
 ];
 
 export const GLOBAL_REACH = {
@@ -247,13 +267,21 @@ export const GLOBAL_REACH = {
 
 export const CONTACT = {
   eyebrow: "START YOUR PROJECT",
-  headline: "Let's Build Something Exceptional Together",
-  sub: "Tell us about your printing or packaging need. We'll respond within 4 business hours with a detailed proposal.",
+  headline: ["Let's Build Something", "Exceptional Together."],
+  sub: "Tell us about your packaging or printing requirement. We will respond with a detailed proposal within 4 business hours.",
+  asideQuote: "Every great brand partnership begins with a conversation.",
+  responseNote: "Typical response time: within 4 business hours.",
+  prototypeNote: "Prototype turnaround: 24–48 hours from approved brief.",
   productTypes: [
     "Luxury Rigid Box", "Folding Carton", "Mailer Box", "Paper Bag",
-    "Labels & Stickers", "Hang Tags", "Catalogue / Lookbook", "Annual Report", "Other",
+    "Labels & Stickers", "Hang Tags", "Catalog or Brochure",
+    "Commercial Printing", "Corporate Branding", "Other",
   ],
 };
+
+/* Direct exports for ExecutiveTeam component */
+export const CEO = LEADERSHIP.ceo;
+export const TEAM = LEADERSHIP.heads;
 
 export const FOOTER = {
   services: SERVICES.slice(0, 8).map((s) => s.title),
@@ -262,7 +290,6 @@ export const FOOTER = {
   certifications: ["ISO 9001:2015", "FOGRA", "FSC"],
 };
 
-// Packaging-correct portfolio (real clients, real product types)
 const IMG = {
   rigid: "https://images.unsplash.com/photo-1610018556010-6a11691bc905?q=80&w=1200&auto=format&fit=crop",
   box: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=1200&auto=format&fit=crop",
