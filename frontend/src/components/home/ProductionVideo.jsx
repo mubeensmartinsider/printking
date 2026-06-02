@@ -45,7 +45,7 @@ export default function ProductionVideo() {
   const onPlay = () => {
     if (videoRef.current) {
       videoRef.current.play().catch((err) => {
-        console.error("Play error:", err);
+        console.error("Play errors:", err);
       });
       setPlaying(true);
     }
