@@ -43,7 +43,7 @@ export default function GlobalReach() {
                 d={arc(ORIGIN, { x: r.x, y: r.y / 2 })}
                 fill="none"
                 stroke="rgba(197, 160, 90,0.35)"
-                strokeWidth="0.25"
+                strokeWidth="0.26"
                 strokeDasharray="1 1"
               />
             ))}
