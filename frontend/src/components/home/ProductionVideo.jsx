@@ -19,6 +19,7 @@ export default function ProductionVideo() {
 
   // Autoplay when video comes into view
   useEffect(() => {
+    const container = containerRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && videoRef.current && !playing) {
@@ -31,13 +32,13 @@ export default function ProductionVideo() {
       { threshold: 0.5 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (container) {
+      observer.observe(container);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (container) {
+        observer.unobserve(container);
       }
     };
   }, [playing]);
