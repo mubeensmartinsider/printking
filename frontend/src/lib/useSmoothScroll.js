@@ -1,5 +1,6 @@
 /* ============================================================
-   PRINTKING — Lenis smooth scroll, synced with GSAP ScrollTrigger
+   PRINTKING — Optimized smooth scroll with Lenis
+   Performance-first configuration
    ============================================================ */
 import { useEffect } from "react";
 import Lenis from "lenis";
@@ -19,39 +20,53 @@ export function useSmoothScroll() {
     ).matches;
     if (prefersReduced) return;
 
+    // Detect if mobile for performance optimization
+    const isMobile = window.innerWidth < 768;
+
     const lenis = new Lenis({
-      duration: 1.4,
+      duration: isMobile ? 1.0 : 1.2, // Faster on mobile
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.6,
+      smoothWheel: !isMobile, // Disable smooth wheel on mobile for better performance
+      wheelMultiplier: 0.8, // Reduced for less aggressive scrolling
+      touchMultiplier: 1.4, // Reduced for smoother touch
+      infinite: false,
+      syncTouch: false, // Better mobile performance
+      syncTouchLerp: 0.1,
     });
     lenisInstance = lenis;
 
+    // Sync with ScrollTrigger only when needed
     lenis.on("scroll", ScrollTrigger.update);
 
-    const raf = (time) => lenis.raf(time * 1000);
+    // Use requestAnimationFrame for better performance
+    const raf = (time) => {
+      lenis.raf(time * 1000);
+    };
+    
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
-    // The 3D hero canvas, web fonts and lazy images settle AFTER the first
-    // paint, which shifts every section's position. Without recalculating,
-    // ScrollTrigger keeps stale start values and some entrance animations
-    // (e.g. the Services grid) never fire — leaving content stuck invisible.
-    const refresh = () => ScrollTrigger.refresh();
-    window.addEventListener("load", refresh);
+    // Optimized refresh strategy - only when necessary
+    const refresh = () => {
+      ScrollTrigger.refresh();
+    };
+
+    // Single delayed refresh after initial load
+    const loadHandler = () => {
+      setTimeout(refresh, 500);
+    };
+
+    window.addEventListener("load", loadHandler, { once: true, passive: true });
+    
+    // Font loading refresh
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(refresh);
+      document.fonts.ready.then(() => {
+        setTimeout(refresh, 300);
+      });
     }
-    const t1 = setTimeout(refresh, 700);
-    const t2 = setTimeout(refresh, 1800);
-    const t3 = setTimeout(refresh, 3200);
 
     return () => {
-      window.removeEventListener("load", refresh);
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
+      window.removeEventListener("load", loadHandler);
       gsap.ticker.remove(raf);
       lenis.destroy();
       lenisInstance = null;

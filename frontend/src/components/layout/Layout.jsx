@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
-import Cursor from "./Cursor";
 import { useSmoothScroll } from "../../lib/useSmoothScroll";
 import { getLenis } from "../../lib/useSmoothScroll";
 
@@ -19,7 +18,6 @@ export default function Layout({ children }) {
 
   return (
     <div className="relative min-h-screen bg-obsidian">
-      <Cursor />
       <Navbar />
       <main>{children}</main>
       <Footer />

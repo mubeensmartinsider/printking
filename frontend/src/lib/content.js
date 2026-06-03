@@ -33,25 +33,25 @@ export const NAV_LINKS = [
 
 export const HERO = {
   label: "PAKISTAN'S PREMIER PRINTING & PACKAGING HOUSE",
-  headline: ["Crafted for Brands", "That Refuse", "to Compromise."],
+  headline: "Premium Printing That Elevates Your Brand.",
   subheadline:
-    "From concept to delivery — we manufacture luxury packaging and world-class print that elevates your brand at every touchpoint.",
-  counters: [
-    { value: 15, suffix: "+", label: "Years of Craft" },
-    { value: 8, suffix: "", label: "Heidelberg Presses" },
-    { value: 60, suffix: "+", label: "Craft Specialists" },
-    { value: 12000, suffix: "", label: "m² Facility" },
+    "From offset printing to luxury rigid boxes — we deliver world-class printing solutions with Heidelberg precision and artisan craftsmanship.",
+  stats: [
+    { value: "15+", label: "Years Experience" },
+    { value: "8", label: "Heidelberg Presses" },
+    { value: "60+", label: "Print Specialists" },
+    { value: "12,000", label: "m² Print Facility" },
   ],
 };
 
 export const TRUSTED = {
-  headline: "The Brands That Choose Us",
-  sub: "From regional fashion houses to international luxury names — our print and packaging is on shelves nationwide and beyond.",
+  headline: "Trusted By Leading Brands",
+  sub: "From fashion houses to FMCG giants — our printing and packaging solutions power brands across Pakistan and beyond.",
   metrics: [
-    "15 Years of Excellence",
-    "8 Heidelberg Presses",
+    "15 Years of Printing Excellence",
+    "8 Heidelberg Offset Presses",
     "ISO 9001:2015 Certified",
-    "24-Hour Client Service",
+    "24-Hour Print Production",
   ],
   brands: [
     "Bareezé", "Firdous", "Baroque", "Warda", "IZNiK", "Zaha", "Imrozia",
@@ -67,25 +67,25 @@ export const MEDIA_PARTNERS = ["Heidelberg", "Kodak", "Apple", "Xerox", "Bobst",
 export const ABOUT = {
   eyebrow: "OUR STORY",
   headline:
-    "We don't print boxes. We manufacture the first impression your customer will ever have.",
+    "We don't just print. We create the first impression that defines your brand.",
   body: [
-    "PrintKing is a state-of-the-art, full-service offset printing house with 15 years of experience serving fashion houses, corporates, and institutions across Pakistan. From humble beginnings we have grown to a 12,000 m² facility running eight German-engineered Heidelberg presses.",
-    "We guide every client through a professional, hands-on approach — from cost-effective solutions to world-class luxury packaging — always with innovation built in. Packaging is not a cost; it is your brand's most powerful silent salesperson.",
+    "PrintKing is Pakistan's leading offset printing and packaging house with 15 years of experience delivering world-class print solutions. From high-volume commercial printing to luxury packaging, we combine German engineering with artisan craftsmanship.",
+    "Operating from a 12,000 m² state-of-the-art facility with eight Heidelberg presses, we serve fashion brands, corporates, FMCG companies, and institutions nationwide. Every project receives our signature attention to detail — from concept and design to press and finishing.",
   ],
   cta: "Discover Our Story",
   images: [
     { src: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1200&auto=format&fit=crop", caption: "Heidelberg Offset Press" },
-    { src: "https://images.unsplash.com/photo-1610018556010-6a11691bc905?q=80&w=1200&auto=format&fit=crop", caption: "Luxury Rigid Boxes" },
-    { src: "https://images.unsplash.com/photo-1556742059-47b93231f536?q=80&w=1200&auto=format&fit=crop", caption: "Foil & Emboss Detailing" },
-    { src: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=1200&auto=format&fit=crop", caption: "Climate-Controlled Facility" },
+    { src: "https://images.unsplash.com/photo-1610018556010-6a11691bc905?q=80&w=1200&auto=format&fit=crop", caption: "Luxury Packaging Production" },
+    { src: "https://images.unsplash.com/photo-1556742059-47b93231f536?q=80&w=1200&auto=format&fit=crop", caption: "Foil Stamping & Embossing" },
+    { src: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=1200&auto=format&fit=crop", caption: "Climate-Controlled Print Floor" },
   ],
-  vision: "Reliable Perfection — the finest solutions, on time, every time.",
-  mission: "To create products that wow every customer with delight.",
+  vision: "Printing Excellence — delivering world-class quality, on time, every time.",
+  mission: "To be Pakistan's most trusted printing partner through innovation, precision, and service.",
   coreValues: [
-    "We are trustworthy",
-    "We constantly upgrade",
-    "We consistently deliver",
-    "We succeed together",
+    "Quality without compromise",
+    "Continuous innovation",
+    "Deadline commitment",
+    "Client partnership",
   ],
 };
 
@@ -132,15 +132,15 @@ export const LEADERSHIP = {
 
 export const MANUFACTURING = {
   eyebrow: "PRODUCTION CAPABILITY",
-  headline: "Industrial Scale. Artisan Precision.",
-  sub: "Concept, design, pre-press, press and finishing — every stage under one roof, built for volume without sacrificing detail.",
+  headline: "Industrial Scale. Printing Precision.",
+  sub: "Complete in-house printing solutions — from pre-press and offset printing to finishing and packaging assembly under one roof.",
   cards: [
-    { icon: "Sparkles", title: "Concept & Design", desc: "Corporate identity, lookbooks, dielines & packaging design in-house." },
-    { icon: "Square", title: "Pre-Press / CTP", desc: "In-house Kodak Trendsetter Computer-to-Plate precision." },
-    { icon: "Printer", title: "Offset Press", desc: "Eight Heidelberg presses printing millions of sheets." },
-    { icon: "Scissors", title: "Post-Press", desc: "Folding, die-cutting, lamination, foiling & binding." },
-    { icon: "Package", title: "Rigid Box Assembly", desc: "Hand-finished luxury rigid boxes & paper bags." },
-    { icon: "Factory", title: "Quality Control", desc: "100% inspection · FOGRA & ISO 9001:2015 standards." },
+    { icon: "Sparkles", title: "Design & Pre-Press", desc: "In-house design studio and Kodak CTP for plate-ready artwork." },
+    { icon: "Square", title: "Computer-to-Plate", desc: "Kodak Trendsetter CTP system for precision plate imaging." },
+    { icon: "Printer", title: "Offset Printing", desc: "Eight Heidelberg presses delivering millions of impressions monthly." },
+    { icon: "Scissors", title: "Finishing", desc: "Die-cutting, lamination, UV coating, foil stamping & embossing." },
+    { icon: "Package", title: "Packaging Assembly", desc: "Rigid box making, paper bag production & finishing." },
+    { icon: "Factory", title: "Quality Control", desc: "ISO 9001:2015 certified with 100% inspection protocols." },
   ],
 };
 
@@ -183,14 +183,14 @@ export const PROCESS = [
 ];
 
 export const WHY_CHOOSE = [
-  { num: "01", title: "Heidelberg Precision", desc: "Our Heidelberg and KBA presses are the same machines used by Europe's finest printers. 8-color, 18,000 sheets per hour, calibrated to ISO standards." },
-  { num: "02", title: "Premium Materials", desc: "FSC-certified boards, imported specialty papers, archival inks and premium coatings sourced from trusted international suppliers." },
-  { num: "03", title: "In-House Design Team", desc: "Structural engineers and graphic designers on staff. From dieline creation to press-ready artwork — concept to production in 24 hours." },
-  { num: "04", title: "Fast Turnaround", desc: "Standard production in 7 to 10 working days. Rush 72-hour production available for qualified orders. We meet deadlines because clients depend on it." },
-  { num: "05", title: "International Quality", desc: "ISO-compliant quality management across every line. 100% inspection before despatch. A zero-compromise policy on every order." },
-  { num: "06", title: "Scalable Volume", desc: "Sample quantities to full production runs. No minimum order penalties. Scale with your brand as your business grows." },
-  { num: "07", title: "Competitive Pricing", desc: "Enterprise-grade manufacturing without enterprise-grade overhead. Transparent quotation with no hidden costs — the best value in the market." },
-  { num: "08", title: "Export Ready", desc: "Palletized, documented and freight-forwarding coordinated. We have shipped to over 30 countries with full export documentation provided." },
+  { num: "01", title: "Heidelberg Precision", desc: "German-engineered Heidelberg and KBA offset presses deliver 18,000 sheets per hour with ISO-calibrated color accuracy and registration precision." },
+  { num: "02", title: "Premium Materials", desc: "FSC-certified paper stocks, imported specialty substrates, archival-grade inks and premium coatings from international suppliers." },
+  { num: "03", title: "In-House Expertise", desc: "Complete pre-press department with CTP technology, structural engineers for packaging design, and experienced press operators." },
+  { num: "04", title: "Fast Production", desc: "Standard turnaround 7-10 working days. Express 48-72 hour production available for urgent print runs." },
+  { num: "05", title: "ISO Quality Standards", desc: "ISO 9001:2015 certified quality management. Every job inspected before shipment. Zero-compromise quality policy." },
+  { num: "06", title: "Scalable Capacity", desc: "From sample quantities to full production runs. No minimum order restrictions. Scale your printing as your business grows." },
+  { num: "07", title: "Competitive Pricing", desc: "Enterprise-grade printing equipment with streamlined operations means competitive pricing without quality compromise." },
+  { num: "08", title: "Export Capability", desc: "Full export documentation and freight coordination. Successfully shipped to 30+ countries with complete paperwork support." },
 ];
 
 export const MACHINERY = {
@@ -212,18 +212,18 @@ export const MACHINERY = {
 
 export const VIDEO = {
   eyebrow: "INSIDE OUR PRODUCTION",
-  headline: "The Machine Behind Every Perfect Box.",
-  sub: "Step inside a facility where German engineering meets Pakistani craftsmanship — where 18,000 sheets per hour become someone's most memorable unboxing moment.",
+  headline: "Where Precision Printing Comes to Life.",
+  sub: "Step inside our 12,000 m² facility where Heidelberg engineering meets Pakistani craftsmanship — producing world-class print at industrial scale.",
   stats: [
     { label: "18,000 sheets/hr", pos: "top-left" },
     { label: "ISO 9001:2015", pos: "top-right" },
-    { label: "8-Color Precision", pos: "bottom-left" },
+    { label: "8-Color Heidelberg", pos: "bottom-left" },
     { label: "Zero-Defect QC", pos: "bottom-right" },
   ],
   capabilities: [
-    { title: "Modern Machinery", desc: "Heidelberg & KBA offset presses running at peak efficiency." },
-    { title: "Quality Control", desc: "100% inspection before every despatch. Zero compromise." },
-    { title: "Manufacturing Scale", desc: "Millions of sheets across all product lines monthly." },
+    { title: "Heidelberg Presses", desc: "German-engineered offset printing at peak efficiency." },
+    { title: "Quality Assurance", desc: "100% inspection before every shipment. Zero compromise." },
+    { title: "Production Scale", desc: "Millions of impressions monthly across all print lines." },
     { title: "Precision Standards", desc: "±0.1mm tolerance across all finishing processes." },
   ],
 };
@@ -244,14 +244,14 @@ export const SUSTAINABILITY = {
 };
 
 export const TESTIMONIALS = [
-  { quote: "Their rigid boxes elevated our unboxing experience overnight. Our customers now photograph the packaging before the product — that is brand marketing we did not have to pay for.", name: "Brand Director", title: "Luxury Cosmetics Label", company: "Dubai" },
-  { quote: "We have worked with printers in China, Europe, and locally across Pakistan. These are the only ones who consistently deliver without compromise on quality, timeline, or communication.", name: "Supply Chain Director", title: "Fashion House", company: "Karachi" },
-  { quote: "Prototypes in 24 hours, production in seven days, zero defects across 50,000 units. That is the standard we needed and finally found.", name: "Founder", title: "Premium E-commerce Brand", company: "Lahore" },
+  { quote: "PrintKing delivered our catalog printing with impeccable quality and on schedule. Their Heidelberg presses produce color accuracy that matches international standards.", name: "Marketing Director", title: "Fashion Retail Chain", company: "Lahore" },
+  { quote: "We switched to PrintKing for all our packaging and commercial printing. Consistent quality, reliable delivery, and responsive service — exactly what a growing business needs.", name: "Operations Manager", title: "FMCG Company", company: "Karachi" },
+  { quote: "From business cards to luxury packaging, PrintKing handles all our print requirements. Their attention to detail and production speed keeps our brand looking professional.", name: "Brand Manager", title: "Corporate Services", company: "Islamabad" },
 ];
 
 export const GLOBAL_REACH = {
-  headline: "Made in Lahore. Trusted Nationwide & Beyond.",
-  sub: "Our print and packaging reaches brands across Pakistan and select international markets — built to international standards.",
+  headline: "Printed in Lahore. Delivered Nationwide & Beyond.",
+  sub: "Our printing and packaging solutions serve businesses across Pakistan and international markets — built to world-class standards.",
   regions: [
     { name: "Pakistan", clients: 240, x: 67, y: 49 },
     { name: "Middle East", clients: 38, x: 60, y: 47 },
@@ -267,15 +267,15 @@ export const GLOBAL_REACH = {
 
 export const CONTACT = {
   eyebrow: "START YOUR PROJECT",
-  headline: ["Let's Build Something", "Exceptional Together."],
-  sub: "Tell us about your packaging or printing requirement. We will respond with a detailed proposal within 4 business hours.",
-  asideQuote: "Every great brand partnership begins with a conversation.",
+  headline: ["Let's Bring Your", "Print Project to Life."],
+  sub: "Tell us about your printing or packaging requirements. We'll respond with a detailed quotation and production timeline within 4 business hours.",
+  asideQuote: "Every successful print project begins with clear communication.",
   responseNote: "Typical response time: within 4 business hours.",
-  prototypeNote: "Prototype turnaround: 24–48 hours from approved brief.",
+  prototypeNote: "Sample production: 24–48 hours from approved specifications.",
   productTypes: [
-    "Luxury Rigid Box", "Folding Carton", "Mailer Box", "Paper Bag",
+    "Offset Printing", "Luxury Rigid Box", "Folding Carton", "Mailer Box", "Paper Bag",
     "Labels & Stickers", "Hang Tags", "Catalog or Brochure",
-    "Commercial Printing", "Corporate Branding", "Other",
+    "Commercial Printing", "Corporate Stationery", "Other",
   ],
 };
 
