@@ -32,7 +32,7 @@ const SCENES = [
   }
 ];
 
-const AUTO_ROTATE_INTERVAL = 8000; // 8 seconds per scene
+const AUTO_ROTATE_INTERVAL = 18000; // 12 seconds per scene
 
 export default function Hero() {
   const progressRef = useRef(0);
@@ -223,7 +223,7 @@ export default function Hero() {
       {/* Content Container - Responsive padding and layout */}
       <div
         ref={contentRef}
-        className="relative z-10 mx-auto w-full max-w-[1480px] px-4 py-20 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-28 pb-24 md:pt-32 md:pb-28 lg:pt-40 lg:pb-32"
+        className="relative z-10 mx-auto w-full max-w-[1480px] px-4 py-20 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-28 pb-48 sm:pb-40 md:pb-32 lg:pb-32"
       >
         <div className="max-w-4xl">
           {/* Label - With premium spacing */}
@@ -246,30 +246,10 @@ export default function Hero() {
             {HERO.subheadline}
           </p>
 
-          {/* CTAs - Touch-optimized mobile buttons */}
-          <div className="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:gap-4">
-            <button
-              data-testid="hero-quote-btn"
-              onClick={() => navigate("/request-quote")}
-              className="hero-cta group relative overflow-hidden rounded-full bg-gradient-to-r from-gold via-[#e4bc5f] to-gold bg-[length:200%_100%] px-8 py-4 font-medium text-[#0d0b09] shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 hover:bg-[position:100%_0] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] active:scale-95 sm:px-10 sm:py-5"
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2.5 text-sm sm:text-base">
-                Request a Quote 
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            </button>
-            <button
-              data-testid="hero-portfolio-btn"
-              onClick={() => navigate("/portfolio")}
-              className="hero-cta group rounded-full border border-gold/30 bg-gold/5 px-8 py-4 font-medium text-platinum backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:bg-gold/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)] active:scale-95 sm:px-10 sm:py-5"
-            >
-              <span className="text-sm sm:text-base">Explore Portfolio</span>
-            </button>
-          </div>
+          {/* CTAs moved to bottom - see bottom of section */}
 
           {/* Stats Bar - Premium card-style presentation */}
-          <div className="mt-16 rounded-2xl border border-gold/10 bg-gradient-to-br from-gold/5 to-transparent p-6 backdrop-blur-sm sm:mt-20 sm:p-8 md:mt-24">
+          <div className="mt-16 rounded-2xl border border-gold/10 bg-gradient-to-br from-gold/5 to-transparent p-6 backdrop-blur-sm sm:mt-20 sm:p-8 md:mt-24 mb-32 sm:mb-28 md:mb-0">
             <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4 lg:gap-10">
               {HERO.stats.map((stat, idx) => (
                 <div key={idx} className="hero-stat group">
@@ -290,61 +270,69 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 animate-bounce md:block">
+      <div className="absolute bottom-24 left-1/2 z-10 hidden -translate-x-1/2 animate-bounce md:block">
         <div className="flex flex-col items-center gap-2 opacity-40 transition-opacity duration-300 hover:opacity-100">
           <ChevronDown size={20} className="text-gold" strokeWidth={1.5} />
           <div className="h-12 w-px bg-gradient-to-b from-gold/50 to-transparent" />
         </div>
       </div>
 
-      {/* Scene Switcher - Apple-style carousel controls */}
-      <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 md:bottom-12">
-        <div className="glass flex items-center gap-2 rounded-full border border-gold/20 bg-black/40 p-2 backdrop-blur-xl">
-          {SCENES.map((scene, index) => {
-            const Icon = scene.icon;
-            const isActive = index === activeScene;
-            
-            return (
-              <button
-                key={scene.id}
-                onClick={() => handleSceneChange(index)}
-                disabled={isTransitioning}
-                className={`group relative flex items-center gap-2 rounded-full px-4 py-2.5 transition-all duration-500 ${
-                  isActive 
-                    ? 'bg-gold/20 text-gold' 
-                    : 'text-platinum/50 hover:bg-white/5 hover:text-platinum/80'
+      {/* CTAs - Bottom center position */}
+      <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <button
+          data-testid="hero-quote-btn"
+          onClick={() => navigate("/request-quote")}
+          className="hero-cta group relative overflow-hidden rounded-full bg-gradient-to-r from-gold via-[#e4bc5f] to-gold bg-[length:200%_100%] px-6 py-3 font-medium text-[#0d0b09] shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 hover:bg-[position:100%_0] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] active:scale-95 text-sm"
+        >
+          <span className="relative z-10 flex items-center justify-center gap-2">
+            Request a Quote 
+            <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </span>
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+        </button>
+        <button
+          data-testid="hero-portfolio-btn"
+          onClick={() => navigate("/portfolio")}
+          className="hero-cta group rounded-full border border-gold/30 bg-gold/5 px-6 py-3 font-medium text-platinum backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:bg-gold/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)] active:scale-95 text-sm"
+        >
+          <span>Explore Portfolio</span>
+        </button>
+        <button
+          data-testid="hero-services-btn"
+          onClick={() => navigate("/services")}
+          className="hero-cta group rounded-full border-2 border-gold/40 px-6 py-3 font-medium text-gold backdrop-blur-sm transition-all duration-300 hover:border-gold/60 hover:bg-gold/5 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] active:scale-95 text-sm"
+        >
+          <span>Our Services</span>
+        </button>
+      </div>
+
+      {/* Scene Indicator - Small corner badges */}
+      <div className="absolute bottom-8 right-8 z-20 flex flex-col gap-2">
+        {SCENES.map((scene, index) => {
+          const Icon = scene.icon;
+          const isActive = index === activeScene;
+          
+          return (
+            <button
+              key={scene.id}
+              onClick={() => handleSceneChange(index)}
+              disabled={isTransitioning}
+              className={`group relative h-8 w-8 rounded-full border transition-all duration-500 flex items-center justify-center ${
+                isActive 
+                  ? 'border-gold/60 bg-gold/20' 
+                  : 'border-gold/20 bg-black/40 hover:border-gold/40 hover:bg-gold/10'
+              }`}
+              title={scene.description}
+            >
+              <Icon 
+                size={14} 
+                className={`transition-all duration-500 ${
+                  isActive ? 'text-gold' : 'text-platinum/50 group-hover:text-gold'
                 }`}
-                title={scene.description}
-              >
-                <Icon 
-                  size={18} 
-                  className={`transition-all duration-500 ${
-                    isActive ? 'scale-110' : 'scale-100 group-hover:scale-105'
-                  }`}
-                />
-                <span className={`text-xs font-medium transition-all duration-500 ${
-                  isActive 
-                    ? 'max-w-32 opacity-100' 
-                    : 'max-w-0 opacity-0 overflow-hidden'
-                }`}>
-                  {scene.name}
-                </span>
-                
-                {/* Active indicator dot */}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-gold animate-pulse" />
-                )}
-              </button>
-            );
-          })}
-        </div>
-        
-        {/* Scene description - appears below controls */}
-        <div className="mt-3 text-center">
-          <p className="text-xs text-platinum/40 transition-opacity duration-500">
-            {SCENES[activeScene].description}
-          </p>
-        </div>
+              />
+            </button>
+          );
+        })}
       </div>
     </section>
   );

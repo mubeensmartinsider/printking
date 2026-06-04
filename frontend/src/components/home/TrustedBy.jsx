@@ -4,7 +4,7 @@ import SectionHeading from "../common/SectionHeading";
 
 const Tile = ({ name }) => (
   <div className="mx-3 flex h-[60px] w-[160px] flex-none items-center justify-center border border-white/[0.07] bg-white/[0.03]">
-    <span className="display text-lg tracking-wide text-platinum/75">{name}</span>
+    <span style={{ textAlign: "center" }} className="display text-lg tracking-wide text-platinum/75">{name}</span>
   </div>
 );
 
