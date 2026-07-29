@@ -60,7 +60,7 @@ export default function Hero() {
       {/* Content Container */}
       <div
         ref={contentRef}
-        className="relative z-10 mx-auto w-full max-w-[1480px] px-4 py-20 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-28 pb-24 md:pt-32 md:pb-28 lg:pt-40 lg:pb-32"
+        className="relative z-10 mx-auto w-full max-w-[1480px] px-4 py-20 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-28 pb-48 sm:pb-40 md:pb-32 lg:pb-32"
       >
         <div className="max-w-4xl">
           {/* Label */}
@@ -127,7 +127,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 animate-bounce md:block">
+      <div className="absolute bottom-24 left-1/2 z-10 hidden -translate-x-1/2 animate-bounce md:block">
         <div className="flex flex-col items-center gap-2 opacity-40 transition-opacity duration-300 hover:opacity-100">
           <ChevronDown size={20} className="text-gold" strokeWidth={1.5} />
           <div className="h-12 w-px bg-gradient-to-b from-gold/50 to-transparent" />
