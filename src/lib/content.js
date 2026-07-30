@@ -126,7 +126,7 @@ export const LEADERSHIP = {
     { name: "Sohail Anjum", role: "Director Finance", initials: "SA", desc: "Holds the portfolio of accounts, financial management, customer receivables, accounts payable, annual financial planning, administration and tax matters of the company." },
     { name: "Alveena Tasneem", role: "Art Director", initials: "AT", desc: "Courageous in taking on challenges to make customers' imaginary world real on paper. She does not wait for inspiration — she goes after it to make it possible for our customers." },
     { name: "Hamza Shafiq", role: "Planning Manager", initials: "HS", desc: "Acts as Planning & Development Manager. With an engineering background and a creative mindset, he plans current and future printing and packaging needs, coordinating all operations for client benefit." },
-    { name: "Shaheer Shafiq", role: "Manager Administration", initials: "SS", desc: "Believes the value decade demands top-quality products at the world's lowest price. The best way to hold customers is to constantly find ways to give them more for less." },
+    { name: "Shahmeer Shafiq", role: "Manager Administration", initials: "SS", desc: "Believes the value decade demands top-quality products at the world's lowest price. The best way to hold customers is to constantly find ways to give them more for less." },
   ],
 };
 

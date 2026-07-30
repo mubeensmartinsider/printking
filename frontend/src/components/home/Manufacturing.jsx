@@ -29,10 +29,30 @@ export default function Manufacturing() {
                 data-card
                 className="group relative bg-carbon p-10 transition-colors duration-500 hover:bg-graphite"
               >
+                {/* Background pattern */}
+                <div className="absolute inset-0 bg-pattern-manufacturing pointer-events-none" />
+                
+                {/* Card glow overlay */}
+                <div className="card-glow-overlay" />
+
+                {/* Ghost icon in background */}
+                <div className="manufacturing-card-ghost-icon">
+                  <Icon className="w-full h-full text-gold" />
+                </div>
+
+                {/* Corner accents */}
+                <div className="corner-accent corner-accent-tl" />
+                <div className="corner-accent corner-accent-br" />
+
+                {/* Border shimmer */}
+                <div className="card-border-shimmer" />
+
                 <span className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
-                <Icon size={28} strokeWidth={1.3} className="text-gold" />
-                <h3 className="mt-8 text-xl font-medium text-platinum">{card.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-platinum/55">{card.desc}</p>
+                <div className="relative z-10">
+                  <Icon size={28} strokeWidth={1.3} className="text-gold" />
+                  <h3 className="mt-8 text-xl font-medium text-platinum">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-platinum/55">{card.desc}</p>
+                </div>
               </div>
             );
           })}

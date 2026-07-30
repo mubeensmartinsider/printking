@@ -19,15 +19,15 @@ export default function ExecutiveTeam() {
         <div className="mb-28 pb-20 border-b border-gold/20">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
             {/* Photo */}
-            <div className="relative">
+            <div className="relative max-w-md">
               <div className="relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10 flex items-center justify-center">
-                <span className="display text-6xl text-gold/20">CEO</span>
-                <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-gold/40"></div>
-                <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-gold/40"></div>
+                <span className="display text-5xl text-gold/20">CEO</span>
+                <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-gold/40"></div>
+                <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-gold/40"></div>
               </div>
-              <p className="mt-6 text-center text-sm text-platinum/50">Photo placeholder</p>
-              <p className="text-center font-serif text-lg text-platinum mt-6">{CEO.name}</p>
-              <p className="text-center label text-gold text-xs mt-1">{CEO.title}</p>
+              <p className="mt-4 text-center text-xs text-platinum/50">Photo placeholder</p>
+              <p className="text-center font-serif text-base text-platinum mt-4">{CEO.name}</p>
+              <p className="text-center label text-gold text-[10px] mt-1">{CEO.title}</p>
             </div>
 
             {/* Message */}
@@ -75,15 +75,15 @@ export default function ExecutiveTeam() {
             </div>
 
             {/* Photo */}
-            <div className="relative">
+            <div className="relative max-w-md">
               <div className="relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10 flex items-center justify-center">
-                <span className="display text-6xl text-gold/20">MD</span>
-                <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-gold/40"></div>
-                <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-gold/40"></div>
+                <span className="display text-5xl text-gold/20">MD</span>
+                <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-gold/40"></div>
+                <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-gold/40"></div>
               </div>
-              <p className="mt-6 text-center text-sm text-platinum/50">Photo placeholder</p>
-              <p className="text-center font-serif text-lg text-platinum mt-6">{LEADERSHIP.md.name}</p>
-              <p className="text-center label text-gold text-xs mt-1">{LEADERSHIP.md.title}</p>
+              <p className="mt-4 text-center text-xs text-platinum/50">Photo placeholder</p>
+              <p className="text-center font-serif text-base text-platinum mt-4">{LEADERSHIP.md.name}</p>
+              <p className="text-center label text-gold text-[10px] mt-1">{LEADERSHIP.md.title}</p>
             </div>
           </div>
         </div>
@@ -96,17 +96,23 @@ export default function ExecutiveTeam() {
               TEAM.map((member) => (
                 <article 
                   key={member.name} 
-                  className="group flex flex-col h-full overflow-hidden rounded-lg border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark shadow-lg transition-all duration-400 hover:shadow-[0_0_32px_rgba(197,160,90,0.2)] hover:-translate-y-1.5"
+                  className="group relative flex flex-col h-full overflow-hidden rounded-lg border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark shadow-lg transition-all duration-400 hover:shadow-[0_0_32px_rgba(197,160,90,0.2)] hover:-translate-y-1.5"
                 >
+                  {/* Background pattern */}
+                  <div className="absolute inset-0 bg-pattern-team pointer-events-none" />
+                  
+                  {/* Card glow overlay */}
+                  <div className="card-glow-overlay" />
+
                   {/* Photo area */}
-                  <div className="w-full aspect-[4/3] overflow-hidden bg-graphite/50 flex items-center justify-center border-b border-gold/10 flex-shrink-0 relative">
+                  <div className="relative z-10 w-full aspect-[4/3] overflow-hidden bg-graphite/50 flex items-center justify-center border-b border-gold/10 flex-shrink-0">
                     <span className="display text-4xl text-gold/15">{member.initials}</span>
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-obsidian to-transparent p-3">
                       <span className="label text-gold text-[9px]">{member.role}</span>
                     </div>
                   </div>
                   {/* Content area */}
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className="relative z-10 p-6 flex flex-col flex-grow">
                     <h3 className="text-base font-semibold text-platinum">{member.name}</h3>
                     <p className="label text-gold mt-1 mb-4">{member.role}</p>
                     <div className="h-px bg-gradient-to-r from-gold to-transparent w-6 mb-4 flex-shrink-0"></div>

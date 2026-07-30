@@ -29,7 +29,10 @@ export default function Testimonials() {
   const t = TESTIMONIALS[index];
 
   return (
-    <section data-testid="testimonials-section" className="border-y border-white/[0.06] bg-graphite py-28">
+    <section data-testid="testimonials-section" className="relative border-y border-white/[0.06] bg-graphite py-28 overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-pattern-testimonials pointer-events-none" />
+      
       <div className="section-pad mx-auto max-w-4xl text-center">
         <span ref={headRef} className="label text-gold">CLIENT VOICES</span>
         <h2 className="display mt-5 text-3xl text-platinum sm:text-4xl">What Our Clients Say.</h2>

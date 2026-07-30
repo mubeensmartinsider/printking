@@ -1,0 +1,202 @@
+/* ============================================================
+   PRINTKING — Background Patterns & Decorative Elements
+   Subtle, luxury-oriented backgrounds for card components
+   ============================================================ */
+
+/* --- Faint decorative icon backgrounds for cards --- */
+
+/* Manufacturing - printer/scissors geometric pattern */
+.bg-pattern-manufacturing {
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(197, 160, 90, 0.02) 0%, transparent 50%),
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.01) 20px, rgba(255, 255, 255, 0.01) 21px);
+}
+
+/* Services - diagonal gold whisper lines */
+.bg-pattern-services {
+  background-image: 
+    radial-gradient(circle at 15% 85%, rgba(197, 160, 90, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(197, 160, 90, 0.03) 0%, transparent 40%),
+    linear-gradient(135deg, transparent 0%, transparent 48%, rgba(197, 160, 90, 0.015) 48%, rgba(197, 160, 90, 0.015) 52%, transparent 52%, transparent 100%);
+  background-size: 100% 100%, 100% 100%, 60px 60px;
+}
+
+/* Industries - subtle dot grid */
+.bg-pattern-industries {
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(197, 160, 90, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(197, 160, 90, 0.02) 0%, transparent 40%),
+    radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 24px 24px;
+}
+
+/* Why Choose Us - crosshatch luxury texture */
+.bg-pattern-why {
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(197, 160, 90, 0.03) 0%, transparent 45%),
+    radial-gradient(circle at 20% 60%, rgba(197, 160, 90, 0.02) 0%, transparent 40%),
+    repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255, 255, 255, 0.008) 32px, rgba(255, 255, 255, 0.008) 33px),
+    repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255, 255, 255, 0.008) 32px, rgba(255, 255, 255, 0.008) 33px);
+}
+
+/* Sustainability - leaf-like organic pattern */
+.bg-pattern-sustainability {
+  background-image: 
+    radial-gradient(circle at 30% 40%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(197, 160, 90, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(197, 160, 90, 0.015) 0%, transparent 30%);
+}
+
+/* Process - horizontal line pattern */
+.bg-pattern-process {
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255, 255, 255, 0.006) 40px, rgba(255, 255, 255, 0.006) 41px);
+}
+
+/* Team cards - subtle diamond pattern */
+.bg-pattern-team {
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 20% 70%, rgba(197, 160, 90, 0.02) 0%, transparent 40%),
+    repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(255, 255, 255, 0.006) 28px, rgba(255, 255, 255, 0.006) 29px),
+    repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(255, 255, 255, 0.006) 28px, rgba(255, 255, 255, 0.006) 29px);
+}
+
+/* Testimonials - subtle radial burst */
+.bg-pattern-testimonials {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(197, 160, 90, 0.02) 0%, transparent 60%),
+    radial-gradient(circle at 30% 20%, rgba(197, 160, 90, 0.015) 0%, transparent 30%),
+    radial-gradient(circle at 70% 80%, rgba(197, 160, 90, 0.015) 0%, transparent 30%);
+}
+
+/* Global Reach - world map dot pattern */
+.bg-pattern-global {
+  background-image: 
+    radial-gradient(circle at 30% 40%, rgba(197, 160, 90, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 70% 30%, rgba(197, 160, 90, 0.02) 0%, transparent 35%),
+    radial-gradient(circle at 50% 70%, rgba(197, 160, 90, 0.015) 0%, transparent 30%);
+}
+
+/* --- Ghost icon overlays (SVG-based) --- */
+
+/* Ghost icon for service cards - large faint icon in background */
+.service-card-ghost-icon {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: 120px;
+  height: 120px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.group:hover .service-card-ghost-icon {
+  opacity: 0.08;
+  transform: scale(1.05) rotate(-3deg);
+}
+
+/* Ghost icon for industry cards */
+.industry-card-ghost-icon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.group:hover .industry-card-ghost-icon {
+  opacity: 0.07;
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Manufacturing card ghost icon */
+.manufacturing-card-ghost-icon {
+  position: absolute;
+  left: -8px;
+  bottom: -8px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+.group:hover .manufacturing-card-ghost-icon {
+  opacity: 0.07;
+}
+
+/* --- Decorative corner accents --- */
+.corner-accent {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.corner-accent-tl {
+  top: 8px;
+  left: 8px;
+  border-top: 1px solid rgba(197, 160, 90, 0.3);
+  border-left: 1px solid rgba(197, 160, 90, 0.3);
+}
+
+.corner-accent-br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 1px solid rgba(197, 160, 90, 0.3);
+  border-right: 1px solid rgba(197, 160, 90, 0.3);
+}
+
+/* --- Card inner glow overlay --- */
+.card-glow-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(197, 160, 90, 0.03) 0%, transparent 60%);
+  transition: opacity 0.4s ease;
+}
+
+.group:hover .card-glow-overlay {
+  opacity: 0.6;
+  background: radial-gradient(ellipse at 50% 0%, rgba(197, 160, 90, 0.06) 0%, transparent 60%);
+}
+
+/* --- Subtle border shimmer on hover --- */
+@keyframes border-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card-border-shimmer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 40%, rgba(197, 160, 90, 0.1) 50%, transparent 60%);
+  background-size: 200% 200%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.group:hover .card-border-shimmer {
+  opacity: 1;
+  animation: border-shimmer 2s ease infinite;
+}

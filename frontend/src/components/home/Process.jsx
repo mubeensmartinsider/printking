@@ -41,6 +41,8 @@ export default function Process() {
   return (
     <section ref={sectionRef} data-testid="process-section" className="relative bg-carbon py-28">
       <div className="lux-grid absolute inset-0 opacity-[0.35]" />
+      {/* Background pattern overlay */}
+      <div className="absolute inset-0 bg-pattern-process pointer-events-none opacity-60" />
       <div className="section-pad relative mx-auto max-w-[1400px]">
         <div ref={headRef} className="mb-24 max-w-2xl">
           <span className="label text-gold">HOW WE WORK</span>

@@ -28,13 +28,21 @@ export default function Sustainability() {
         {/* Zone B — editorial blocks */}
         <div ref={gridRef} className="grid gap-x-12 gap-y-14 md:grid-cols-3">
           {SUSTAINABILITY.items.map((item) => (
-            <div key={item.title} data-sus className="group">
-              <span className="display block text-5xl font-light leading-none text-white/[0.05] transition-colors duration-300 group-hover:text-white/[0.12]">
-                {item.num}
-              </span>
-              <span className="mt-5 block h-px w-8 bg-gold transition-all duration-300 group-hover:w-12" />
-              <h3 className="mt-5 text-lg font-medium text-platinum">{item.title}</h3>
-              <p className="mt-3 text-sm leading-[1.7] text-platinum/55">{item.desc}</p>
+            <div key={item.title} data-sus className="group relative">
+              {/* Background pattern */}
+              <div className="absolute inset-0 bg-pattern-sustainability pointer-events-none rounded-lg" />
+              
+              {/* Card glow overlay */}
+              <div className="card-glow-overlay rounded-lg" />
+
+              <div className="relative z-10">
+                <span className="display block text-5xl font-light leading-none text-white/[0.05] transition-colors duration-300 group-hover:text-white/[0.12]">
+                  {item.num}
+                </span>
+                <span className="mt-5 block h-px w-8 bg-gold transition-all duration-300 group-hover:w-12" />
+                <h3 className="mt-5 text-lg font-medium text-platinum">{item.title}</h3>
+                <p className="mt-3 text-sm leading-[1.7] text-platinum/55">{item.desc}</p>
+              </div>
             </div>
           ))}
         </div>

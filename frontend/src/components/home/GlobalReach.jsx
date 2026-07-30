@@ -16,7 +16,10 @@ export default function GlobalReach() {
   const mapRef = useReveal();
 
   return (
-    <section data-testid="global-section" className="bg-obsidian py-28">
+    <section data-testid="global-section" className="relative bg-obsidian py-28 overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-pattern-global pointer-events-none" />
+      
       <div className="section-pad mx-auto max-w-[1400px]">
         <SectionHeading
           eyebrow="GLOBAL FOOTPRINT"

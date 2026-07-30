@@ -30,10 +30,30 @@ export default function ServicesSection() {
                 onClick={() => navigate("/services")}
                 className="group relative overflow-hidden rounded-lg border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark p-8 shadow-lg transition-all duration-400 hover:border-gold/100 hover:shadow-[0_0_32px_rgba(197,160,90,0.2)] hover:-translate-y-2 cursor-pointer min-h-[300px] flex flex-col"
               >
+                {/* Background pattern */}
+                <div className="absolute inset-0 bg-pattern-services pointer-events-none" />
+                
+                {/* Card glow overlay */}
+                <div className="card-glow-overlay" />
+
                 {/* Ghost numeral */}
                 <div className="absolute top-6 right-8 font-serif text-6xl font-light text-platinum/6">
                   {service.num}
                 </div>
+
+                {/* Ghost icon in background */}
+                {Icon && (
+                  <div className="service-card-ghost-icon">
+                    <Icon className="w-full h-full text-gold" />
+                  </div>
+                )}
+
+                {/* Corner accents */}
+                <div className="corner-accent corner-accent-tl" />
+                <div className="corner-accent corner-accent-br" />
+
+                {/* Border shimmer */}
+                <div className="card-border-shimmer" />
 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col h-full">

@@ -28,15 +28,23 @@ export default function WhyChooseUs() {
 
         <div ref={gridRef} className="grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {WHY_CHOOSE.map((f) => (
-            <div key={f.num} data-feat className="group">
-              <span className="display block text-6xl font-light leading-none text-white/[0.05] transition-colors duration-300 group-hover:text-white/[0.12] lg:text-[80px]">
-                {f.num}
-              </span>
-              <span className="mt-5 block h-px w-8 bg-gold transition-all duration-300 group-hover:w-12" />
-              <h3 className="mt-5 text-base font-semibold text-platinum transition-colors duration-300 group-hover:text-gold">
-                {f.title}
-              </h3>
-              <p className="mt-3 text-sm leading-[1.7] text-platinum/55">{f.desc}</p>
+            <div key={f.num} data-feat className="group relative">
+              {/* Background pattern */}
+              <div className="absolute inset-0 bg-pattern-why pointer-events-none rounded-lg" />
+              
+              {/* Card glow overlay */}
+              <div className="card-glow-overlay rounded-lg" />
+
+              <div className="relative z-10">
+                <span className="display block text-6xl font-light leading-none text-white/[0.05] transition-colors duration-300 group-hover:text-white/[0.12] lg:text-[80px]">
+                  {f.num}
+                </span>
+                <span className="mt-5 block h-px w-8 bg-gold transition-all duration-300 group-hover:w-12" />
+                <h3 className="mt-5 text-base font-semibold text-platinum transition-colors duration-300 group-hover:text-gold">
+                  {f.title}
+                </h3>
+                <p className="mt-3 text-sm leading-[1.7] text-platinum/55">{f.desc}</p>
+              </div>
             </div>
           ))}
         </div>
