@@ -109,18 +109,18 @@ export default function RequestQuotePage() {
               <h3 className="display text-2xl text-platinum">Specifications</h3>
               <div className="grid gap-7 sm:grid-cols-2">
                 <div>
-                  <label className="label mb-2 block text-platinum/50">Estimated Quantity</label>
-                  <input className={field} value={data.quantity} onChange={set("quantity")} placeholder="e.g. 5,000 units" />
+                  <label htmlFor="wiz-qty" className="label mb-2 block text-platinum/50">Estimated Quantity</label>
+                  <input id="wiz-qty" className={field} value={data.quantity} onChange={set("quantity")} placeholder="e.g. 5,000 units" />
                 </div>
                 <div>
-                  <label className="label mb-2 block text-platinum/50">Timeline</label>
-                  <input className={field} value={data.timeline} onChange={set("timeline")} placeholder="e.g. 3 weeks" />
+                  <label htmlFor="wiz-tl" className="label mb-2 block text-platinum/50">Timeline</label>
+                  <input id="wiz-tl" className={field} value={data.timeline} onChange={set("timeline")} placeholder="e.g. 3 weeks" />
                 </div>
               </div>
-              <div>
-                <label className="label mb-2 block text-platinum/50">Requirements & Finishes</label>
-                <textarea rows={4} className={`${field} resize-none`} value={data.message} onChange={set("message")} placeholder="Dimensions, materials, finishes (foil, emboss, UV), references…" />
-              </div>
+                <div>
+                  <label htmlFor="wiz-msg" className="label mb-2 block text-platinum/50">Requirements & Finishes</label>
+                  <textarea id="wiz-msg" rows={4} className={`${field} resize-none`} value={data.message} onChange={set("message")} placeholder="Dimensions, materials, finishes (foil, emboss, UV), references…" />
+                </div>
             </div>
           )}
 
@@ -130,20 +130,20 @@ export default function RequestQuotePage() {
               <h3 className="display text-2xl text-platinum">Your Details</h3>
               <div className="grid gap-7 sm:grid-cols-2">
                 <div>
-                  <label className="label mb-2 block text-platinum/50">Full Name *</label>
-                  <input data-testid="wizard-name" className={field} value={data.fullName} onChange={set("fullName")} placeholder="Jane Doe" />
+                  <label htmlFor="wiz-name" className="label mb-2 block text-platinum/50">Full Name *</label>
+                  <input id="wiz-name" data-testid="wizard-name" className={field} value={data.fullName} onChange={set("fullName")} placeholder="Jane Doe" />
                 </div>
                 <div>
-                  <label className="label mb-2 block text-platinum/50">Company / Brand *</label>
-                  <input data-testid="wizard-company" className={field} value={data.company} onChange={set("company")} placeholder="Maison & Co." />
+                  <label htmlFor="wiz-company" className="label mb-2 block text-platinum/50">Company / Brand *</label>
+                  <input id="wiz-company" data-testid="wizard-company" className={field} value={data.company} onChange={set("company")} placeholder="Maison & Co." />
                 </div>
                 <div>
-                  <label className="label mb-2 block text-platinum/50">Email *</label>
-                  <input data-testid="wizard-email" type="email" className={field} value={data.email} onChange={set("email")} placeholder="you@brand.com" />
+                  <label htmlFor="wiz-email" className="label mb-2 block text-platinum/50">Email *</label>
+                  <input id="wiz-email" data-testid="wizard-email" type="email" className={field} value={data.email} onChange={set("email")} placeholder="you@brand.com" />
                 </div>
                 <div>
-                  <label className="label mb-2 block text-platinum/50">Phone (WhatsApp)</label>
-                  <input className={field} value={data.phone} onChange={set("phone")} placeholder="+92 3XX XXX XXXX" />
+                  <label htmlFor="wiz-phone" className="label mb-2 block text-platinum/50">Phone (WhatsApp)</label>
+                  <input id="wiz-phone" className={field} value={data.phone} onChange={set("phone")} placeholder="+92 3XX XXX XXXX" />
                 </div>
               </div>
               <label className="flex items-center gap-3 text-sm text-platinum/60">

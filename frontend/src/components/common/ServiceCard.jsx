@@ -7,6 +7,9 @@ export default function ServiceCard({ service, onClick, className = "" }) {
     <article
       data-testid={`service-card-${service.num}`}
       onClick={onClick}
+      onKeyDown={(e) => { if (onClick && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); onClick(e); } }}
+      role="button"
+      tabIndex={0}
       className={`group relative flex h-full min-h-[60vh] cursor-pointer flex-col justify-between overflow-hidden border border-white/[0.07] bg-carbon p-9 transition-colors duration-500 hover:bg-graphite ${className}`}
     >
       {/* Ghost number */}

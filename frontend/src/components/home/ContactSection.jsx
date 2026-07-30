@@ -64,7 +64,7 @@ export default function ContactSection() {
                 title="PRINTKING location"
                 src="https://www.google.com/maps?q=Sagghian%20Flyover%20Lahore&output=embed"
                 className="h-full w-full"
-                style={{ filter: "grayscale(0.5) invert(0.9) contrast(0.85) hue-rotate(175deg) brightness(0.9)" }}
+                style={{ filter: "grayscale(0.6) sepia(0.4) hue-rotate(320deg) saturate(0.7) brightness(0.85) contrast(0.9)" }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

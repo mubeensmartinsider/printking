@@ -17,10 +17,6 @@ export default function MachineryPage() {
       <section className="bg-obsidian py-24">
         <div className="section-pad mx-auto max-w-[1400px]">
           <MachineryGrid items={MACHINERY.items} />
-          <p className="mt-12 max-w-2xl text-sm leading-relaxed text-platinum/45">
-            Image slots above are placeholder containers — real facility photographs can be
-            dropped directly into each cell without restructuring the layout.
-          </p>
         </div>
       </section>
     </>
