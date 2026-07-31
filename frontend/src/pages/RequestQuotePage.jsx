@@ -10,6 +10,9 @@ const STEPS = ["Project Type", "Specifications", "Contact Details"];
 const field =
   "w-full bg-transparent border-b border-white/15 py-3 text-platinum placeholder:text-platinum/35 focus:border-gold focus:outline-none transition-colors duration-300 text-[15px]";
 
+const floatingField =
+  "w-full bg-transparent border-b border-white/15 py-5 pb-2 pt-6 text-platinum focus:border-gold focus:outline-none transition-all duration-300 text-[15px]";
+
 const initial = {
   productType: "",
   quantity: "",
@@ -108,18 +111,18 @@ export default function RequestQuotePage() {
             <div data-testid="wizard-step-2" className="space-y-7">
               <h3 className="display text-2xl text-platinum">Specifications</h3>
               <div className="grid gap-7 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="wiz-qty" className="label mb-2 block text-platinum/50">Estimated Quantity</label>
-                  <input id="wiz-qty" className={field} value={data.quantity} onChange={set("quantity")} placeholder="e.g. 5,000 units" />
+                <div className="floating-input-group">
+                  <input id="wiz-qty" className={floatingField} value={data.quantity} onChange={set("quantity")} placeholder=" " />
+                  <label htmlFor="wiz-qty">Estimated Quantity</label>
                 </div>
-                <div>
-                  <label htmlFor="wiz-tl" className="label mb-2 block text-platinum/50">Timeline</label>
-                  <input id="wiz-tl" className={field} value={data.timeline} onChange={set("timeline")} placeholder="e.g. 3 weeks" />
+                <div className="floating-input-group">
+                  <input id="wiz-tl" className={floatingField} value={data.timeline} onChange={set("timeline")} placeholder=" " />
+                  <label htmlFor="wiz-tl">Timeline</label>
                 </div>
               </div>
-                <div>
-                  <label htmlFor="wiz-msg" className="label mb-2 block text-platinum/50">Requirements & Finishes</label>
-                  <textarea id="wiz-msg" rows={4} className={`${field} resize-none`} value={data.message} onChange={set("message")} placeholder="Dimensions, materials, finishes (foil, emboss, UV), references…" />
+                <div className="floating-input-group">
+                  <textarea id="wiz-msg" rows={4} className={`${floatingField} resize-none`} value={data.message} onChange={set("message")} placeholder=" " />
+                  <label htmlFor="wiz-msg">Requirements & Finishes</label>
                 </div>
             </div>
           )}
@@ -129,21 +132,21 @@ export default function RequestQuotePage() {
             <div data-testid="wizard-step-3" className="space-y-7">
               <h3 className="display text-2xl text-platinum">Your Details</h3>
               <div className="grid gap-7 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="wiz-name" className="label mb-2 block text-platinum/50">Full Name *</label>
-                  <input id="wiz-name" data-testid="wizard-name" className={field} value={data.fullName} onChange={set("fullName")} placeholder="Jane Doe" />
+                <div className="floating-input-group">
+                  <input id="wiz-name" data-testid="wizard-name" className={floatingField} value={data.fullName} onChange={set("fullName")} placeholder=" " />
+                  <label htmlFor="wiz-name">Full Name *</label>
                 </div>
-                <div>
-                  <label htmlFor="wiz-company" className="label mb-2 block text-platinum/50">Company / Brand *</label>
-                  <input id="wiz-company" data-testid="wizard-company" className={field} value={data.company} onChange={set("company")} placeholder="Maison & Co." />
+                <div className="floating-input-group">
+                  <input id="wiz-company" data-testid="wizard-company" className={floatingField} value={data.company} onChange={set("company")} placeholder=" " />
+                  <label htmlFor="wiz-company">Company / Brand *</label>
                 </div>
-                <div>
-                  <label htmlFor="wiz-email" className="label mb-2 block text-platinum/50">Email *</label>
-                  <input id="wiz-email" data-testid="wizard-email" type="email" className={field} value={data.email} onChange={set("email")} placeholder="you@brand.com" />
+                <div className="floating-input-group">
+                  <input id="wiz-email" data-testid="wizard-email" type="email" className={floatingField} value={data.email} onChange={set("email")} placeholder=" " />
+                  <label htmlFor="wiz-email">Email *</label>
                 </div>
-                <div>
-                  <label htmlFor="wiz-phone" className="label mb-2 block text-platinum/50">Phone (WhatsApp)</label>
-                  <input id="wiz-phone" className={field} value={data.phone} onChange={set("phone")} placeholder="+92 3XX XXX XXXX" />
+                <div className="floating-input-group">
+                  <input id="wiz-phone" className={floatingField} value={data.phone} onChange={set("phone")} placeholder=" " />
+                  <label htmlFor="wiz-phone">Phone (WhatsApp)</label>
                 </div>
               </div>
               <label className="flex items-center gap-3 text-sm text-platinum/60">

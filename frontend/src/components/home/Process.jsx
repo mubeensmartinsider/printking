@@ -2,6 +2,17 @@ import React, { useEffect, useRef } from "react";
 import { PROCESS } from "../../lib/content";
 import { gsap } from "../../lib/animations";
 import { useReveal } from "../../lib/animations";
+import { ClipboardList, PenTool, FileCheck, Printer, Package, Truck, HeartHandshake } from "lucide-react";
+
+const STEP_ICONS = {
+  "01": ClipboardList,
+  "02": PenTool,
+  "03": FileCheck,
+  "04": Printer,
+  "05": Package,
+  "06": Truck,
+  "07": HeartHandshake,
+};
 
 function Tooltip({ step }) {
   return (
@@ -66,11 +77,11 @@ export default function Process() {
             {PROCESS.map((step) => (
               <div key={step.num} className="group relative flex flex-col items-center text-center">
                 <Tooltip step={step} />
-                <div data-node className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full border border-gold bg-carbon transition-colors duration-300 group-hover:bg-gold">
-                  <span className="h-2 w-2 rounded-full bg-gold transition-colors duration-300 group-hover:bg-obsidian" />
+                <div data-node className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border border-gold bg-carbon transition-all duration-300 group-hover:bg-gold group-hover:shadow-[0_0_20px_rgba(197,160,90,0.3)]">
+                  <span className="h-2.5 w-2.5 rounded-full bg-gold transition-colors duration-300 group-hover:bg-obsidian" />
                 </div>
                 <span className="label mt-6 text-gold">{step.num}</span>
-                <h4 className="mt-2 px-1 text-sm font-medium text-platinum">{step.title}</h4>
+                <h4 className="mt-2 px-1 text-sm font-medium text-platinum transition-colors duration-300 group-hover:text-gold">{step.title}</h4>
               </div>
             ))}
           </div>
@@ -78,16 +89,22 @@ export default function Process() {
 
         {/* Mobile vertical timeline */}
         <div className="relative space-y-8 border-l border-white/[0.1] pl-8 md:hidden">
-          {PROCESS.map((step) => (
-            <div key={step.num} className="relative">
-              <span className="absolute -left-[39px] top-1 flex h-5 w-5 items-center justify-center rounded-full border border-gold bg-carbon">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-              </span>
-              <span className="label text-gold">{step.num}</span>
-              <h4 className="mt-1 text-base font-medium text-platinum">{step.title}</h4>
-              <p className="mt-1 text-sm text-platinum/50">{step.desc}</p>
-            </div>
-          ))}
+          {PROCESS.map((step) => {
+            const StepIcon = STEP_ICONS[step.num] || ClipboardList;
+            return (
+              <div key={step.num} className="relative group">
+                <span className="absolute -left-[39px] top-1 flex h-6 w-6 items-center justify-center rounded-full border border-gold bg-carbon transition-all duration-300 group-hover:bg-gold">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold transition-colors duration-300 group-hover:bg-obsidian" />
+                </span>
+                <span className="label text-gold">{step.num}</span>
+                <div className="flex items-center gap-3 mt-1">
+                  {StepIcon && <StepIcon size={16} className="text-gold/60" />}
+                  <h4 className="text-base font-medium text-platinum">{step.title}</h4>
+                </div>
+                <p className="mt-1 text-sm text-platinum/50">{step.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

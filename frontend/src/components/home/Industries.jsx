@@ -29,7 +29,7 @@ export default function Industries() {
             return (
               <div 
                 key={ind.name}
-                className="group relative overflow-hidden rounded-lg border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark p-6 shadow-lg transition-all duration-300 hover:shadow-[0_0_32px_rgba(197,160,90,0.2)] hover:-translate-y-1.5"
+                className="group relative overflow-hidden rounded-sm border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark p-8 shadow-lg transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_0_1px_rgba(197,160,90,0.15)] hover:-translate-y-1.5"
               >
                 {/* Background pattern */}
                 <div className="absolute inset-0 bg-pattern-industries pointer-events-none" />
@@ -54,11 +54,11 @@ export default function Industries() {
                 <div className="relative z-10 flex flex-col items-center text-center">
                   {/* Icon */}
                   {Icon && (
-                    <Icon className="w-8 h-8 text-gold stroke-1.5 mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <Icon className="w-10 h-10 text-gold stroke-1.5 mb-4 transition-transform duration-300 group-hover:scale-110" />
                   )}
                   
                   {/* Industry name */}
-                  <h3 className="text-sm font-semibold text-platinum leading-tight mb-2">
+                  <h3 className="text-sm font-semibold text-platinum leading-tight mb-2 transition-colors duration-300 group-hover:text-gold">
                     {ind.name}
                   </h3>
 

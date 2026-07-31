@@ -20,7 +20,7 @@ export default function Navbar() {
       data-testid="navbar"
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-carbon/85 backdrop-blur-xl border-b border-white/[0.06]"
+          ? "bg-surface-glass backdrop-blur-[20px] saturate-[1.4] border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -28,24 +28,31 @@ export default function Navbar() {
         <Link
           to="/"
           data-testid="logo-link"
-          className="display text-[26px] font-medium tracking-tight text-platinum"
+          className="display text-[26px] font-medium tracking-tight text-platinum transition-opacity duration-300 hover:opacity-80"
         >
           PRINT<span className="text-gold">KING</span>
         </Link>
 
-        <div className="hidden items-center gap-9 lg:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
               data-testid={`nav-${l.label.toLowerCase()}`}
               className={({ isActive }) =>
-                `label transition-colors duration-300 hover:text-gold ${
+                `label relative px-4 py-2 transition-colors duration-300 hover:text-gold ${
                   isActive ? "text-gold" : "text-platinum/80"
                 }`
               }
             >
-              {l.label}
+              {({ isActive }) => (
+                <>
+                  {l.label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-4 right-4 h-[2px] bg-gold rounded-full" />
+                  )}
+                </>
+              )}
             </NavLink>
           ))}
         </div>
@@ -72,17 +79,22 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden border-t border-white/[0.06] bg-carbon/95 backdrop-blur-xl transition-[max-height] duration-500 lg:hidden ${
-          open ? "max-h-[460px]" : "max-h-0"
+        className={`overflow-hidden border-t border-white/[0.06] bg-surface-glass backdrop-blur-[20px] saturate-[1.4] transition-all duration-500 ease-in-out lg:hidden ${
+          open ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="section-pad flex flex-col gap-1 py-6">
-          {NAV_LINKS.map((l) => (
+          {NAV_LINKS.map((l, i) => (
             <NavLink
               key={l.to}
               to={l.to}
               onClick={() => setOpen(false)}
-              className="border-b border-white/[0.05] py-4 font-display text-2xl text-platinum"
+              className={({ isActive }) =>
+                `border-b border-white/[0.05] py-4 font-display text-2xl transition-all duration-300 hover:text-gold ${
+                  isActive ? "text-gold" : "text-platinum"
+                }`
+              }
+              style={{ transitionDelay: open ? `${i * 50}ms` : '0ms' }}
             >
               {l.label}
             </NavLink>

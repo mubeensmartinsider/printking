@@ -48,19 +48,14 @@ export default function Hero() {
         <HeroBox />
       </div>
 
-      {/* Premium legibility gradient */}
-      <div
-        className="absolute inset-0 z-[1]"
-        style={{
-          background:
-            "radial-gradient(ellipse at 15% 50%, rgba(13, 11, 9, 0.96) 0%, rgba(13, 11, 9, 0.8) 30%, rgba(13, 11, 9, 0.4) 55%, rgba(13, 11, 9, 0) 70%)",
-        }}
-      />
-
       {/* Content Container */}
       <div
         ref={contentRef}
-        className="relative z-10 mx-auto w-full max-w-[1480px] px-4 py-20 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-28 pb-48 sm:pb-40 md:pb-32 lg:pb-32"
+        className="absolute inset-0 z-20 mx-auto w-full max-w-[1480px] px-4 py-20 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-28 pb-48 sm:pb-40 md:pb-32 lg:pb-32"
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
       >
         <div className="max-w-4xl">
           {/* Label */}
@@ -88,20 +83,35 @@ export default function Hero() {
             <button
               data-testid="hero-quote-btn"
               onClick={() => navigate("/request-quote")}
-              className="hero-cta group relative overflow-hidden rounded-full bg-gradient-to-r from-gold via-[#e4bc5f] to-gold bg-[length:200%_100%] px-8 py-4 font-medium text-[#0d0b09] shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 hover:bg-[position:100%_0] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] active:scale-95 sm:px-10 sm:py-5"
+              className="hero-cta rounded-full px-8 py-4 font-semibold sm:px-10 sm:py-5"
+              style={{
+                background: "#c5a05a",
+                color: "#0d0b09",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "14px",
+                letterSpacing: "0.05em",
+              }}
             >
-              <span className="relative z-10 flex items-center justify-center gap-2.5 text-sm sm:text-base">
-                Request a Quote 
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+              <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                Request a Quote
+                <ArrowRight size={18} />
               </span>
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             </button>
             <button
               data-testid="hero-portfolio-btn"
               onClick={() => navigate("/portfolio")}
-              className="hero-cta group rounded-full border border-gold/30 bg-gold/5 px-8 py-4 font-medium text-platinum backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:bg-gold/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)] active:scale-95 sm:px-10 sm:py-5"
+              className="hero-cta rounded-full px-8 py-4 font-medium sm:px-10 sm:py-5"
+              style={{
+                background: "transparent",
+                color: "#f0ebe2",
+                border: "1px solid rgba(197, 160, 90, 0.4)",
+                cursor: "pointer",
+                fontSize: "14px",
+                letterSpacing: "0.05em",
+              }}
             >
-              <span className="text-sm sm:text-base">Explore Portfolio</span>
+              Explore Portfolio
             </button>
           </div>
 

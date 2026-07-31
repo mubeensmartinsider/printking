@@ -10,6 +10,8 @@
   --surface-primary: #14110d;
   --surface-elevated: #1c1814;
   --surface-floating: #241f1a;
+  --surface-hover: #2a2520;
+  --surface-active: #302a24;
   --surface-glass: rgba(28, 24, 20, 0.65);
 
   /* ---- Legacy aliases (component compatibility) ---- */
@@ -31,6 +33,25 @@
   --copper: #b87333;
   --silver: #c8c0b4;
 
+  /* ---- GOLD GRADIENT VARIANTS ---- */
+  --gold-50: rgba(197, 160, 90, 0.05);
+  --gold-100: rgba(197, 160, 90, 0.1);
+  --gold-200: rgba(197, 160, 90, 0.2);
+  --gold-300: rgba(197, 160, 90, 0.3);
+  --gold-400: rgba(197, 160, 90, 0.4);
+  --gold-500: #c5a05a;
+  --gold-600: #b08a45;
+  --gold-700: #9a7535;
+  --gold-800: #856028;
+  --gold-900: #6f4c1c;
+
+  /* ---- SECONDARY ACCENT (Deep Burgundy) ---- */
+  --color-burgundy: #6B1D2A;
+  --color-burgundy-soft: #8a2e3c;
+  --color-burgundy-muted: rgba(107, 29, 42, 0.3);
+  --color-champagne: #F5E6CC;
+  --color-champagne-muted: rgba(245, 230, 204, 0.15);
+
   /* ---- TEXT (warm cream platinum) ---- */
   --color-platinum: #f0ebe2;
   --color-muted: rgba(240, 235, 226, 0.5);
@@ -42,20 +63,31 @@
   --gradient-card: linear-gradient(145deg, #1c1814, #241f1a);
   --gradient-gold: linear-gradient(135deg, #c5a05a, #d8b978, #b87333);
   --gradient-section: linear-gradient(180deg, #0d0b09 0%, #14110d 40%, #0d0b09 100%);
+  --gradient-section-alt: linear-gradient(180deg, #14110d 0%, #1c1814 50%, #14110d 100%);
+  --gradient-divider: linear-gradient(90deg, transparent, rgba(197, 160, 90, 0.15), transparent);
 
   /* ---- SHADOWS ---- */
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(197, 160, 90, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   --shadow-gold-glow: 0 0 40px rgba(197, 160, 90, 0.12);
+  --shadow-gold-glow-hover: 0 0 60px rgba(197, 160, 90, 0.2);
   --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.7);
+  --shadow-input-focus: 0 0 0 1px rgba(197, 160, 90, 0.3), 0 0 20px rgba(197, 160, 90, 0.08);
 
   /* ---- BLUR ---- */
   --blur-glass: blur(16px) saturate(150%);
+  --blur-subtle: blur(8px) saturate(120%);
 
   /* ---- Typography ---- */
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif-alt: "DM Serif Display", "Cormorant Garamond", Georgia, serif;
 
   /* ---- Motion ---- */
   --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-soft: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
 }

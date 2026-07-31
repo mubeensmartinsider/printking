@@ -8,76 +8,84 @@
 /* Manufacturing - printer/scissors geometric pattern */
 .bg-pattern-manufacturing {
   background-image: 
-    radial-gradient(circle at 20% 30%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(197, 160, 90, 0.02) 0%, transparent 50%),
-    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.01) 20px, rgba(255, 255, 255, 0.01) 21px);
+    radial-gradient(circle at 20% 30%, rgba(197, 160, 90, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.012) 20px, rgba(255, 255, 255, 0.012) 21px);
 }
 
 /* Services - diagonal gold whisper lines */
 .bg-pattern-services {
   background-image: 
-    radial-gradient(circle at 15% 85%, rgba(197, 160, 90, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 85% 15%, rgba(197, 160, 90, 0.03) 0%, transparent 40%),
-    linear-gradient(135deg, transparent 0%, transparent 48%, rgba(197, 160, 90, 0.015) 48%, rgba(197, 160, 90, 0.015) 52%, transparent 52%, transparent 100%);
+    radial-gradient(circle at 15% 85%, rgba(197, 160, 90, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(197, 160, 90, 0.04) 0%, transparent 40%),
+    linear-gradient(135deg, transparent 0%, transparent 48%, rgba(197, 160, 90, 0.02) 48%, rgba(197, 160, 90, 0.02) 52%, transparent 52%, transparent 100%);
   background-size: 100% 100%, 100% 100%, 60px 60px;
 }
 
 /* Industries - subtle dot grid */
 .bg-pattern-industries {
   background-image: 
-    radial-gradient(circle at 50% 20%, rgba(197, 160, 90, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(197, 160, 90, 0.02) 0%, transparent 40%),
-    radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    radial-gradient(circle at 50% 20%, rgba(197, 160, 90, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(197, 160, 90, 0.03) 0%, transparent 40%),
+    radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 24px 24px;
 }
 
 /* Why Choose Us - crosshatch luxury texture */
 .bg-pattern-why {
   background-image: 
-    radial-gradient(circle at 80% 20%, rgba(197, 160, 90, 0.03) 0%, transparent 45%),
-    radial-gradient(circle at 20% 60%, rgba(197, 160, 90, 0.02) 0%, transparent 40%),
-    repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255, 255, 255, 0.008) 32px, rgba(255, 255, 255, 0.008) 33px),
-    repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255, 255, 255, 0.008) 32px, rgba(255, 255, 255, 0.008) 33px);
+    radial-gradient(circle at 80% 20%, rgba(197, 160, 90, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 20% 60%, rgba(197, 160, 90, 0.03) 0%, transparent 40%),
+    repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255, 255, 255, 0.01) 32px, rgba(255, 255, 255, 0.01) 33px),
+    repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255, 255, 255, 0.01) 32px, rgba(255, 255, 255, 0.01) 33px);
 }
 
 /* Sustainability - leaf-like organic pattern */
 .bg-pattern-sustainability {
   background-image: 
-    radial-gradient(circle at 30% 40%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(197, 160, 90, 0.02) 0%, transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(197, 160, 90, 0.015) 0%, transparent 30%);
+    radial-gradient(circle at 30% 40%, rgba(197, 160, 90, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(197, 160, 90, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(197, 160, 90, 0.02) 0%, transparent 30%);
 }
 
 /* Process - horizontal line pattern */
 .bg-pattern-process {
   background-image: 
-    radial-gradient(circle at 50% 10%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
-    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255, 255, 255, 0.006) 40px, rgba(255, 255, 255, 0.006) 41px);
+    radial-gradient(circle at 50% 10%, rgba(197, 160, 90, 0.04) 0%, transparent 50%),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255, 255, 255, 0.008) 40px, rgba(255, 255, 255, 0.008) 41px);
 }
 
 /* Team cards - subtle diamond pattern */
 .bg-pattern-team {
   background-image: 
-    radial-gradient(circle at 50% 30%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 20% 70%, rgba(197, 160, 90, 0.02) 0%, transparent 40%),
-    repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(255, 255, 255, 0.006) 28px, rgba(255, 255, 255, 0.006) 29px),
-    repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(255, 255, 255, 0.006) 28px, rgba(255, 255, 255, 0.006) 29px);
+    radial-gradient(circle at 50% 30%, rgba(197, 160, 90, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 20% 70%, rgba(197, 160, 90, 0.03) 0%, transparent 40%),
+    repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(255, 255, 255, 0.008) 28px, rgba(255, 255, 255, 0.008) 29px),
+    repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(255, 255, 255, 0.008) 28px, rgba(255, 255, 255, 0.008) 29px);
 }
 
 /* Testimonials - subtle radial burst */
 .bg-pattern-testimonials {
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(197, 160, 90, 0.02) 0%, transparent 60%),
-    radial-gradient(circle at 30% 20%, rgba(197, 160, 90, 0.015) 0%, transparent 30%),
-    radial-gradient(circle at 70% 80%, rgba(197, 160, 90, 0.015) 0%, transparent 30%);
+    radial-gradient(circle at 50% 50%, rgba(197, 160, 90, 0.03) 0%, transparent 60%),
+    radial-gradient(circle at 30% 20%, rgba(197, 160, 90, 0.02) 0%, transparent 30%),
+    radial-gradient(circle at 70% 80%, rgba(197, 160, 90, 0.02) 0%, transparent 30%);
 }
 
 /* Global Reach - world map dot pattern */
 .bg-pattern-global {
   background-image: 
-    radial-gradient(circle at 30% 40%, rgba(197, 160, 90, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 70% 30%, rgba(197, 160, 90, 0.02) 0%, transparent 35%),
-    radial-gradient(circle at 50% 70%, rgba(197, 160, 90, 0.015) 0%, transparent 30%);
+    radial-gradient(circle at 30% 40%, rgba(197, 160, 90, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 70% 30%, rgba(197, 160, 90, 0.03) 0%, transparent 35%),
+    radial-gradient(circle at 50% 70%, rgba(197, 160, 90, 0.02) 0%, transparent 30%);
+}
+
+/* Contact section pattern */
+.bg-pattern-contact {
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(197, 160, 90, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(197, 160, 90, 0.02) 0%, transparent 50%),
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(255, 255, 255, 0.006) 24px, rgba(255, 255, 255, 0.006) 25px);
 }
 
 /* --- Ghost icon overlays (SVG-based) --- */
@@ -96,8 +104,8 @@
 }
 
 .group:hover .service-card-ghost-icon {
-  opacity: 0.08;
-  transform: scale(1.05) rotate(-3deg);
+  opacity: 0.1;
+  transform: scale(1.08) rotate(-3deg);
 }
 
 /* Ghost icon for industry cards */
@@ -114,8 +122,8 @@
 }
 
 .group:hover .industry-card-ghost-icon {
-  opacity: 0.07;
-  transform: scale(1.1) rotate(5deg);
+  opacity: 0.08;
+  transform: scale(1.12) rotate(5deg);
 }
 
 /* Manufacturing card ghost icon */
@@ -132,31 +140,31 @@
 }
 
 .group:hover .manufacturing-card-ghost-icon {
-  opacity: 0.07;
+  opacity: 0.08;
 }
 
 /* --- Decorative corner accents --- */
 .corner-accent {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  opacity: 0.15;
+  width: 24px;
+  height: 24px;
+  opacity: 0.18;
   pointer-events: none;
   z-index: 0;
 }
 
 .corner-accent-tl {
-  top: 8px;
-  left: 8px;
-  border-top: 1px solid rgba(197, 160, 90, 0.3);
-  border-left: 1px solid rgba(197, 160, 90, 0.3);
+  top: 10px;
+  left: 10px;
+  border-top: 1px solid rgba(197, 160, 90, 0.35);
+  border-left: 1px solid rgba(197, 160, 90, 0.35);
 }
 
 .corner-accent-br {
-  bottom: 8px;
-  right: 8px;
-  border-bottom: 1px solid rgba(197, 160, 90, 0.3);
-  border-right: 1px solid rgba(197, 160, 90, 0.3);
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 1px solid rgba(197, 160, 90, 0.35);
+  border-right: 1px solid rgba(197, 160, 90, 0.35);
 }
 
 /* --- Card inner glow overlay --- */
@@ -165,13 +173,13 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(197, 160, 90, 0.03) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(197, 160, 90, 0.04) 0%, transparent 60%);
   transition: opacity 0.4s ease;
 }
 
 .group:hover .card-glow-overlay {
-  opacity: 0.6;
-  background: radial-gradient(ellipse at 50% 0%, rgba(197, 160, 90, 0.06) 0%, transparent 60%);
+  opacity: 0.7;
+  background: radial-gradient(ellipse at 50% 0%, rgba(197, 160, 90, 0.08) 0%, transparent 60%);
 }
 
 /* --- Subtle border shimmer on hover --- */
@@ -186,7 +194,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, transparent 40%, rgba(197, 160, 90, 0.1) 50%, transparent 60%);
+  background: linear-gradient(135deg, transparent 40%, rgba(197, 160, 90, 0.12) 50%, transparent 60%);
   background-size: 200% 200%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -199,4 +207,116 @@
 .group:hover .card-border-shimmer {
   opacity: 1;
   animation: border-shimmer 2s ease infinite;
+}
+
+/* --- Elegant SVG decorative placeholders --- */
+
+/* Decorative geometric portrait placeholder */
+.decorative-portrait {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.decorative-portrait::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, transparent 45%, rgba(197, 160, 90, 0.06) 50%, transparent 55%),
+    linear-gradient(225deg, transparent 45%, rgba(197, 160, 90, 0.04) 50%, transparent 55%);
+  background-size: 200% 200%;
+  animation: portrait-shimmer 4s ease infinite;
+}
+
+@keyframes portrait-shimmer {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.decorative-portrait .portrait-initials {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(197, 160, 90, 0.15);
+  letter-spacing: 0.1em;
+  z-index: 1;
+}
+
+.decorative-portrait .portrait-frame {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(197, 160, 90, 0.1);
+  pointer-events: none;
+}
+
+.decorative-portrait .portrait-dot-tl,
+.decorative-portrait .portrait-dot-br {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(197, 160, 90, 0.2);
+  pointer-events: none;
+}
+
+.decorative-portrait .portrait-dot-tl {
+  top: 8px;
+  left: 8px;
+}
+
+.decorative-portrait .portrait-dot-br {
+  bottom: 8px;
+  right: 8px;
+}
+
+/* Decorative line art pattern for empty states */
+.decorative-line-art {
+  position: relative;
+  overflow: hidden;
+}
+
+.decorative-line-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(197, 160, 90, 0.03) 8px, rgba(197, 160, 90, 0.03) 9px),
+    repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(197, 160, 90, 0.03) 8px, rgba(197, 160, 90, 0.03) 9px);
+  pointer-events: none;
+}
+
+/* --- Section transition decorative elements --- */
+
+.section-transition-top {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-divider);
+}
+
+.section-transition-bottom {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-divider);
+}
+
+/* Decorative gold dot pattern for backgrounds */
+.bg-gold-dots {
+  background-image: radial-gradient(rgba(197, 160, 90, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Subtle gold vignette overlay */
+.gold-vignette {
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(197, 160, 90, 0.03) 100%);
+  pointer-events: none;
 }

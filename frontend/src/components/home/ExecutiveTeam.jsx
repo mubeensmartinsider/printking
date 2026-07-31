@@ -20,12 +20,12 @@ export default function ExecutiveTeam() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
             {/* Photo */}
             <div className="relative max-w-md">
-              <div className="relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10 flex items-center justify-center">
-                <span className="display text-5xl text-gold/20">CEO</span>
-                <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-gold/40"></div>
-                <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-gold/40"></div>
+              <div className="decorative-portrait relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10">
+                <div className="portrait-frame"></div>
+                <div className="portrait-dot-tl"></div>
+                <div className="portrait-dot-br"></div>
+                <span className="portrait-initials">PK</span>
               </div>
-              <p className="mt-4 text-center text-xs text-platinum/50">Photo placeholder</p>
               <p className="text-center font-serif text-base text-platinum mt-4">{CEO.name}</p>
               <p className="text-center label text-gold text-[10px] mt-1">{CEO.title}</p>
             </div>
@@ -76,12 +76,12 @@ export default function ExecutiveTeam() {
 
             {/* Photo */}
             <div className="relative max-w-md">
-              <div className="relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10 flex items-center justify-center">
-                <span className="display text-5xl text-gold/20">MD</span>
-                <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-gold/40"></div>
-                <div className="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-gold/40"></div>
+              <div className="decorative-portrait relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10">
+                <div className="portrait-frame"></div>
+                <div className="portrait-dot-tl"></div>
+                <div className="portrait-dot-br"></div>
+                <span className="portrait-initials">PK</span>
               </div>
-              <p className="mt-4 text-center text-xs text-platinum/50">Photo placeholder</p>
               <p className="text-center font-serif text-base text-platinum mt-4">{LEADERSHIP.md.name}</p>
               <p className="text-center label text-gold text-[10px] mt-1">{LEADERSHIP.md.title}</p>
             </div>
@@ -105,8 +105,11 @@ export default function ExecutiveTeam() {
                   <div className="card-glow-overlay" />
 
                   {/* Photo area */}
-                  <div className="relative z-10 w-full aspect-[4/3] overflow-hidden bg-graphite/50 flex items-center justify-center border-b border-gold/10 flex-shrink-0">
-                    <span className="display text-4xl text-gold/15">{member.initials}</span>
+                  <div className="decorative-portrait relative z-10 w-full aspect-[4/3] overflow-hidden bg-graphite/50 border-b border-gold/10 flex-shrink-0">
+                    <div className="portrait-frame"></div>
+                    <div className="portrait-dot-tl"></div>
+                    <div className="portrait-dot-br"></div>
+                    <span className="portrait-initials text-4xl">{member.initials}</span>
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-obsidian to-transparent p-3">
                       <span className="label text-gold text-[9px]">{member.role}</span>
                     </div>

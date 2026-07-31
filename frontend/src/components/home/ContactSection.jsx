@@ -21,8 +21,10 @@ const Detail = ({ icon: Icon, label, value, href }) => (
 export default function ContactSection() {
   const ref = useReveal();
   return (
-    <section data-testid="contact-section" className="bg-obsidian py-28">
-      <div className="section-pad mx-auto max-w-[1400px]">
+    <section data-testid="contact-section" className="relative bg-obsidian py-28 overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-pattern-contact pointer-events-none" />
+      <div className="section-pad relative mx-auto max-w-[1400px]">
         <div ref={ref} className="mb-16 max-w-2xl">
           <span className="label text-gold">{CONTACT.eyebrow}</span>
           <h2 className="display mt-6 text-4xl leading-[1.08] text-platinum sm:text-5xl">
@@ -35,7 +37,7 @@ export default function ContactSection() {
 
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           {/* Form */}
-          <div className="border-t-2 border-gold bg-[linear-gradient(145deg,#1c1814,#241f1a)] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.5)] sm:p-10">
+          <div className="border-t-2 border-gold bg-[linear-gradient(145deg,#1c1814,#241f1a)] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.5)] sm:p-10 rounded-sm">
             <QuoteForm />
           </div>
 
@@ -50,7 +52,7 @@ export default function ContactSection() {
             <Detail icon={MapPin} label="Factory" value={COMPANY.address} />
             <Detail icon={Clock} label="Hours" value={COMPANY.hours} />
 
-            <div className="mt-6 flex items-start gap-3 border-t-2 border-gold/70 bg-[#1c1814] p-5">
+            <div className="mt-6 flex items-start gap-3 border-t-2 border-gold/70 bg-[#1c1814] p-5 rounded-sm">
               <Clock size={16} className="mt-0.5 text-gold" />
               <div className="text-[12px] leading-relaxed text-platinum/65">
                 <p>{CONTACT.responseNote}</p>

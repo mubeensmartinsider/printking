@@ -27,7 +27,7 @@ export default function Manufacturing() {
               <div
                 key={card.title}
                 data-card
-                className="group relative bg-carbon p-10 transition-colors duration-500 hover:bg-graphite"
+                className="group relative bg-carbon p-10 transition-all duration-500 hover:bg-graphite hover:shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_0_1px_rgba(197,160,90,0.1)]"
               >
                 {/* Background pattern */}
                 <div className="absolute inset-0 bg-pattern-manufacturing pointer-events-none" />
@@ -49,8 +49,8 @@ export default function Manufacturing() {
 
                 <span className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
                 <div className="relative z-10">
-                  <Icon size={28} strokeWidth={1.3} className="text-gold" />
-                  <h3 className="mt-8 text-xl font-medium text-platinum">{card.title}</h3>
+                  <Icon size={32} strokeWidth={1.3} className="text-gold transition-transform duration-300 group-hover:scale-110" />
+                  <h3 className="mt-8 text-xl font-medium text-platinum transition-colors duration-300 group-hover:text-gold">{card.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-platinum/55">{card.desc}</p>
                 </div>
               </div>

@@ -31,7 +31,7 @@ export default function ServicesSection() {
                 onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); navigate("/services"); } }}
                 role="button"
                 tabIndex={0}
-                className="group relative overflow-hidden rounded-lg border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark p-8 shadow-lg transition-all duration-400 hover:border-gold/100 hover:shadow-[0_0_32px_rgba(197,160,90,0.2)] hover:-translate-y-1.5 cursor-pointer min-h-[300px] flex flex-col"
+                className="group relative overflow-hidden rounded-sm border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark p-10 shadow-lg transition-all duration-400 hover:border-gold/100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_0_1px_rgba(197,160,90,0.15),inset_0_1px_0_rgba(255,255,255,0.06)] hover:-translate-y-1.5 cursor-pointer min-h-[300px] flex flex-col"
               >
                 {/* Background pattern */}
                 <div className="absolute inset-0 bg-pattern-services pointer-events-none" />
@@ -40,7 +40,7 @@ export default function ServicesSection() {
                 <div className="card-glow-overlay" />
 
                 {/* Ghost numeral */}
-                <div className="absolute top-6 right-8 font-serif text-6xl font-light text-platinum/6">
+                <div className="absolute top-8 right-10 font-serif text-7xl font-light text-platinum/6">
                   {service.num}
                 </div>
 
@@ -62,12 +62,12 @@ export default function ServicesSection() {
                 <div className="relative z-10 flex flex-col h-full">
                   {/* Icon + Title */}
                   <div className="mb-6">
-                    {Icon && <Icon className="w-8 h-8 text-gold stroke-1.5 mb-4" />}
+                    {Icon && <Icon className="w-10 h-10 text-gold stroke-1.5 mb-4 transition-transform duration-300 group-hover:scale-110" />}
                     <h3 className="text-lg font-semibold text-platinum">{service.title}</h3>
                   </div>
 
                   {/* Gold rule */}
-                  <div className="h-px bg-gradient-to-r from-gold to-transparent w-0 group-hover:w-8 transition-all duration-300 mb-4"></div>
+                  <div className="h-px bg-gradient-to-r from-gold to-transparent w-0 group-hover:w-10 transition-all duration-300 mb-4"></div>
 
                   {/* Description */}
                   <p className="text-sm text-platinum/65 leading-relaxed flex-grow">{service.desc}</p>
@@ -78,7 +78,9 @@ export default function ServicesSection() {
                   )}
 
                   {/* Explore link */}
-                  <p className="text-xs text-gold mt-4">Explore →</p>
+                  <p className="text-xs text-gold mt-4 flex items-center gap-2 transition-all duration-300 group-hover:gap-3">
+                    Explore <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </p>
                 </div>
               </div>
             );
