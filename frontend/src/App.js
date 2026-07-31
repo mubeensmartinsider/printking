@@ -11,6 +11,8 @@ import MachineryPage from "@/pages/MachineryPage";
 import SustainabilityPage from "@/pages/SustainabilityPage";
 import ContactPage from "@/pages/ContactPage";
 import RequestQuotePage from "@/pages/RequestQuotePage";
+import FAQPage from "@/pages/FAQPage";
+import CaseStudiesPage from "@/pages/CaseStudiesPage";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             <Route path="/sustainability" element={<SustainabilityPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/request-quote" element={<RequestQuotePage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/case-studies" element={<CaseStudiesPage />} />
           </Routes>
         </Layout>
         <Toaster

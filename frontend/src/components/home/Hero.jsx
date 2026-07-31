@@ -51,7 +51,7 @@ export default function Hero() {
       {/* Content Container */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-20 mx-auto w-full max-w-[1480px] px-4 py-20 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-28 pb-48 sm:pb-40 md:pb-32 lg:pb-32"
+        className="absolute inset-0 z-20 mx-auto w-full max-w-[1480px] px-4 py-20 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-44 md:pt-28 pb-48 sm:pb-40 md:pb-32 lg:pb-32"
         style={{
           display: "flex",
           alignItems: "center",

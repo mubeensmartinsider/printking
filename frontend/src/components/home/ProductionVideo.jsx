@@ -77,7 +77,7 @@ export default function ProductionVideo() {
             muted
             loop
           >
-            <source src="/dummy.mp4" type="video/mp4" />
+            <source src="/printing.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 

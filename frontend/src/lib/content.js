@@ -26,8 +26,10 @@ export const NAV_LINKS = [
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Portfolio", to: "/portfolio" },
+  { label: "Case Studies", to: "/case-studies" },
   { label: "Machinery", to: "/machinery" },
   { label: "Sustainability", to: "/sustainability" },
+  { label: "FAQ", to: "/faq" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -285,7 +287,7 @@ export const TEAM = LEADERSHIP.heads;
 
 export const FOOTER = {
   services: SERVICES.slice(0, 8).map((s) => s.title),
-  company: ["About", "Portfolio", "Machinery", "Sustainability", "Blog", "Careers"],
+  company: ["About", "Portfolio", "Case Studies", "Machinery", "Sustainability", "FAQ", "Blog", "Careers"],
   industries: INDUSTRIES.slice(0, 6).map((i) => i.name),
   certifications: ["ISO 9001:2015", "FOGRA", "FSC"],
 };

@@ -66,8 +66,10 @@ export default function Footer() {
               const map = {
                 About: "/about",
                 Portfolio: "/portfolio",
+                "Case Studies": "/case-studies",
                 Machinery: "/machinery",
                 Sustainability: "/sustainability",
+                FAQ: "/faq",
               };
               return <FLink key={c} to={map[c] || "/"}>{c}</FLink>;
             })}

@@ -96,11 +96,16 @@ module.exports = {
                 backgroundImage: {
                         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 },
-                animation: {
-                        'accordion-down': 'accordion-down 0.2s ease-out',
-                        'accordion-up': 'accordion-up 0.2s ease-out'
-                }
-        }
+                 animation: {
+                         'accordion-down': 'accordion-down 0.2s ease-out',
+                         'accordion-up': 'accordion-up 0.2s ease-out'
+                 },
+                 transitionTimingFunction: {
+                         'lux': 'cubic-bezier(0.16, 1, 0.3, 1)',
+                         'out-soft': 'cubic-bezier(0.23, 1, 0.32, 1)',
+                         'spring': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+                 }
+         }
   },
   plugins: [require("tailwindcss-animate")],
 };
