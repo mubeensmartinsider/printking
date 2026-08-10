@@ -89,7 +89,7 @@ export default function ExecutiveTeam() {
         </div>
 
         {/* Department Heads Grid */}
-        <div className="pt-12 w-full">
+        {/* <div className="pt-12 w-full">
           <h3 className="text-sm font-semibold text-gold mb-16">DEPARTMENT HEADS</h3>
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full auto-rows-max">
             {TEAM && TEAM.length > 0 ? (
@@ -98,13 +98,10 @@ export default function ExecutiveTeam() {
                   key={member.name} 
                   className="group relative flex flex-col h-full overflow-hidden rounded-lg border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark shadow-lg transition-all duration-400 hover:shadow-[0_0_32px_rgba(197,160,90,0.2)] hover:-translate-y-1.5"
                 >
-                  {/* Background pattern */}
                   <div className="absolute inset-0 bg-pattern-team pointer-events-none" />
                   
-                  {/* Card glow overlay */}
                   <div className="card-glow-overlay" />
 
-                  {/* Photo area */}
                   <div className="decorative-portrait relative z-10 w-full aspect-[4/3] overflow-hidden bg-graphite/50 border-b border-gold/10 flex-shrink-0">
                     <div className="portrait-frame"></div>
                     <div className="portrait-dot-tl"></div>
@@ -114,7 +111,6 @@ export default function ExecutiveTeam() {
                       <span className="label text-gold text-[9px]">{member.role}</span>
                     </div>
                   </div>
-                  {/* Content area */}
                   <div className="relative z-10 p-6 flex flex-col flex-grow">
                     <h3 className="text-base font-semibold text-platinum">{member.name}</h3>
                     <p className="label text-gold mt-1 mb-4">{member.role}</p>
@@ -127,7 +123,7 @@ export default function ExecutiveTeam() {
               <p className="text-platinum/50">Loading team members...</p>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

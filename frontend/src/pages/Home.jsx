@@ -27,16 +27,17 @@ export default function Home() {
       <Hero />
       <TrustedBy />
        <ProductionVideo />
-      <AboutSection />
-      <ExecutiveTeam />
+      {/* <AboutSection /> */}
+     
       <Manufacturing />
       <ServicesSection />
       <Industries />
       <Process />
-      <WhyChooseUs />
+      {/* <WhyChooseUs /> */}
      
       <MachinerySection />
-      <Sustainability />
+      {/* <Sustainability /> */}
+       <ExecutiveTeam />
       <Testimonials />
       <GlobalReach />
       <ContactSection />

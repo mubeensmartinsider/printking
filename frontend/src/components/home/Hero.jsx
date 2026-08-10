@@ -57,7 +57,7 @@ export default function Hero() {
           alignItems: "center",
         }}
       >
-        <div className="max-w-4xl">
+        <div className="max-w-4xl" style={{paddingTop: 50}}>
           {/* Label */}
           <div className="hero-label inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-4 py-2 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
