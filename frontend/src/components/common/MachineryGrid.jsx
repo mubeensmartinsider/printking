@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
-/* Warm placeholder — swap inner block for <img> when photos arrive */
-function MachinePlaceholder({ name }) {
+function MachineImage({ m }) {
   return (
-    <div className="absolute inset-0 bg-[linear-gradient(145deg,#1c1814,#241f1a)]">
-      <div className="grain absolute inset-0 opacity-[0.05]" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-        <span className="display text-2xl text-platinum/70">{name}</span>
-        <span className="label mt-2 text-gold/70">Photo pending</span>
-      </div>
+    <div className="absolute inset-0 bg-graphite">
+      <img
+        src={m.img}
+        alt={m.name}
+        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(transparent_45%,rgba(13,11,9,0.92))]" />
     </div>
   );
 }
@@ -22,13 +22,12 @@ function MachineCell({ m, big, onClick }) {
       onClick={onClick}
       className={`group relative overflow-hidden border border-white/[0.06] ${
         m.size === "wide" ? "sm:col-span-2" : ""
-      } ${big ? "h-[340px]" : "h-[240px]"}`}
+      } ${big ? "h-[240px]" : "h-[160px]"}`}
     >
-      {/* MACHINE PHOTO: {m.name} — Replace MachinePlaceholder with <img> */}
-      <MachinePlaceholder name={m.name} />
+      {/* MACHINE PHOTO */}
+      <MachineImage m={m} />
 
       {/* Resting overlay (bottom 50%) */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(transparent 45%, rgba(13,11,9,0.92))" }} />
       <div className="absolute inset-x-0 bottom-0 p-5 text-left">
         <span className="label text-gold">{m.category}</span>
         <h3 className="mt-1 text-base font-semibold text-platinum">{m.name}</h3>
@@ -61,11 +60,11 @@ export default function MachineryGrid({ items }) {
 
   return (
     <>
-      <div className="space-y-5">
+      <div>
         {/* Hero cell — flagship press */}
         <MachineCell m={hero} big onClick={() => setActive(hero)} />
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 [grid-auto-flow:dense]">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 [grid-auto-flow:dense]">
           {rest.map((m) => (
             <MachineCell key={m.name} m={m} onClick={() => setActive(m)} />
           ))}
@@ -77,7 +76,12 @@ export default function MachineryGrid({ items }) {
           {active && (
             <div>
               <div className="relative h-72">
-                <MachinePlaceholder name={active.name} />
+                <img
+                  src={active.img}
+                  alt={active.name}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(transparent_40%,rgba(13,11,9,0.9))]" />
               </div>
               <div className="flex items-start justify-between p-6">
                 <div>

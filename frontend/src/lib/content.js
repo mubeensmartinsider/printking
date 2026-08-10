@@ -108,6 +108,7 @@ export const LEADERSHIP = {
     signature: "Muhammad Shafiq Chaudhry",
     name: "Muhammad Shafiq Chaudhry",
     title: "Chief Executive Officer",
+    img: "/assets/3.jpeg",
   },
   md: {
     eyebrow: "MANAGING DIRECTOR",
@@ -179,13 +180,13 @@ export const PROCESS = [
   { num: "02", title: "Structural Design", desc: "Our in-house engineers create the dieline and structural specification — optimised for your product, your shelf and your shipping." },
   { num: "03", title: "Digital Proof", desc: "A full digital proof is produced for approval before any plate is made. Colours are Pantone-matched and verified against your brand guidelines." },
   { num: "04", title: "Prototype", desc: "A physical sample is produced at full specification. You see, hold and approve the actual product before full production begins." },
-  { num: "05", title: "Press Run", desc: "Approved files go to press on our Heidelberg and KBA machines. Every sheet is monitored for colour, registration and ink density." },
+  { num: "05", title: "Press Run", desc: "Approved files go to press on our Heidelberg machines. Every sheet is monitored for colour, registration and ink density." },
   { num: "06", title: "Finishing & QC", desc: "Die-cutting, lamination, foiling, UV and embossing applied in sequence. Every finished unit passes our QC checkpoint before packing." },
   { num: "07", title: "Packing & Delivery", desc: "Units are counted, packed, palletized and dispatched — local delivery or freight-forwarded internationally with full documentation." },
 ];
 
 export const WHY_CHOOSE = [
-  { num: "01", title: "Heidelberg Precision", desc: "German-engineered Heidelberg and KBA offset presses deliver 18,000 sheets per hour with ISO-calibrated color accuracy and registration precision." },
+  { num: "01", title: "Heidelberg Precision", desc: "German-engineered Heidelberg offset presses deliver 18,000 sheets per hour with ISO-calibrated color accuracy and registration precision." },
   { num: "02", title: "Premium Materials", desc: "FSC-certified paper stocks, imported specialty substrates, archival-grade inks and premium coatings from international suppliers." },
   { num: "03", title: "In-House Expertise", desc: "Complete pre-press department with CTP technology, structural engineers for packaging design, and experienced press operators." },
   { num: "04", title: "Fast Production", desc: "Standard turnaround 7-10 working days. Express 48-72 hour production available for urgent print runs." },
@@ -198,17 +199,18 @@ export const WHY_CHOOSE = [
 export const MACHINERY = {
   eyebrow: "OUR INFRASTRUCTURE",
   headline: ["The Machines Behind", "the Craft."],
-  sub: "A controlled, precision-calibrated production environment. Climate-regulated. ISO-audited. Running at international manufacturing standards six days a week.",
-  banner: "Total covered production area: 12,000 sq mtr — 8 Heidelberg presses — 60 production specialists",
+  sub: "A controlled, precision-calibrated production environment. Climate-regulated. ISO-9001:2015 audited. Running at international manufacturing standards six days a week.",
+  banner: "Total covered production area: 12,000 sq m — 8 Heidelberg presses — 60 production specialists",
   items: [
-    { name: "Heidelberg Speedmaster SX 102", category: "Offset Printing", spec: "8-color · 18,000 sph", size: "hero", specs: ["8-color sheet-fed", "18,000 sheets per hour", "Format up to 720×1020mm"], capability: "The benchmark press for premium commercial and packaging print worldwide." },
-    { name: "KBA Rapida 106", category: "Offset Printing", spec: "6-color large format · UV", size: "small", specs: ["6-color large format", "15,000 sheets per hour", "UV-capable"], capability: "Large-format runs for oversized packaging and high-volume commercial work." },
-    { name: "Bobst SP 102-E", category: "Die Cutting", spec: "±0.1mm tolerance", size: "small", specs: ["±0.1mm cutting tolerance", "7,500 sheets per hour", "Full-format"], capability: "Precision die-cutting for complex packaging structures and intricate shapes." },
-    { name: "Heidelberg Stahlfolder", category: "Folding & Gluing", spec: "300 m/min · inline gluing", size: "wide", specs: ["300 metres per minute", "Multi-format capability", "Inline gluing"], capability: "High-speed folding and gluing for folding cartons and mailer boxes." },
-    { name: "Hot Foil Stamping", category: "Finishing", spec: "Metallic & holographic foil", size: "small", specs: ["Metallic & holographic foil", "Combined emboss capability", "120×160mm max"], capability: "Gold, silver, copper and custom foil application with simultaneous emboss." },
-    { name: "Flat Bed Laminator", category: "Lamination", spec: "Matte / Gloss / Soft-touch", size: "small", specs: ["Matte, gloss & soft-touch films", "200 metres per minute", "Wide format"], capability: "Premium surface lamination for all packaging and print products." },
-    { name: "UV Coating System", category: "UV Coating", spec: "Spot UV · full flood", size: "small", specs: ["Spot UV & full flood", "3D effect coating", "High-gloss & matte UV"], capability: "Selective and full-surface UV coating for premium tactile finishes." },
-    { name: "Rigid Box Assembly Line", category: "Box Assembly", spec: "Semi-automated · hand-finish", size: "small", specs: ["Semi-automated assembly", "Hand-finish stations", "Magnetic, telescopic & clamshell"], capability: "Luxury rigid box production combining mechanical precision with artisan finishing." },
+    { name: "Heidelberg Speedmaster SX 102", category: "Offset Printing", spec: "8-color · 18,000 sph", size: "hero", img: "/assets/1.jpeg", specs: ["8-color sheet-fed", "18,000 sheets per hour", "Format up to 720×1020mm"], capability: "The benchmark press for premium commercial and packaging print worldwide." },
+    { name: "Heidelberg Speedmaster CD 102", category: "Offset Printing", spec: "6-color · 15,000 sph", size: "small", img: "/assets/2.jpeg", specs: ["6-color sheet-fed", "15,000 sheets per hour", "Perfecting capability"], capability: "Versatile 6-color press for high-quality commercial and packaging work." },
+    { name: "Heidelberg Speedmaster XL 106", category: "Offset Printing", spec: "8-color · 18,000 sph", size: "small", img: "/assets/3.jpeg", specs: ["8-color sheet-fed", "18,000 sheets per hour", "Autoplate Advanced"], capability: "Flagship XL platform delivering maximum productivity and print quality." },
+    { name: "Heidelberg Stahlfolder", category: "Folding & Gluing", spec: "300 m/min · inline gluing", size: "wide", img: "/assets/4.jpeg", specs: ["300 metres per minute", "Multi-format capability", "Inline gluing"], capability: "High-speed folding and gluing for folding cartons and mailer boxes." },
+    { name: "Heidelberg Polar 115", category: "Cutting", spec: "Programmable · ±0.1mm", size: "small", img: "/assets/5.jpeg", specs: ["Programmable cutting", "±0.1mm precision", "115cm cutting width"], capability: "Precision guillotine cutting for exact sheet and finished product sizing." },
+    { name: "Heidelberg Suprasetter", category: "Computer-to-Plate", spec: "Kodak CTP · 2400 dpi", size: "small", img: "/assets/6.jpeg", specs: ["Thermal CTP imaging", "2400 dpi resolution", "Auto plate loading"], capability: "Precision plate imaging for razor-sharp reproduction of every detail." },
+    { name: "Heidelberg Easyfold", category: "Folding & Gluing", spec: "Auto setup · 200 m/min", size: "small", img: "/assets/7.jpeg", specs: ["Automatic setup", "200 metres per minute", "Multi-pocket folding"], capability: "Automated folding system for consistent, high-speed carton production." },
+    { name: "Heidelberg Promatrix 106", category: "Die Cutting", spec: "±0.1mm tolerance", size: "small", img: "/assets/8.jpeg", specs: ["±0.1mm cutting tolerance", "7,500 sheets per hour", "Full-format 106×106cm"], capability: "Precision die-cutting for complex packaging structures and intricate shapes." },
+    { name: "Heidelberg Dymatrix 106", category: "Die Cutting", spec: "Hot foil · emboss · die-cut", size: "small", img: "/assets/9.jpeg", specs: ["Hot foil stamping", "Embossing & debossing", "Combined die-cutting"], capability: "Multi-function finishing with foil stamping, embossing and die-cutting in one pass." },
   ],
 };
 

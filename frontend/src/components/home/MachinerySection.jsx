@@ -1,19 +1,17 @@
 import React from "react";
 import { MACHINERY } from "../../lib/content";
 import MachineryGrid from "../common/MachineryGrid";
-import { useReveal } from "../../lib/animations";
 
 export default function MachinerySection() {
-  const headRef = useReveal();
   return (
-    <section data-testid="machinery-section" className="bg-carbon py-28">
-      <div className="section-pad mx-auto max-w-[1400px]">
-        <div ref={headRef} className="mb-16 max-w-2xl">
+    <section data-testid="machinery-section" className="bg-carbon pt-8">
+      <div className="px-6 md:px-10 lg:px-16 mx-auto max-w-[1400px]">
+        <div className="max-w-2xl">
           <span className="label text-gold">{MACHINERY.eyebrow}</span>
-          <h2 className="display mt-6 text-4xl leading-[1.08] text-platinum sm:text-5xl">
+          <h2 className="display text-4xl leading-[1.08] text-platinum sm:text-5xl">
             {MACHINERY.headline[0]} <span className="italic">{MACHINERY.headline[1]}</span>
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-platinum/55">{MACHINERY.sub}</p>
+          <p className="text-base leading-relaxed text-platinum/55">{MACHINERY.sub}</p>
         </div>
 
         <MachineryGrid items={MACHINERY.items} />

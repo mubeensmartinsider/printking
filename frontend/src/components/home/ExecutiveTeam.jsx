@@ -24,7 +24,11 @@ export default function ExecutiveTeam() {
                 <div className="portrait-frame"></div>
                 <div className="portrait-dot-tl"></div>
                 <div className="portrait-dot-br"></div>
-                <span className="portrait-initials">PK</span>
+                {CEO.img ? (
+                  <img src={CEO.img} alt={CEO.name} className="absolute inset-0 h-full w-full object-cover" />
+                ) : (
+                  <span className="portrait-initials">PK</span>
+                )}
               </div>
               <p className="text-center font-serif text-base text-platinum mt-4">{CEO.name}</p>
               <p className="text-center label text-gold text-[10px] mt-1">{CEO.title}</p>

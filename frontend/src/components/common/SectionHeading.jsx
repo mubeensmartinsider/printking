@@ -16,7 +16,7 @@ export default function SectionHeading({
   const subColor = light ? "text-obsidian/60" : "text-platinum/55";
 
   return (
-    <div ref={ref} className={`flex max-w-2xl flex-col gap-5 ${alignCls} ${className}`}>
+    <div ref={ref} className={`flex max-w-2xl flex-col gap-2 ${alignCls} ${className}`}>
       {eyebrow && <span className="label text-gold">{eyebrow}</span>}
       <h2 className={`display text-balance text-4xl sm:text-5xl lg:text-[52px] ${titleColor}`}>
         {title}
