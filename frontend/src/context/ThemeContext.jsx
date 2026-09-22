@@ -3,19 +3,12 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(true);
-
-  // Initialize theme from localStorage
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDark(savedTheme === "dark");
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setIsDark(prefersDark);
-    }
-  }, []);
+  // Light theme by default. Only an explicit user choice (v2 key) is honored,
+  // so stale "theme: dark" values saved by the old dark-default build are ignored.
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("themeExplicit") === "dark";
+  });
 
   // Update DOM and localStorage when theme changes
   useEffect(() => {
@@ -23,9 +16,11 @@ export const ThemeProvider = ({ children }) => {
     if (isDark) {
       root.classList.add("dark");
       localStorage.setItem("theme", "dark");
+      localStorage.setItem("themeExplicit", "dark");
     } else {
       root.classList.remove("dark");
       localStorage.setItem("theme", "light");
+      localStorage.setItem("themeExplicit", "light");
     }
   }, [isDark]);
 

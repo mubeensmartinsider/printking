@@ -48,8 +48,8 @@ export default function Hero() {
         backgroundColor: "var(--color-bg-primary)",
       }}
     >
-      {/* Spacer to clear the fixed navbar */}
-      <div className="h-20 md:h-24" />
+      {/* Spacer to clear the fixed navbar + logo strip */}
+      <div className="h-32 md:h-36" />
 
       {/* Banner (1600x550) with text overlay */}
       <div className="relative w-full">

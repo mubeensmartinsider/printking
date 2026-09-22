@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
-import { NAV_LINKS } from "../../lib/content";
+import { Menu, X, ChevronDown, Phone, Search, Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
+import { NAV_LINKS, COMPANY } from "../../lib/content";
 import MegaMenu from "./MegaMenu";
 import ThemeToggle from "../common/ThemeToggle";
 
@@ -19,13 +19,25 @@ const MORE_LINKS = [
   { label: "Contact",         to: "/contact" },
 ];
 
+/* pages searchable from the navbar */
+const SEARCH_PAGES = [...COMPACT_NAV_LINKS, ...MORE_LINKS];
+
+const SOCIALS = [
+  { label: "LinkedIn",  href: COMPANY.social.linkedin,  Icon: Linkedin },
+  { label: "Instagram", href: COMPANY.social.instagram, Icon: Instagram },
+  { label: "Facebook",  href: COMPANY.social.facebook,  Icon: Facebook },
+  { label: "YouTube",   href: COMPANY.social.youtube,   Icon: Youtube },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen]         = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [query, setQuery]       = useState("");
   const moreRef     = useRef(null);
   const servicesRef = useRef(null);
+  const searchRef   = useRef(null);
   const navigate    = useNavigate();
   const location    = useLocation();
 
@@ -41,12 +53,23 @@ export default function Navbar() {
   useEffect(() => {
     const handler = (e) => {
       if (moreRef.current && !moreRef.current.contains(e.target)) setMoreOpen(false);
+      if (searchRef.current && !searchRef.current.contains(e.target)) setQuery("");
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   const isMoreActive = MORE_LINKS.some((l) => location.pathname === l.to);
+
+  /* ── search ── */
+  const results = query.trim()
+    ? SEARCH_PAGES.filter((l) => l.label.toLowerCase().includes(query.trim().toLowerCase()))
+    : [];
+
+  const goToPage = (l) => {
+    navigate(l.to);
+    setQuery("");
+  };
 
   /* nav link colour — visible on both themes */
   const linkCls = (active) =>
@@ -62,8 +85,8 @@ export default function Navbar() {
           
       }`}
       style={{
-        backgroundColor:  "var(--surface-glass-nav)" ,
-        backdropFilter:   "blur(20px) saturate(160%)" ,
+        backgroundColor: "var(--surface-glass-nav, var(--surface-base))",
+        backdropFilter:  "blur(20px) saturate(160%)",
       }}
       // className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
       //   scrolled
@@ -75,16 +98,90 @@ export default function Navbar() {
       //   backdropFilter:  scrolled ? "blur(20px) saturate(160%)" : "none",
       // }}
     >
-      <nav className="section-pad mx-auto flex h-[64px] md:h-[72px] max-w-[1400px] items-center justify-between">
+      {/* ── Upper header: logo + search ── */}
+      <div className="border-b border-border-soft">
+        <div className="section-pad mx-auto flex max-w-[1400px] items-center justify-between gap-4 py-2 md:py-2.5">
+          <Link to="/" data-testid="logo-link" className="group relative flex items-center">
+            <img
+              src="/assets/logo.png"
+              alt="PrintKing Logo"
+              className="h-10 w-auto md:h-12 rounded-sm transition-transform duration-300 group-hover:scale-105"
+            />
+          </Link>
 
-        {/* ── Logo ── */}
-        <Link to="/" data-testid="logo-link" className="group relative flex items-center gap-2">
-          <img
-            src="/assets/logo.jpeg"
-            alt="PrintKing Logo"
-            className="h-9 w-auto md:h-11 rounded-sm transition-transform duration-300 group-hover:scale-105"
-          />
-        </Link>
+          {/* Search + socials */}
+          <div className="flex items-center gap-2 sm:gap-3">
+          <div ref={searchRef} className="relative w-28 sm:w-44 lg:w-64">
+            <div className="flex items-center gap-2 h-9 rounded-lg border border-border-strong bg-surface-elevated px-3 transition-colors duration-300 focus-within:border-gold/60">
+              <Search size={15} className="shrink-0 text-gold" />
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") setQuery("");
+                  if (e.key === "Enter" && results.length > 0) goToPage(results[0]);
+                }}
+                placeholder="Search pages…"
+                aria-label="Search site"
+                className="w-full bg-transparent text-[13px] text-ink placeholder:text-ink-tertiary outline-none"
+              />
+              {query && (
+                <button
+                  onClick={() => setQuery("")}
+                  aria-label="Clear search"
+                  className="shrink-0 text-ink opacity-40 hover:opacity-100 transition-opacity"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
+
+            {/* Results dropdown */}
+            {query.trim() && (
+              <div className="absolute right-0 top-full mt-2 w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-lg border border-border-soft bg-surface-floating backdrop-blur-[20px] shadow-xl z-50">
+                {results.length > 0 ? (
+                  <div className="py-2">
+                    {results.map((l) => (
+                      <button
+                        key={l.to}
+                        onClick={() => goToPage(l)}
+                        className="flex w-full items-center gap-2 px-4 py-2.5 text-sm text-left text-ink opacity-70 hover:opacity-100 hover:bg-surface-hover transition-all duration-200"
+                      >
+                        <Search size={13} className="shrink-0 text-gold" />
+                        {l.label}
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="px-4 py-3 text-sm text-ink-tertiary">No results for “{query}”</div>
+                )}
+              </div>
+            )}
+          </div>
+
+            {/* Socials */}
+            <div className="hidden sm:flex items-center gap-2">
+              {SOCIALS.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-border-soft text-ink opacity-60 hover:opacity-100 hover:text-gold hover:border-gold/50 transition-all duration-300"
+                >
+                  <Icon size={15} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Lower header: navbar ── */}
+      <nav className="section-pad mx-auto flex h-[64px] md:h-[72px] max-w-[1400px] items-center justify-between">
 
         {/* ── Desktop Nav ── */}
         <div className="hidden items-center gap-0.5 lg:flex">
