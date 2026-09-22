@@ -126,13 +126,13 @@ export default function Hero() {
 
       {/* Stats Bar - below the banner */}
       <div className="relative z-10 mx-auto w-full max-w-[1480px] px-4 py-8 sm:px-6 md:px-8 md:py-10 lg:px-12 xl:px-16">
-        <div className="grid grid-cols-2 gap-6 rounded-2xl border border-border-strong bg-surface-elevated p-6 shadow-sm sm:gap-8 md:p-8 lg:grid-cols-4 lg:gap-10">
+        <div className="grid grid-cols-2 gap-6 rounded-2xl bg-[#2dabe2] p-6 text-center shadow-sm sm:gap-8 md:p-8 lg:grid-cols-4 lg:gap-10">
           {HERO.stats.map((stat, idx) => (
             <div key={idx} className="hero-stat group">
-              <div className="text-2xl font-light tracking-tight text-ink transition-transform duration-300 group-hover:scale-110 sm:text-3xl lg:text-4xl">
+              <div className="text-2xl font-medium tracking-tight text-white transition-transform duration-300 group-hover:scale-110 sm:text-3xl lg:text-4xl">
                 {stat.value}
               </div>
-              <div className="mt-2 text-[11px] font-medium tracking-wider text-ink/45 sm:text-xs">
+              <div className="mt-2 text-[11px] font-semibold tracking-wider text-white/90 sm:text-xs">
                 {stat.label}
               </div>
             </div>

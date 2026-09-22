@@ -64,8 +64,9 @@
   --blur-subtle: blur(8px) saturate(120%);
 
   /* Typography */
-  --font-display:   "Cormorant Garamond", Georgia, serif;
-  --font-sans:      "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display:   "Playfair Display", Georgia, serif;
+  --font-serif-alt: "Playfair Display", Georgia, serif;
+  --font-sans:      "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Motion */
   --ease-lux:       cubic-bezier(0.16, 1, 0.3, 1);
