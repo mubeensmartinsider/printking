@@ -86,6 +86,20 @@
   --shadow-accent-md: 0 0 24px rgba(229, 202, 92, 0.35);
 }
 
+/* ------------------------------------------------------------
+   Re-scope accents for ANY element forced into dark styling
+   (e.g. the always-dark navbar uses class="dark" in light theme).
+   :root.dark / html.dark above only fire on <html>, so elements
+   with a local .dark class would otherwise inherit the LIGHT
+   accent. Values mirror :root.dark exactly.
+   ------------------------------------------------------------ */
+.dark {
+  --color-accent:       #e5ca5c;
+  --color-accent-dark:  #d9b860;
+  --color-accent-light: #f2d873;
+  --color-accent-soft:  #2d2520;
+}
+
 /* ============================================================
    Global Theme-Aware Styles
    ============================================================ */

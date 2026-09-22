@@ -74,32 +74,22 @@ export default function Navbar() {
   /* nav link colour — visible on both themes */
   const linkCls = (active) =>
     `label relative px-3 xl:px-4 py-2 text-[13px] xl:text-sm font-medium tracking-wider uppercase transition-all duration-300 ${
-      active ? "text-gold" : "text-ink/60 hover:text-ink"
+      active ? "text-gold" : "text-platinum/60 hover:text-platinum"
     }`;
 
   return (
     <header
       data-testid="navbar"
-       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-         "border-b border-border-soft shadow-md"
-          
-      }`}
-      style={{
-        backgroundColor: "var(--surface-glass-nav, var(--surface-base))",
-        backdropFilter:  "blur(20px) saturate(160%)",
-      }}
-      // className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-      //   scrolled
-      //     ? "border-b border-border-soft shadow-md"
-      //     : "border-b border-transparent"
-      // }`}
-      // style={{
-      //   backgroundColor: scrolled ? "var(--surface-glass-nav)" : "transparent",
-      //   backdropFilter:  scrolled ? "blur(20px) saturate(160%)" : "none",
-      // }}
+      className="fixed inset-x-0 top-0 z-50 transition-all duration-500 border-b border-border-soft shadow-md"
     >
-      {/* ── Upper header: logo + search ── */}
-      <div className="border-b border-border-soft">
+      {/* ── Upper header: logo + search (theme-aware) ── */}
+      <div
+        className="border-b border-border-soft"
+        style={{
+          backgroundColor: "var(--surface-glass-nav, var(--surface-base))",
+          backdropFilter:  "blur(20px) saturate(160%)",
+        }}
+      >
         <div className="section-pad mx-auto flex max-w-[1400px] items-center justify-between gap-4 py-2 md:py-2.5">
           <Link to="/" data-testid="logo-link" className="group relative flex items-center">
             <img
@@ -180,8 +170,14 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ── Lower header: navbar ── */}
-      <nav className="section-pad mx-auto flex h-[64px] md:h-[72px] max-w-[1400px] items-center justify-between">
+      {/* ── Lower header: navbar (always dark-themed via .dark scope) ── */}
+      <nav
+        className="dark section-pad mx-auto flex h-[64px] md:h-[72px] max-w-[1400px] items-center justify-between"
+        style={{
+          backgroundColor: "var(--surface-glass-nav, #0d0b09)",
+          backdropFilter:  "blur(20px) saturate(160%)",
+        }}
+      >
 
         {/* ── Desktop Nav ── */}
         <div className="hidden items-center gap-0.5 lg:flex">
@@ -301,7 +297,7 @@ export default function Navbar() {
 
       {/* ── Mobile Menu ── */}
       <div
-        className={`overflow-hidden border-t border-border-soft bg-surface-base backdrop-blur-[20px] transition-all duration-500 lg:hidden ${
+        className={`dark overflow-hidden border-t border-border-soft bg-surface-base backdrop-blur-[20px] transition-all duration-500 lg:hidden ${
           open ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
