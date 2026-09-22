@@ -66,8 +66,6 @@ const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
               className="w-full h-full object-cover"
               loading={idx === currentIndex ? "eager" : "lazy"}
             />
-            {/* Dark overlay for readability */}
-            <div className="absolute inset-0 bg-black/20" />
           </div>
         ))}
       </div>
