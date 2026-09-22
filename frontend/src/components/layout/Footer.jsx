@@ -10,7 +10,7 @@ const SocialIcon = ({ href, label, children }) => (
     rel="noopener noreferrer"
     aria-label={label}
     data-testid={`social-${label.toLowerCase()}`}
-    className="flex h-10 w-10 items-center justify-center border border-white/[0.08] text-platinum/70 transition-all duration-300 hover:border-gold hover:text-gold"
+    className="flex h-10 w-10 items-center justify-center border border-border-soft text-ink/60 transition-all duration-300 hover:border-gold hover:text-gold rounded"
   >
     {children}
   </a>
@@ -25,10 +25,7 @@ const Col = ({ title, children }) => (
 
 const FLink = ({ to, children }) => (
   <li>
-    <Link
-      to={to}
-      className="text-sm text-platinum/60 transition-colors duration-300 hover:text-platinum"
-    >
+    <Link to={to} className="text-sm text-ink/55 transition-colors duration-300 hover:text-ink">
       {children}
     </Link>
   </li>
@@ -36,68 +33,57 @@ const FLink = ({ to, children }) => (
 
 export default function Footer() {
   return (
-    <footer data-testid="footer" className="border-t border-white/[0.06] bg-obsidian">
+    <footer data-testid="footer" className="border-t border-border-soft bg-surface-primary">
       <div className="section-pad mx-auto max-w-[1400px] py-20">
         <div className="grid grid-cols-2 gap-12 md:grid-cols-3 lg:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
-            <Link to="/" className="display text-[28px] font-medium text-platinum">
+            <Link to="/" className="display text-[28px] font-medium text-ink">
               PRINT<span className="text-gold">KING</span>
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-platinum/55">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink/55">
               {COMPANY.tagline}. Luxury packaging manufactured to international standards.
             </p>
             <div className="mt-6 flex gap-3">
-              <SocialIcon href={COMPANY.social.linkedin} label="LinkedIn"><Linkedin size={17} /></SocialIcon>
+              <SocialIcon href={COMPANY.social.linkedin}  label="LinkedIn" ><Linkedin  size={17} /></SocialIcon>
               <SocialIcon href={COMPANY.social.instagram} label="Instagram"><Instagram size={17} /></SocialIcon>
-              <SocialIcon href={COMPANY.social.facebook} label="Facebook"><Facebook size={17} /></SocialIcon>
-              <SocialIcon href={COMPANY.social.youtube} label="YouTube"><Youtube size={17} /></SocialIcon>
+              <SocialIcon href={COMPANY.social.facebook}  label="Facebook" ><Facebook  size={17} /></SocialIcon>
+              <SocialIcon href={COMPANY.social.youtube}   label="YouTube"  ><Youtube   size={17} /></SocialIcon>
             </div>
           </div>
 
           <Col title="Services">
-            {FOOTER.services.map((s) => (
-              <FLink key={s} to="/services">{s}</FLink>
-            ))}
+            {FOOTER.services.map((s) => <FLink key={s} to="/services">{s}</FLink>)}
           </Col>
 
           <Col title="Company">
             {FOOTER.company.map((c) => {
-              const map = {
-                About: "/about",
-                Portfolio: "/portfolio",
-                "Case Studies": "/case-studies",
-                Machinery: "/machinery",
-                Sustainability: "/sustainability",
-                FAQ: "/faq",
-              };
+              const map = { About: "/about", Portfolio: "/portfolio", "Case Studies": "/case-studies", Machinery: "/machinery", Sustainability: "/sustainability", FAQ: "/faq" };
               return <FLink key={c} to={map[c] || "/"}>{c}</FLink>;
             })}
           </Col>
 
           <Col title="Industries">
-            {FOOTER.industries.map((i) => (
-              <FLink key={i} to="/services">{i}</FLink>
-            ))}
+            {FOOTER.industries.map((i) => <FLink key={i} to="/services">{i}</FLink>)}
           </Col>
 
           <Col title="Contact">
-            <li className="text-sm text-platinum/60">{COMPANY.phone}</li>
-            <li className="text-sm text-platinum/60">{COMPANY.email}</li>
-            <li className="text-sm leading-relaxed text-platinum/60">{COMPANY.address}</li>
+            <li className="text-sm text-ink/55">{COMPANY.phone}</li>
+            <li className="text-sm text-ink/55">{COMPANY.email}</li>
+            <li className="text-sm leading-relaxed text-ink/55">{COMPANY.address}</li>
             <li className="flex flex-wrap gap-2 pt-3">
               {FOOTER.certifications.map((c) => (
-                <span key={c} className="chip label text-platinum/60">{c}</span>
+                <span key={c} className="chip label text-ink/55 border border-border-soft px-2 py-0.5 rounded text-xs">{c}</span>
               ))}
             </li>
           </Col>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-8 text-xs text-platinum/45 sm:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border-soft pt-8 text-xs text-ink/40 sm:flex-row">
           <p>© 2026 {COMPANY.name}. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/" className="hover:text-platinum">Privacy Policy</Link>
-            <Link to="/" className="hover:text-platinum">Terms</Link>
+            <Link to="/" className="hover:text-ink">Privacy Policy</Link>
+            <Link to="/" className="hover:text-ink">Terms</Link>
           </div>
         </div>
       </div>

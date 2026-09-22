@@ -1,0 +1,214 @@
+/* ============================================================
+   THEME SYSTEM — Light / Dark Mode
+   Primary Accent: #f2d873
+   ============================================================ */
+
+:root {
+  /* Light Theme (default) */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f7f5;
+  --color-bg-tertiary: #f0ebe2;
+  --color-surface: rgba(255, 255, 255, 0.6);
+  --color-surface-glass: rgba(255, 255, 255, 0.4);
+  
+  --color-text-primary: #1a1714;
+  --color-text-secondary: #6b6b6b;
+  --color-text-tertiary: #a0a0a0;
+  --color-text-inverse: #ffffff;
+  
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-light: rgba(0, 0, 0, 0.04);
+  --color-divider: rgba(0, 0, 0, 0.06);
+  
+  /* Accent Color - Premium Gold (deep bronze in light mode for contrast on white/cream) */
+  --color-accent: #6b4f15;
+  --color-accent-dark: #4f3a0e;
+  --color-accent-light: #8a671f;
+  --color-accent-soft: #f6f0e3;
+  
+  /* Semantic Colors */
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  
+  --shadow-accent-sm: 0 0 12px rgba(242, 216, 115, 0.2);
+  --shadow-accent-md: 0 0 24px rgba(242, 216, 115, 0.3);
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme */
+:root.dark {
+  --color-bg-primary: #0d0b09;
+  --color-bg-secondary: #14120f;
+  --color-bg-tertiary: #1a1714;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-surface-glass: rgba(255, 255, 255, 0.06);
+  
+  --color-text-primary: #f0ebe2;
+  --color-text-secondary: #b8b5af;
+  --color-text-tertiary: #7a7770;
+  --color-text-inverse: #1a1714;
+  
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-light: rgba(255, 255, 255, 0.04);
+  --color-divider: rgba(255, 255, 255, 0.06);
+  
+  /* Accent Color - Premium Gold (adjusted for dark) */
+  --color-accent: #e5ca5c;
+  --color-accent-dark: #d9b860;
+  --color-accent-light: #f2d873;
+  --color-accent-soft: #2d2520;
+  
+  /* Semantic Colors (dark theme adjusted) */
+  --color-success: #10b981;
+  --color-error: #f87171;
+  --color-warning: #fbbf24;
+  --color-info: #60a5fa;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
+  
+  --shadow-accent-sm: 0 0 12px rgba(229, 202, 92, 0.25);
+  --shadow-accent-md: 0 0 24px rgba(229, 202, 92, 0.35);
+}
+
+/* ============================================================
+   Global Theme-Aware Styles
+   ============================================================ */
+
+html {
+  color-scheme: light;
+  background: var(--color-bg-primary);
+}
+
+html.dark {
+  color-scheme: dark;
+  background: var(--color-bg-primary);
+}
+
+body {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  transition: background-color var(--transition-slow),
+              color var(--transition-slow);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.7;
+}
+
+/* Links */
+a {
+  color: var(--color-accent);
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-accent-dark);
+}
+
+/* ============================================================
+   Utility Classes for Theme-Aware Components
+   ============================================================ */
+
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-primary {
+  background-color: var(--color-bg-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--color-bg-tertiary);
+}
+
+.bg-accent-soft {
+  background-color: var(--color-accent-soft);
+}
+
+.border-light {
+  border-color: var(--color-border-light);
+}
+
+.border-default {
+  border-color: var(--color-border);
+}
+
+.shadow-accent-sm {
+  box-shadow: var(--shadow-accent-sm);
+}
+
+.shadow-accent-md {
+  box-shadow: var(--shadow-accent-md);
+}
+
+/* ============================================================
+   Premium Glass Morphism with Theme Support
+   ============================================================ */
+
+.glass {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-border-light);
+}
+
+.glass-strong {
+  background: var(--color-surface);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--color-border);
+}

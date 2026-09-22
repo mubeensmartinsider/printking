@@ -5,12 +5,7 @@ import * as Icons from "lucide-react";
 
 export default function Industries() {
   return (
-    <section data-testid="industries-section" className="relative bg-obsidian py-28 overflow-hidden">
-      {/* Subtle warm radial glow */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[600px] rounded-full bg-gradient-radial from-gold/4 to-transparent opacity-40"></div>
-      </div>
-
+    <section data-testid="industries-section" className="relative bg-surface-base py-28 overflow-hidden">
       <div className="section-pad mx-auto max-w-4xl relative z-10">
         <SectionHeading
           eyebrow="WHO WE SERVE"
@@ -21,51 +16,23 @@ export default function Industries() {
           className="mb-20"
         />
 
-        {/* 3-column grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {INDUSTRIES.map((ind) => {
             const Icon = Icons[ind.icon];
-            
             return (
-              <div 
+              <div
                 key={ind.name}
-                className="group relative overflow-hidden rounded-sm border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark p-8 shadow-lg transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_0_1px_rgba(197,160,90,0.15)] hover:-translate-y-1.5"
+                className="group relative overflow-hidden rounded-sm border-t-2 border-gold/30 bg-surface-elevated p-8 shadow-sm transition-all duration-300 hover:border-gold hover:-translate-y-1.5"
+                style={{ boxShadow: "var(--shadow-card)" }}
               >
-                {/* Background pattern */}
-                <div className="absolute inset-0 bg-pattern-industries pointer-events-none" />
-                
-                {/* Card glow overlay */}
-                <div className="card-glow-overlay" />
-
-                {/* Ghost icon in background */}
-                {Icon && (
-                  <div className="industry-card-ghost-icon">
-                    <Icon className="w-full h-full text-gold" />
-                  </div>
-                )}
-
-                {/* Corner accents */}
-                <div className="corner-accent corner-accent-tl" />
-                <div className="corner-accent corner-accent-br" />
-
-                {/* Border shimmer */}
-                <div className="card-border-shimmer" />
-
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  {/* Icon */}
                   {Icon && (
                     <Icon className="w-10 h-10 text-gold stroke-1.5 mb-4 transition-transform duration-300 group-hover:scale-110" />
                   )}
-                  
-                  {/* Industry name */}
-                  <h3 className="text-sm font-semibold text-platinum leading-tight mb-2 transition-colors duration-300 group-hover:text-gold">
+                  <h3 className="text-sm font-semibold text-ink leading-tight mb-2 transition-colors duration-300 group-hover:text-gold">
                     {ind.name}
                   </h3>
-
-                  {/* Descriptor */}
-                  <p className="text-xs text-platinum/60 leading-relaxed">
-                    {ind.desc}
-                  </p>
+                  <p className="text-xs text-ink/55 leading-relaxed">{ind.desc}</p>
                 </div>
               </div>
             );

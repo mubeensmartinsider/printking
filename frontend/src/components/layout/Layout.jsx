@@ -49,11 +49,11 @@ export default function Layout({ children }) {
   };
 
   return (
-    <div className="relative min-h-screen bg-obsidian">
+    <div className="relative min-h-screen bg-surface-base text-ink transition-colors duration-300">
       {/* Custom cursor — only on desktop */}
       <CustomCursor />
 
-      {/* Reading progress bar — thin gold line */}
+      {/* Reading progress bar */}
       <div
         className="fixed top-0 left-0 z-[100] h-[2px] bg-gold"
         style={{ width: `${scrollProgress}%`, transition: "width 0.1s linear" }}
@@ -61,7 +61,6 @@ export default function Layout({ children }) {
 
       <Navbar />
 
-      {/* Page transitions */}
       <PageTransition>
         <main>{children}</main>
       </PageTransition>

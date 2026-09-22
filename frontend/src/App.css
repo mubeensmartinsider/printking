@@ -30,8 +30,10 @@ a, button, input, select, textarea, [role="button"] {
 
 .App {
   min-height: 100vh;
-  background: #0d0b09;
+  background: var(--surface-base);
+  color: var(--color-platinum);
   position: relative;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Smooth scroll behavior */
