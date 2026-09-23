@@ -33,7 +33,7 @@ function Row({ item, active, onEnter, onClick }) {
           onClick();
         }
       }}
-      className={`group relative flex cursor-pointer items-start gap-4 border-b border-border-soft px-4 py-5 text-left transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-gold lg:px-6 ${
+      className={`group relative flex cursor-pointer items-center justify-center gap-4 border-b border-border-soft px-4 py-5 text-center transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-gold lg:px-6 ${
         active ? "bg-gold" : "hover:bg-gold/10"
       }`}
     >
@@ -61,16 +61,16 @@ function Row({ item, active, onEnter, onClick }) {
         )}
       </span>
 
-      <span className="min-w-0">
+      <span className="min-w-0 text-center">
         <span
-          className={`block text-[15px] font-bold uppercase tracking-[0.14em] leading-snug transition-colors duration-300 ${
+          className={`block text-[16px] font-bold uppercase tracking-[0.14em] leading-snug transition-colors duration-300 ${
             active ? "text-white" : "text-gold group-hover:text-white"
           }`}
         >
           {item.title}
         </span>
         <span
-          className={`mt-1.5 block text-[13px] leading-relaxed transition-colors duration-300 ${
+          className={`mt-1.5 block text-[15px] leading-relaxed transition-colors duration-300 ${
             active ? "text-white" : "text-ink-secondary group-hover:text-white"
           }`}
         >
@@ -149,8 +149,8 @@ export default function ServicesSection() {
         >
           {/* LEFT — Boxes */}
           <div className="order-2 flex flex-col lg:order-1">
-            <div className="border-b border-border-soft bg-surface-base px-4 py-4 lg:px-6">
-              <span className="label text-gold">Boxes</span>
+            <div className="border-b border-border-soft bg-surface-base px-4 py-4 text-center lg:px-6">
+              <span className="label text-[12px] text-gold">Boxes</span>
             </div>
             {renderColumn(grouped.left)}
           </div>
@@ -192,8 +192,8 @@ export default function ServicesSection() {
 
           {/* RIGHT — Services */}
           <div className="order-3 flex flex-col">
-            <div className="border-b border-border-soft bg-surface-base px-4 py-4 lg:px-6">
-              <span className="label text-gold">Services</span>
+            <div className="border-b border-border-soft bg-surface-base px-4 py-4 text-center lg:px-6">
+              <span className="label text-[12px] text-gold">Services</span>
             </div>
             {renderColumn(grouped.right)}
           </div>
