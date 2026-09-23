@@ -158,6 +158,7 @@ export default function ServicesSection() {
           {/* CENTER — auto-rotating banner */}
           <div className="relative order-1 min-h-[320px] overflow-hidden bg-obsidian lg:order-2 lg:min-h-full">
             <img
+             style={{ backgroundColor: "#faf9f7" }}
               src={activeItem.image}
               alt={`${activeItem.title} showcase`}
               onError={(e) => {
@@ -165,7 +166,7 @@ export default function ServicesSection() {
                 /* Dedicated slug art missing → show the contact sheet until the real file lands */
                 if (!el.src.endsWith(FALLBACK_IMG)) el.src = FALLBACK_IMG;
               }}
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-contain"
             />
 
             {/* Caption + progress bars */}
