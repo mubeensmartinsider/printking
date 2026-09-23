@@ -46,7 +46,7 @@ const MarqueeRow = ({ logos, reverse, duration }) => (
           <div
             key={`${logo.name}-${idx}`}
             aria-hidden={clone || undefined}
-            className="group relative mx-2.5 flex h-16 w-28 shrink-0 items-center justify-center rounded-sm border border-border-strong bg-surface-elevated p-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:bg-surface-hover sm:h-24 sm:w-44"
+            className="group relative mx-2 flex h-14 w-24 shrink-0 items-center justify-center rounded-sm border border-border-strong bg-surface-elevated p-2.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:bg-surface-hover sm:h-20 sm:w-36"
           >
             {/* Animated gold border shimmer on hover (existing utility) */}
             <span aria-hidden="true" className="card-border-shimmer" />
@@ -57,7 +57,7 @@ const MarqueeRow = ({ logos, reverse, duration }) => (
               alt={logo.name}
               loading="lazy"
               decoding="async"
-              className="max-h-10 max-w-full object-contain transition-transform duration-300 group-hover:scale-110 sm:max-h-12"
+              className="max-h-8 max-w-full object-contain transition-transform duration-300 group-hover:scale-110 sm:max-h-10"
             />
 
             {/* Tooltip — row pt-10 keeps it inside the overflow clip */}
@@ -117,7 +117,7 @@ export default function ClientLogos() {
         </div>
 
         {/* Count + sector chips */}
-        <div ref={chipsRef} className="mt-3 flex flex-wrap items-center justify-center gap-2.5">
+        {/* <div ref={chipsRef} className="mt-3 flex flex-wrap items-center justify-center gap-2.5">
           <span className="label rounded-full bg-gold px-4 py-1.5 text-obsidian">
             {LOGOS.length} Brands
           </span>
@@ -129,7 +129,7 @@ export default function ClientLogos() {
               {s}
             </span>
           ))}
-        </div>
+        </div> */}
 
         {/* Two-row marquee: top scrolls right → left, bottom scrolls left → right */}
         <div ref={rowsRef} className="-mx-2 mt-4 flex flex-col md:-mx-4 lg:-mx-6">
