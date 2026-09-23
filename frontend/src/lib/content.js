@@ -217,7 +217,7 @@ export const MACHINERY = {
 export const VIDEO = {
   eyebrow: "INSIDE OUR PRODUCTION",
   headline: "Where Precision Printing Comes to Life.",
-  sub: "Step inside our 12,000 m² facility where Heidelberg engineering meets Pakistani craftsmanship — producing world-class print at industrial scale.",
+  sub: "A rare walk through our 12,000 m² plant — where German engineering meets Pakistani craftsmanship.",
   stats: [
     { label: "18,000 sheets/hr", pos: "top-left" },
     { label: "ISO 9001:2015", pos: "top-right" },

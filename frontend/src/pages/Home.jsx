@@ -27,7 +27,7 @@ export default function Home() {
       <Hero />
       <ClientLogos />
       <ProductionVideo />
-      <Manufacturing />
+      {/* <Manufacturing /> */}
       <ServicesSection />
       <Industries />
       <Process />

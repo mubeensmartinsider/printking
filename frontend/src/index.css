@@ -443,6 +443,18 @@
     animation: floaty 4s ease-in-out infinite;
   }
 
+  /* Ambient drifting glow for section backgrounds */
+  @keyframes glow-drift {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(70px, -50px, 0) scale(1.12); }
+  }
+  .glow-drift {
+    animation: glow-drift 18s ease-in-out infinite alternate;
+  }
+  .glow-drift-rev {
+    animation: glow-drift 22s ease-in-out infinite alternate-reverse;
+  }
+
   /* Custom magnetic cursor */
   .cursor-dot,
   .cursor-ring {

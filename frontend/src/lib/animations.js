@@ -22,6 +22,7 @@ export function useReveal(opts = {}) {
         duration: opts.duration ?? 0.9,
         delay: opts.delay ?? 0,
         ease: "power3.out",
+        clearProps: "transform,opacity",
         scrollTrigger: {
           trigger: el,
           start: opts.start ?? "top 85%",
@@ -48,6 +49,7 @@ export function useStagger(selector = ":scope > *", opts = {}) {
         stagger: opts.stagger ?? 0.08,
         duration: opts.duration ?? 0.7,
         ease: "power2.out",
+        clearProps: "transform,opacity",
         scrollTrigger: {
           trigger: el,
           start: opts.start ?? "top 85%",
