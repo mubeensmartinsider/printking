@@ -30,7 +30,7 @@ export default function Home() {
       {/* <Manufacturing /> */}
       <ServicesSection />
       <Industries />
-      <Process />
+      {/* <Process /> */}
       <MachinerySection />
       <ExecutiveTeam />
       <Testimonials />
