@@ -22,7 +22,7 @@ export default function SectionHeading({
         {titleItalic && <span className="italic"> {titleItalic}</span>}
       </h2>
       {sub && (
-        <p className={`max-w-xl text-base leading-relaxed text-ink/55 ${centered ? "mt-2" : ""}`}>{sub}</p>
+        <p className={`max-w-xl text-base leading-relaxed text-ink-secondary ${centered ? "mt-2" : ""}`}>{sub}</p>
       )}
     </div>
   );
