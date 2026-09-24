@@ -108,7 +108,10 @@ export const LEADERSHIP = {
     signature: "Muhammad Shafiq Chaudhry",
     name: "Muhammad Shafiq Chaudhry",
     title: "Chief Executive Officer",
-    img: "/assets/3.jpeg",
+    /* Portrait path once a real photo exists, e.g. "/assets/ceo.jpg".
+       Left empty until then so the card shows the initials placeholder
+       instead of an unrelated machine photo. */
+    img: "",
   },
   md: {
     eyebrow: "MANAGING DIRECTOR",
