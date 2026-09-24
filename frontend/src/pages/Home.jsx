@@ -1,7 +1,7 @@
 import React from "react";
 import Seo from "../components/common/Seo";
 import Hero from "../components/home/Hero";
-import TrustedBy from "../components/home/TrustedBy";
+import ClientLogos from "../components/home/ClientLogos";
 import AboutSection from "../components/home/AboutSection";
 import ExecutiveTeam from "../components/home/ExecutiveTeam";
 import Manufacturing from "../components/home/Manufacturing";
@@ -25,21 +25,16 @@ export default function Home() {
         path="/"
       />
       <Hero />
-      <TrustedBy />
-       <ProductionVideo />
-      {/* <AboutSection /> */}
-     
-      <Manufacturing />
+      <ClientLogos />
+      <ProductionVideo />
+      {/* <Manufacturing /> */}
       <ServicesSection />
       <Industries />
-      <Process />
-      {/* <WhyChooseUs /> */}
-     
+      {/* <Process /> */}
       <MachinerySection />
-      {/* <Sustainability /> */}
-       <ExecutiveTeam />
+      <ExecutiveTeam />
       <Testimonials />
-      <GlobalReach />
+      {/* <GlobalReach /> */}
       <ContactSection />
     </>
   );

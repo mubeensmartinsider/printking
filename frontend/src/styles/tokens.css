@@ -1,93 +1,166 @@
 /* ============================================================
-   PRINTKING — Design Tokens (WARM dark luxury system)
-   Aged leather · antique gold · dark walnut · cream paper.
-   Single accent: antique gold #C5A05A. No teal/cyan/blue.
+   PRINTKING — Design Tokens
+   Semantic surface/text/border tokens that flip between
+   light (cream/paper) and dark (obsidian/walnut) automatically.
+   Gold accent (#c5a05a) is consistent in both themes.
    ============================================================ */
 
+/* ------------------------------------------------------------------ */
+/* LIGHT MODE  (default — no class needed)                             */
+/* ------------------------------------------------------------------ */
 :root {
-  /* ---- SURFACES (warm near-black, brown undertone — never pure #000) ---- */
-  --surface-base: #0d0b09;
-  --surface-primary: #14110d;
-  --surface-elevated: #1c1814;
-  --surface-floating: #241f1a;
-  --surface-hover: #2a2520;
-  --surface-active: #302a24;
-  --surface-glass: rgba(28, 24, 20, 0.65);
+  /* Surfaces */
+  --surface-base:      #faf9f7;   /* warm white — main page bg          */
+  --surface-primary:   #f4f1ec;   /* slight warm tint                   */
+  --surface-elevated:  #ede9e2;   /* cards, raised panels               */
+  --surface-floating:  #e6e0d6;   /* dropdowns, tooltips                */
+  --surface-hover:     #ddd6cb;   /* hover state                        */
+  --surface-active:    #d5ccbf;   /* pressed state                      */
+  --surface-glass:     rgba(250, 249, 247, 0.72);
 
-  /* ---- Legacy aliases (component compatibility) ---- */
-  --color-obsidian: #0d0b09;
-  --color-carbon: #14110d;
-  --color-graphite: #1c1814;
-  --color-floating: #241f1a;
-  --color-border: rgba(255, 255, 255, 0.05);
-  --color-whisper: rgba(255, 255, 255, 0.08);
-  --color-green-tint: #14110d; /* sustainability uses warm dark, no green */
+  /* Text */
+  --color-platinum:    #1c1a17;   /* primary text (near-black warm)     */
+  --text-secondary:    #5a5248;   /* secondary copy                     */
+  --text-tertiary:     #8a8076;   /* muted / placeholder                */
 
-  /* ---- GOLD ACCENT SYSTEM (the only accent) ---- */
-  --color-gold: #c5a05a;
-  --gold-primary: #c5a05a;
-  --color-gold-soft: #d8b978; /* champagne hover */
-  --gold-light: #d8b978;
-  --color-gold-muted: rgba(197, 160, 90, 0.37);
-  --gold-whisper: rgba(197, 160, 90, 0.08);
-  --copper: #b87333;
-  --silver: #c8c0b4;
+  /* Borders / dividers */
+  --color-border:      rgba(0, 0, 0, 0.10);
+  --color-whisper:     rgba(0, 0, 0, 0.06);
+  --color-border-strong: rgba(0, 0, 0, 0.16);
 
-  /* ---- GOLD GRADIENT VARIANTS ---- */
-  --gold-50: rgba(197, 160, 90, 0.05);
-  --gold-100: rgba(197, 160, 90, 0.1);
-  --gold-200: rgba(197, 160, 90, 0.2);
-  --gold-300: rgba(197, 160, 90, 0.3);
-  --gold-400: rgba(197, 160, 90, 0.4);
-  --gold-500: #c5a05a;
-  --gold-600: #b08a45;
-  --gold-700: #9a7535;
-  --gold-800: #856028;
-  --gold-900: #6f4c1c;
+  /* Gold accent — unchanged across themes */
+  --color-gold:        #c5a05a;
+  --gold-primary:      #c5a05a;
+  --color-gold-soft:   #d8b978;
+  --gold-light:        #d8b978;
+  --color-gold-muted:  rgba(197, 160, 90, 0.35);
+  --gold-whisper:      rgba(197, 160, 90, 0.10);
+  --copper:            #b87333;
+  --silver:            #c8c0b4;
 
-  /* ---- SECONDARY ACCENT (Deep Burgundy) ---- */
-  --color-burgundy: #6B1D2A;
-  --color-burgundy-soft: #8a2e3c;
-  --color-burgundy-muted: rgba(107, 29, 42, 0.3);
-  --color-champagne: #F5E6CC;
-  --color-champagne-muted: rgba(245, 230, 204, 0.15);
+  /* Gold opacity scale */
+  --gold-50:   rgba(197, 160, 90, 0.05);
+  --gold-100:  rgba(197, 160, 90, 0.10);
+  --gold-200:  rgba(197, 160, 90, 0.20);
+  --gold-300:  rgba(197, 160, 90, 0.30);
+  --gold-400:  rgba(197, 160, 90, 0.40);
+  --gold-500:  #c5a05a;
+  --gold-600:  #b08a45;
 
-  /* ---- TEXT (warm cream platinum) ---- */
-  --color-platinum: #f0ebe2;
-  --color-muted: rgba(240, 235, 226, 0.5);
-  --text-secondary: #a89f93;
-  --text-tertiary: #6b6155;
+  /* Gradients */
+  --gradient-card:    linear-gradient(145deg, #ede9e2, #e6e0d6);
+  --gradient-section: linear-gradient(180deg, #faf9f7 0%, #f4f1ec 40%, #faf9f7 100%);
 
-  /* ---- GRADIENTS ---- */
-  --gradient-hero: linear-gradient(135deg, #0d0b09 0%, #1c150d 50%, #0d0b09 100%);
-  --gradient-card: linear-gradient(145deg, #1c1814, #241f1a);
-  --gradient-gold: linear-gradient(135deg, #c5a05a, #d8b978, #b87333);
-  --gradient-section: linear-gradient(180deg, #0d0b09 0%, #14110d 40%, #0d0b09 100%);
-  --gradient-section-alt: linear-gradient(180deg, #14110d 0%, #1c1814 50%, #14110d 100%);
-  --gradient-divider: linear-gradient(90deg, transparent, rgba(197, 160, 90, 0.15), transparent);
+  /* Shadows */
+  --shadow-card:       0 2px 12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+  --shadow-card-hover: 0 8px 32px rgba(0,0,0,0.14), 0 0 0 1px rgba(197,160,90,0.20);
+  --shadow-gold-glow:  0 0 30px rgba(197,160,90,0.15);
+  --shadow-elevated:   0 8px 32px rgba(0,0,0,0.12);
+  --shadow-input-focus: 0 0 0 2px rgba(197,160,90,0.35);
 
-  /* ---- SHADOWS ---- */
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(197, 160, 90, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  --shadow-gold-glow: 0 0 40px rgba(197, 160, 90, 0.12);
-  --shadow-gold-glow-hover: 0 0 60px rgba(197, 160, 90, 0.2);
-  --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.7);
-  --shadow-input-focus: 0 0 0 1px rgba(197, 160, 90, 0.3), 0 0 20px rgba(197, 160, 90, 0.08);
-
-  /* ---- BLUR ---- */
+  /* Shared */
+  --surface-glass-nav:  rgba(250, 249, 247, 0.97);
   --blur-glass: blur(16px) saturate(150%);
   --blur-subtle: blur(8px) saturate(120%);
 
-  /* ---- Typography ---- */
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif-alt: "DM Serif Display", "Cormorant Garamond", Georgia, serif;
+  /* Typography */
+  --font-display:   "Playfair Display", Georgia, serif;
+  --font-serif-alt: "Playfair Display", Georgia, serif;
+  --font-sans:      "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* ---- Motion ---- */
-  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-soft: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --duration-fast: 200ms;
+  /* Motion */
+  --ease-lux:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft:  cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast:  200ms;
   --duration-normal: 400ms;
-  --duration-slow: 600ms;
+  --duration-slow:  600ms;
+
+  /* Shadcn/Radix semantic vars — light */
+  --background:        40 30% 97%;
+  --foreground:        28 15% 12%;
+  --card:              38 25% 95%;
+  --card-foreground:   28 15% 12%;
+  --popover:           38 25% 97%;
+  --popover-foreground: 28 15% 12%;
+  --primary:           38 47% 56%;
+  --primary-foreground: 28 15% 10%;
+  --secondary:         38 20% 90%;
+  --secondary-foreground: 28 15% 12%;
+  --muted:             38 15% 90%;
+  --muted-foreground:  28 10% 45%;
+  --accent:            38 47% 56%;
+  --accent-foreground: 28 15% 10%;
+  --destructive:       0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border:            38 20% 85%;
+  --input:             38 20% 85%;
+  --ring:              38 47% 56%;
+  --radius:            0.5rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* DARK MODE  (.dark class on <html>)                                  */
+/* ------------------------------------------------------------------ */
+.dark {
+  /* Surfaces — warm near-black, brown undertone */
+  --surface-base:      #0d0b09;
+  --surface-primary:   #14110d;
+  --surface-elevated:  #1c1814;
+  --surface-floating:  #241f1a;
+  --surface-hover:     #2a2520;
+  --surface-active:    #302a24;
+  --surface-glass:     rgba(28, 24, 20, 0.65);
+
+  /* Text */
+  --color-platinum:    #f0ebe2;
+  --text-secondary:    #a89f93;
+  --text-tertiary:     #6b6155;
+
+  /* Borders / dividers */
+  --color-border:      rgba(255, 255, 255, 0.07);
+  --color-whisper:     rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Gold accent — same values */
+  --color-gold:        #c5a05a;
+  --gold-primary:      #c5a05a;
+  --color-gold-soft:   #d8b978;
+  --gold-light:        #d8b978;
+  --color-gold-muted:  rgba(197, 160, 90, 0.37);
+  --gold-whisper:      rgba(197, 160, 90, 0.08);
+
+  /* Gradients */
+  --gradient-card:    linear-gradient(145deg, #1c1814, #241f1a);
+  --gradient-section: linear-gradient(180deg, #0d0b09 0%, #14110d 40%, #0d0b09 100%);
+
+  /* Shadows */
+  --shadow-card:       0 4px 24px rgba(0,0,0,0.50), inset 0 1px 0 rgba(255,255,255,0.04);
+  --shadow-card-hover: 0 12px 40px rgba(0,0,0,0.60), 0 0 0 1px rgba(197,160,90,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
+  --shadow-gold-glow:  0 0 40px rgba(197,160,90,0.12);
+  --shadow-elevated:   0 16px 48px rgba(0,0,0,0.70);
+  --shadow-input-focus: 0 0 0 1px rgba(197,160,90,0.30), 0 0 20px rgba(197,160,90,0.08);
+
+  --surface-glass-nav: rgba(13, 11, 9, 0.85);
+
+  /* Shadcn/Radix semantic vars — dark */
+  --background:        28 15% 6%;
+  --foreground:        38 25% 90%;
+  --card:              28 15% 9%;
+  --card-foreground:   38 25% 90%;
+  --popover:           28 15% 8%;
+  --popover-foreground: 38 25% 90%;
+  --primary:           38 47% 56%;
+  --primary-foreground: 28 15% 8%;
+  --secondary:         28 12% 14%;
+  --secondary-foreground: 38 25% 90%;
+  --muted:             28 12% 14%;
+  --muted-foreground:  38 12% 55%;
+  --accent:            38 47% 56%;
+  --accent-foreground: 28 15% 8%;
+  --destructive:       0 62% 48%;
+  --destructive-foreground: 38 25% 90%;
+  --border:            28 12% 16%;
+  --input:             28 12% 16%;
+  --ring:              38 47% 56%;
 }

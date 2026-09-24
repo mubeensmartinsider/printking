@@ -95,7 +95,7 @@ export default function MegaMenu({ isOpen, onClose }) {
         pointerEvents: show ? "auto" : "none",
       }}
     >
-      <div className="mt-2 overflow-hidden rounded-xl border border-white/[0.06] bg-surface-glass/95 backdrop-blur-[24px] saturate-[1.6] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+      <div className="mt-2 overflow-hidden rounded-xl border border-white/[0.06] bg-[rgba(28,24,20,0.97)] backdrop-blur-[24px] saturate-[1.6] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
         <div className="grid grid-cols-3 gap-0">
           {SERVICES_COLUMNS.map((col, ci) => (
             <div

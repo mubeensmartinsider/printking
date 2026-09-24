@@ -1,133 +1,132 @@
-import React from "react";
-import { LEADERSHIP, CEO, TEAM } from "../../lib/content";
+import React, { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { LEADERSHIP } from "../../lib/content";
 import SectionHeading from "../common/SectionHeading";
+import { useStagger } from "../../lib/animations";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../ui/dialog";
+
+/* Square portrait — falls back to initials when no photo is supplied */
+function Portrait({ person, className = "" }) {
+  const initials = person.initials
+    || person.name.split(" ").map((w) => w[0]).slice(0, 2).join("");
+
+  return (
+    <div className={`relative aspect-square overflow-hidden bg-surface-primary ${className}`}>
+      {person.img ? (
+        <img
+          src={person.img}
+          alt={person.name}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover object-top"
+        />
+      ) : (
+        <>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="display text-3xl text-gold/30">{initials}</span>
+          </div>
+          <span className="absolute bottom-1.5 left-2 label text-[9px] text-ink/35">{initials}</span>
+        </>
+      )}
+    </div>
+  );
+}
+
+/* Compact leader card — identity + pull-quote, full message on demand */
+function LeaderCard({ person }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <article
+        data-leader
+        className="group flex h-full flex-col rounded-sm border border-border-soft bg-surface-elevated p-6 transition-colors duration-300 hover:border-gold/50 sm:p-7"
+      >
+        {/* Identity — portrait beside the name */}
+        <div className="flex items-center gap-4">
+          <Portrait person={person} className="w-20 shrink-0 rounded-sm sm:w-[88px]" />
+          <div className="min-w-0">
+            <span className="label text-gold">{person.title}</span>
+            <h3 className="mt-1.5 font-serif text-lg leading-snug text-ink sm:text-xl">
+              {person.name}
+            </h3>
+          </div>
+        </div>
+
+        {/* Pull-quote */}
+        <span className="mt-5 block h-px w-8 bg-gold/60" />
+        <h4 className="mt-5 flex-1 font-serif text-lg italic font-light leading-[1.5] text-ink sm:text-xl">
+          {person.headline}
+        </h4>
+
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="mt-6 inline-flex w-fit items-center gap-1.5 border-b border-gold/40 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-gold transition-colors duration-300 hover:border-gold hover:text-gold-soft"
+        >
+          Read full message
+          <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </button>
+      </article>
+
+      {/* Full message */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-h-[88vh] max-w-2xl overflow-y-auto bg-surface-base p-0 sm:rounded-sm">
+          <div className="flex flex-col gap-6 p-6 sm:flex-row sm:gap-8 sm:p-8">
+            <Portrait person={person} className="w-24 shrink-0 self-start rounded-sm sm:w-32" />
+
+            <div className="min-w-0 flex-1">
+              <DialogHeader>
+                <span className="label text-gold">{person.eyebrow}</span>
+                <DialogTitle className="font-serif text-2xl italic font-light text-ink sm:text-[28px]">
+                  {person.headline}
+                </DialogTitle>
+                <DialogDescription className="text-sm text-ink/55">
+                  {person.name} · {person.title}
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="mt-6 space-y-4">
+                {person.paragraphs.map((para, idx) => (
+                  <p key={idx} className="text-sm leading-[1.8] text-ink/70">
+                    {para}
+                  </p>
+                ))}
+              </div>
+
+              <div className="mt-7 border-t border-border-soft pt-5">
+                <span className="block h-px w-8 bg-gold/60" />
+                <p className="mt-3 font-serif text-xl italic text-gold">{person.name}</p>
+                {person.signoff && (
+                  <p className="mt-1 text-sm font-semibold text-gold">{person.signoff}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
 
 export default function ExecutiveTeam() {
+  const leadersRef = useStagger("[data-leader]", { stagger: 0.12, y: 40 });
+
   return (
-    <section data-testid="team-section" className="bg-obsidian py-28">
+    <section data-testid="team-section" className="bg-surface-base py-28">
       <div className="section-pad mx-auto max-w-[1400px]">
-        {/* Section header */}
         <SectionHeading
           eyebrow={LEADERSHIP.eyebrow}
           title={LEADERSHIP.headline[0]}
           titleItalic={LEADERSHIP.headline[1]}
           sub={LEADERSHIP.sub}
-          className="mb-20"
+          className="mb-14"
         />
 
-        {/* CEO Feature Block */}
-        <div className="mb-28 pb-20 border-b border-gold/20">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
-            {/* Photo */}
-            <div className="relative max-w-md">
-              <div className="decorative-portrait relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10">
-                <div className="portrait-frame"></div>
-                <div className="portrait-dot-tl"></div>
-                <div className="portrait-dot-br"></div>
-                {CEO.img ? (
-                  <img src={CEO.img} alt={CEO.name} className="absolute inset-0 h-full w-full object-cover" />
-                ) : (
-                  <span className="portrait-initials">PK</span>
-                )}
-              </div>
-              <p className="text-center font-serif text-base text-platinum mt-4">{CEO.name}</p>
-              <p className="text-center label text-gold text-[10px] mt-1">{CEO.title}</p>
-            </div>
-
-            {/* Message */}
-            <div>
-              <p className="label text-gold mb-4">{CEO.eyebrow}</p>
-              <h2 className="font-serif text-4xl italic font-light text-platinum mb-8 leading-relaxed">
-                {CEO.headline}
-              </h2>
-              <div className="space-y-5">
-                {CEO.paragraphs.map((para, idx) => (
-                  <p key={idx} className="text-sm leading-relaxed text-platinum/70">
-                    {para}
-                  </p>
-                ))}
-              </div>
-              <div className="mt-10 pt-6 border-t border-gold/20">
-                <p className="font-serif text-2xl italic text-gold mb-2">{CEO.name}</p>
-                <p className="text-xs text-platinum/50">{CEO.title}</p>
-              </div>
-            </div>
-          </div>
+        {/* CEO + Managing Director — both leaders in one row, equal weight */}
+        <div ref={leadersRef} className="grid gap-6 sm:grid-cols-2 lg:gap-8">
+          <LeaderCard person={{ ...LEADERSHIP.ceo, initials: "MS" }} />
+          <LeaderCard person={{ ...LEADERSHIP.md, initials: "NE" }} />
         </div>
-
-        {/* MD Feature Block */}
-        <div className="mb-28 pb-20 border-b border-gold/20">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
-            {/* Message */}
-            <div>
-              <p className="label text-gold mb-4">{LEADERSHIP.md.eyebrow}</p>
-              <h2 className="font-serif text-4xl italic font-light text-platinum mb-8 leading-relaxed">
-                {LEADERSHIP.md.headline}
-              </h2>
-              <div className="space-y-5">
-                {LEADERSHIP.md.paragraphs.map((para, idx) => (
-                  <p key={idx} className="text-sm leading-relaxed text-platinum/70">
-                    {para}
-                  </p>
-                ))}
-              </div>
-              <div className="mt-10 pt-6 border-t border-gold/20">
-                <p className="font-serif text-2xl italic text-gold mb-2">{LEADERSHIP.md.name}</p>
-                <p className="text-xs text-platinum/50">{LEADERSHIP.md.title}</p>
-                <p className="text-sm font-semibold text-gold mt-3">{LEADERSHIP.md.signoff}</p>
-              </div>
-            </div>
-
-            {/* Photo */}
-            <div className="relative max-w-md">
-              <div className="decorative-portrait relative aspect-[3/4] overflow-hidden bg-graphite rounded-sm border border-gold/10">
-                <div className="portrait-frame"></div>
-                <div className="portrait-dot-tl"></div>
-                <div className="portrait-dot-br"></div>
-                <span className="portrait-initials">PK</span>
-              </div>
-              <p className="text-center font-serif text-base text-platinum mt-4">{LEADERSHIP.md.name}</p>
-              <p className="text-center label text-gold text-[10px] mt-1">{LEADERSHIP.md.title}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Department Heads Grid */}
-        {/* <div className="pt-12 w-full">
-          <h3 className="text-sm font-semibold text-gold mb-16">DEPARTMENT HEADS</h3>
-          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full auto-rows-max">
-            {TEAM && TEAM.length > 0 ? (
-              TEAM.map((member) => (
-                <article 
-                  key={member.name} 
-                  className="group relative flex flex-col h-full overflow-hidden rounded-lg border-t-2 border-gold/30 bg-gradient-to-b from-graphite to-graphite-dark shadow-lg transition-all duration-400 hover:shadow-[0_0_32px_rgba(197,160,90,0.2)] hover:-translate-y-1.5"
-                >
-                  <div className="absolute inset-0 bg-pattern-team pointer-events-none" />
-                  
-                  <div className="card-glow-overlay" />
-
-                  <div className="decorative-portrait relative z-10 w-full aspect-[4/3] overflow-hidden bg-graphite/50 border-b border-gold/10 flex-shrink-0">
-                    <div className="portrait-frame"></div>
-                    <div className="portrait-dot-tl"></div>
-                    <div className="portrait-dot-br"></div>
-                    <span className="portrait-initials text-4xl">{member.initials}</span>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-obsidian to-transparent p-3">
-                      <span className="label text-gold text-[9px]">{member.role}</span>
-                    </div>
-                  </div>
-                  <div className="relative z-10 p-6 flex flex-col flex-grow">
-                    <h3 className="text-base font-semibold text-platinum">{member.name}</h3>
-                    <p className="label text-gold mt-1 mb-4">{member.role}</p>
-                    <div className="h-px bg-gradient-to-r from-gold to-transparent w-6 mb-4 flex-shrink-0"></div>
-                    <p className="text-sm leading-relaxed text-platinum/65 flex-grow">{member.desc}</p>
-                  </div>
-                </article>
-              ))
-            ) : (
-              <p className="text-platinum/50">Loading team members...</p>
-            )}
-          </div>
-        </div> */}
       </div>
     </section>
   );

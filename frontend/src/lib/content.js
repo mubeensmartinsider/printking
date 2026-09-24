@@ -108,7 +108,10 @@ export const LEADERSHIP = {
     signature: "Muhammad Shafiq Chaudhry",
     name: "Muhammad Shafiq Chaudhry",
     title: "Chief Executive Officer",
-    img: "/assets/3.jpeg",
+    /* Portrait path once a real photo exists, e.g. "/assets/ceo.jpg".
+       Left empty until then so the card shows the initials placeholder
+       instead of an unrelated machine photo. */
+    img: "",
   },
   md: {
     eyebrow: "MANAGING DIRECTOR",
@@ -163,6 +166,28 @@ export const SERVICES = [
   { num: "13", title: "UV & Finishing", icon: "Sparkles", desc: "Spot UV, matte lamination, gloss, soft-touch, hot foil, emboss, deboss. The details that make packaging premium.", slug: "uv-finishing" },
 ];
 
+/* ---- Home "Boxes | Banner | Services" section — left column ---- */
+export const BOX_FORMATS = [
+  { id: "box-1", title: "Luxury Rigid Boxes", icon: "Package", image: "/assets/services/luxuryRigid.png", desc: "Magnetic closure, telescope lid and clamshell builds — the apex of packaging engineering, made to jewellery-grade tolerances." },
+  { id: "box-2", title: "Folding Cartons", icon: "Boxes", image: "/assets/services/foldingcartons.png", desc: "Reverse tuck, straight tuck, gable top and auto-bottom. High-speed production, premium results." },
+  { id: "box-3", title: "Mailer Boxes", icon: "PackageOpen", image: "/assets/services/mailer.png", desc: "E-commerce and DTC packaging — kraft to coated, plain to full bleed, built for the unboxing moment." },
+  { id: "box-4", title: "Paper Bags", icon: "ShoppingBag", image: "/assets/services/paperbag.png", desc: "Twisted rope, flat ribbon and euro handles. Retail, gifting and luxury carry bags." },
+  { id: "box-5", title: "Labels & Stickers", icon: "Tag", image: "/assets/services/labels.png", desc: "BOPP, kraft, foil and clear stock — die-cut in roll or sheet format, any shape, any size." },
+  { id: "box-6", title: "Hang Tags", icon: "Tags", image: "/assets/services/hang-tags.png", desc: "Garment, retail and product tags on premium board — full-colour both sides, eyelet punched." },
+  { id: "box-7", title: "Catalogs & Brochures", icon: "BookOpen", image: "/assets/services/catalogs-brochures.png", desc: "Saddle stitch, perfect bound and gatefold — printed to make brands look world-class." },
+];
+
+/* ---- Home "Boxes | Banner | Services" section — right column ---- */
+export const SERVICE_LINES = [
+  { id: "svc-1", title: "Offset Printing", icon: "Printer", image: "/assets/services/offset-printing.png", desc: "Eight-color Heidelberg precision — up to 18,000 sheets per hour, CMYK and Pantone matched." },
+  { id: "svc-2", title: "Custom Packaging", icon: "Box", image: "/assets/services/custom-packaging.png", desc: "Every dimension, material and finish — fully bespoke from structural design to delivery." },
+  { id: "svc-3", title: "Corporate Branding", icon: "Briefcase", image: "/assets/services/corporate-branding.png", desc: "Letterheads, business cards, folders and envelopes — complete corporate identity print." },
+  { id: "svc-4", title: "Commercial Printing", icon: "Newspaper", image: "/assets/services/commercial-printing.png", desc: "High-volume runs for any commercial requirement, with fast turnaround and consistent quality." },
+  { id: "svc-5", title: "Promotional Materials", icon: "Megaphone", image: "/assets/services/promotional-materials.png", desc: "Flyers, posters, banners and inserts — campaign-ready print at production scale." },
+  { id: "svc-6", title: "UV & Finishing", icon: "Sparkles", image: "/assets/services/uv-finishing.png", desc: "Spot UV, matte lamination, soft-touch, hot foil, emboss and deboss — the details that make packaging premium." },
+  { id: "svc-7", title: "Design & Pre-Press", icon: "PenTool", image: "/assets/services/design-pre-press.png", desc: "In-house artwork, dielines and colour proofing — proofed, plated and press-ready." },
+];
+
 export const INDUSTRIES = [
   { name: "Fashion & Apparel", icon: "Shirt", desc: "Garment tags, retail bags, luxury boxes." },
   { name: "Home Textile", icon: "Layers", desc: "Branded packaging and care labels." },
@@ -199,7 +224,7 @@ export const WHY_CHOOSE = [
 export const MACHINERY = {
   eyebrow: "OUR INFRASTRUCTURE",
   headline: ["The Machines Behind", "the Craft."],
-  sub: "A controlled, precision-calibrated production environment. Climate-regulated. ISO-9001:2015 audited. Running at international manufacturing standards six days a week.",
+  sub: "A controlled, precision-calibrated production environment. Climate-regulated and built to international manufacturing standards — running six days a week with in-house colour management at every stage.",
   banner: "Total covered production area: 12,000 sq m — 8 Heidelberg presses — 60 production specialists",
   items: [
     { name: "Heidelberg Speedmaster SX 102", category: "Offset Printing", spec: "8-color · 18,000 sph", size: "hero", img: "/assets/1.jpeg", specs: ["8-color sheet-fed", "18,000 sheets per hour", "Format up to 720×1020mm"], capability: "The benchmark press for premium commercial and packaging print worldwide." },
@@ -217,7 +242,7 @@ export const MACHINERY = {
 export const VIDEO = {
   eyebrow: "INSIDE OUR PRODUCTION",
   headline: "Where Precision Printing Comes to Life.",
-  sub: "Step inside our 12,000 m² facility where Heidelberg engineering meets Pakistani craftsmanship — producing world-class print at industrial scale.",
+  sub: "A rare walk through our 12,000 m² plant — where German engineering meets Pakistani craftsmanship.",
   stats: [
     { label: "18,000 sheets/hr", pos: "top-left" },
     { label: "ISO 9001:2015", pos: "top-right" },

@@ -90,7 +90,7 @@ export default function PortfolioPage() {
       </section>
 
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent className="max-w-3xl border-white/10 bg-carbon p-0">
+        <DialogContent className="max-w-3xl border-border-soft bg-surface-elevated p-0">
           {active && (
             <div>
               <Img src={active.img} alt={active.title} label={active.title} className="aspect-[16/10] w-full" />

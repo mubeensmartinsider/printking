@@ -1,6 +1,5 @@
 @import "./styles/tokens.css";
 @import "./styles/background-patterns.css";
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@200;300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -142,7 +141,7 @@
 
   /* Pill chip */
   .chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-1.5;
+    @apply inline-flex items-center gap-2 rounded-full border border-border-soft px-4 py-1.5;
   }
 
   /* Gold filled CTA */
@@ -444,6 +443,18 @@
     animation: floaty 4s ease-in-out infinite;
   }
 
+  /* Ambient drifting glow for section backgrounds */
+  @keyframes glow-drift {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(70px, -50px, 0) scale(1.12); }
+  }
+  .glow-drift {
+    animation: glow-drift 18s ease-in-out infinite alternate;
+  }
+  .glow-drift-rev {
+    animation: glow-drift 22s ease-in-out infinite alternate-reverse;
+  }
+
   /* Custom magnetic cursor */
   .cursor-dot,
   .cursor-ring {
@@ -504,6 +515,27 @@
   .parallax-fast {
     will-change: transform;
   }
+}
+
+/* Logo marquee (ClientLogos) */
+@keyframes marquee-scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-left var(--marquee-duration, 40s) linear infinite;
+}
+.marquee-track.marquee-reverse {
+  animation-name: marquee-scroll-right;
+}
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
 }
 
 /* visual-edits helper (do not remove) */

@@ -3,18 +3,14 @@ import { TRUSTED, MEDIA_PARTNERS } from "../../lib/content";
 import SectionHeading from "../common/SectionHeading";
 
 const Tile = ({ name }) => (
-  <div className="mx-3 flex h-[60px] w-[160px] flex-none items-center justify-center border border-white/[0.07] bg-white/[0.03]">
-    <span style={{ textAlign: "center" }} className="display text-lg tracking-wide text-platinum/75">{name}</span>
+  <div className="mx-3 flex h-[60px] w-[160px] flex-none items-center justify-center border border-border-soft bg-surface-elevated">
+    <span className="display text-lg tracking-wide text-ink/70 text-center">{name}</span>
   </div>
 );
 
 const Row = ({ items, direction }) => (
   <div className="marquee-row flex overflow-hidden py-2">
-    <div
-      className={`marquee-track flex w-max ${
-        direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
-      }`}
-    >
+    <div className={`marquee-track flex w-max ${direction === "left" ? "animate-marquee-left" : "animate-marquee-right"}`}>
       {[...items, ...items].map((b, i) => (
         <Tile key={`${b}-${i}`} name={b} />
       ))}
@@ -28,12 +24,12 @@ export default function TrustedBy() {
   const row2 = TRUSTED.brands.slice(half);
 
   return (
-    <section data-testid="trusted-section" className="border-y border-white/[0.06] bg-carbon py-24">
+    <section data-testid="trusted-section" className="border-y border-border-soft bg-surface-primary py-24">
       <div className="section-pad mx-auto max-w-[1400px]">
         <SectionHeading title={TRUSTED.headline} sub={TRUSTED.sub} align="center" className="mb-14" />
       </div>
 
-      <div className="space-y-3 opacity-40 transition-opacity duration-500 hover:opacity-100">
+      <div className="space-y-3 opacity-50 transition-opacity duration-500 hover:opacity-100">
         <Row items={row1} direction="left" />
         <Row items={row2} direction="right" />
       </div>
@@ -42,17 +38,17 @@ export default function TrustedBy() {
         <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-4 text-center">
           {TRUSTED.metrics.map((m, i) => (
             <React.Fragment key={m}>
-              <span className="label text-platinum/70">{m}</span>
+              <span className="label text-ink/65">{m}</span>
               {i < TRUSTED.metrics.length - 1 && <span className="text-gold">·</span>}
             </React.Fragment>
           ))}
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-4">
-          <span className="label text-platinum/35">Our Media Partners</span>
+          <span className="label text-ink/35">Our Media Partners</span>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             {MEDIA_PARTNERS.map((p) => (
-              <span key={p} className="text-sm font-medium tracking-wide text-platinum/55">{p}</span>
+              <span key={p} className="text-sm font-medium tracking-wide text-ink/50">{p}</span>
             ))}
           </div>
         </div>
