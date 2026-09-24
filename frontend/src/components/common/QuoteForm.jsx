@@ -27,7 +27,7 @@ function Field({ id, label, value, onChange, type = "text", testid }) {
   );
 }
 
-export default function QuoteForm({ compact = false }) {
+export default function QuoteForm({ compact = false, dense = false }) {
   const [data, setData]     = useState(initial);
   const [loading, setLoading] = useState(false);
   const [sent, setSent]     = useState(false);
@@ -62,8 +62,8 @@ export default function QuoteForm({ compact = false }) {
   };
 
   return (
-    <form data-testid="quote-form" onSubmit={handleSubmit} className="space-y-5">
-      <div className={`grid gap-5 ${compact ? "" : "sm:grid-cols-2"}`}>
+    <form data-testid="quote-form" onSubmit={handleSubmit} className={dense ? "space-y-2" : "space-y-5"}>
+      <div className={`grid ${dense ? "gap-2" : "gap-5"} ${compact ? "" : "sm:grid-cols-2"}`}>
         <Field id="qf-fn"  testid="qf-fullName" label="Full Name *"                value={data.fullName} onChange={set("fullName")} />
         <Field id="qf-co"  testid="qf-company"  label="Company / Brand *"          value={data.company}  onChange={set("company")} />
         <Field id="qf-em"  testid="qf-email"    label="Email Address *" type="email" value={data.email}  onChange={set("email")} />
@@ -88,7 +88,7 @@ export default function QuoteForm({ compact = false }) {
 
       <div className="relative">
         <textarea
-          id="qf-msg" data-testid="qf-message" rows={4}
+          id="qf-msg" data-testid="qf-message" rows={dense ? 2 : 4}
           value={data.message} onChange={set("message")} placeholder="Additional Requirements"
           className={`${inputBase} resize-none`}
         />
