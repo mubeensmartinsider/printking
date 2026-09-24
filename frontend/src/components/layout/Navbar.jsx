@@ -90,7 +90,7 @@ export default function Navbar() {
           backdropFilter:  "blur(20px) saturate(160%)",
         }}
       >
-        <div className="section-pad mx-auto flex max-w-[1400px] items-center justify-between gap-4 py-2 md:py-2.5">
+        <div className="section-pad flex w-full items-center justify-between gap-4 py-2 md:py-2.5">
           <Link to="/" data-testid="logo-link" className="group relative flex items-center">
             <img
               src="/assets/logo.png"
@@ -172,7 +172,7 @@ export default function Navbar() {
 
       {/* ── Lower header: navbar (always dark-themed via .dark scope) ── */}
       <nav
-        className="dark section-pad mx-auto flex h-[64px] md:h-[72px] max-w-[1400px] items-center justify-between"
+        className="dark section-pad flex w-full h-[64px] md:h-[72px] items-center justify-between"
         style={{
           backgroundColor: "var(--surface-glass-nav, #0d0b09)",
           backdropFilter:  "blur(20px) saturate(160%)",
