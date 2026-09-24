@@ -34,7 +34,7 @@ export default function Home() {
       <MachinerySection />
       <ExecutiveTeam />
       <Testimonials />
-      <GlobalReach />
+      {/* <GlobalReach /> */}
       <ContactSection />
     </>
   );
