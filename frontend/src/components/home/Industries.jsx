@@ -3,195 +3,171 @@ import { INDUSTRIES } from "../../lib/content";
 import SectionHeading from "../common/SectionHeading";
 import * as Icons from "lucide-react";
 
+function IndustryIcon({ industry }) {
+  const Icon = Icons[industry.icon];
+  return Icon ? <Icon className="h-5 w-5" aria-hidden="true" /> : null;
+}
+
+function EditorialCard({ industry, index, clone }) {
+  return (
+    <article className="editorial-card" aria-hidden={clone || undefined}>
+      <span className="editorial-card__index">{String(index + 1).padStart(2, "0")}</span>
+      <span className="editorial-card__icon"><IndustryIcon industry={industry} /></span>
+      <div className="min-w-0">
+        <h3>{industry.name}</h3>
+        <p>{industry.desc}</p>
+      </div>
+    </article>
+  );
+}
+
+function EditorialLayout() {
+  return (
+    <div className="industries-editorial">
+      {[false, true].map((reverse) => {
+        const items = reverse ? [...INDUSTRIES].reverse() : INDUSTRIES;
+        return (
+          <div className="marquee-mask" key={reverse ? "reverse" : "forward"}>
+            <div className={`ind-marquee-track ${reverse ? "ind-marquee-track--reverse" : "ind-marquee-track--forward"}`}>
+              {[...items, ...items].map((industry, index) => (
+                <EditorialCard
+                  industry={industry}
+                  index={index % items.length}
+                  clone={index >= items.length}
+                  key={`${reverse ? "reverse" : "forward"}-${industry.name}-${index}`}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function Industries() {
   return (
-    <section
-      data-testid="industries-section"
-      className="industries-section"
-    >
+    <section data-testid="industries-section" className="industries-section industries-section--editorial">
       <style>{`
-        /* ============================================
-           INDUSTRIES SECTION
-           ============================================ */
         .industries-section {
           position: relative;
-          background: var(--surface-base);
-          padding: 2.25rem 0;
           overflow: hidden;
+          padding: 5rem 0;
+          background: radial-gradient(65% 60% at 50% 0%, rgba(197, 160, 90, 0.16), transparent 65%), var(--surface-base);
+        }
+
+        .industries-section::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background-image: linear-gradient(rgba(197, 160, 90, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(197, 160, 90, 0.06) 1px, transparent 1px);
+          background-size: 72px 72px;
+          opacity: 0.35;
+          -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+          mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+        }
+
+        .industries-shell {
+          position: relative;
+          z-index: 1;
+          width: 100%;
+          margin: 0 auto;
         }
 
         .industries-heading-wrap {
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 72rem;
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
           position: relative;
-          z-index: 10;
-          margin-bottom: 1.5rem;
+          z-index: 1;
+          margin-bottom: 2rem;
         }
 
-        /* ============================================
-           MARQUEE WRAPPER + MASK
-           ============================================ */
+        .industries-editorial {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
         .marquee-mask {
           position: relative;
           display: flex;
           overflow: hidden;
-          -webkit-mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 10%,
-            black 90%,
-            transparent 100%
-          );
-          mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 10%,
-            black 90%,
-            transparent 100%
-          );
+          padding: 0.2rem 0;
         }
 
-        .marquee-mask--second {
-          margin-top: 1rem;
-        }
-
-        /* ============================================
-           MARQUEE TRACK
-           ============================================ */
         .ind-marquee-track {
           display: flex;
-          flex-shrink: 0;
           width: max-content;
+          flex-shrink: 0;
           gap: 1rem;
           padding-right: 1rem;
           will-change: transform;
         }
 
-        .ind-marquee-track--forward {
-          animation: ind-marquee 40s linear infinite;
-        }
+        .ind-marquee-track--forward { animation: ind-marquee 46s linear infinite; }
+        .ind-marquee-track--reverse { animation: ind-marquee-reverse 46s linear infinite; animation-delay: -23s; }
+        .marquee-mask:hover .ind-marquee-track { animation-play-state: paused; }
 
-        .ind-marquee-track--reverse {
-          animation: ind-marquee-reverse 40s linear infinite;
-          /* phase offset — keeps the two rows from mirror-aligning */
-          animation-delay: -20s;
-        }
-
-        .marquee-mask:hover .ind-marquee-track {
-          animation-play-state: paused;
-        }
-
-        /* ============================================
-           PILL
-           ============================================ */
-        .marquee-pill {
+        .editorial-card {
           display: flex;
+          width: 21rem;
+          min-height: 6.5rem;
+          flex: 0 0 auto;
           align-items: center;
-          gap: 0.75rem;
-          border-radius: 9999px;
-          border: 1px solid var(--color-border);
-          background: var(--surface-elevated);
-          padding: 0.875rem 1.5rem;
-          white-space: nowrap;
-          transition: transform 0.2s ease, box-shadow 0.2s ease,
-            border-color 0.2s ease;
+          gap: 1rem;
+          border-top: 1px solid var(--color-border-strong);
+          border-bottom: 1px solid var(--color-border-strong);
+          padding: 1rem 0;
         }
 
-        .marquee-pill:hover {
-          transform: translateY(-2px);
-          border-color: #ed0d87;
-          box-shadow: 0 6px 20px rgba(237, 13, 135, 0.12);
+        .editorial-card__index {
+          align-self: flex-start;
+          color: var(--color-gold);
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.16em;
         }
 
-        .marquee-pill__icon {
-          width: 1.25rem;
-          height: 1.25rem;
-          stroke-width: 1.75;
-          flex-shrink: 0;
-          transition: color 0.3s ease;
+        .editorial-card__icon {
+          display: grid;
+          width: 2.75rem;
+          height: 2.75rem;
+          flex: 0 0 auto;
+          place-items: center;
+          border: 1px solid var(--gold-muted);
+          border-radius: 0.85rem;
+          color: var(--color-gold);
+          background: var(--gold-whisper);
         }
 
-        .marquee-pill__icon--blue {
-          color: #2dacde;
-        }
-
-        .marquee-pill__icon--pink {
-          color: #ed0d87;
-        }
-
-        .marquee-pill:hover .marquee-pill__icon--blue {
-          color: #ed0d87;
-        }
-
-        .marquee-pill:hover .marquee-pill__icon--pink {
-          color: #2dacde;
-        }
-
-        .marquee-pill__name {
-          font-size: 0.875rem;
-          font-weight: 600;
+        .editorial-card h3 {
           color: var(--color-platinum);
+          font-family: var(--font-display);
+          font-size: 1.15rem;
+          font-weight: 400;
         }
 
-        .marquee-pill__desc {
-          font-size: 0.75rem;
+        .editorial-card p {
+          margin-top: 0.55rem;
           color: var(--text-secondary);
+          font-size: 0.8rem;
+          line-height: 1.6;
         }
 
-        /* ============================================
-           KEYFRAMES
-           ============================================ */
         @keyframes ind-marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
         }
 
         @keyframes ind-marquee-reverse {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
+          from { transform: translateX(-50%); }
+          to { transform: translateX(0); }
         }
 
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
-        @media (max-width: 640px) {
-          .industries-section {
-            padding: 1.5rem 0;
-          }
-
-          .marquee-pill {
-            padding: 0.625rem 1rem;
-            gap: 0.5rem;
-          }
-
-          .marquee-pill__name {
-            font-size: 0.8125rem;
-          }
-
-          .marquee-pill__desc {
-            font-size: 0.6875rem;
-          }
-
-          .marquee-pill__icon {
-            width: 1rem;
-            height: 1rem;
-          }
+        @media (max-width: 767px) {
+          .industries-section { padding: 3.5rem 0; }
+          .editorial-card { width: min(78vw, 20rem); }
         }
 
-        /* ============================================
-           ACCESSIBILITY — reduced motion
-           ============================================ */
         @media (prefers-reduced-motion: reduce) {
           .ind-marquee-track--forward,
           .ind-marquee-track--reverse {
@@ -201,69 +177,23 @@ export default function Industries() {
 
           .marquee-mask {
             overflow-x: auto;
-            /* remove the fade so the scrollable fallback is fully readable */
-            -webkit-mask-image: none;
-            mask-image: none;
           }
         }
       `}</style>
 
-      <div className="industries-heading-wrap">
-        <SectionHeading
-          eyebrow="WHO WE SERVE"
-          title="Quality."
-          titleItalic="Served Across Industries."
-          sub="From fashion houses to financial institutions — premium print & packaging for over 15 years."
-          align="center"
-        />
-      </div>
-
-      {/* Marquee row 1 (forward) */}
-      <div className="marquee-mask">
-        <div className="ind-marquee-track ind-marquee-track--forward">
-          {[...INDUSTRIES, ...INDUSTRIES].map((ind, i) => {
-            const Icon = Icons[ind.icon];
-            /* second pass is a duplicate for the seamless loop — hidden from AT */
-            const isClone = i >= INDUSTRIES.length;
-            return (
-              <div
-                className="marquee-pill"
-                key={`${ind.name}-${i}`}
-                aria-hidden={isClone || undefined}
-              >
-                {Icon && (
-                  <Icon className="marquee-pill__icon marquee-pill__icon--blue" />
-                )}
-                <span className="marquee-pill__name">{ind.name}</span>
-                <span className="marquee-pill__desc">· {ind.desc}</span>
-              </div>
-            );
-          })}
+      <div className="industries-shell section-pad">
+        <div className="industries-heading-wrap">
+          <SectionHeading
+            eyebrow="WHO WE SERVE"
+            title="Quality."
+            titleItalic="Served Across Industries."
+            sub="From fashion houses to financial institutions — premium print & packaging for over 15 years."
+            align="center"
+            className="!max-w-3xl"
+          />
         </div>
-      </div>
 
-      {/* Marquee row 2 (reverse) */}
-      <div className="marquee-mask marquee-mask--second">
-        <div className="ind-marquee-track ind-marquee-track--reverse">
-          {[...INDUSTRIES, ...INDUSTRIES].reverse().map((ind, i) => {
-            const Icon = Icons[ind.icon];
-            /* second pass is a duplicate for the seamless loop — hidden from AT */
-            const isClone = i >= INDUSTRIES.length;
-            return (
-              <div
-                className="marquee-pill"
-                key={`${ind.name}-rev-${i}`}
-                aria-hidden={isClone || undefined}
-              >
-                {Icon && (
-                  <Icon className="marquee-pill__icon marquee-pill__icon--pink" />
-                )}
-                <span className="marquee-pill__name">{ind.name}</span>
-                <span className="marquee-pill__desc">· {ind.desc}</span>
-              </div>
-            );
-          })}
-        </div>
+        <EditorialLayout />
       </div>
     </section>
   );
