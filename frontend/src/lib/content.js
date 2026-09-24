@@ -221,7 +221,7 @@ export const WHY_CHOOSE = [
 export const MACHINERY = {
   eyebrow: "OUR INFRASTRUCTURE",
   headline: ["The Machines Behind", "the Craft."],
-  sub: "A controlled, precision-calibrated production environment. Climate-regulated. ISO-9001:2015 audited. Running at international manufacturing standards six days a week.",
+  sub: "A controlled, precision-calibrated production environment. Climate-regulated and built to international manufacturing standards — running six days a week with in-house colour management at every stage.",
   banner: "Total covered production area: 12,000 sq m — 8 Heidelberg presses — 60 production specialists",
   items: [
     { name: "Heidelberg Speedmaster SX 102", category: "Offset Printing", spec: "8-color · 18,000 sph", size: "hero", img: "/assets/1.jpeg", specs: ["8-color sheet-fed", "18,000 sheets per hour", "Format up to 720×1020mm"], capability: "The benchmark press for premium commercial and packaging print worldwide." },
