@@ -38,8 +38,12 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-12 md:grid-cols-3 lg:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
-            <Link to="/" className="display text-[28px] font-medium text-ink">
-              PRINT<span className="text-gold">KING</span>
+            <Link to="/"  style={{background:'none'}} aria-label="PrintKing home" className="inline-flex w-fit bg-white p-2">
+              <img
+                src="/assets/logo.png"
+                alt="PrintKing"
+                className="h-auto w-[150px] max-w-full"
+              />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink/55">
               {COMPANY.tagline}. Luxury packaging manufactured to international standards.
