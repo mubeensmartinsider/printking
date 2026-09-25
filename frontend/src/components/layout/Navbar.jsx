@@ -80,17 +80,187 @@ export default function Navbar() {
   return (
     <header
       data-testid="navbar"
-      className="fixed inset-x-0 top-0 z-50 transition-all duration-500 border-b border-border-soft shadow-md"
+      className="navbar-luxury fixed inset-x-0 top-0 z-50 transition-all duration-500 border-b border-border-soft shadow-md"
     >
-      {/* ── Upper header: logo + search (theme-aware) ── */}
+      <style>{`
+        .navbar-luxury {
+          --color-platinum: #f0ebe2;
+          --text-secondary: #a89f93;
+          --text-tertiary: #6b6155;
+          --color-border: rgba(255, 255, 255, 0.12);
+          --color-border-strong: rgba(255, 255, 255, 0.18);
+          --surface-elevated: #1c1814;
+          --surface-hover: #2a2520;
+          --surface-floating: #241f1a;
+          --color-gold: #c5a05a;
+          --gold-whisper: rgba(197, 160, 90, 0.12);
+          position: relative;
+          width: 100%;
+          border-color: var(--color-border);
+          background: #0d0b09;
+          box-shadow: 0 12px 34px rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(22px) saturate(150%);
+        }
+
+        .navbar-luxury::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          z-index: 2;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+          opacity: 0.7;
+        }
+
+        .navbar-luxury__utility {
+          position: relative;
+          z-index: 1;
+          background: #0d0b09;
+        }
+
+        .navbar-luxury__utility-inner { min-height: 62px; }
+
+        .navbar-luxury__utility-inner > a img {
+          height: 44px;
+          width: auto;
+          border-radius: 2px;
+          transition: transform 250ms var(--ease-out-soft), filter 250ms ease;
+        }
+
+        .navbar-luxury__utility-inner > a:hover img {
+          filter: drop-shadow(0 4px 10px rgba(197, 160, 90, 0.2));
+          transform: scale(1.04);
+        }
+
+        .navbar-luxury__search-field {
+          border-color: #ded8cd;
+          color: #8b6a32;
+          background: #faf9f7;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+        }
+
+        .navbar-luxury__search-field:focus-within {
+          border-color: var(--color-gold);
+          box-shadow: 0 0 0 3px var(--gold-whisper);
+        }
+
+        .navbar-luxury__search-field input { color: #1c1a17; }
+        .navbar-luxury__search-field input::placeholder { color: #8a8076; }
+        .navbar-luxury__search-field button { color: #5a5248; }
+
+        .navbar-luxury__search-results {
+          border-color: #ded8cd;
+          background: #faf9f7;
+          box-shadow: 0 18px 45px rgba(26, 20, 12, 0.16);
+        }
+
+        .navbar-luxury__search-results button { color: #1c1a17; }
+        .navbar-luxury__search-results button:hover { color: #8b6a32; background: #f1ede6; }
+        .navbar-luxury__search-results > div:last-child { color: #6f675d; }
+
+        .navbar-luxury__social {
+          color: #a89f93;
+          border-color: rgba(255, 255, 255, 0.14);
+        }
+
+        .navbar-luxury__social:hover { color: var(--color-gold); border-color: var(--color-gold); }
+
+        .navbar-luxury__main {
+          position: relative;
+          z-index: 1;
+          min-height: 74px;
+          background: #0d0b09;
+          border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .navbar-luxury__main .label {
+          color: #a89f93;
+          letter-spacing: 0.15em;
+          transition: color 250ms ease, background 250ms ease;
+        }
+
+        .navbar-luxury__main .label:hover,
+        .navbar-luxury__main .label.text-gold { color: var(--color-gold); }
+
+        .navbar-luxury__main .label:hover { background: rgba(197, 160, 90, 0.07); }
+
+        .navbar-luxury__main > div:last-child > a,
+        .navbar-luxury__main > div:last-child > button { transition: transform 220ms ease, box-shadow 220ms ease; }
+
+        .navbar-luxury__main > div:last-child > button[data-testid="nav-quote-btn"] {
+          box-shadow: 0 8px 20px rgba(197, 160, 90, 0.16);
+        }
+
+        .navbar-luxury__main > div:last-child > button[data-testid="nav-quote-btn"]:hover {
+          box-shadow: 0 12px 26px rgba(197, 160, 90, 0.26);
+          transform: translateY(-1px);
+        }
+        .navbar-luxury__more {
+          border-color: #ded8cd !important;
+          background: #faf9f7 !important;
+          box-shadow: 0 18px 45px rgba(26, 20, 12, 0.16) !important;
+        }
+
+        .navbar-luxury__more a {
+          color: #5a5248 !important;
+          border-left-color: transparent !important;
+        }
+
+        .navbar-luxury__more a:hover {
+          color: #8b6a32 !important;
+          background: #f1ede6 !important;
+          border-left-color: #c5a05a !important;
+        }
+
+        .navbar-luxury__more a.text-gold {
+          color: #8b6a32 !important;
+          background: #f1ede6 !important;
+          border-left-color: #c5a05a !important;
+        }
+
+        .navbar-luxury__mobile {
+          border-color: #ded8cd !important;
+          background: #faf9f7 !important;
+          color: #1c1a17;
+        }
+
+        .navbar-luxury__mobile .space-y-1 > a {
+          border-color: transparent;
+          color: #5a5248;
+          background: transparent;
+        }
+
+        .navbar-luxury__mobile .space-y-1 > a:hover,
+        .navbar-luxury__mobile .space-y-1 > a.text-gold {
+          border-color: #e5d7b7;
+          color: #8b6a32;
+          background: #f1ede6;
+        }
+
+        .navbar-luxury__mobile a[href^="tel"] { color: #5a5248; }
+        .navbar-luxury__mobile a[href^="tel"]:hover { color: #8b6a32; }
+
+        @media (max-width: 640px) {
+          .navbar-luxury__utility-inner { min-height: 56px; }
+          .navbar-luxury__utility-inner > a img { height: 38px; }
+          .navbar-luxury__search { width: 2.4rem !important; }
+          .navbar-luxury__search-field { justify-content: center; padding: 0; }
+          .navbar-luxury__search-field input { position: absolute; width: 1px; opacity: 0; pointer-events: none; }
+          .navbar-luxury__search-results { left: auto; width: min(18rem, calc(100vw - 2rem)); }
+          .navbar-luxury__socials { display: none !important; }
+        }
+      `}</style>
+
       <div
-        className="border-b border-border-soft"
+        className="navbar-luxury__utility border-b border-border-soft"
         style={{
           backgroundColor: "var(--surface-glass-nav, var(--surface-base))",
           backdropFilter:  "blur(20px) saturate(160%)",
         }}
       >
-        <div className="section-pad flex w-full items-center justify-between gap-4 py-2 md:py-2.5">
+        <div className="navbar-luxury__utility-inner section-pad flex w-full items-center justify-between gap-4 py-2 md:py-2.5">
           <Link to="/" data-testid="logo-link" className="group relative flex items-center">
             <img
               src="/assets/logo.png"
@@ -101,8 +271,8 @@ export default function Navbar() {
 
           {/* Search + socials */}
           <div className="flex items-center gap-2 sm:gap-3">
-          <div ref={searchRef} className="relative w-28 sm:w-44 lg:w-64">
-            <div className="flex items-center gap-2 h-9 rounded-lg border border-border-strong bg-surface-elevated px-3 transition-colors duration-300 focus-within:border-gold/60">
+          <div ref={searchRef} className="navbar-luxury__search relative w-28 sm:w-44 lg:w-64">
+            <div className="navbar-luxury__search-field flex items-center gap-2 h-9 rounded-lg border border-border-strong bg-[#faf9f7] px-3 transition-colors duration-300 focus-within:border-gold/60">
               <Search size={15} className="shrink-0 text-gold" />
               <input
                 type="text"
@@ -114,7 +284,7 @@ export default function Navbar() {
                 }}
                 placeholder="Search pages…"
                 aria-label="Search site"
-                className="w-full bg-transparent text-[13px] text-ink placeholder:text-ink-tertiary outline-none"
+                className="w-full bg-transparent text-[13px] text-[#1c1a17] placeholder:text-[#8a8076] outline-none"
               />
               {query && (
                 <button
@@ -129,7 +299,7 @@ export default function Navbar() {
 
             {/* Results dropdown */}
             {query.trim() && (
-              <div className="absolute right-0 top-full mt-2 w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-lg border border-border-soft bg-surface-floating backdrop-blur-[20px] shadow-xl z-50">
+              <div className="navbar-luxury__search-results absolute right-0 top-full mt-2 w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-lg border border-border-soft bg-surface-floating backdrop-blur-[20px] shadow-xl z-50">
                 {results.length > 0 ? (
                   <div className="py-2">
                     {results.map((l) => (
@@ -151,7 +321,7 @@ export default function Navbar() {
           </div>
 
             {/* Socials */}
-            <div className="hidden sm:flex items-center gap-2">
+            <div className="navbar-luxury__socials hidden sm:flex items-center gap-2">
               {SOCIALS.map(({ label, href, Icon }) => (
                 <a
                   key={label}
@@ -160,7 +330,7 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   aria-label={label}
                   title={label}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-border-soft text-ink opacity-60 hover:opacity-100 hover:text-gold hover:border-gold/50 transition-all duration-300"
+                  className="navbar-luxury__social flex h-8 w-8 items-center justify-center rounded-full border border-border-soft text-ink opacity-60 hover:opacity-100 hover:text-gold hover:border-gold/50 transition-all duration-300"
                 >
                   <Icon size={15} />
                 </a>
@@ -172,7 +342,7 @@ export default function Navbar() {
 
       {/* ── Lower header: navbar (always dark-themed via .dark scope) ── */}
       <nav
-        className="dark section-pad flex w-full h-[64px] md:h-[72px] items-center justify-between"
+        className="navbar-luxury__main dark section-pad flex w-full h-[64px] md:h-[72px] items-center justify-between"
         style={{
           backgroundColor: "var(--surface-glass-nav, #0d0b09)",
           backdropFilter:  "blur(20px) saturate(160%)",
@@ -235,7 +405,7 @@ export default function Navbar() {
             </button>
 
             <div
-              className={`absolute right-0 top-full mt-2 w-52 overflow-hidden rounded-lg border border-border-soft bg-surface-floating backdrop-blur-[20px] shadow-xl transition-all duration-300 ${
+              className={`navbar-luxury__more absolute right-0 top-full mt-2 w-52 overflow-hidden rounded-lg border border-border-soft bg-surface-floating backdrop-blur-[20px] shadow-xl transition-all duration-300 ${
                 moreOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"
               }`}
               style={{ pointerEvents: moreOpen ? "auto" : "none" }}
@@ -297,11 +467,11 @@ export default function Navbar() {
 
       {/* ── Mobile Menu ── */}
       <div
-        className={`dark overflow-hidden border-t border-border-soft bg-surface-base backdrop-blur-[20px] transition-all duration-500 lg:hidden ${
+        className={`navbar-luxury__mobile dark overflow-hidden border-t border-border-soft bg-surface-base backdrop-blur-[20px] transition-all duration-500 lg:hidden ${
           open ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="section-pad flex flex-col py-4">
+        <div className="navbar-luxury__mobile-inner section-pad flex flex-col py-4">
 
           <div className="space-y-1">
             {NAV_LINKS.map((l, i) => (

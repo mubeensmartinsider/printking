@@ -8,9 +8,9 @@ export const COMPANY = {
   tagline: "Passion · Quality · Innovation",
   founded: "2009",
   phone: "+92 42 37150138-40",
-  phoneTel: "+924237150138",
-  whatsapp: "924237150138", // edit to a WhatsApp-enabled mobile number
-  email: "sales@printking.com.pk",
+  phoneTel: "+923224839646",
+  whatsapp: "923224839646", // edit to a WhatsApp-enabled mobile number
+  email: "naveed.printking@gmail.com",
   website: "www.printking.com.pk",
   address: "Industrial Area Manzoor Park, Sagghian Flyover, Opp. Coke Warehouse, Lahore, Pakistan",
   hours: "Mon – Sat · 24-Hour Client Service",

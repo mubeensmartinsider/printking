@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { gsap } from "@/lib/animations";
 
 const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -47,7 +46,7 @@ const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
   return (
     <div
       ref={carouselRef}
-      className="relative w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-900"
+      className="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-900"
       onMouseEnter={() => setIsAutoPlay(false)}
       onMouseLeave={() => setIsAutoPlay(true)}
     >
@@ -65,6 +64,8 @@ const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
               alt={`Banner ${idx + 1}`}
               className="w-full h-full object-cover"
               loading={idx === currentIndex ? "eager" : "lazy"}
+              decoding="async"
+              fetchPriority={idx === 0 ? "high" : "auto"}
             />
           </div>
         ))}
