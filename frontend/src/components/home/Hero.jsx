@@ -1,68 +1,36 @@
-import React, { useEffect, useRef, useMemo } from "react";
-import { ArrowRight, ChevronDown, Award, Printer, Users, Factory } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import React, { useMemo } from "react";
+import { Award, Printer, Users, Factory } from "lucide-react";
 import BannerCarousel from "../common/BannerCarousel";
-import { gsap } from "../../lib/animations";
 import { HERO } from "../../lib/content";
 
 // Icon per stat, in the same order as HERO.stats
 const STAT_ICONS = [Award, Printer, Users, Factory];
 
 export default function Hero() {
-  const sectionRef = useRef(null);
-  const contentRef = useRef(null);
-  const navigate = useNavigate();
 
   // Banner images
   const banners = useMemo(() => [
-    "assets/banners/mainbanner.png",
-    "assets/banners/banner4.jpeg",
-    // "assets/banners/banner1.png",
-    "assets/banners/awardbanner2.png",
-    "assets/banners/banner3.png",
-    "assets/banners/rigidbanner.png",
+    "/assets/banners/mainbanner2.png",
+    "/assets/banners/banner4.jpeg",
+    "/assets/banners/awardbanner2.jpg",
+    "/assets/banners/banner3.jpg",
+    "/assets/banners/rigidbanner.jpg",
   ], []);
-
-  // Text entrance animation
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        defaults: {
-          ease: "power3.out",
-          force3D: true
-        },
-        delay: 0.2
-      });
-
-      tl.from(".hero-label", { y: 20, opacity: 0, duration: 0.6 })
-        .from(".hero-headline", { y: 30, opacity: 0, duration: 0.8 }, "-=0.3")
-        .from(".hero-sub", { opacity: 0, y: 15, duration: 0.6 }, "-=0.4")
-        .from(".hero-cta", { y: 15, opacity: 0, duration: 0.5, stagger: 0.1 }, "-=0.2")
-        .from(".hero-stat", { y: 15, opacity: 0, duration: 0.5, stagger: 0.06 }, "-=0.1");
-    }, contentRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section
-      ref={sectionRef}
       data-testid="hero-section"
       className="relative overflow-hidden"
       style={{
         backgroundColor: "var(--color-bg-primary)",
       }}
     >
-      {/* Spacer to clear the fixed navbar + logo strip */}
-      <div className="h-32 md:h-36" />
-
       {/* Banner (1600x550) with text overlay */}
       <div className="relative w-full">
         <BannerCarousel banners={banners} autoPlayInterval={5000} />
 
         {/* Content overlay */}
         <div
-          ref={contentRef}
           className="absolute inset-0 z-10 flex items-center"
         >
           <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">

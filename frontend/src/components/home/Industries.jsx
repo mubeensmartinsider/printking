@@ -1,10 +1,12 @@
 import React from "react";
 import { INDUSTRIES } from "../../lib/content";
 import SectionHeading from "../common/SectionHeading";
-import * as Icons from "lucide-react";
+import { Shirt, Layers, Wheat, Droplet, Building2, Briefcase, BookOpen, ShoppingBag, Rocket } from "lucide-react";
+
+const INDUSTRY_ICONS = { Shirt, Layers, Wheat, Droplet, Building2, Briefcase, BookOpen, ShoppingBag, Rocket };
 
 function IndustryIcon({ industry }) {
-  const Icon = Icons[industry.icon];
+  const Icon = INDUSTRY_ICONS[industry.icon];
   return Icon ? <Icon className="h-5 w-5" aria-hidden="true" /> : null;
 }
 

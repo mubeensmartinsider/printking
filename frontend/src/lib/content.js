@@ -9,7 +9,7 @@ export const COMPANY = {
   founded: "2009",
   phone: "+92 42 37150138-40",
   phoneTel: "+924237150138",
-  whatsapp: "924237150138", // edit to a WhatsApp-enabled mobile number
+  whatsapp: "923224839646", // edit to a WhatsApp-enabled mobile number
   email: "sales@printking.com.pk",
   website: "www.printking.com.pk",
   address: "Industrial Area Manzoor Park, Sagghian Flyover, Opp. Coke Warehouse, Lahore, Pakistan",
@@ -126,6 +126,7 @@ export const LEADERSHIP = {
     signoff: "Ready On Press!!!",
     name: "Naveed Ehsan",
     title: "Managing & Marketing Director",
+    img: "/assets/md.jpeg",
   },
   heads: [
     { name: "Waqas Shafiq", role: "Director Operations", initials: "WS", desc: "Takes care of operational detailing, supply-chain and execution of all production efforts. Ensures smooth, hassle-free operations — every job delivered to agreed quality, time-frame, and doorstep delivery." },
@@ -168,11 +169,11 @@ export const SERVICES = [
 
 /* ---- Home "Boxes | Banner | Services" section — left column ---- */
 export const BOX_FORMATS = [
-  { id: "box-1", title: "Luxury Rigid Boxes", icon: "Package", image: "/assets/services/luxuryRigid.png", desc: "Magnetic closure, telescope lid and clamshell builds — the apex of packaging engineering, made to jewellery-grade tolerances." },
-  { id: "box-2", title: "Folding Cartons", icon: "Boxes", image: "/assets/services/foldingcartons.png", desc: "Reverse tuck, straight tuck, gable top and auto-bottom. High-speed production, premium results." },
-  { id: "box-3", title: "Mailer Boxes", icon: "PackageOpen", image: "/assets/services/mailer.png", desc: "E-commerce and DTC packaging — kraft to coated, plain to full bleed, built for the unboxing moment." },
-  { id: "box-4", title: "Paper Bags", icon: "ShoppingBag", image: "/assets/services/paperbag.png", desc: "Twisted rope, flat ribbon and euro handles. Retail, gifting and luxury carry bags." },
-  { id: "box-5", title: "Labels & Stickers", icon: "Tag", image: "/assets/services/labels.png", desc: "BOPP, kraft, foil and clear stock — die-cut in roll or sheet format, any shape, any size." },
+  { id: "box-1", title: "Luxury Rigid Boxes", icon: "Package", image: "/assets/services/luxuryRigid.jpg", desc: "Magnetic closure, telescope lid and clamshell builds — the apex of packaging engineering, made to jewellery-grade tolerances." },
+  { id: "box-2", title: "Folding Cartons", icon: "Boxes", image: "/assets/services/foldingcartons.jpg", desc: "Reverse tuck, straight tuck, gable top and auto-bottom. High-speed production, premium results." },
+  { id: "box-3", title: "Mailer Boxes", icon: "PackageOpen", image: "/assets/services/mailer.jpg", desc: "E-commerce and DTC packaging — kraft to coated, plain to full bleed, built for the unboxing moment." },
+  { id: "box-4", title: "Paper Bags", icon: "ShoppingBag", image: "/assets/services/paperbag.jpg", desc: "Twisted rope, flat ribbon and euro handles. Retail, gifting and luxury carry bags." },
+  { id: "box-5", title: "Labels & Stickers", icon: "Tag", image: "/assets/services/labels.jpg", desc: "BOPP, kraft, foil and clear stock — die-cut in roll or sheet format, any shape, any size." },
   { id: "box-6", title: "Hang Tags", icon: "Tags", image: "/assets/services/hang-tags.png", desc: "Garment, retail and product tags on premium board — full-colour both sides, eyelet punched." },
   { id: "box-7", title: "Catalogs & Brochures", icon: "BookOpen", image: "/assets/services/catalogs-brochures.png", desc: "Saddle stitch, perfect bound and gatefold — printed to make brands look world-class." },
 ];

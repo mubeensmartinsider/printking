@@ -17,6 +17,7 @@ function Portrait({ person, className = "" }) {
           src={person.img}
           alt={person.name}
           loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-top"
         />
       ) : (

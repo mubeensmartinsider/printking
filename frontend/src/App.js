@@ -1,20 +1,25 @@
 import "@/App.css";
 import "@/styles/responsive.css";
 import "@/styles/theme.css";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Layout from "@/components/layout/Layout";
 import Home from "@/pages/Home";
-import AboutPage from "@/pages/AboutPage";
-import ServicesPage from "@/pages/ServicesPage";
-import PortfolioPage from "@/pages/PortfolioPage";
-import MachineryPage from "@/pages/MachineryPage";
-import SustainabilityPage from "@/pages/SustainabilityPage";
-import ContactPage from "@/pages/ContactPage";
-import RequestQuotePage from "@/pages/RequestQuotePage";
-import FAQPage from "@/pages/FAQPage";
-import CaseStudiesPage from "@/pages/CaseStudiesPage";
+const AboutPage = lazy(() => import("@/pages/AboutPage"));
+const ServicesPage = lazy(() => import("@/pages/ServicesPage"));
+const PortfolioPage = lazy(() => import("@/pages/PortfolioPage"));
+const MachineryPage = lazy(() => import("@/pages/MachineryPage"));
+const SustainabilityPage = lazy(() => import("@/pages/SustainabilityPage"));
+const ContactPage = lazy(() => import("@/pages/ContactPage"));
+const RequestQuotePage = lazy(() => import("@/pages/RequestQuotePage"));
+const FAQPage = lazy(() => import("@/pages/FAQPage"));
+const CaseStudiesPage = lazy(() => import("@/pages/CaseStudiesPage"));
+
+function PageFallback() {
+  return <div className="min-h-[50vh] bg-surface-base" aria-hidden="true" />;
+}
 
 function App() {
   return (
@@ -22,7 +27,8 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Layout>
-            <Routes>
+            <Suspense fallback={<PageFallback />}>
+              <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicesPage />} />
@@ -33,7 +39,8 @@ function App() {
               <Route path="/request-quote" element={<RequestQuotePage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/case-studies" element={<CaseStudiesPage />} />
-            </Routes>
+              </Routes>
+            </Suspense>
           </Layout>
           <Toaster
             position="bottom-center"

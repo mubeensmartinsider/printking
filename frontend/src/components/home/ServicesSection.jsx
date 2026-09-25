@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { BOX_FORMATS, SERVICE_LINES } from "../../lib/content";
 import SectionHeading from "../common/SectionHeading";
 import { useStagger } from "../../lib/animations";
-import * as Icons from "lucide-react";
+import { Package, Boxes, PackageOpen, ShoppingBag, Tag, Tags, BookOpen, Printer, Box, Briefcase, Newspaper, Megaphone, Sparkles, PenTool } from "lucide-react";
+
+const SERVICE_ICONS = { Package, Boxes, PackageOpen, ShoppingBag, Tag, Tags, BookOpen, Printer, Box, Briefcase, Newspaper, Megaphone, Sparkles, PenTool };
 
 const ROTATE_MS = 3500;
 /* Contact-sheet art shown when a row's dedicated file hasn't been dropped in yet */
-const FALLBACK_IMG = "/assets/services/products.png";
+const FALLBACK_IMG = "/assets/services/products.jpg";
 
 /* Flat, ordered list of all 14 rows; each row's banner image comes from its content.js `image` field */
 const ITEMS = [
@@ -16,7 +18,7 @@ const ITEMS = [
 ];
 
 function Row({ item, active, onEnter, onClick }) {
-  const Icon = Icons[item.icon];
+  const Icon = SERVICE_ICONS[item.icon];
   const isLeft = item.side === "left";
 
   return (
@@ -150,7 +152,7 @@ export default function ServicesSection() {
           {/* LEFT — Boxes */}
           <div className="order-2 flex flex-col lg:order-1">
             <div className="border-b border-border-soft bg-surface-base px-4 py-4 text-center lg:px-6">
-              <span className="label text-[12px] text-gold">Boxes</span>
+              <span className="label text-[12px] text-gold">Products</span>
             </div>
             {renderColumn(grouped.left)}
           </div>
@@ -167,6 +169,8 @@ export default function ServicesSection() {
                 if (!el.src.endsWith(FALLBACK_IMG)) el.src = FALLBACK_IMG;
               }}
               className="absolute inset-0 h-full w-full object-contain"
+              loading="lazy"
+              decoding="async"
             />
 
             {/* Caption + progress bars */}
