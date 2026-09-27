@@ -64,7 +64,7 @@ export default function ProductionVideo() {
             className="absolute inset-0 z-10 h-full w-full object-cover"
             controls autoPlay muted loop
           >
-            <source src="/printing.mp4" type="video/mp4" />
+            <source src="/assets/video.mp4" type="video/mp4" />
           </video>
 
           {!playing && (

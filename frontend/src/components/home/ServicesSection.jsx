@@ -8,10 +8,9 @@ import { Package, Boxes, PackageOpen, ShoppingBag, Tag, Tags, BookOpen, Printer,
 const SERVICE_ICONS = { Package, Boxes, PackageOpen, ShoppingBag, Tag, Tags, BookOpen, Printer, Box, Briefcase, Newspaper, Megaphone, Sparkles, PenTool };
 
 const ROTATE_MS = 3500;
-/* Contact-sheet art shown when a row's dedicated file hasn't been dropped in yet */
-const FALLBACK_IMG = "/assets/services/products.jpg";
 
-/* Flat, ordered list of all 14 rows; each row's banner image comes from its content.js `image` field */
+/* Flat, ordered list of all 14 rows; each row carries its own single image,
+   so hovering a row shows exactly one product shot (never a contact sheet) */
 const ITEMS = [
   ...BOX_FORMATS.map((item) => ({ ...item, side: "left" })),
   ...SERVICE_LINES.map((item) => ({ ...item, side: "right" })),
@@ -25,7 +24,7 @@ function Row({ item, active, onEnter, onClick }) {
     <div
       role="button"
       tabIndex={0}
-      aria-label={`${item.title} — view services`}
+      aria-label={`${item.title} — view products`}
       onMouseEnter={onEnter}
       onFocus={onEnter}
       onClick={onClick}
@@ -111,7 +110,7 @@ export default function ServicesSection() {
     return () => window.clearInterval(timerRef.current);
   }, [paused]);
 
-  const goServices = () => navigate("/services");
+  const goProducts = () => navigate("/products");
 
   const renderColumn = (list) =>
     list.map((item) => {
@@ -122,7 +121,7 @@ export default function ServicesSection() {
           item={item}
           active={idx === activeIdx}
           onEnter={() => goTo(idx)}
-          onClick={goServices}
+          onClick={goProducts}
         />
       );
     });
@@ -157,18 +156,13 @@ export default function ServicesSection() {
             {renderColumn(grouped.left)}
           </div>
 
-          {/* CENTER — auto-rotating banner */}
-          <div className="relative order-1 min-h-[320px] overflow-hidden bg-obsidian lg:order-2 lg:min-h-full">
+          {/* CENTER — one dedicated image for the hovered row */}
+          <div className="relative order-1 min-h-[320px] overflow-hidden bg-[#faf9f7] lg:order-2 lg:min-h-full">
             <img
-             style={{ backgroundColor: "#faf9f7" }}
+              key={activeItem.image}
               src={activeItem.image}
               alt={`${activeItem.title} showcase`}
-              onError={(e) => {
-                const el = e.currentTarget;
-                /* Dedicated slug art missing → show the contact sheet until the real file lands */
-                if (!el.src.endsWith(FALLBACK_IMG)) el.src = FALLBACK_IMG;
-              }}
-              className="absolute inset-0 h-full w-full object-contain"
+              className="absolute inset-0 h-full w-full bg-[#faf9f7] object-contain p-4"
               loading="lazy"
               decoding="async"
             />

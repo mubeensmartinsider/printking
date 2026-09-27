@@ -7,7 +7,7 @@ import ThemeToggle from "../common/ThemeToggle";
 
 const COMPACT_NAV_LINKS = [
   { label: "About",        to: "/about" },
-  { label: "Services",     to: "/services", mega: true },
+  { label: "Products",     to: "/products", mega: true },
   { label: "Portfolio",    to: "/portfolio" },
   { label: "Case Studies", to: "/case-studies" },
 ];
@@ -366,13 +366,13 @@ export default function Navbar() {
                   }}
                 >
                   <button
-                    onClick={() => { navigate("/services"); setMegaOpen(false); }}
-                    data-testid="nav-services"
-                    className={linkCls(location.pathname === "/services" || megaOpen)}
+                    onClick={() => { navigate("/products"); setMegaOpen(false); }}
+                    data-testid="nav-products"
+                    className={linkCls(location.pathname.startsWith("/products") || megaOpen)}
                   >
-                    Services
+                    Products
                     <ChevronDown size={12} className={`ml-1 inline transition-transform duration-300 ${megaOpen ? "rotate-180" : ""}`} />
-                    {location.pathname === "/services" && (
+                    {location.pathname.startsWith("/products") && (
                       <span className="absolute bottom-0 left-3 xl:left-4 right-3 xl:right-4 h-[2px] bg-gold rounded-full" />
                     )}
                   </button>

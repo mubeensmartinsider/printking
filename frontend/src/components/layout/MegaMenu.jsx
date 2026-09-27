@@ -1,31 +1,32 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SERVICES } from "../../lib/content";
+import { PRODUCTS } from "../../lib/content";
 
 const SERVICES_COLUMNS = [
   {
     title: "Core Products",
-    items: SERVICES.slice(0, 7).map((s) => ({
-      label: s.title,
-      to: "/services",
-      desc: s.desc.substring(0, 60) + "...",
+    /* Deep link straight into each product's detail page */
+    items: PRODUCTS.slice(0, 7).map((p) => ({
+      label: p.title,
+      to: `/products/${p.slug}`,
+      desc: p.short.substring(0, 60) + "...",
     })),
   },
   {
     title: "Capabilities",
     items: [
-      { label: "Offset Printing", to: "/services", desc: "Heidelberg precision printing" },
-      { label: "Die-Cutting", to: "/services", desc: "±0.1mm tolerance" },
-      { label: "Foil Stamping", to: "/services", desc: "Gold, silver & custom foil" },
-      { label: "Lamination", to: "/services", desc: "Matte, gloss & soft-touch" },
-      { label: "UV Coating", to: "/services", desc: "Spot & full flood UV" },
-      { label: "Rigid Box Assembly", to: "/services", desc: "Magnetic, clamshell & more" },
+      { label: "Offset Printing", to: "/products/offset-printing", desc: "Heidelberg precision printing" },
+      { label: "Die-Cutting", to: "/products/uv-finishing", desc: "±0.1mm tolerance" },
+      { label: "Foil Stamping", to: "/products/uv-finishing", desc: "Gold, silver & custom foil" },
+      { label: "Lamination", to: "/products/uv-finishing", desc: "Matte, gloss & soft-touch" },
+      { label: "UV Coating", to: "/products/uv-finishing", desc: "Spot & full flood UV" },
+      { label: "Rigid Box Assembly", to: "/products/luxury-rigid-boxes", desc: "Magnetic, clamshell & more" },
     ],
   },
   {
     title: "View All",
     items: [
-      { label: "All Services →", to: "/services", desc: "Full capability overview" },
+      { label: "All Products →", to: "/products", desc: "Full product range" },
       { label: "Request a Quote →", to: "/request-quote", desc: "Start your project" },
     ],
   },

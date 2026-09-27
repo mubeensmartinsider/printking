@@ -2,13 +2,14 @@ import "@/App.css";
 import "@/styles/responsive.css";
 import "@/styles/theme.css";
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Layout from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
-const ServicesPage = lazy(() => import("@/pages/ServicesPage"));
+const ProductsPage = lazy(() => import("@/pages/ProductsPage"));
+const ProductDetailPage = lazy(() => import("@/pages/ProductDetailPage"));
 const PortfolioPage = lazy(() => import("@/pages/PortfolioPage"));
 const MachineryPage = lazy(() => import("@/pages/MachineryPage"));
 const SustainabilityPage = lazy(() => import("@/pages/SustainabilityPage"));
@@ -31,7 +32,10 @@ function App() {
               <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/products/:slug" element={<ProductDetailPage />} />
+              {/* No separate services page — the old URL redirects to Products */}
+              <Route path="/services" element={<Navigate to="/products" replace />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/machinery" element={<MachineryPage />} />
               <Route path="/sustainability" element={<SustainabilityPage />} />

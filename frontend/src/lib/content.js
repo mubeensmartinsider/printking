@@ -24,7 +24,7 @@ export const COMPANY = {
 
 export const NAV_LINKS = [
   { label: "About", to: "/about" },
-  { label: "Services", to: "/services" },
+  { label: "Products", to: "/products" },
   { label: "Portfolio", to: "/portfolio" },
   { label: "Case Studies", to: "/case-studies" },
   { label: "Machinery", to: "/machinery" },
@@ -111,7 +111,7 @@ export const LEADERSHIP = {
     /* Portrait path once a real photo exists, e.g. "/assets/ceo.jpg".
        Left empty until then so the card shows the initials placeholder
        instead of an unrelated machine photo. */
-    img: "",
+    img: "/assets/ceo.jpeg",
   },
   md: {
     eyebrow: "MANAGING DIRECTOR",
@@ -167,6 +167,400 @@ export const SERVICES = [
   { num: "13", title: "UV & Finishing", icon: "Sparkles", desc: "Spot UV, matte lamination, gloss, soft-touch, hot foil, emboss, deboss. The details that make packaging premium.", slug: "uv-finishing" },
 ];
 
+/* ============================================================
+   PRODUCTS — single source of truth for /products and /products/:slug
+   Each product carries: `image` (product photo — light/white art),
+   an overview description, a label/value feature sheet and a
+   `banner` used as the social/OG image.
+   ============================================================ */
+
+/* Trade terms shared by every product — keeps the feature sheet consistent */
+const tradeTerms = (
+  moq,
+  delivery = "Based on the complexity of the project. Premium plans are available for high-priority deliveries."
+) => [
+  { label: "Sample", value: "Digital or offset sample proofing is possible. Contact us for sampling charges." },
+  { label: "MOQ", value: moq },
+  { label: "Certification", value: "ISO 9001:2015 certified manufacturing." },
+  { label: "Delivery time", value: delivery },
+  { label: "QC", value: "100% inspection before delivery." },
+  { label: "Price", value: "Competitive prices offered — request a quotation for your specification." },
+  { label: "Payment terms", value: "Bank transfer (T/T), Letter of Credit (LC) and PayPal." },
+];
+
+const RIGID_MOQ = "500 pieces for rigid boxes. Monocartons: 50,000 boxes. Contact us to know more.";
+
+export const PRODUCTS = [
+  {
+    num: "01",
+    slug: "luxury-rigid-boxes",
+    title: "Luxury Rigid Boxes",
+    category: "Luxury Packaging",
+    tagline: "The apex of packaging engineering, manufactured to jewellery-grade tolerances.",
+    short:
+      "Magnetic closure, telescope lid and clamshell builds — the premium box your product deserves to arrive in.",
+    banner: "/assets/banners/rigidbanner.jpg",
+    image: "/assets/services/luxuryRigid.jpg",
+    highlights: ["Magnetic & clamshell", "Telescope lids", "Soft-touch & foil", "Hand-wrapped corners"],
+    description: [
+      "A rigid box is the first physical moment your customer experiences your brand. We build each one from a grey-board core wrapped in your chosen substrate — assembled, corner-folded and finished by hand so the lid closes with the weight and precision of a luxury object.",
+      "Magnetic closure, telescope lid, clamshell, drawer and book-style structures are all engineered in-house, with inserts die-cut to hold your product without movement in transit. Every box is inspected before it leaves the plant.",
+    ],
+    features: [
+      { label: "Size", value: "Built to your product dimensions — from small jewellery boxes to large presentation cases." },
+      { label: "Structure", value: "Magnetic flap, telescope lid, clamshell, drawer/sleeve, book-style and two-piece builds." },
+      { label: "Board", value: "1200–1600gsm grey-board core wrapped in art paper, specialty paper, leatherette or fabric." },
+      { label: "Surface disposal", value: "Matt/gloss lamination, soft-touch, protective varnish, spot UV and gold/silver hot stamping." },
+      { label: "Lamination", value: "Matt, glossy, velvet/silk, holographic and thermal options." },
+      { label: "Finishing", value: "Embossing & debossing, hot foil stamping, screen printing, laser cutting and edge painting." },
+      { label: "Insert", value: "EVA foam, moulded pulp, velvet-lined or die-cut board inserts." },
+      { label: "Ribbon & handle", value: "Satin ribbon pulls, cotton rope, PP and jute handles available." },
+      { label: "Design", value: "In-house structural engineering and dieline development; OEM and bespoke design welcome." },
+      { label: "Logo", value: "Send your artwork — we handle sampling and mass production to your logo specification." },
+      ...tradeTerms(RIGID_MOQ),
+    ],
+  },
+  {
+    num: "02",
+    slug: "custom-packaging",
+    title: "Custom Packaging",
+    category: "Luxury Packaging",
+    tagline: "Every dimension, every material, every finish — engineered around your product.",
+    short:
+      "Fully bespoke packaging: structural design, prototyping and production under one roof, from first dieline to delivered pallet.",
+    banner: "/assets/banners/mainbanner.jpg",
+    image: "/assets/services/custompackaging.png",
+    highlights: ["Dieline engineering", "Rapid prototyping", "Any material", "Any finish"],
+    description: [
+      "Some products simply do not fit a catalogue. Our packaging engineers start from the physical object — its weight, fragility, shelf presence and shipping route — and design a structure that solves for all of it before a single sheet is printed.",
+      "You receive a dieline, a digital proof and a physical prototype at full specification. Only once you approve the sample does production begin on our Heidelberg lines, followed by finishing, QC and packing.",
+    ],
+    features: [
+      { label: "Size", value: "Any dimension, calculated from your product's actual measurements and tolerance." },
+      { label: "Structure", value: "Rigid, folding carton, mailer, sleeve, tray, insert or multi-piece assembly." },
+      { label: "Material", value: "Rigid board, C2S art paper, ivory board, kraft, corrugated and imported specialty papers." },
+      { label: "Prototyping", value: "CAD dieline, white sample and full-colour prototype before mass production." },
+      { label: "Design", value: "In-house structural design team — OEM and fully customised design welcome." },
+      { label: "Surface disposal", value: "Lamination, varnish, UV coating, foil stamping, emboss/deboss and screen printing." },
+      { label: "Product purpose", value: "Retail, gifting, e-commerce, advertising, promotion and institutional packaging." },
+      ...tradeTerms("Project dependent — no minimum order restriction on most custom formats."),
+    ],
+  },
+  {
+    num: "03",
+    slug: "folding-cartons",
+    title: "Folding Cartons",
+    category: "Boxes & Cartons",
+    tagline: "Reverse tuck, straight tuck, gable top, auto-bottom — high-speed production, premium results.",
+    short:
+      "Precision die-cut cartons for retail shelves and automated filling lines, printed and glued at high volume.",
+    banner: "/assets/banners/banner3.jpg",
+    image: "/assets/services/foldingcartons.jpg",
+    highlights: ["Auto-bottom & tuck-end", "Food-safe inks", "High-speed gluing", "Retail-ready dielines"],
+    description: [
+      "Folding cartons are the workhorse of retail packaging, and they are where our offset quality shows most clearly. Every dieline is engineered for your filling line — board grade, grain direction and glue flap width all calculated so the carton runs without jamming.",
+      "From 350gsm FSC-certified board to metallised and recycled substrates, we print, cut, crease and glue in-house on Heidelberg presses, with colour monitored across the whole run.",
+    ],
+    features: [
+      { label: "Size", value: "Custom dimensions engineered to your product and filling-line tolerance." },
+      { label: "Structure", value: "Reverse tuck, straight tuck, auto-bottom, gable top, tray and sleeve formats." },
+      { label: "Material", value: "350–450gsm FSC-certified board, ivory board, recycled and metallised substrates." },
+      { label: "Printing", value: "8-colour Heidelberg offset with CMYK and Pantone matching, plus food-safe ink options." },
+      { label: "Surface disposal", value: "Aqueous coating, matt/gloss lamination, spot UV and hot foil stamping." },
+      { label: "Finishing", value: "Die-cutting, creasing, embossing, debossing and perforation for easy-open formats." },
+      { label: "Gluing", value: "In-line high-speed folding and gluing for jam-free automated packing lines." },
+      { label: "Design", value: "In-house dieline engineering, artwork adaptation and OEM production." },
+      ...tradeTerms("50,000 cartons. Smaller trial runs available on request."),
+    ],
+  },
+  {
+    num: "04",
+    slug: "mailer-boxes",
+    title: "Mailer Boxes",
+    category: "Boxes & Cartons",
+    tagline: "Built for the unboxing moment — kraft to coated, plain to full bleed.",
+    short:
+      "E-commerce and DTC mailers that survive the courier network and still look immaculate on the doorstep.",
+    banner: "/assets/banners/mainbanner2.png",
+    image: "/assets/services/mailer.jpg",
+    highlights: ["Corrugated strength", "Full-bleed print", "Inside print option", "Flat-packed shipping"],
+    description: [
+      "A mailer box carries your brand further than any other piece of packaging — through sorting centres, vans and finally into your customer's hands. We specify flute grade and board combination based on the weight and fragility of what goes inside.",
+      "Mailers ship flat and fold into shape in seconds, which cuts storage and freight cost. Print inside and out, add a ribbon pull or tissue, and the unboxing becomes something customers photograph.",
+    ],
+    features: [
+      { label: "Size", value: "Custom, based on your product plus protective clearance and courier limits." },
+      { label: "Structure", value: "Roll-end tuck, mailer with self-locking base, drawer mailer and rigid magnetic mailer." },
+      { label: "Material", value: "E-flute and B-flute corrugated, kraft or coated white, plus specialty liners." },
+      { label: "Printing", value: "Full-bleed offset litho lamination, flexo kraft stamping or digital short runs." },
+      { label: "Surface disposal", value: "Matt/gloss lamination, varnish, spot UV, foil stamping and embossing." },
+      { label: "Inside finish", value: "Custom interior print, tissue paper, ribbon pulls and die-cut inserts." },
+      { label: "Design", value: "Structural design and artwork support; OEM and bespoke design welcome." },
+      ...tradeTerms("1,000 pieces for litho-laminated mailers. Plain kraft from 500 pieces."),
+    ],
+  },
+  {
+    num: "05",
+    slug: "paper-bags",
+    title: "Paper Bags",
+    category: "Bags, Tags & Labels",
+    tagline: "Twisted rope, flat ribbon, euro handle — retail, gifting and luxury carry bags.",
+    short:
+      "Branded carry bags that turn a purchase into a walking advertisement for your store.",
+    banner: "/assets/banners/banner1.png",
+    image: "/assets/services/paperbag.jpg",
+    highlights: ["Rope & ribbon handles", "Reinforced top", "Matte & gloss", "Food-grade liners"],
+    description: [
+      "The bag a customer carries out of your store is seen by everyone on the street. We print and finish bags that hold their shape, carry real weight and keep your identity visible long after the purchase.",
+      "Handle type, gusset depth, board weight and reinforcement are specified per use — boutique, gifting, festival retail or heavier multi-item carry.",
+    ],
+    features: [
+      { label: "Size", value: "Custom widths, heights and gusset depths, from small gift bags to large retail carry bags." },
+      { label: "Handle", value: "Twisted paper handle, flat ribbon, cotton rope, PP rope, die-cut and jute rope." },
+      { label: "Material", value: "Kraft paper, art paper, ivory board and imported specialty papers." },
+      { label: "Surface disposal", value: "Matt/gloss lamination, protective varnish, UV coating and gold/silver hot stamping." },
+      { label: "Finishing", value: "Embossing & debossing, hot foil stamping, screen printing and reinforced card tops." },
+      { label: "Lamination", value: "Matt, glossy, soft-touch and velvet/silk options." },
+      { label: "Product purpose", value: "Retail store, gifting, festivals, exhibitions, advertising and promotion." },
+      ...tradeTerms("1,000 pieces. Smaller quantities available on request."),
+    ],
+  },
+  {
+    num: "06",
+    slug: "labels-stickers",
+    title: "Labels & Stickers",
+    category: "Bags, Tags & Labels",
+    tagline: "BOPP, kraft, foil, clear — die-cut, roll or sheet, in any shape or size.",
+    short:
+      "Product labels and brand stickers engineered to adhere cleanly and stay put through shelf life and handling.",
+    banner: "/assets/banners/Edge-Perfection-Banner-1.png",
+    image: "/assets/services/labels.jpg",
+    highlights: ["Waterproof BOPP", "Roll & sheet", "Any die shape", "Pantone matched"],
+    description: [
+      "Labels are where print quality is judged at arm's length — a registration error of a fraction of a millimetre shows immediately. Our labels are printed, varnished and die-cut with the same discipline we apply to packaging.",
+      "We select adhesive and face material for the surface and condition: chilled or oily bottles, textured board, glass, plastic or fabric, each with a wet-strength or removable adhesive to suit.",
+    ],
+    features: [
+      { label: "Size", value: "Any size and any die shape — from small security seals to wraps and sheets." },
+      { label: "Material", value: "Paper, BOPP, PET, clear-on-clear, metallic and kraft label stock." },
+      { label: "Adhesive", value: "Permanent, removable, freezer-grade and wet-strength adhesives." },
+      { label: "Format", value: "Roll form for applicator lines or sheet form for hand application." },
+      { label: "Printing", value: "Offset and flexo with CMYK and Pantone matching; barcode and QR variable data." },
+      { label: "Surface disposal", value: "Gloss/matt varnish, lamination, spot UV and cold foil." },
+      { label: "Finishing", value: "Die-cutting, embossing, numbering and laser cutting." },
+      ...tradeTerms("5,000 labels. Roll die charges apply."),
+    ],
+  },
+  {
+    num: "07",
+    slug: "hang-tags",
+    title: "Hang Tags",
+    category: "Bags, Tags & Labels",
+    tagline: "Garment, retail and product tags — premium board, eyelet punched, full colour both sides.",
+    short:
+      "The small detail that carries your brand, size, price and care story — printed on both sides with a quality feel in hand.",
+    banner: "/assets/banners/banner4.jpeg",
+    image: "/assets/services/hangtags.png",
+    highlights: ["Full colour both sides", "Eyelet punched", "Foil & emboss", "Spot UV"],
+    description: [
+      "A hang tag is handled more than any other printed piece in the store — customers turn it, feel it and read it before deciding. We print on substantial boards so it has presence rather than flimsiness.",
+      "Eyelets, punched shapes, foiled logos, embossed textures and tag strings or pins are all produced and applied in-house for a consistent finish across the whole consignment.",
+    ],
+    features: [
+      { label: "Size", value: "Custom tag sizes and die shapes, from slim garment tags to large retail cards." },
+      { label: "Material", value: "300–450gsm art card, ivory board, kraft and imported specialty papers." },
+      { label: "Printing", value: "Full colour both sides, CMYK and Pantone matched, on offset presses." },
+      { label: "Surface disposal", value: "Matt/gloss lamination, protective varnish, spot UV and soft-touch." },
+      { label: "Finishing", value: "Foil stamping, embossing & debossing, screen printing, punching and eyelet fitting." },
+      { label: "String & pin", value: "Cotton, nylon, elastic or jute strings; plastic or metal pins on request." },
+      { label: "Product purpose", value: "Garment, accessory, jewellery, footwear, home textile and retail display." },
+      ...tradeTerms("5,000 tags. Smaller quantities available on request."),
+    ],
+  },
+  {
+    num: "08",
+    slug: "catalogs-brochures",
+    title: "Catalogs & Brochures",
+    category: "Print & Publishing",
+    tagline: "Saddle stitch, perfect bound, gatefold — printed to make brands look world-class.",
+    short:
+      "Lookbooks, product catalogues and brochures that hold thousands of products without ever looking cheap.",
+    banner: "/assets/banners/banner3.jpg",
+    image: "/assets/services/catalogs.png",
+    highlights: ["Perfect & saddle bound", "FSC text papers", "Gatefold covers", "Colour-critical proofing"],
+    description: [
+      "Catalogue printing is a colour-accuracy exercise at scale. Every skin tone, fabric shade and product colour must repeat across dozens of pages and thousands of copies, which is why we proof against Pantone and monitor the run on press.",
+      "Choose from saddle stitch, perfect binding, section-sewn or wire-o, with optional spot UV, foil and embossed covers that give the piece the weight of your brand.",
+    ],
+    features: [
+      { label: "Size", value: "A4, A5, square, portrait, landscape or custom trimmed formats." },
+      { label: "Extent", value: "From 8-page leaflets to 300+ page catalogues." },
+      { label: "Binding", value: "Saddle stitch, perfect bound, section sewn, wire-o, spiral and case bound." },
+      { label: "Material", value: "FSC-certified text and cover papers, art card, uncoated and specialty stocks." },
+      { label: "Printing", value: "8-colour Heidelberg offset with CMYK and Pantone matching." },
+      { label: "Cover finishing", value: "Matt/gloss lamination, soft-touch, spot UV, foil stamping and embossing." },
+      { label: "Design", value: "Artwork preparation, imposition and OEM production; design support available." },
+      ...tradeTerms("1,000 copies. Short runs quoted on request."),
+    ],
+  },
+  {
+    num: "09",
+    slug: "offset-printing",
+    title: "Offset Printing",
+    category: "Print & Publishing",
+    tagline: "Eight-colour Heidelberg precision — up to 18,000 sheets per hour.",
+    short:
+      "The production engine behind everything we make: German-engineered offset printing with ISO-calibrated colour control.",
+    banner: "/assets/banners/mainbanner.jpg",
+    image: "/assets/services/offset.png",
+    highlights: ["8-colour presses", "18,000 sph", "Pantone matching", "CTP plate imaging"],
+    description: [
+      "Printing is where a specification either delivers or fails. Our sheet-fed Heidelberg presses run eight colours in a single pass, with inline coating and automatic plate changing that keeps registration and colour stable across long runs.",
+      "Plates are imaged in-house on thermal CTP at 2400 dpi, colour is verified with spectrophotometer readings, and every job is checked against the approved proof at the end of the run.",
+    ],
+    features: [
+      { label: "Size", value: "Up to 720 × 1020mm sheet format; smaller formats nested for efficiency." },
+      { label: "Colours", value: "Up to 8 colours in a single pass, plus inline aqueous or UV coating." },
+      { label: "Speed", value: "Up to 18,000 sheets per hour on flagship presses." },
+      { label: "Material", value: "Art paper, ivory board, kraft, corrugated liner, specialty and synthetic stocks." },
+      { label: "Colour control", value: "CMYK and Pantone matching with spectrophotometer verification." },
+      { label: "Pre-press", value: "In-house thermal CTP at 2400 dpi, digital proofing and imposition." },
+      { label: "Surface disposal", value: "Aqueous coating, UV coating, matt/gloss lamination and varnish." },
+      ...tradeTerms("Depends on the job — no minimum order restriction on most print formats."),
+    ],
+  },
+  {
+    num: "10",
+    slug: "corporate-branding",
+    title: "Corporate Branding",
+    category: "Print & Publishing",
+    tagline: "Letterheads, business cards, folders and envelopes — complete corporate identity print.",
+    short:
+      "Everything your company hands out, printed consistently so every touchpoint looks like one brand.",
+    banner: "/assets/banners/banner3.jpg",
+    image: "/assets/services/corporatebranding.png",
+    highlights: ["Brand-consistent colour", "Premium stocks", "Foil & emboss", "Rush turnaround"],
+    description: [
+      "Corporate stationery is judged in the hand — the weight of a business card, the feel of a letterhead, the crispness of an embossed folder. We print the full set together so the paper, colour and finish match exactly across every item.",
+      "Standard packs cover letterheads, continuation sheets, envelopes, compliment slips, business cards, folders, notepads and ID or gift items, with optional foil, emboss and soft-touch finishing.",
+    ],
+    features: [
+      { label: "Size", value: "Standard A4 letterheads and 90×54mm cards, plus custom sizes on request." },
+      { label: "Items", value: "Letterheads, envelopes, business cards, compliment slips, folders, notepads, ID cards." },
+      { label: "Material", value: "80–120gsm text papers, 300–450gsm card and imported specialty stocks." },
+      { label: "Printing", value: "Offset and digital production with CMYK and Pantone matching." },
+      { label: "Surface disposal", value: "Matt/gloss lamination, soft-touch, spot UV, varnish and edge painting." },
+      { label: "Finishing", value: "Foil stamping, embossing & debossing, die-cutting and foil-blocked folders." },
+      { label: "Brand support", value: "Artwork setup against your brand guidelines; variable data for personalised sets." },
+      ...tradeTerms("1,000 pieces per item. Rush production available."),
+    ],
+  },
+  {
+    num: "11",
+    slug: "commercial-printing",
+    title: "Commercial Printing",
+    category: "Print & Publishing",
+    tagline: "High-volume runs for any commercial requirement — fast turnaround, consistent quality.",
+    short:
+      "Large-scale offset production for businesses that need volume without a drop in standard.",
+    banner: "/assets/banners/mainbanner2.png",
+    image: "/assets/services/commercialmaterial.png",
+    highlights: ["High-volume runs", "24-hour production", "Sheet & web options", "Nationwide delivery"],
+    description: [
+      "When a campaign has to land on a date, capacity decides the outcome. With eight Heidelberg presses running six days a week we schedule long runs without pushing your delivery week.",
+      "Volumes are quoted per impression with material and finishing fixed up front, so a re-run two months later matches the first exactly.",
+    ],
+    features: [
+      { label: "Size", value: "Sheet formats up to 720 × 1020mm, plus large-format posters on request." },
+      { label: "Volume", value: "From a few thousand impressions to multi-million sheet programmes." },
+      { label: "Turnaround", value: "Standard 7–10 working days; express 48–72 hour production available." },
+      { label: "Material", value: "Art paper, ivory board, kraft, newsprint, synthetic and specialty stocks." },
+      { label: "Printing", value: "8-colour Heidelberg offset with CMYK and Pantone matching." },
+      { label: "Surface disposal", value: "Aqueous coating, UV coating, matt/gloss lamination and varnish." },
+      { label: "Finishing", value: "Cutting, folding, creasing, perforating, numbering, stitching and packing." },
+      ...tradeTerms("Depends on the specification — request a quotation for your volume."),
+    ],
+  },
+  {
+    num: "12",
+    slug: "promotional-materials",
+    title: "Promotional Materials",
+    category: "Print & Publishing",
+    tagline: "Flyers, posters, banners and inserts — campaign-ready print at production scale.",
+    short:
+      "Everything a marketing calendar needs, produced to the same standard as your premium packaging.",
+    banner: "/assets/banners/awardbanner2.jpg",
+    image: "/assets/services/promotional.png",
+    highlights: ["Campaign scale", "Fast reprints", "Indoor & outdoor", "Bundle packing"],
+    description: [
+      "Promotional print is judged in seconds and handled roughly — so the material has to look sharp and survive. We print flyers, posters, standees, banners, tent cards and inserts on substrates matched to how they will be used.",
+      "Bundle packing by campaign or store, sequential numbering and sorted palletising are offered so distribution teams can move fast without sorting boxes on site.",
+    ],
+    features: [
+      { label: "Size", value: "A6 flyers to A0 posters, standees and custom large-format sizes." },
+      { label: "Items", value: "Flyers, leaflets, posters, standees, tent cards, shelf talkers, banners and inserts." },
+      { label: "Material", value: "Art paper, board, newsprint, self-adhesive and synthetic weather-resistant stocks." },
+      { label: "Printing", value: "Offset for volume, digital for short-run or versioned campaigns." },
+      { label: "Surface disposal", value: "Aqueous coating, UV coating, matt/gloss lamination and varnish." },
+      { label: "Finishing", value: "Die-cutting, creasing, folding, numbering and eyeleting." },
+      { label: "Packing", value: "Bundle packing by campaign, store or region on request." },
+      ...tradeTerms("5,000 pieces. Short-run digital available with no minimum."),
+    ],
+  },
+  {
+    num: "13",
+    slug: "uv-finishing",
+    title: "UV & Finishing",
+    category: "Finishing & Effects",
+    tagline: "Spot UV, foil, emboss, soft-touch — the details that make packaging premium.",
+    short:
+      "Specialty finishes applied in-house that turn a well-printed sheet into a piece people keep.",
+    banner: "/assets/banners/Edge-Perfection-Banner-1.png",
+    image: "/assets/services/uvfinishing.png",
+    highlights: ["Spot & flood UV", "Hot & cold foil", "Emboss & deboss", "Soft-touch & velvet"],
+    description: [
+      "Finishing is what separates packaging that looks printed from packaging that looks made. We run lamination, coating, foiling, embossing, die-cutting and laser work under one roof, so a job never leaves our control between processes.",
+      "Finishes can be combined — soft-touch lamination with a spot-UV logo over a debossed panel, or cold foil with a registered emboss — to create surface detail that no flat print can reproduce.",
+    ],
+    features: [
+      { label: "Lamination", value: "Matt, gloss, soft-touch, velvet/silk, holographic and thermal options." },
+      { label: "Coatings", value: "Full-flood and registered spot UV, aqueous coating and protective varnish." },
+      { label: "Foil", value: "Hot and cold foil stamping in gold, silver, copper, holographic and custom colours." },
+      { label: "Emboss", value: "Blind embossing, registered embossing and debossing with multi-level dies." },
+      { label: "Die work", value: "Die-cutting, creasing, kiss-cutting and combined die-cutting with foil in one pass." },
+      { label: "Special techniques", value: "Screen printing, laser cutting, edge painting and texture varnishes." },
+      { label: "Quality", value: "Registered finishes proofed against the artwork before the production run." },
+      ...tradeTerms("Applied to your print job — finishing-only quantities quoted on request."),
+    ],
+  },
+];
+
+/* Category chips used by the /products filter bar */
+export const PRODUCT_CATEGORIES = ["All", ...Array.from(new Set(PRODUCTS.map((p) => p.category)))];
+
+/* /products page hero */
+export const PRODUCT_PAGE = {
+  eyebrow: "OUR PRODUCTS",
+  headline: "Every Format. Every Finish. Every Scale.",
+  sub: "Packaging and print disciplines manufactured under one roof — from jewellery-grade rigid boxes and bespoke structural design to high-volume commercial print runs. Select any product to see its full specification.",
+  banner: "/assets/banners/mainbanner.jpg",
+};
+
+/* Light, wide banner used behind the /products hero and the product-detail
+   header band. Keyed by product category so the page stays on-palette for the
+   light theme (the dark banners in PRODUCTS[].banner are only for social/OG). */
+export const CATEGORY_HEADER_IMAGES = {
+  "Luxury Packaging": "/assets/banners/mainbanner.jpg",
+  "Boxes & Cartons": "/assets/banners/mainbanner2.png",
+  "Bags, Tags & Labels": "/assets/banners/banner4.jpeg",
+  "Print & Publishing": "/assets/banners/mainbanner.jpg",
+  "Finishing & Effects": "/assets/banners/mainbanner2.png",
+};
+
+/* Header band image for a product (falls back to the product's own banner) */
+export const productHeaderImage = (product) =>
+  (product && CATEGORY_HEADER_IMAGES[product.category]) || (product && product.banner) || PRODUCT_PAGE.banner;
+
 /* ---- Home "Boxes | Banner | Services" section — left column ---- */
 export const BOX_FORMATS = [
   { id: "box-1", title: "Luxury Rigid Boxes", icon: "Package", image: "/assets/services/luxuryRigid.jpg", desc: "Magnetic closure, telescope lid and clamshell builds — the apex of packaging engineering, made to jewellery-grade tolerances." },
@@ -174,19 +568,19 @@ export const BOX_FORMATS = [
   { id: "box-3", title: "Mailer Boxes", icon: "PackageOpen", image: "/assets/services/mailer.jpg", desc: "E-commerce and DTC packaging — kraft to coated, plain to full bleed, built for the unboxing moment." },
   { id: "box-4", title: "Paper Bags", icon: "ShoppingBag", image: "/assets/services/paperbag.jpg", desc: "Twisted rope, flat ribbon and euro handles. Retail, gifting and luxury carry bags." },
   { id: "box-5", title: "Labels & Stickers", icon: "Tag", image: "/assets/services/labels.jpg", desc: "BOPP, kraft, foil and clear stock — die-cut in roll or sheet format, any shape, any size." },
-  { id: "box-6", title: "Hang Tags", icon: "Tags", image: "/assets/services/hang-tags.png", desc: "Garment, retail and product tags on premium board — full-colour both sides, eyelet punched." },
-  { id: "box-7", title: "Catalogs & Brochures", icon: "BookOpen", image: "/assets/services/catalogs-brochures.png", desc: "Saddle stitch, perfect bound and gatefold — printed to make brands look world-class." },
+  { id: "box-6", title: "Hang Tags", icon: "Tags", image: "/assets/services/hangtags.png", desc: "Garment, retail and product tags on premium board — full-colour both sides, eyelet punched." },
+  { id: "box-7", title: "Catalogs & Brochures", icon: "BookOpen", image: "/assets/services/catalogs.png", desc: "Saddle stitch, perfect bound and gatefold — printed to make brands look world-class." },
 ];
 
 /* ---- Home "Boxes | Banner | Services" section — right column ---- */
 export const SERVICE_LINES = [
-  { id: "svc-1", title: "Offset Printing", icon: "Printer", image: "/assets/services/offset-printing.png", desc: "Eight-color Heidelberg precision — up to 18,000 sheets per hour, CMYK and Pantone matched." },
-  { id: "svc-2", title: "Custom Packaging", icon: "Box", image: "/assets/services/custom-packaging.png", desc: "Every dimension, material and finish — fully bespoke from structural design to delivery." },
-  { id: "svc-3", title: "Corporate Branding", icon: "Briefcase", image: "/assets/services/corporate-branding.png", desc: "Letterheads, business cards, folders and envelopes — complete corporate identity print." },
-  { id: "svc-4", title: "Commercial Printing", icon: "Newspaper", image: "/assets/services/commercial-printing.png", desc: "High-volume runs for any commercial requirement, with fast turnaround and consistent quality." },
-  { id: "svc-5", title: "Promotional Materials", icon: "Megaphone", image: "/assets/services/promotional-materials.png", desc: "Flyers, posters, banners and inserts — campaign-ready print at production scale." },
-  { id: "svc-6", title: "UV & Finishing", icon: "Sparkles", image: "/assets/services/uv-finishing.png", desc: "Spot UV, matte lamination, soft-touch, hot foil, emboss and deboss — the details that make packaging premium." },
-  { id: "svc-7", title: "Design & Pre-Press", icon: "PenTool", image: "/assets/services/design-pre-press.png", desc: "In-house artwork, dielines and colour proofing — proofed, plated and press-ready." },
+  { id: "svc-1", title: "Offset Printing", icon: "Printer", image: "/assets/services/offset.png", desc: "Eight-color Heidelberg precision — up to 18,000 sheets per hour, CMYK and Pantone matched." },
+  { id: "svc-2", title: "Custom Packaging", icon: "Box", image: "/assets/services/custompackaging.png", desc: "Every dimension, material and finish — fully bespoke from structural design to delivery." },
+  { id: "svc-3", title: "Corporate Branding", icon: "Briefcase", image: "/assets/services/corporatebranding.png", desc: "Letterheads, business cards, folders and envelopes — complete corporate identity print." },
+  { id: "svc-4", title: "Commercial Printing", icon: "Newspaper", image: "/assets/services/commercialmaterial.png", desc: "High-volume runs for any commercial requirement, with fast turnaround and consistent quality." },
+  { id: "svc-5", title: "Promotional Materials", icon: "Megaphone", image: "/assets/services/promotional.png", desc: "Flyers, posters, banners and inserts — campaign-ready print at production scale." },
+  { id: "svc-6", title: "UV & Finishing", icon: "Sparkles", image: "/assets/services/uvfinishing.png", desc: "Spot UV, matte lamination, soft-touch, hot foil, emboss and deboss — the details that make packaging premium." },
+  { id: "svc-7", title: "Design & Pre-Press", icon: "PenTool", image: "/assets/services/designprepress.png", desc: "In-house artwork, dielines and colour proofing — proofed, plated and press-ready." },
 ];
 
 export const INDUSTRIES = [
@@ -314,7 +708,8 @@ export const CEO = LEADERSHIP.ceo;
 export const TEAM = LEADERSHIP.heads;
 
 export const FOOTER = {
-  services: SERVICES.slice(0, 8).map((s) => s.title),
+  /* Products column of the footer — label + deep link to the product detail page */
+  products: PRODUCTS.slice(0, 8).map((p) => ({ label: p.title, to: `/products/${p.slug}` })),
   company: ["About", "Portfolio", "Case Studies", "Machinery", "Sustainability", "FAQ", "Blog", "Careers"],
   industries: INDUSTRIES.slice(0, 6).map((i) => i.name),
   certifications: ["ISO 9001:2015", "FOGRA", "FSC"],

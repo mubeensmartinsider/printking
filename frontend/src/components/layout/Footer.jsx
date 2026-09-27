@@ -56,8 +56,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <Col title="Services">
-            {FOOTER.services.map((s) => <FLink key={s} to="/services">{s}</FLink>)}
+          <Col title="Products">
+            {FOOTER.products.map((p) => <FLink key={p.label} to={p.to}>{p.label}</FLink>)}
           </Col>
 
           <Col title="Company">
@@ -68,7 +68,7 @@ export default function Footer() {
           </Col>
 
           <Col title="Industries">
-            {FOOTER.industries.map((i) => <FLink key={i} to="/services">{i}</FLink>)}
+            {FOOTER.industries.map((i) => <FLink key={i} to="/products">{i}</FLink>)}
           </Col>
 
           <Col title="Contact">
