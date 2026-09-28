@@ -51,13 +51,16 @@ const MarqueeRow = ({ logos, reverse, duration }) => (
             {/* Animated gold border shimmer on hover (existing utility) */}
             <span aria-hidden="true" className="card-border-shimmer" />
 
-            {/* Logo shown in its original form by default */}
+            {/* h-full/w-full + object-contain: the logo is scaled to fit
+                completely inside the card's padded area at any card size,
+                and stays centred - no overflow, no stretching. */}
             <img
               src={logo.src}
               alt={logo.name}
               loading="lazy"
               decoding="async"
-              className="max-h-8 max-w-full object-contain transition-transform duration-300 group-hover:scale-110 sm:max-h-10"
+              fetchpriority="low"
+              className="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-120"
             />
 
             {/* Tooltip — row pt-10 keeps it inside the overflow clip */}
