@@ -12,7 +12,7 @@ export default function MachinerySection() {
             Stacking these instead of a full heading block saves ~100px. */}
         <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <span className="label text-gold">{MACHINERY.eyebrow}</span>
+            <span className="label text-gold-ink">{MACHINERY.eyebrow}</span>
             <h2 className="display mt-3 text-4xl leading-[1.08] text-ink sm:text-5xl">
               {MACHINERY.headline[0]} <span className="italic">{MACHINERY.headline[1]}</span>
             </h2>
@@ -23,7 +23,7 @@ export default function MachinerySection() {
             <p className="max-w-xs text-sm leading-relaxed text-ink/45">{MACHINERY.banner}</p>
             <Link
               to="/machinery"
-              className="label group inline-flex items-center gap-2 text-gold transition-colors hover:text-ink"
+              className="label group inline-flex items-center gap-2 text-gold-ink transition-colors hover:text-ink"
             >
               View all {MACHINERY.items.length} machines
               <ArrowRight

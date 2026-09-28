@@ -28,7 +28,7 @@ export default function AboutSection() {
     <section data-testid="about-section" className="bg-surface-base py-28">
       <div className="section-pad mx-auto grid max-w-[1400px] gap-16 lg:grid-cols-2 lg:gap-24">
         <div ref={leftRef} className="flex flex-col justify-center">
-          <span className="label text-gold">{ABOUT.eyebrow}</span>
+          <span className="label text-gold-ink">{ABOUT.eyebrow}</span>
           <h2 className="display mt-6 text-3xl leading-[1.12] text-ink sm:text-4xl lg:text-[44px]">
             "{ABOUT.headline}"
           </h2>
@@ -40,7 +40,7 @@ export default function AboutSection() {
           <button
             data-testid="about-cta"
             onClick={() => navigate("/about")}
-            className="group mt-10 inline-flex items-center gap-2 self-start border-b border-gold/40 pb-1 text-sm text-gold transition-colors hover:border-gold"
+            className="group mt-10 inline-flex items-center gap-2 self-start border-b border-gold/40 pb-1 text-sm text-gold-ink transition-colors hover:border-gold"
           >
             {ABOUT.cta}
             <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -58,7 +58,7 @@ export default function AboutSection() {
                 imgClassName="transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 via-transparent to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <span className="label text-gold">{img.caption}</span>
+                <span className="label text-gold-ink">{img.caption}</span>
               </div>
             </div>
           ))}

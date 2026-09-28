@@ -11,7 +11,7 @@ export default function Img({ src, alt = "", label, className = "", imgClassName
   if (failed) {
     return (
       <div
-        className={`relative overflow-hidden bg-graphite flex items-center justify-center ${className}`}
+        className={`relative overflow-hidden bg-surface-elevated flex items-center justify-center ${className}`}
         data-testid="img-placeholder"
         {...rest}
       >
@@ -25,7 +25,7 @@ export default function Img({ src, alt = "", label, className = "", imgClassName
         />
         <div className="relative text-center px-6">
           <div className="mx-auto mb-3 h-8 w-8 rounded-full border border-gold/40" />
-          <span className="label text-gold/70">{label || alt || "Image"}</span>
+          <span className="label text-gold-ink/70">{label || alt || "Image"}</span>
         </div>
       </div>
     );

@@ -14,7 +14,7 @@ export default function WhyChooseUs() {
 
       <div className="section-pad relative mx-auto max-w-[1400px]">
         <div ref={headRef} className="mb-20 max-w-2xl">
-          <span className="label text-gold">OUR ADVANTAGE</span>
+          <span className="label text-gold-ink">OUR ADVANTAGE</span>
           <h2 className="display mt-6 text-4xl leading-[1.08] text-ink sm:text-5xl">
             The Standard Others<br />
             <span className="italic">Measure Against.</span>
@@ -31,7 +31,7 @@ export default function WhyChooseUs() {
                 {f.num}
               </span>
               <span className="mt-5 block h-px w-8 bg-gold transition-all duration-300 group-hover:w-12" />
-              <h3 className="mt-5 text-base font-semibold text-ink transition-colors duration-300 group-hover:text-gold">
+              <h3 className="mt-5 text-base font-semibold text-ink transition-colors duration-300 group-hover:text-gold-ink">
                 {f.title}
               </h3>
               <p className="mt-3 text-sm leading-[1.7] text-ink/55">{f.desc}</p>

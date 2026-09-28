@@ -8,10 +8,9 @@ import { Package, Boxes, PackageOpen, ShoppingBag, Tag, Tags, BookOpen, Printer,
 const SERVICE_ICONS = { Package, Boxes, PackageOpen, ShoppingBag, Tag, Tags, BookOpen, Printer, Box, Briefcase, Newspaper, Megaphone, Sparkles, PenTool };
 
 const ROTATE_MS = 3500;
-/* Contact-sheet art shown when a row's dedicated file hasn't been dropped in yet */
-const FALLBACK_IMG = "/assets/services/products.jpg";
 
-/* Flat, ordered list of all 14 rows; each row's banner image comes from its content.js `image` field */
+/* Flat, ordered list of all 14 rows; each row carries its own single image,
+   so hovering a row shows exactly one product shot (never a contact sheet) */
 const ITEMS = [
   ...BOX_FORMATS.map((item) => ({ ...item, side: "left" })),
   ...SERVICE_LINES.map((item) => ({ ...item, side: "right" })),
@@ -25,7 +24,7 @@ function Row({ item, active, onEnter, onClick }) {
     <div
       role="button"
       tabIndex={0}
-      aria-label={`${item.title} — view services`}
+      aria-label={`${item.title} — view products`}
       onMouseEnter={onEnter}
       onFocus={onEnter}
       onClick={onClick}
@@ -58,7 +57,7 @@ function Row({ item, active, onEnter, onClick }) {
       >
         {Icon && (
           <Icon
-            className={`h-8 w-8 stroke-1.5 ${active ? "text-white" : "text-gold group-hover:text-white"}`}
+            className={`h-8 w-8 stroke-1.5 ${active ? "text-white" : "text-gold-ink group-hover:text-white"}`}
           />
         )}
       </span>
@@ -66,7 +65,7 @@ function Row({ item, active, onEnter, onClick }) {
       <span className="min-w-0 text-center">
         <span
           className={`block text-[16px] font-bold uppercase tracking-[0.14em] leading-snug transition-colors duration-300 ${
-            active ? "text-white" : "text-gold group-hover:text-white"
+            active ? "text-white" : "text-gold-ink group-hover:text-white"
           }`}
         >
           {item.title}
@@ -111,7 +110,7 @@ export default function ServicesSection() {
     return () => window.clearInterval(timerRef.current);
   }, [paused]);
 
-  const goServices = () => navigate("/services");
+  const goProducts = () => navigate("/products");
 
   const renderColumn = (list) =>
     list.map((item) => {
@@ -122,7 +121,7 @@ export default function ServicesSection() {
           item={item}
           active={idx === activeIdx}
           onEnter={() => goTo(idx)}
-          onClick={goServices}
+          onClick={goProducts}
         />
       );
     });
@@ -152,30 +151,25 @@ export default function ServicesSection() {
           {/* LEFT — Boxes */}
           <div className="order-2 flex flex-col lg:order-1">
             <div className="border-b border-border-soft bg-surface-base px-4 py-4 text-center lg:px-6">
-              <span className="label text-[12px] text-gold">Products</span>
+              <span className="label text-[12px] text-gold-ink">Products</span>
             </div>
             {renderColumn(grouped.left)}
           </div>
 
-          {/* CENTER — auto-rotating banner */}
-          <div className="relative order-1 min-h-[320px] overflow-hidden bg-obsidian lg:order-2 lg:min-h-full">
+          {/* CENTER — one dedicated image for the hovered row */}
+          <div className="relative order-1 min-h-[320px] overflow-hidden bg-surface-base lg:order-2 lg:min-h-full">
             <img
-             style={{ backgroundColor: "#faf9f7" }}
+              key={activeItem.image}
               src={activeItem.image}
               alt={`${activeItem.title} showcase`}
-              onError={(e) => {
-                const el = e.currentTarget;
-                /* Dedicated slug art missing → show the contact sheet until the real file lands */
-                if (!el.src.endsWith(FALLBACK_IMG)) el.src = FALLBACK_IMG;
-              }}
-              className="absolute inset-0 h-full w-full object-contain"
+              className="absolute inset-0 h-full w-full bg-surface-base object-contain p-4"
               loading="lazy"
               decoding="async"
             />
 
             {/* Caption + progress bars */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-obsidian/90 via-obsidian/50 to-transparent px-5 pb-4 pt-12">
-              <span className="label block text-gold">
+              <span className="label block text-gold-ink">
                 {activeItem.side === "left" ? "Boxes" : "Services"}
               </span>
               <span className="mt-1 block text-sm font-medium text-white">
@@ -197,7 +191,7 @@ export default function ServicesSection() {
           {/* RIGHT — Services */}
           <div className="order-3 flex flex-col">
             <div className="border-b border-border-soft bg-surface-base px-4 py-4 text-center lg:px-6">
-              <span className="label text-[12px] text-gold">Services</span>
+              <span className="label text-[12px] text-gold-ink">Services</span>
             </div>
             {renderColumn(grouped.right)}
           </div>

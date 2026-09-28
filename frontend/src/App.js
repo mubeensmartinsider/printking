@@ -2,20 +2,19 @@ import "@/App.css";
 import "@/styles/responsive.css";
 import "@/styles/theme.css";
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Layout from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
-const ServicesPage = lazy(() => import("@/pages/ServicesPage"));
-const PortfolioPage = lazy(() => import("@/pages/PortfolioPage"));
+const ProductsPage = lazy(() => import("@/pages/ProductsPage"));
+const ProductDetailPage = lazy(() => import("@/pages/ProductDetailPage"));
 const MachineryPage = lazy(() => import("@/pages/MachineryPage"));
-const SustainabilityPage = lazy(() => import("@/pages/SustainabilityPage"));
 const ContactPage = lazy(() => import("@/pages/ContactPage"));
 const RequestQuotePage = lazy(() => import("@/pages/RequestQuotePage"));
 const FAQPage = lazy(() => import("@/pages/FAQPage"));
-const CaseStudiesPage = lazy(() => import("@/pages/CaseStudiesPage"));
+const BlogPage = lazy(() => import("@/pages/BlogPage"));
 
 function PageFallback() {
   return <div className="min-h-[50vh] bg-surface-base" aria-hidden="true" />;
@@ -31,14 +30,16 @@ function App() {
               <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/products/:slug" element={<ProductDetailPage />} />
+              {/* No separate services page — the old URL redirects to Products */}
+              <Route path="/services" element={<Navigate to="/products" replace />} />
               <Route path="/machinery" element={<MachineryPage />} />
-              <Route path="/sustainability" element={<SustainabilityPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/request-quote" element={<RequestQuotePage />} />
               <Route path="/faq" element={<FAQPage />} />
-              <Route path="/case-studies" element={<CaseStudiesPage />} />
+              <Route path="/case-studies" element={<Navigate to="/blog" replace />} />
+              <Route path="/blog" element={<BlogPage />} />
               </Routes>
             </Suspense>
           </Layout>

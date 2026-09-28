@@ -43,12 +43,13 @@ export default function GlobalReach() {
 
           <div className="absolute" style={{ left: `${ORIGIN.x}%`, top: `${ORIGIN.y}%`, transform: "translate(-50%,-50%)" }}>
             <span className="block h-3 w-3 rounded-full bg-gold shadow-[0_0_18px_4px_rgba(197,160,90,0.6)]" />
-            <span className="label absolute left-1/2 top-4 -translate-x-1/2 whitespace-nowrap text-gold text-[10px]">Lahore · HQ</span>
+            <span className="label absolute left-1/2 top-4 -translate-x-1/2 whitespace-nowrap text-gold-ink text-[10px]">Lahore · HQ</span>
           </div>
 
           {GLOBAL_REACH.regions.map((r) => (
             <button key={r.name} data-testid={`region-${r.name.replace(/\s+/g, "-").toLowerCase()}`}
-              className="absolute"
+              /* generous invisible hit area — the dot itself is only 10px */
+              className="absolute p-2.5"
               style={{ left: `${r.x}%`, top: `${r.y}%`, transform: "translate(-50%,-50%)" }}
               onMouseEnter={() => setHover(r.name)}
               onMouseLeave={() => setHover(null)}
@@ -56,7 +57,7 @@ export default function GlobalReach() {
               <span className="relative block h-2.5 w-2.5 rounded-full bg-gold" />
               {hover === r.name && (
                 <span className="absolute bottom-5 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap border border-border-soft bg-surface-floating px-3 py-1.5 text-xs text-ink rounded">
-                  {r.name} · <span className="text-gold">{r.clients} clients</span>
+                  {r.name} · <span className="text-gold-ink">{r.clients} clients</span>
                 </span>
               )}
             </button>
@@ -67,7 +68,7 @@ export default function GlobalReach() {
           {GLOBAL_REACH.strip.map((c, i) => (
             <React.Fragment key={c}>
               <span className="label text-ink/65">{c}</span>
-              {i < GLOBAL_REACH.strip.length - 1 && <span className="text-gold/60">·</span>}
+              {i < GLOBAL_REACH.strip.length - 1 && <span className="text-gold-ink/60">·</span>}
             </React.Fragment>
           ))}
         </div>

@@ -13,7 +13,7 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       data-testid="whatsapp-float"
       aria-label="Chat on WhatsApp"
-      className="group fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#1c1814] shadow-[0_12px_40px_-12px_rgba(0,0,0,0.8)] transition-transform duration-300 hover:scale-110"
+      className="group fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-surface-elevated shadow-[0_12px_40px_-12px_rgba(0,0,0,0.8)] transition-transform duration-300 hover:scale-110"
       style={{ border: "1px solid rgba(197, 160, 90,0.4)" }}
     >
       <span className="absolute inset-0 rounded-full border border-gold/30 opacity-0 group-hover:animate-ping" />

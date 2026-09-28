@@ -1,31 +1,32 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SERVICES } from "../../lib/content";
+import { PRODUCTS } from "../../lib/content";
 
 const SERVICES_COLUMNS = [
   {
     title: "Core Products",
-    items: SERVICES.slice(0, 7).map((s) => ({
-      label: s.title,
-      to: "/services",
-      desc: s.desc.substring(0, 60) + "...",
+    /* Deep link straight into each product's detail page */
+    items: PRODUCTS.slice(0, 7).map((p) => ({
+      label: p.title,
+      to: `/products/${p.slug}`,
+      desc: p.short.substring(0, 60) + "...",
     })),
   },
   {
     title: "Capabilities",
     items: [
-      { label: "Offset Printing", to: "/services", desc: "Heidelberg precision printing" },
-      { label: "Die-Cutting", to: "/services", desc: "±0.1mm tolerance" },
-      { label: "Foil Stamping", to: "/services", desc: "Gold, silver & custom foil" },
-      { label: "Lamination", to: "/services", desc: "Matte, gloss & soft-touch" },
-      { label: "UV Coating", to: "/services", desc: "Spot & full flood UV" },
-      { label: "Rigid Box Assembly", to: "/services", desc: "Magnetic, clamshell & more" },
+      { label: "Offset Printing", to: "/products/offset-printing", desc: "Heidelberg precision printing" },
+      { label: "Die-Cutting", to: "/products/uv-finishing", desc: "±0.1mm tolerance" },
+      { label: "Foil Stamping", to: "/products/uv-finishing", desc: "Gold, silver & custom foil" },
+      { label: "Lamination", to: "/products/uv-finishing", desc: "Matte, gloss & soft-touch" },
+      { label: "UV Coating", to: "/products/uv-finishing", desc: "Spot & full flood UV" },
+      { label: "Rigid Box Assembly", to: "/products/luxury-rigid-boxes", desc: "Magnetic, clamshell & more" },
     ],
   },
   {
     title: "View All",
     items: [
-      { label: "All Services →", to: "/services", desc: "Full capability overview" },
+      { label: "All Products →", to: "/products", desc: "Full product range" },
       { label: "Request a Quote →", to: "/request-quote", desc: "Start your project" },
     ],
   },
@@ -95,18 +96,20 @@ export default function MegaMenu({ isOpen, onClose }) {
         pointerEvents: show ? "auto" : "none",
       }}
     >
-      <div className="mt-2 overflow-hidden rounded-xl border border-[#ded8cd] bg-[#faf9f7] shadow-[0_20px_60px_rgba(26,20,12,0.16)] backdrop-blur-[24px]">
-        <div className="grid grid-cols-3 gap-0">
+      {/* Fixed white plate in BOTH themes (as designed) — its contents use the
+          plate-* tokens, which never flip, so they stay dark on white. */}
+      <div className="mt-2 overflow-hidden rounded-xl border border-plate-border bg-white shadow-[0_24px_60px_-12px_rgba(13,11,9,0.35)] backdrop-blur-[24px]">
+        <div className="grid grid-cols-1 sm:grid-cols-3">
           {SERVICES_COLUMNS.map((col, ci) => (
             <div
               key={ci}
-              className={`p-6 ${
+              className={`p-5 sm:p-6 ${
                 ci < SERVICES_COLUMNS.length - 1
-                  ? "border-r border-[#e8e1d7]"
+                  ? "border-b border-plate-border sm:border-b-0 sm:border-r"
                   : ""
               }`}
             >
-              <h4 className="label mb-4 text-[#8b6a32] text-[11px] font-semibold tracking-[0.15em] uppercase">
+              <h4 className="label mb-4 text-plate-gold text-[11px] font-semibold tracking-[0.15em] uppercase">
                 {col.title}
               </h4>
               <ul className="space-y-1">
@@ -114,17 +117,17 @@ export default function MegaMenu({ isOpen, onClose }) {
                   <li key={ii}>
                     <Link
                       to={item.to}
-                      className="group block rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-[#f1ede6]"
+                      className="group block rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-plate-hover"
                       onClick={() => {
                         setPanelHover(false);
                         onClose();
                       }}
                     >
-                      <span className="text-sm font-medium text-[#1c1a17] transition-colors duration-200 group-hover:text-[#8b6a32]">
+                      <span className="text-sm font-medium text-plate-ink transition-colors duration-200 group-hover:text-plate-gold">
                         {item.label}
                       </span>
                       {item.desc && (
-                        <span className="mt-0.5 block text-[11px] leading-relaxed text-[#6f675d]">
+                        <span className="mt-0.5 block text-[11px] leading-relaxed text-plate-ink-secondary">
                           {item.desc}
                         </span>
                       )}

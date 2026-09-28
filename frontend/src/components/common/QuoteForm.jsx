@@ -13,7 +13,7 @@ const initial = {
 const inputBase =
   "peer w-full rounded-[2px] bg-surface-floating px-3 pb-2 pt-6 text-[15px] text-ink border-b border-border-soft focus:border-gold focus:outline-none transition-colors duration-300 placeholder-transparent";
 const labelBase =
-  "pointer-events-none absolute left-3 top-4 text-ink/40 text-[13px] transition-all duration-200 peer-focus:top-1.5 peer-focus:text-[10px] peer-focus:uppercase peer-focus:tracking-[0.14em] peer-focus:text-gold peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:uppercase peer-[:not(:placeholder-shown)]:tracking-[0.14em] peer-[:not(:placeholder-shown)]:text-gold";
+  "pointer-events-none absolute left-3 top-4 text-ink/40 text-[13px] transition-all duration-200 peer-focus:top-1.5 peer-focus:text-[10px] peer-focus:uppercase peer-focus:tracking-[0.14em] peer-focus:text-gold-ink peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:uppercase peer-[:not(:placeholder-shown)]:tracking-[0.14em] peer-[:not(:placeholder-shown)]:text-gold-ink";
 
 function Field({ id, label, value, onChange, type = "text", testid }) {
   return (
@@ -78,7 +78,7 @@ export default function QuoteForm({ compact = false, dense = false }) {
             <option value="">Select a product</option>
             {CONTACT.productTypes.map((p) => <option key={p} value={p}>{p}</option>)}
           </select>
-          <label htmlFor="qf-pt" className="pointer-events-none absolute left-3 top-1.5 text-[10px] uppercase tracking-[0.14em] text-gold">Product Type</label>
+          <label htmlFor="qf-pt" className="pointer-events-none absolute left-3 top-1.5 text-[10px] uppercase tracking-[0.14em] text-gold-ink">Product Type</label>
         </div>
 
         <Field id="qf-qty" testid="qf-quantity" label="Estimated Quantity" value={data.quantity} onChange={set("quantity")} />

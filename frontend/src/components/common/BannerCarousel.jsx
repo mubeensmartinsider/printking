@@ -75,7 +75,7 @@ const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
       <button
         onClick={goPrev}
         aria-label="Previous slide"
-        className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20 hidden sm:flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-300 group"
+        className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20 hidden sm:flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-border-soft/20 text-white hover:bg-white/20 transition-all duration-300 group"
       >
         <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
       </button>
@@ -83,7 +83,7 @@ const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
       <button
         onClick={goNext}
         aria-label="Next slide"
-        className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20 hidden sm:flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-300 group"
+        className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20 hidden sm:flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-border-soft/20 text-white hover:bg-white/20 transition-all duration-300 group"
       >
         <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
       </button>
@@ -105,7 +105,7 @@ const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
       </div>
 
       {/* Counter */}
-      <div className="absolute top-6 right-6 z-20 hidden md:flex items-center gap-2 bg-black/30 backdrop-blur-md px-4 py-2 rounded-lg text-white text-sm font-medium border border-white/10">
+      <div className="absolute top-6 right-6 z-20 hidden md:flex items-center gap-2 bg-black/30 backdrop-blur-md px-4 py-2 rounded-lg text-white text-sm font-medium border border-border-soft">
         <span>{String(currentIndex + 1).padStart(2, "0")}</span>
         <span className="text-white/50">/</span>
         <span>{String(totalBanners).padStart(2, "0")}</span>

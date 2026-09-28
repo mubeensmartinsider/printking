@@ -31,15 +31,15 @@ export default function AboutPage() {
       />
 
       {/* Brand statement + facility image */}
-      <section className="bg-obsidian py-28">
+      <section className="bg-surface-base py-28">
         <div className="section-pad mx-auto grid max-w-[1400px] items-center gap-16 lg:grid-cols-2">
           <div>
-            <h2 className="display text-3xl leading-snug text-platinum sm:text-4xl">
+            <h2 className="display text-3xl leading-snug text-ink sm:text-4xl">
               “{ABOUT.headline}”
             </h2>
             <div className="mt-8 space-y-5">
               {ABOUT.body.map((p, i) => (
-                <p key={i} className="text-base leading-[1.8] text-platinum/60">{p}</p>
+                <p key={i} className="text-base leading-[1.8] text-ink/60">{p}</p>
               ))}
             </div>
           </div>
@@ -48,24 +48,24 @@ export default function AboutPage() {
       </section>
 
       {/* Vision · Mission · Core Values */}
-      <section className="border-t border-white/[0.06] bg-carbon py-28">
+      <section className="border-t border-border-soft bg-surface-primary py-28">
         <div className="section-pad mx-auto max-w-[1400px]">
           <SectionHeading eyebrow="WHAT WE STAND FOR" title="Vision, Mission & Values" className="mb-16" />
           <div className="grid gap-12 lg:grid-cols-3">
             <div data-testid="about-vision" className="border-t border-gold/30 pt-7">
-              <span className="label text-gold">VISION</span>
-              <p className="display mt-5 text-2xl leading-snug text-platinum sm:text-[28px]">“{ABOUT.vision}”</p>
+              <span className="label text-gold-ink">VISION</span>
+              <p className="display mt-5 text-2xl leading-snug text-ink sm:text-[28px]">“{ABOUT.vision}”</p>
             </div>
             <div data-testid="about-mission" className="border-t border-gold/30 pt-7">
-              <span className="label text-gold">MISSION</span>
-              <p className="display mt-5 text-2xl leading-snug text-platinum sm:text-[28px]">“{ABOUT.mission}”</p>
+              <span className="label text-gold-ink">MISSION</span>
+              <p className="display mt-5 text-2xl leading-snug text-ink sm:text-[28px]">“{ABOUT.mission}”</p>
             </div>
             <div data-testid="about-values" className="border-t border-gold/30 pt-7">
-              <span className="label text-gold">CORE VALUES</span>
+              <span className="label text-gold-ink">CORE VALUES</span>
               <ul className="mt-5 space-y-4">
                 {ABOUT.coreValues.map((v, i) => (
-                  <li key={v} className="flex items-baseline gap-4 text-base text-platinum/75">
-                    <span className="display text-sm text-gold">0{i + 1}</span>
+                  <li key={v} className="flex items-baseline gap-4 text-base text-ink/75">
+                    <span className="display text-sm text-gold-ink">0{i + 1}</span>
                     {v}
                   </li>
                 ))}
@@ -76,18 +76,18 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="border-t border-white/[0.06] bg-obsidian py-28">
+      <section className="border-t border-border-soft bg-surface-base py-28">
         <div className="section-pad mx-auto max-w-[1400px]">
           <SectionHeading eyebrow="MILESTONES" title="How We Grew" className="mb-20" />
-          <div ref={timelineRef} className="space-y-0 border-l border-white/[0.1] pl-10">
+          <div ref={timelineRef} className="space-y-0 border-l border-border-soft/[0.1] pl-10">
             {MILESTONES.map((m) => (
               <div key={m.year} data-ms className="relative pb-12 last:pb-0">
-                <span className="absolute -left-[46px] top-1 flex h-5 w-5 items-center justify-center rounded-full border border-gold bg-obsidian">
+                <span className="absolute -left-[46px] top-1 flex h-5 w-5 items-center justify-center rounded-full border border-gold bg-surface-base">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                 </span>
-                <span className="display text-3xl text-gold">{m.year}</span>
-                <h3 className="mt-2 text-xl font-medium text-platinum">{m.title}</h3>
-                <p className="mt-2 max-w-xl text-sm leading-relaxed text-platinum/55">{m.desc}</p>
+                <span className="display text-3xl text-gold-ink">{m.year}</span>
+                <h3 className="mt-2 text-xl font-medium text-ink">{m.title}</h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink/55">{m.desc}</p>
               </div>
             ))}
           </div>
@@ -95,15 +95,15 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="border-t border-white/[0.06] bg-carbon py-28">
+      <section className="border-t border-border-soft bg-surface-primary py-28">
         <div className="section-pad mx-auto max-w-[1400px]">
           <SectionHeading eyebrow="WHAT DRIVES US" title="Our Operating Principles" className="mb-16" />
           <div ref={valuesRef} className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {WHY_CHOOSE.slice(0, 4).map((v) => (
-              <div key={v.num} data-val className="border-t border-white/[0.08] pt-6">
-                <span className="display text-5xl text-gold">{v.num}</span>
-                <h3 className="mt-4 text-lg font-medium text-platinum">{v.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-platinum/55">{v.desc}</p>
+              <div key={v.num} data-val className="border-t border-border-soft pt-6">
+                <span className="display text-5xl text-gold-ink">{v.num}</span>
+                <h3 className="mt-4 text-lg font-medium text-ink">{v.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink/55">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -111,12 +111,12 @@ export default function AboutPage() {
       </section>
 
       {/* Certifications wall */}
-      <section className="border-t border-white/[0.06] bg-obsidian py-24">
+      <section className="border-t border-border-soft bg-surface-base py-24">
         <div className="section-pad mx-auto max-w-[1400px] text-center">
-          <span className="label text-gold">CERTIFICATIONS & STANDARDS</span>
+          <span className="label text-gold-ink">CERTIFICATIONS & STANDARDS</span>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             {[...FOOTER.certifications, "G7 Process Control", "FOGRA PSO", "24-Hour Client Service"].map((c) => (
-              <span key={c} className="border border-white/[0.08] px-8 py-5 text-base text-platinum/80">{c}</span>
+              <span key={c} className="border border-border-soft px-8 py-5 text-base text-ink/80">{c}</span>
             ))}
           </div>
           <button onClick={() => navigate("/request-quote")} className="btn-gold mt-14">Start Your Project</button>

@@ -69,7 +69,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "verify": "node scripts/verify-theme-responsive.cjs"
   },
   "browserslist": {
     "production": [

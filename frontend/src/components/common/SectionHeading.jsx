@@ -15,7 +15,7 @@ export default function SectionHeading({
   return (
     <div ref={ref} className={`flex max-w-2xl flex-col gap-2 ${centered ? "text-center mx-auto items-center" : "items-start"} ${className}`}>
       {eyebrow && (
-        <span className="label text-gold">{eyebrow}</span>
+        <span className="label text-gold-ink">{eyebrow}</span>
       )}
       <h2 className="display text-balance text-4xl sm:text-5xl lg:text-[52px] text-ink leading-[1.08]">
         {title}

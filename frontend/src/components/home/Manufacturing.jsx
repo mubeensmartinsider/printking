@@ -20,7 +20,7 @@ export default function Manufacturing() {
         {/* Compact header — title left, description right on one row */}
         <div ref={headRef} className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="label text-gold">{MANUFACTURING.eyebrow}</span>
+            <span className="label text-gold-ink">{MANUFACTURING.eyebrow}</span>
             <h2 className="display mt-1 text-3xl leading-[1.08] tracking-tight text-ink sm:text-4xl lg:text-[44px]">
               {MANUFACTURING.headline}
             </h2>
@@ -38,14 +38,14 @@ export default function Manufacturing() {
               <div
                 key={card.title}
                 data-card
-                className="group relative bg-[#2dabe2] p-4 transition-all duration-500 hover:z-10 hover:-translate-y-1 hover:bg-[#3db5e7] hover:shadow-[0_18px_40px_-18px_rgba(45,171,226,0.55)] sm:p-5"
+                className="group relative bg-surface-elevated p-4 transition-all duration-500 hover:z-10 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_18px_40px_-18px_rgba(197,160,90,0.45)] sm:p-5"
               >
-                <span className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-white transition-transform duration-500 group-hover:scale-x-100" />
+                <span className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
                 <div className="flex items-center justify-between">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white bg-white text-[#2dabe2] transition-all duration-300 group-hover:shadow-[0_4px_14px_rgba(0,0,0,0.18)]">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold text-obsidian transition-all duration-300 group-hover:shadow-[0_4px_14px_rgba(197,160,90,0.35)]">
                     <Icon size={16} strokeWidth={1.5} />
                   </span>
-                  <span className="font-display text-xs font-medium tracking-[0.18em] text-white/75 transition-colors duration-300 group-hover:text-white">
+                  <span className="font-display text-xs font-medium tracking-[0.18em] text-ink-tertiary transition-colors duration-300 group-hover:text-gold-ink">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                 </div>

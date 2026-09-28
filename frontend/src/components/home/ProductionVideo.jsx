@@ -48,7 +48,7 @@ export default function ProductionVideo() {
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Left — concise copy */}
           <div ref={headRef}>
-            <span className="label text-gold">{VIDEO.eyebrow}</span>
+            <span className="label text-gold-ink">{VIDEO.eyebrow}</span>
             <h2 className="display mt-4 text-3xl leading-[1.08] tracking-tight text-ink sm:text-4xl lg:text-[44px]">{VIDEO.headline}</h2>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink/55 sm:text-base">{VIDEO.sub}</p>
           </div>
@@ -64,7 +64,7 @@ export default function ProductionVideo() {
             className="absolute inset-0 z-10 h-full w-full object-cover"
             controls autoPlay muted loop
           >
-            <source src="/printing.mp4" type="video/mp4" />
+            <source src="/assets/video.mp4" type="video/mp4" />
           </video>
 
           {!playing && (
@@ -88,7 +88,7 @@ export default function ProductionVideo() {
           {VIDEO.stats.map((s) => (
             <div
               key={s.label}
-              className={`absolute z-20 ${POS[s.pos]} rounded bg-black/50 backdrop-blur-sm px-3 py-1.5 text-[11px] font-medium tracking-wider text-white border border-white/10`}
+              className={`absolute z-20 ${POS[s.pos]} rounded bg-black/50 backdrop-blur-sm px-3 py-1.5 text-[11px] font-medium tracking-wider text-white border border-border-soft`}
             >
               {s.label}
             </div>
