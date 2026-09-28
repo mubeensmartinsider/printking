@@ -14,7 +14,7 @@ const CONTACT_ITEMS = [
 
 const Detail = ({ icon: Icon, label, value, href }) => (
   <div className="flex items-start gap-3 border-b border-border-soft py-2.5">
-    <Icon size={17} className="mt-0.5 shrink-0 text-gold" />
+    <Icon size={17} className="mt-0.5 shrink-0 text-gold-ink" />
     <div className="min-w-0">
       <div className="label text-ink/45">{label}</div>
       {href ? (
@@ -22,7 +22,7 @@ const Detail = ({ icon: Icon, label, value, href }) => (
           href={href}
           target={href.startsWith("http") ? "_blank" : undefined}
           rel={href.startsWith("http") ? "noreferrer" : undefined}
-          className="mt-1 block break-words text-sm leading-relaxed text-ink transition-colors hover:text-gold"
+          className="mt-1 block break-words text-sm leading-relaxed text-ink transition-colors hover:text-gold-ink"
         >
           {value}
         </a>
@@ -38,7 +38,7 @@ function FormCard() {
     <div className="relative rounded-sm border-t-2 border-gold bg-surface-elevated p-4 sm:p-6">
       <div className="mb-4 flex items-start justify-between gap-5 border-b border-border-soft pb-3">
         <div>
-          <span className="label text-gold">REQUEST A QUOTE</span>
+          <span className="label text-gold-ink">REQUEST A QUOTE</span>
           <h3 className="mt-1 font-serif text-lg italic text-ink sm:text-xl">Tell us about your project.</h3>
         </div>
         <span className="label shrink-0 text-ink/35">04 HRS</span>
@@ -95,7 +95,7 @@ export default function ContactSection() {
     <section data-testid="contact-section" className="relative overflow-hidden bg-surface-base py-12 sm:py-16 lg:py-20">
       <div className="section-pad relative mx-auto max-w-[1400px]">
         <div ref={ref} className="mb-6 max-w-2xl sm:mb-8">
-          <span className="label text-gold">{CONTACT.eyebrow}</span>
+          <span className="label text-gold-ink">{CONTACT.eyebrow}</span>
           <h2 className="display mt-3 text-2xl leading-[1.08] text-ink sm:text-3xl">
             {CONTACT.headline[0]}<br />
             <span className="italic">{CONTACT.headline[1]}</span>
@@ -103,7 +103,7 @@ export default function ContactSection() {
           <p className="mt-3 text-sm leading-relaxed text-ink/55">{CONTACT.sub}</p>
           <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-ink/55">
             <span className="inline-flex items-center gap-1.5">
-              <Clock size={13} className="text-gold" />
+              <Clock size={13} className="text-gold-ink" />
               {CONTACT.responseNote}
             </span>
             <span className="hidden h-1 w-1 rounded-full bg-gold/60 sm:block" />

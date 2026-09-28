@@ -52,7 +52,7 @@ export default function MachineryShowcase({ items }) {
   };
 
   const chipBase =
-    "inline-flex items-center gap-1.5 border px-3 py-1 text-[11px] tracking-[0.06em] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold";
+    "inline-flex items-center gap-1.5 border px-3 py-2 text-[11px] tracking-[0.06em] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:py-1";
 
   return (
     <div data-testid="machinery-showcase">

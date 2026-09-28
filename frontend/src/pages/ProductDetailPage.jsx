@@ -33,7 +33,7 @@ export default function ProductDetailPage() {
   });
 
   return (
-    <div className="bg-[#faf9f7] text-[#1c1a17]">
+    <div className="bg-surface-base text-ink">
       <Seo
         title={`${product.title} — ${product.category} | PRINTKING`}
         description={product.short}
@@ -42,7 +42,7 @@ export default function ProductDetailPage() {
       />
 
       {/* ── 1. Compact header with a light background image ── */}
-      <header className="relative isolate overflow-hidden border-b border-[#e8e1d7]">
+      <header className="relative isolate overflow-hidden border-b border-border-soft">
         <img
           src={productHeaderImage(product)}
           alt=""
@@ -51,35 +51,35 @@ export default function ProductDetailPage() {
           decoding="async"
           className="absolute inset-0 -z-10 h-full w-full object-cover object-right opacity-30"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#faf9f7] via-[#faf9f7]/90 to-[#faf9f7]/35" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-surface-base via-surface-base/90 to-surface-base/30" />
 
         <div ref={heroRef} className="section-pad mx-auto max-w-[1400px] pb-8 pt-32 lg:pb-10 lg:pt-36">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-[#8a8076]">
-            <Link to="/" className="transition-colors duration-300 hover:text-[#8b6a32]">Home</Link>
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-ink-tertiary">
+            <Link to="/" className="transition-colors duration-300 hover:text-gold-ink">Home</Link>
             <span>/</span>
-            <Link to="/products" className="transition-colors duration-300 hover:text-[#8b6a32]">Products</Link>
+            <Link to="/products" className="transition-colors duration-300 hover:text-gold-ink">Products</Link>
             <span>/</span>
-            <span className="text-[#8b6a32]">{product.title}</span>
+            <span className="text-gold-ink">{product.title}</span>
           </nav>
 
           <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full border border-[#e0d8c8] bg-white px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#8b6a32]">
+                <span className="rounded-full border border-border-soft bg-surface-elevated px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-gold-ink">
                   {product.category}
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.18em] text-[#8a8076]">
+                <span className="text-[10px] uppercase tracking-[0.18em] text-ink-tertiary">
                   Product {product.num} / {PRODUCTS.length}
                 </span>
               </div>
 
               <h1 className="display mt-3 text-3xl leading-[1.08] sm:text-4xl lg:text-[46px]">{product.title}</h1>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5a5248] sm:text-[15px]">{product.tagline}</p>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-secondary sm:text-[15px]">{product.tagline}</p>
 
               <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
                 {product.highlights.map((item) => (
-                  <li key={item} className="flex items-center gap-1.5 text-xs text-[#5a5248]">
-                    <Check size={13} className="shrink-0 text-[#8b6a32]" />
+                  <li key={item} className="flex items-center gap-1.5 text-xs text-ink-secondary">
+                    <Check size={13} className="shrink-0 text-gold-ink" />
                     {item}
                   </li>
                 ))}
@@ -94,7 +94,7 @@ export default function ProductDetailPage() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 items-center gap-2 rounded-sm border border-[#d9cba6] bg-white/60 px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8b6a32] transition-colors duration-300 hover:bg-white"
+                className="inline-flex h-11 items-center gap-2 rounded-sm border border-border-soft bg-surface-elevated px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-gold-ink transition-colors duration-300 hover:bg-surface-hover"
               >
                 <MessageCircle size={14} />
                 Let's Chat
@@ -108,26 +108,26 @@ export default function ProductDetailPage() {
         <div className="section-pad mx-auto grid max-w-[1400px] gap-8 lg:grid-cols-[minmax(0,420px)_1fr] lg:gap-12">
           <figure
             ref={imageRef}
-            className="overflow-hidden rounded-md border border-[#e8e1d7] bg-white shadow-[0_18px_40px_-34px_rgba(28,26,23,0.5)]"
+            className="overflow-hidden rounded-md border border-border-soft bg-surface-elevated shadow-[0_18px_40px_-34px_rgba(28,26,23,0.5)]"
           >
             <ProductImage
               src={product.image}
               alt={`${product.title} packaging manufactured by ${COMPANY.name}`}
               className="aspect-[4/3] w-full bg-white object-contain p-4"
             />
-            <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-[#e8e1d7] bg-[#f8f6f2] px-3.5 py-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#8b6a32]">
+            <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-border-soft bg-surface-base px-3.5 py-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-gold-ink">
               {product.title}
-              <span className="text-[#8a8076]">{COMPANY.name}</span>
+              <span className="text-ink-tertiary">{COMPANY.name}</span>
             </figcaption>
           </figure>
 
           <div ref={descRef}>
-            <span className="label text-[#8b6a32]">Overview</span>
+            <span className="label text-gold-ink">Overview</span>
             <h2 className="display mt-2 text-2xl sm:text-3xl">Product Description</h2>
 
             <div className="mt-3 space-y-3">
               {product.description.map((paragraph) => (
-                <p key={paragraph.slice(0, 32)} className="text-sm leading-relaxed text-[#5a5248]">
+                <p key={paragraph.slice(0, 32)} className="text-sm leading-relaxed text-ink-secondary">
                   {paragraph}
                 </p>
               ))}
@@ -137,7 +137,7 @@ export default function ProductDetailPage() {
               {product.highlights.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-[#e0d8c8] bg-white px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#5a5248]"
+                  className="rounded-full border border-border-soft bg-surface-elevated px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-ink-secondary"
                 >
                   {item}
                 </span>
@@ -148,14 +148,14 @@ export default function ProductDetailPage() {
       </section>
 
       {/* ── 4. Features — dense specification grid ── */}
-      <section className="border-t border-[#e8e1d7] bg-[#f4f1ec] py-10 lg:py-14">
+      <section className="border-t border-border-soft bg-surface-primary py-10 lg:py-14">
         <div className="section-pad mx-auto max-w-[1400px]">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <span className="label text-[#8b6a32]">Specification</span>
+              <span className="label text-gold-ink">Specification</span>
               <h2 className="display mt-2 text-2xl sm:text-3xl">Features & Options</h2>
             </div>
-            <p className="max-w-sm text-xs leading-relaxed text-[#8a8076]">
+            <p className="max-w-sm text-xs leading-relaxed text-ink-tertiary">
               Every specification below can be tailored to your brand — send us your requirement and we'll confirm
               material, finishing, lead time and pricing.
             </p>
@@ -163,16 +163,16 @@ export default function ProductDetailPage() {
 
           <dl
             ref={featureRef}
-            className="mt-6 grid gap-px overflow-hidden rounded-md border border-[#e2dac9] bg-[#e2dac9] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            className="mt-6 grid gap-px overflow-hidden rounded-md border border-border-soft bg-surface-elevated sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             {product.features.map((feature) => (
               <div
                 key={feature.label}
                 data-feature
-                className="bg-white px-4 py-3.5 transition-colors duration-300 hover:bg-[#fdfcf9]"
+                className="bg-surface-elevated px-4 py-3.5 transition-colors duration-300 hover:bg-surface-base"
               >
-                <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8b6a32]">{feature.label}</dt>
-                <dd className="mt-1 text-xs leading-relaxed text-[#5a5248]">{feature.value}</dd>
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-ink">{feature.label}</dt>
+                <dd className="mt-1 text-xs leading-relaxed text-ink-secondary">{feature.value}</dd>
               </div>
             ))}
           </dl>
@@ -180,16 +180,16 @@ export default function ProductDetailPage() {
       </section>
       {/* ── 5. Related products ── */}
       {related.length > 0 && (
-        <section className="border-t border-[#e8e1d7] py-10 lg:py-12">
+        <section className="border-t border-border-soft py-10 lg:py-12">
           <div className="section-pad mx-auto max-w-[1400px]">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <span className="label text-[#8b6a32]">Explore More</span>
+                <span className="label text-gold-ink">Explore More</span>
                 <h2 className="display mt-2 text-2xl sm:text-3xl">Related Products</h2>
               </div>
               <Link
                 to="/products"
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8b6a32] transition-colors duration-300 hover:text-[#c5a05a]"
+                className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-gold-ink transition-colors duration-300 hover:text-gold-ink"
               >
                 All products
                 <ArrowRight size={13} />
@@ -206,11 +206,11 @@ export default function ProductDetailPage() {
       )}
 
       {/* ── 6. Compact CTA band ── */}
-      <section className="border-t border-[#e8e1d7] bg-[#f4f1ec] py-8 lg:py-9">
+      <section className="border-t border-border-soft bg-surface-primary py-8 lg:py-9">
         <div className="section-pad mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4">
           <div>
             <h2 className="display text-xl sm:text-2xl">Ready to specify your {product.title.toLowerCase()}?</h2>
-            <p className="mt-1 max-w-xl text-sm text-[#5a5248]">
+            <p className="mt-1 max-w-xl text-sm text-ink-secondary">
               Share your dimensions, quantity and finish requirements — we'll return a detailed quotation and production
               timeline within 4 business hours.
             </p>
@@ -223,7 +223,7 @@ export default function ProductDetailPage() {
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center gap-2 rounded-sm border border-[#d9cba6] bg-white px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8b6a32] transition-colors duration-300 hover:bg-white/70"
+              className="inline-flex h-11 items-center gap-2 rounded-sm border border-border-soft bg-surface-elevated px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-gold-ink transition-colors duration-300 hover:bg-surface-hover"
             >
               <MessageCircle size={14} />
               Chat on WhatsApp

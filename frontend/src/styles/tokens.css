@@ -54,7 +54,32 @@
   --color-gold-soft:   #d8b978;
   --gold-light:        #d8b978;
   --color-gold-muted:  rgba(197, 160, 90, 0.35);
+  --gold-muted:        rgba(197, 160, 90, 0.35);
   --gold-whisper:      rgba(197, 160, 90, 0.10);
+
+  /* Raw brand darks — the "always dark" parts of the site (navbar, gold
+     button labels, the hero stat band, the logo plate). These are
+     deliberately NOT theme-aware: they must stay dark in light mode too.
+     Without them, .btn-gold text and the body background resolved to
+     nothing, which left near-white label text on gold in dark mode. */
+  --color-obsidian:    #0d0b09;
+  --color-carbon:      #14110d;
+  --color-graphite:    #1c1814;
+
+  /* Muted copy helper (.text-muted-lux) — follows the text tier */
+  --color-muted:       var(--text-tertiary);
+
+  /* Hairline gold divider (.section-divider) */
+  --gradient-divider:  linear-gradient(90deg, transparent, rgba(197, 160, 90, 0.35), transparent);
+
+  /* On-white plate — the navbar mega menu is a fixed white panel in BOTH
+     themes, so its contents must NOT use the flipping ink tokens
+     (text-ink is near-white in dark mode and would vanish on white). */
+  --plate-ink:            #1c1a17;
+  --plate-ink-secondary:  #5a5248;
+  --plate-gold:           #7a5c1e;   /* AA bronze on white */
+  --plate-border:         #e8e1d7;
+  --plate-hover:          #f1ede6;
   --copper:            #b87333;
   --silver:            #c8c0b4;
 

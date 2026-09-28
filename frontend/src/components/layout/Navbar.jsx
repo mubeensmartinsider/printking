@@ -8,7 +8,6 @@ import ThemeToggle from "../common/ThemeToggle";
 const COMPACT_NAV_LINKS = [
   { label: "About",        to: "/about" },
   { label: "Products",     to: "/products", mega: true },
-  // { label: "Portfolio",    to: "/portfolio" },
   { label: "Blog",         to: "/blog" },
   { label: "Machinery",       to: "/machinery" },
   { label: "FAQ",             to: "/faq" },
@@ -18,7 +17,6 @@ const COMPACT_NAV_LINKS = [
 
 const MORE_LINKS = [
   { label: "Machinery",       to: "/machinery" },
-  { label: "Sustainability",  to: "/sustainability" },
   { label: "FAQ",             to: "/faq" },
   { label: "Contact",         to: "/contact" },
 ];

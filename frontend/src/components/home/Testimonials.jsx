@@ -32,7 +32,7 @@ export default function Testimonials() {
   return (
     <section
       data-testid="testimonials-section"
-      className="relative isolate overflow-hidden border-y border-white/15 bg-graphite py-12 lg:py-14"
+      className="relative isolate overflow-hidden border-y border-border-soft bg-surface-elevated py-12 lg:py-14"
     >
       {/* Background photo — full bleed, softened so quotes stay readable.
           If the asset ever fails to resolve, the veil alone is still a
@@ -54,9 +54,9 @@ export default function Testimonials() {
         <div ref={headRef} className="relative mb-10 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
           <div>
             <span className="label text-[11px] font-semibold text-gold-soft">CLIENT VOICES</span>
-            <h2 className="display mt-3 text-3xl text-platinum sm:text-4xl">What Our Clients Say.</h2>
+            <h2 className="display mt-3 text-3xl text-white sm:text-4xl">What Our Clients Say.</h2>
           </div>
-          <div className="flex items-center gap-2 pb-1 text-platinum/80">
+          <div className="flex items-center gap-2 pb-1 text-white/80">
             <Stars size={15} />
             <span className="text-[13px] font-medium">5.0 average rating</span>
           </div>
@@ -80,12 +80,12 @@ export default function Testimonials() {
               >
                 <Stars size={14} />
                 <blockquote className="mt-4">
-                  <p className="font-serif text-[18px] italic leading-[1.75] text-platinum sm:text-[20px]">{t.quote}</p>
+                  <p  className="font-serif text-[18px] italic leading-[1.75] text-white sm:text-[20px]">{t.quote}</p>
                 </blockquote>
                 <figcaption className="mt-5">
                   <span className="block h-px w-7 bg-gold-soft/80" />
-                  <span className="mt-3 block text-[15px] font-semibold text-platinum">{company}</span>
-                  <span className="mt-1.5 block text-[11px] font-medium uppercase tracking-[0.14em] text-platinum/85">
+                  <span className="mt-3 block text-[15px] font-semibold text-white">{company}</span>
+                  <span className="mt-1.5 block text-[11px] font-medium uppercase tracking-[0.14em] text-white/85">
                     {role} · {city}
                   </span>
                 </figcaption>

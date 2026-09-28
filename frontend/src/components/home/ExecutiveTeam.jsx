@@ -23,7 +23,7 @@ function Portrait({ person, className = "" }) {
       ) : (
         <>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="display text-3xl text-gold/30">{initials}</span>
+            <span className="display text-3xl text-gold-ink/30">{initials}</span>
           </div>
           <span className="absolute bottom-1.5 left-2 label text-[9px] text-ink/35">{initials}</span>
         </>
@@ -46,7 +46,7 @@ function LeaderCard({ person }) {
         <div className="flex items-center gap-4">
           <Portrait person={person} className="w-20 shrink-0 rounded-sm sm:w-[88px]" />
           <div className="min-w-0">
-            <span className="label text-gold">{person.title}</span>
+            <span className="label text-gold-ink">{person.title}</span>
             <h3 className="mt-1.5 font-serif text-lg leading-snug text-ink sm:text-xl">
               {person.name}
             </h3>
@@ -62,7 +62,7 @@ function LeaderCard({ person }) {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="mt-6 inline-flex w-fit items-center gap-1.5 border-b border-gold/40 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-gold transition-colors duration-300 hover:border-gold hover:text-gold-soft"
+          className="mt-6 inline-flex w-fit items-center gap-1.5 border-b border-gold/40 pb-1 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-ink transition-colors duration-300 hover:border-gold hover:text-gold-soft"
         >
           Read full message
           <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -77,7 +77,7 @@ function LeaderCard({ person }) {
 
             <div className="min-w-0 flex-1">
               <DialogHeader>
-                <span className="label text-gold">{person.eyebrow}</span>
+                <span className="label text-gold-ink">{person.eyebrow}</span>
                 <DialogTitle className="font-serif text-2xl italic font-light text-ink sm:text-[28px]">
                   {person.headline}
                 </DialogTitle>
@@ -96,9 +96,9 @@ function LeaderCard({ person }) {
 
               <div className="mt-7 border-t border-border-soft pt-5">
                 <span className="block h-px w-8 bg-gold/60" />
-                <p className="mt-3 font-serif text-xl italic text-gold">{person.name}</p>
+                <p className="mt-3 font-serif text-xl italic text-gold-ink">{person.name}</p>
                 {person.signoff && (
-                  <p className="mt-1 text-sm font-semibold text-gold">{person.signoff}</p>
+                  <p className="mt-1 text-sm font-semibold text-gold-ink">{person.signoff}</p>
                 )}
               </div>
             </div>

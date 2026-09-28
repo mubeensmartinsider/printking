@@ -60,6 +60,14 @@ module.exports = {
         'border-soft':  'var(--color-border)',
         'border-strong':'var(--color-border-strong)',
 
+        /* Fixed white plates (navbar mega menu) — deliberately NOT theme-aware:
+           these only ever sit on white, so they must not flip with the theme. */
+        'plate-ink':          'var(--plate-ink)',
+        'plate-ink-secondary':'var(--plate-ink-secondary)',
+        'plate-gold':         'var(--plate-gold)',
+        'plate-border':       'var(--plate-border)',
+        'plate-hover':        'var(--plate-hover)',
+
         /* ── Shadcn / Radix ──────────────────────────────── */
         background:  'hsl(var(--background))',
         foreground:  'hsl(var(--foreground))',

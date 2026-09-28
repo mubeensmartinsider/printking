@@ -10,9 +10,7 @@ import Home from "@/pages/Home";
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
 const ProductsPage = lazy(() => import("@/pages/ProductsPage"));
 const ProductDetailPage = lazy(() => import("@/pages/ProductDetailPage"));
-const PortfolioPage = lazy(() => import("@/pages/PortfolioPage"));
 const MachineryPage = lazy(() => import("@/pages/MachineryPage"));
-const SustainabilityPage = lazy(() => import("@/pages/SustainabilityPage"));
 const ContactPage = lazy(() => import("@/pages/ContactPage"));
 const RequestQuotePage = lazy(() => import("@/pages/RequestQuotePage"));
 const FAQPage = lazy(() => import("@/pages/FAQPage"));
@@ -36,9 +34,7 @@ function App() {
               <Route path="/products/:slug" element={<ProductDetailPage />} />
               {/* No separate services page — the old URL redirects to Products */}
               <Route path="/services" element={<Navigate to="/products" replace />} />
-              <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/machinery" element={<MachineryPage />} />
-              <Route path="/sustainability" element={<SustainabilityPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/request-quote" element={<RequestQuotePage />} />
               <Route path="/faq" element={<FAQPage />} />

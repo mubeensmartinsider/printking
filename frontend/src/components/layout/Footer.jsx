@@ -10,7 +10,7 @@ const SocialIcon = ({ href, label, children }) => (
     rel="noopener noreferrer"
     aria-label={label}
     data-testid={`social-${label.toLowerCase()}`}
-    className="flex h-10 w-10 items-center justify-center border border-border-soft text-ink/60 transition-all duration-300 hover:border-gold hover:text-gold rounded"
+    className="flex h-10 w-10 items-center justify-center border border-border-soft text-ink/60 transition-all duration-300 hover:border-gold hover:text-gold-ink rounded"
   >
     {children}
   </a>
@@ -18,7 +18,7 @@ const SocialIcon = ({ href, label, children }) => (
 
 const Col = ({ title, children }) => (
   <div>
-    <h4 className="label mb-5 text-gold">{title}</h4>
+    <h4 className="label mb-5 text-gold-ink">{title}</h4>
     <ul className="space-y-3">{children}</ul>
   </div>
 );
@@ -38,7 +38,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-12 md:grid-cols-3 lg:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
-            <Link to="/"  style={{background:'none'}} aria-label="PrintKing home" className="inline-flex w-fit bg-white p-2">
+            <Link
+              to="/"
+              style={{ background: "none" }}
+              aria-label="PrintKing home"
+              /* the mark is gold — it needs a dark plate to read in BOTH themes */
+              className="inline-flex w-fit bg-obsidian p-2"
+            >
               <img
                 src="/assets/logo.png"
                 alt="PrintKing"
@@ -62,7 +68,7 @@ export default function Footer() {
 
           <Col title="Company">
             {FOOTER.company.map((c) => {
-              const map = { About: "/about", Portfolio: "/portfolio", Blog: "/blog", Machinery: "/machinery", Sustainability: "/sustainability", FAQ: "/faq" };
+              const map = { About: "/about", Blog: "/blog", Machinery: "/machinery", FAQ: "/faq" };
               return <FLink key={c} to={map[c] || "/"}>{c}</FLink>;
             })}
           </Col>

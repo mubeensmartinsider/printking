@@ -23,7 +23,7 @@ export default function ProductsPage() {
   );
 
   return (
-    <div className="bg-[#faf9f7] text-[#1c1a17]">
+    <div className="bg-surface-base text-ink">
       <Seo
         title="Products — Luxury Packaging, Boxes, Bags & Print | PRINTKING"
         description="Explore PRINTKING's product range: luxury rigid boxes, folding cartons, mailer boxes, paper bags, labels, catalogues and commercial printing. Click any product for its full specification."
@@ -32,7 +32,7 @@ export default function ProductsPage() {
       />
 
       {/* ── Compact header with a light background image ── */}
-      <section className="relative isolate overflow-hidden border-b border-[#e8e1d7]">
+      <section className="relative isolate overflow-hidden border-b border-border-soft">
         <img
           src={PRODUCT_PAGE.banner}
           alt=""
@@ -41,22 +41,22 @@ export default function ProductsPage() {
           decoding="async"
           className="absolute inset-0 -z-10 h-full w-full object-cover object-right opacity-30"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#faf9f7] via-[#faf9f7]/90 to-[#faf9f7]/30" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-surface-base via-surface-base/90 to-surface-base/30" />
 
         <div ref={heroRef} className="section-pad mx-auto max-w-[1400px] pb-9 pt-32 lg:pb-11 lg:pt-36">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-[#8a8076]">
-            <Link to="/" className="transition-colors duration-300 hover:text-[#8b6a32]">Home</Link>
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-ink-tertiary">
+            <Link to="/" className="transition-colors duration-300 hover:text-gold-ink">Home</Link>
             <span>/</span>
-            <span className="text-[#8b6a32]">Products</span>
+            <span className="text-gold-ink">Products</span>
           </nav>
 
           <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <span className="label text-[#8b6a32]">{PRODUCT_PAGE.eyebrow}</span>
+              <span className="label text-gold-ink">{PRODUCT_PAGE.eyebrow}</span>
               <h1 className="display mt-2 text-3xl leading-[1.1] sm:text-4xl lg:text-[42px]">
                 {PRODUCT_PAGE.headline}
               </h1>
-              <p className="mt-3 text-sm leading-relaxed text-[#5a5248] sm:text-[15px]">{PRODUCT_PAGE.sub}</p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-secondary sm:text-[15px]">{PRODUCT_PAGE.sub}</p>
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -67,7 +67,7 @@ export default function ProductsPage() {
                 href={`https://wa.me/${COMPANY.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 items-center gap-2 rounded-sm border border-[#d9cba6] bg-white/60 px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8b6a32] transition-colors duration-300 hover:bg-white"
+                className="inline-flex h-11 items-center gap-2 rounded-sm border border-border-soft bg-surface-elevated px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-gold-ink transition-colors duration-300 hover:bg-surface-hover"
               >
                 <MessageCircle size={14} />
                 Let's Chat
@@ -88,10 +88,10 @@ export default function ProductsPage() {
                   aria-selected={category === cat}
                   data-testid={`product-filter-${testId(cat)}`}
                   onClick={() => setCategory(cat)}
-                  className={`rounded-full border px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] transition-all duration-300 ${
+                  className={`rounded-full border px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] transition-all duration-300 sm:py-1.5 ${
                     category === cat
-                      ? "border-[#c5a05a] bg-[#c5a05a] text-[#1c1a17]"
-                      : "border-[#e0d8c8] bg-white text-[#5a5248] hover:border-[#c5a05a] hover:text-[#8b6a32]"
+                      ? "border-gold bg-gold text-obsidian"
+                      : "border-border-soft bg-surface-elevated text-ink-secondary hover:border-gold hover:text-gold-ink"
                   }`}
                 >
                   {cat}
@@ -99,7 +99,7 @@ export default function ProductsPage() {
               ))}
             </div>
 
-            <span className="text-[10px] uppercase tracking-[0.18em] text-[#8a8076]">
+            <span className="text-[10px] uppercase tracking-[0.18em] text-ink-tertiary">
               {products.length} {products.length === 1 ? "Product" : "Products"}
             </span>
           </div>
@@ -115,11 +115,11 @@ export default function ProductsPage() {
       </section>
 
       {/* ── Compact CTA band ── */}
-      <section className="border-t border-[#e8e1d7] bg-[#f4f1ec] py-8 lg:py-9">
+      <section className="border-t border-border-soft bg-surface-primary py-8 lg:py-9">
         <div className="section-pad mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4">
           <div>
             <h2 className="display text-xl sm:text-2xl">Can't find your format?</h2>
-            <p className="mt-1 max-w-xl text-sm text-[#5a5248]">
+            <p className="mt-1 max-w-xl text-sm text-ink-secondary">
               Send us the dimensions, quantity and finish you have in mind — we'll engineer the structure and return a
               detailed quotation within 4 business hours.
             </p>

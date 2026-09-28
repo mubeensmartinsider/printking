@@ -11,9 +11,10 @@ const STEP_ICONS = {
 
 function Tooltip({ step }) {
   return (
-    <div className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-4 w-[220px] -translate-x-1/2 translate-y-2 border border-border-soft bg-surface-floating p-4 text-left opacity-0 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 rounded"
+    /* Hover-only: touch users get the same copy in the step card below */
+    <div className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-4 hidden w-[220px] -translate-x-1/2 translate-y-2 border border-border-soft bg-surface-floating p-4 text-left opacity-0 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 rounded sm:block"
       style={{ borderTop: "2px solid rgba(197,160,90,0.6)" }}>
-      <span className="label text-gold">Step {step.num}</span>
+      <span className="label text-gold-ink">Step {step.num}</span>
       <p className="mt-2 text-[12px] leading-relaxed text-ink/65">{step.desc}</p>
     </div>
   );
@@ -47,7 +48,7 @@ export default function Process() {
     <section ref={sectionRef} data-testid="process-section" className="relative bg-surface-primary py-28">
       <div className="section-pad relative mx-auto max-w-[1400px]">
         <div ref={headRef} className="mb-24 max-w-2xl">
-          <span className="label text-gold">HOW WE WORK</span>
+          <span className="label text-gold-ink">HOW WE WORK</span>
           <h2 className="display mt-6 text-4xl leading-[1.08] text-ink sm:text-5xl">
             From Brief to Delivery —<br />
             <span className="italic">We Own Every Step.</span>
@@ -68,10 +69,10 @@ export default function Process() {
               <div key={step.num} className="group relative flex flex-col items-center text-center">
                 <Tooltip step={step} />
                 <div data-node className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border border-gold bg-surface-primary transition-all duration-300 group-hover:bg-gold group-hover:shadow-[0_0_20px_rgba(197,160,90,0.3)]">
-                  <span className="h-2.5 w-2.5 rounded-full bg-gold transition-colors duration-300 group-hover:bg-obsidian" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-gold transition-colors duration-300 group-hover:bg-surface-base" />
                 </div>
-                <span className="label mt-6 text-gold">{step.num}</span>
-                <h4 className="mt-2 px-1 text-sm font-medium text-ink transition-colors duration-300 group-hover:text-gold">{step.title}</h4>
+                <span className="label mt-6 text-gold-ink">{step.num}</span>
+                <h4 className="mt-2 px-1 text-sm font-medium text-ink transition-colors duration-300 group-hover:text-gold-ink">{step.title}</h4>
               </div>
             ))}
           </div>
@@ -84,11 +85,11 @@ export default function Process() {
             return (
               <div key={step.num} className="relative group">
                 <span className="absolute -left-[39px] top-1 flex h-6 w-6 items-center justify-center rounded-full border border-gold bg-surface-primary transition-all duration-300 group-hover:bg-gold">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gold transition-colors duration-300 group-hover:bg-obsidian" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold transition-colors duration-300 group-hover:bg-surface-base" />
                 </span>
-                <span className="label text-gold">{step.num}</span>
+                <span className="label text-gold-ink">{step.num}</span>
                 <div className="flex items-center gap-3 mt-1">
-                  <StepIcon size={16} className="text-gold/60" />
+                  <StepIcon size={16} className="text-gold-ink/60" />
                   <h4 className="text-base font-medium text-ink">{step.title}</h4>
                 </div>
                 <p className="mt-1 text-sm text-ink/50">{step.desc}</p>

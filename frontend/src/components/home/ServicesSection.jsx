@@ -57,7 +57,7 @@ function Row({ item, active, onEnter, onClick }) {
       >
         {Icon && (
           <Icon
-            className={`h-8 w-8 stroke-1.5 ${active ? "text-white" : "text-gold group-hover:text-white"}`}
+            className={`h-8 w-8 stroke-1.5 ${active ? "text-white" : "text-gold-ink group-hover:text-white"}`}
           />
         )}
       </span>
@@ -65,7 +65,7 @@ function Row({ item, active, onEnter, onClick }) {
       <span className="min-w-0 text-center">
         <span
           className={`block text-[16px] font-bold uppercase tracking-[0.14em] leading-snug transition-colors duration-300 ${
-            active ? "text-white" : "text-gold group-hover:text-white"
+            active ? "text-white" : "text-gold-ink group-hover:text-white"
           }`}
         >
           {item.title}
@@ -151,25 +151,25 @@ export default function ServicesSection() {
           {/* LEFT — Boxes */}
           <div className="order-2 flex flex-col lg:order-1">
             <div className="border-b border-border-soft bg-surface-base px-4 py-4 text-center lg:px-6">
-              <span className="label text-[12px] text-gold">Products</span>
+              <span className="label text-[12px] text-gold-ink">Products</span>
             </div>
             {renderColumn(grouped.left)}
           </div>
 
           {/* CENTER — one dedicated image for the hovered row */}
-          <div className="relative order-1 min-h-[320px] overflow-hidden bg-[#faf9f7] lg:order-2 lg:min-h-full">
+          <div className="relative order-1 min-h-[320px] overflow-hidden bg-surface-base lg:order-2 lg:min-h-full">
             <img
               key={activeItem.image}
               src={activeItem.image}
               alt={`${activeItem.title} showcase`}
-              className="absolute inset-0 h-full w-full bg-[#faf9f7] object-contain p-4"
+              className="absolute inset-0 h-full w-full bg-surface-base object-contain p-4"
               loading="lazy"
               decoding="async"
             />
 
             {/* Caption + progress bars */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-obsidian/90 via-obsidian/50 to-transparent px-5 pb-4 pt-12">
-              <span className="label block text-gold">
+              <span className="label block text-gold-ink">
                 {activeItem.side === "left" ? "Boxes" : "Services"}
               </span>
               <span className="mt-1 block text-sm font-medium text-white">
@@ -191,7 +191,7 @@ export default function ServicesSection() {
           {/* RIGHT — Services */}
           <div className="order-3 flex flex-col">
             <div className="border-b border-border-soft bg-surface-base px-4 py-4 text-center lg:px-6">
-              <span className="label text-[12px] text-gold">Services</span>
+              <span className="label text-[12px] text-gold-ink">Services</span>
             </div>
             {renderColumn(grouped.right)}
           </div>

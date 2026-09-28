@@ -124,7 +124,7 @@ export default function ClientLogos() {
           {SECTORS.map((s) => (
             <span
               key={s}
-              className="label rounded-full border border-gold/30 bg-surface-elevated/60 px-4 py-1.5 text-ink/70 transition-colors duration-300 hover:border-gold/60 hover:text-gold"
+              className="label rounded-full border border-gold/30 bg-surface-elevated/60 px-4 py-1.5 text-ink/70 transition-colors duration-300 hover:border-gold/60 hover:text-gold-ink"
             >
               {s}
             </span>

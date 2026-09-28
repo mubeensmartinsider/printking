@@ -8,10 +8,10 @@ import { sendQuote, buildWhatsAppLink, isEmailConfigured } from "../lib/leadServ
 
 const STEPS = ["Project Type", "Specifications", "Contact Details"];
 const field =
-  "w-full bg-transparent border-b border-white/15 py-3 text-platinum placeholder:text-platinum/35 focus:border-gold focus:outline-none transition-colors duration-300 text-[15px]";
+  "w-full bg-transparent border-b border-border-soft py-3 text-ink placeholder:text-ink/35 focus:border-gold focus:outline-none transition-colors duration-300 text-[15px]";
 
 const floatingField =
-  "w-full bg-transparent border-b border-white/15 py-5 pb-2 pt-6 text-platinum focus:border-gold focus:outline-none transition-all duration-300 text-[15px]";
+  "w-full bg-transparent border-b border-border-soft py-5 pb-2 pt-6 text-ink focus:border-gold focus:outline-none transition-all duration-300 text-[15px]";
 
 const initial = {
   productType: "",
@@ -62,7 +62,7 @@ export default function RequestQuotePage() {
       <Seo title="Request a Quote — PRINTKING" description="Start your luxury packaging project. Tell us your product type, specifications and contact details for a detailed proposal within 4 business hours." path="/request-quote" />
       <PageHero eyebrow="START YOUR PROJECT" title="Request a Quote" sub="Three quick steps. We'll respond within 4 business hours." />
 
-      <section className="bg-obsidian py-20">
+      <section className="bg-surface-base py-20">
         <div className="section-pad mx-auto max-w-3xl">
           {/* Stepper */}
           <div className="mb-14 flex items-center">
@@ -71,12 +71,12 @@ export default function RequestQuotePage() {
                 <div className="flex items-center gap-3">
                   <span
                     className={`flex h-9 w-9 items-center justify-center rounded-full border text-sm transition-colors duration-300 ${
-                      i <= step ? "border-gold bg-gold text-obsidian" : "border-white/20 text-platinum/50"
+                      i <= step ? "border-gold bg-gold text-obsidian" : "border-border-soft/20 text-ink/50"
                     }`}
                   >
                     {i < step ? <Check size={16} /> : i + 1}
                   </span>
-                  <span className={`label hidden sm:block ${i <= step ? "text-platinum" : "text-platinum/40"}`}>{s}</span>
+                  <span className={`label hidden sm:block ${i <= step ? "text-ink" : "text-ink/40"}`}>{s}</span>
                 </div>
                 {i < STEPS.length - 1 && <span className="mx-3 h-px flex-1 bg-white/10" />}
               </React.Fragment>
@@ -86,7 +86,7 @@ export default function RequestQuotePage() {
           {/* Step 1 */}
           {step === 0 && (
             <div data-testid="wizard-step-1">
-              <h3 className="display mb-8 text-2xl text-platinum">What are we making?</h3>
+              <h3 className="display mb-8 text-2xl text-ink">What are we making?</h3>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                 {CONTACT.productTypes.map((p) => (
                   <button
@@ -95,8 +95,8 @@ export default function RequestQuotePage() {
                     onClick={() => setData((d) => ({ ...d, productType: p }))}
                     className={`border p-6 text-left text-sm transition-all duration-300 ${
                       data.productType === p
-                        ? "border-gold bg-gold/10 text-platinum"
-                        : "border-white/[0.1] text-platinum/70 hover:border-gold/60"
+                        ? "border-gold bg-gold/10 text-ink"
+                        : "border-border-soft/[0.1] text-ink/70 hover:border-gold/60"
                     }`}
                   >
                     {p}
@@ -109,7 +109,7 @@ export default function RequestQuotePage() {
           {/* Step 2 */}
           {step === 1 && (
             <div data-testid="wizard-step-2" className="space-y-7">
-              <h3 className="display text-2xl text-platinum">Specifications</h3>
+              <h3 className="display text-2xl text-ink">Specifications</h3>
               <div className="grid gap-7 sm:grid-cols-2">
                 <div className="floating-input-group">
                   <input id="wiz-qty" className={floatingField} value={data.quantity} onChange={set("quantity")} placeholder=" " />
@@ -130,7 +130,7 @@ export default function RequestQuotePage() {
           {/* Step 3 */}
           {step === 2 && (
             <div data-testid="wizard-step-3" className="space-y-7">
-              <h3 className="display text-2xl text-platinum">Your Details</h3>
+              <h3 className="display text-2xl text-ink">Your Details</h3>
               <div className="grid gap-7 sm:grid-cols-2">
                 <div className="floating-input-group">
                   <input id="wiz-name" data-testid="wizard-name" className={floatingField} value={data.fullName} onChange={set("fullName")} placeholder=" " />
@@ -149,7 +149,7 @@ export default function RequestQuotePage() {
                   <label htmlFor="wiz-phone">Phone (WhatsApp)</label>
                 </div>
               </div>
-              <label className="flex items-center gap-3 text-sm text-platinum/60">
+              <label className="flex items-center gap-3 text-sm text-ink/60">
                 <input type="checkbox" checked={data.whatsappOptIn} onChange={(e) => setData((d) => ({ ...d, whatsappOptIn: e.target.checked }))} className="h-4 w-4 accent-[#c5a05a]" />
                 I agree to be contacted via WhatsApp
               </label>

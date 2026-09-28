@@ -150,8 +150,8 @@ export default function MachineryPage() {
                 <Link to="/request-quote" className="btn-gold">
                   Start your job
                 </Link>
-                <Link to="/sustainability" className="btn-ghost">
-                  Our materials
+                <Link to="/blog" className="btn-ghost">
+                  Read our insights
                 </Link>
               </div>
             </div>

@@ -11,11 +11,11 @@ export default function Sustainability() {
     <section data-testid="sustainability-section" className="bg-surface-base py-28">
       <div className="section-pad mx-auto max-w-[1400px]">
         <div ref={quoteRef} className="mx-auto mb-24 max-w-3xl text-center">
-          <span className="label text-gold">{SUSTAINABILITY.eyebrow}</span>
+          <span className="label text-gold-ink">{SUSTAINABILITY.eyebrow}</span>
           <p className="display mt-8 text-4xl italic leading-snug text-ink sm:text-[40px]">
             "{SUSTAINABILITY.quote}"
           </p>
-          <span className="label mt-8 block text-gold">{SUSTAINABILITY.quoteAttribution}</span>
+          <span className="label mt-8 block text-gold-ink">{SUSTAINABILITY.quoteAttribution}</span>
         </div>
 
         <div ref={headRef} className="mb-16">

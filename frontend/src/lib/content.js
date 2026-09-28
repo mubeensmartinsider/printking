@@ -25,10 +25,8 @@ export const COMPANY = {
 export const NAV_LINKS = [
   { label: "About", to: "/about" },
   { label: "Products", to: "/products" },
-  { label: "Portfolio", to: "/portfolio" },
   { label: "Blog", to: "/blog" },
   { label: "Machinery", to: "/machinery" },
-  { label: "Sustainability", to: "/sustainability" },
   { label: "FAQ", to: "/faq" },
   { label: "Contact", to: "/contact" },
 ];
@@ -1074,7 +1072,7 @@ export const TEAM = LEADERSHIP.heads;
 export const FOOTER = {
   /* Products column of the footer — label + deep link to the product detail page */
   products: PRODUCTS.slice(0, 8).map((p) => ({ label: p.title, to: `/products/${p.slug}` })),
-  company: ["About", "Portfolio", "Blog", "Machinery", "Sustainability", "FAQ", "Careers"],
+  company: ["About", "Blog", "Machinery", "FAQ", "Careers"],
   industries: INDUSTRIES.slice(0, 6).map((i) => i.name),
   certifications: ["ISO 9001:2015", "FOGRA", "FSC"],
 };
@@ -1086,19 +1084,6 @@ const IMG = {
   press: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1200&auto=format&fit=crop",
 };
 
-export const PORTFOLIO = [
-  { title: "Bareezé Couture Lookbook", industry: "Fashion & Apparel", product: "Catalogue / Lookbook", img: IMG.press },
-  { title: "Warda Signature Rigid Box", industry: "Fashion & Apparel", product: "Luxury Rigid Box", img: IMG.box },
-  { title: "ChenOne Retail Paper Bag", industry: "Retail", product: "Paper Bag", img: IMG.foil },
-  { title: "Nestlé Folding Carton", industry: "Food & Beverage", product: "Folding Carton", img: IMG.box },
-  { title: "RajBari Hang Tags", industry: "Fashion & Apparel", product: "Hang Tags", img: IMG.foil },
-  { title: "Élan Luxury Box", industry: "Fashion & Apparel", product: "Luxury Rigid Box", img: IMG.rigid },
-  { title: "Royal Palm Annual Report", industry: "Corporate & Banking", product: "Annual Report", img: IMG.press },
-  { title: "Telenor Corporate Diary", industry: "Corporate & Banking", product: "Corporate Creative", img: IMG.box },
-  { title: "Firdous Home Textile Cards", industry: "Home Textile", product: "Home Textile Packaging", img: IMG.foil },
-];
 
-export const PORTFOLIO_FILTERS = {
-  industries: ["All", ...Array.from(new Set(PORTFOLIO.map((p) => p.industry)))],
-  products: ["All", ...Array.from(new Set(PORTFOLIO.map((p) => p.product)))],
-};
+/* PORTFOLIO / PORTFOLIO_FILTERS removed with the Portfolio page. */
+

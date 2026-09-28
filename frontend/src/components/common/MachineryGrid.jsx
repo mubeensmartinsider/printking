@@ -65,8 +65,8 @@ function MachineCell({ m, featured, onClick, className = "" }) {
           featured ? "sm:flex sm:w-1/2 sm:flex-col sm:justify-center sm:border-b-0 sm:border-l sm:px-8 sm:py-10" : ""
         }`}
       >
-        <span className="label text-gold">{m.category}</span>
-        <h3 className="mt-1 text-sm font-semibold leading-snug text-ink transition-colors duration-300 group-hover:text-gold">
+        <span className="label text-gold-ink">{m.category}</span>
+        <h3 className="mt-1 text-sm font-semibold leading-snug text-ink transition-colors duration-300 group-hover:text-gold-ink">
           {m.name}
         </h3>
         <span className="mt-0.5 block text-[11px] text-ink/50">{m.spec}</span>
@@ -108,7 +108,7 @@ function Spotlight({ items }) {
   const counter = `${String(idx + 1).padStart(2, "0")} / ${String(items.length).padStart(2, "0")}`;
 
   const arrow =
-    "flex h-9 w-9 items-center justify-center border border-border-soft text-ink/55 transition-colors hover:border-gold/60 hover:text-gold";
+    "flex h-9 w-9 items-center justify-center border border-border-soft text-ink/55 transition-colors hover:border-gold/60 hover:text-gold-ink";
 
   return (
     <div
@@ -123,7 +123,7 @@ function Spotlight({ items }) {
 
       <div className="flex flex-col justify-center gap-3 p-6 lg:p-10">
         <div className="flex items-start justify-between gap-4">
-          <span className="label text-gold">{active.category}</span>
+          <span className="label text-gold-ink">{active.category}</span>
           <span className="label text-ink/35">{counter}</span>
         </div>
 
@@ -139,7 +139,7 @@ function Spotlight({ items }) {
           ))}
         </ul>
 
-        <p className="mt-1 max-w-md text-sm leading-relaxed text-gold">{active.capability}</p>
+        <p className="mt-1 max-w-md text-sm leading-relaxed text-gold-ink">{active.capability}</p>
 
         <div className="mt-4 flex items-center gap-5">
           <div className="flex flex-none gap-2">
@@ -215,7 +215,7 @@ export default function MachineryGrid({ items, variant = "grid" }) {
               </div>
               <div className="flex items-start justify-between p-6">
                 <div>
-                  <span className="label text-gold">{active.category}</span>
+                  <span className="label text-gold-ink">{active.category}</span>
                   <h3 className="display mt-2 text-2xl text-ink">{active.name}</h3>
                   <ul className="mt-4 space-y-1.5">
                     {active.specs.map((s) => (
@@ -224,7 +224,7 @@ export default function MachineryGrid({ items, variant = "grid" }) {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-4 max-w-lg text-sm leading-relaxed text-gold">{active.capability}</p>
+                  <p className="mt-4 max-w-lg text-sm leading-relaxed text-gold-ink">{active.capability}</p>
                 </div>
                 <button onClick={() => setActive(null)} className="text-ink/50 hover:text-ink">
                   <X size={20} />

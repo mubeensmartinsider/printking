@@ -39,7 +39,7 @@ export default function TrustedBy() {
           {TRUSTED.metrics.map((m, i) => (
             <React.Fragment key={m}>
               <span className="label text-ink/65">{m}</span>
-              {i < TRUSTED.metrics.length - 1 && <span className="text-gold">·</span>}
+              {i < TRUSTED.metrics.length - 1 && <span className="text-gold-ink">·</span>}
             </React.Fragment>
           ))}
         </div>

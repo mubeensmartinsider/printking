@@ -41,7 +41,10 @@
 
   body {
     margin: 0;
-    background-color: var(--color-obsidian);
+    /* theme-aware: cream in light, obsidian in dark.
+       Was var(--color-obsidian), which is an always-dark brand colour
+       and left the page canvas white in dark mode. */
+    background-color: var(--surface-base);
     color: var(--color-platinum);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -60,7 +63,7 @@
     width: 9px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-obsidian);
+    background: var(--surface-primary);
   }
   ::-webkit-scrollbar-thumb {
     background: rgba(197, 160, 90, 0.35);

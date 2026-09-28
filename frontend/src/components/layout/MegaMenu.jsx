@@ -96,18 +96,20 @@ export default function MegaMenu({ isOpen, onClose }) {
         pointerEvents: show ? "auto" : "none",
       }}
     >
-      <div className="mt-2 overflow-hidden rounded-xl border border-[#ded8cd] bg-[#faf9f7] shadow-[0_20px_60px_rgba(26,20,12,0.16)] backdrop-blur-[24px]">
-        <div className="grid grid-cols-3 gap-0">
+      {/* Fixed white plate in BOTH themes (as designed) — its contents use the
+          plate-* tokens, which never flip, so they stay dark on white. */}
+      <div className="mt-2 overflow-hidden rounded-xl border border-plate-border bg-white shadow-[0_24px_60px_-12px_rgba(13,11,9,0.35)] backdrop-blur-[24px]">
+        <div className="grid grid-cols-1 sm:grid-cols-3">
           {SERVICES_COLUMNS.map((col, ci) => (
             <div
               key={ci}
-              className={`p-6 ${
+              className={`p-5 sm:p-6 ${
                 ci < SERVICES_COLUMNS.length - 1
-                  ? "border-r border-[#e8e1d7]"
+                  ? "border-b border-plate-border sm:border-b-0 sm:border-r"
                   : ""
               }`}
             >
-              <h4 className="label mb-4 text-[#8b6a32] text-[11px] font-semibold tracking-[0.15em] uppercase">
+              <h4 className="label mb-4 text-plate-gold text-[11px] font-semibold tracking-[0.15em] uppercase">
                 {col.title}
               </h4>
               <ul className="space-y-1">
@@ -115,17 +117,17 @@ export default function MegaMenu({ isOpen, onClose }) {
                   <li key={ii}>
                     <Link
                       to={item.to}
-                      className="group block rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-[#f1ede6]"
+                      className="group block rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-plate-hover"
                       onClick={() => {
                         setPanelHover(false);
                         onClose();
                       }}
                     >
-                      <span className="text-sm font-medium text-[#1c1a17] transition-colors duration-200 group-hover:text-[#8b6a32]">
+                      <span className="text-sm font-medium text-plate-ink transition-colors duration-200 group-hover:text-plate-gold">
                         {item.label}
                       </span>
                       {item.desc && (
-                        <span className="mt-0.5 block text-[11px] leading-relaxed text-[#6f675d]">
+                        <span className="mt-0.5 block text-[11px] leading-relaxed text-plate-ink-secondary">
                           {item.desc}
                         </span>
                       )}

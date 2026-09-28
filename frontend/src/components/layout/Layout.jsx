@@ -72,7 +72,7 @@ export default function Layout({ children }) {
       <button
         onClick={scrollToTop}
         aria-label="Back to top"
-        className={`fixed bottom-32 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-surface-glass backdrop-blur-[12px] text-gold shadow-lg transition-all duration-500 ease-lux hover:border-gold hover:bg-gold/10 md:bottom-24 ${
+        className={`fixed bottom-32 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-surface-glass backdrop-blur-[12px] text-gold-ink shadow-lg transition-all duration-500 ease-lux hover:border-gold hover:bg-gold/10 md:bottom-24 ${
           showBackToTop
             ? "translate-y-0 opacity-100"
             : "translate-y-4 opacity-0 pointer-events-none"
