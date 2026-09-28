@@ -10,7 +10,7 @@ export const COMPANY = {
   phone: "+92 42 37150138-40",
   phoneTel: "+924237150138",
   whatsapp: "923224839646", // edit to a WhatsApp-enabled mobile number
-  email: "sales@printking.com.pk",
+  email: "sales.printking@gmail.com",
   website: "www.printking.com.pk",
   address: "Industrial Area Manzoor Park, Sagghian Flyover, Opp. Coke Warehouse, Lahore, Pakistan",
   hours: "Mon – Sat · 24-Hour Client Service",
@@ -685,7 +685,7 @@ export const FAQ = {
       items: [
         {
           q: "How do I request a quote?",
-          a: "You can request a quote through our online form at /request-quote, email us at sales@printking.com.pk, or call +92 42 37150138-40. We typically respond within 4 business hours with a detailed quotation.",
+          a: "You can request a quote through our online form at /request-quote, email us at sales.printking@gmail.com, or call +92 42 37150138-40. We typically respond within 4 business hours with a detailed quotation.",
         },
         {
           q: "What information do you need to provide a quote?",
