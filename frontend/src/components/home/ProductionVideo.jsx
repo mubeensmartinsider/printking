@@ -16,23 +16,41 @@ export default function ProductionVideo() {
   const videoRef     = useRef(null);
   const containerRef = useRef(null);
   const [playing, setPlaying] = useState(false);
+  /* The reel is 13.4 MB. It used to sit in the markup as an <source>, so the
+     browser started downloading it the moment this component mounted — well
+     before the section was anywhere near the viewport, and competing with the
+     hero and above-the-fold images for bandwidth. Instead we keep src unset
+     until the section is close to being scrolled into view. */
+  const [src, setSrc] = useState(null);
 
   useEffect(() => {
     const container = containerRef.current;
-    const observer  = new IntersectionObserver(
+    if (!container || src) return;
+
+    const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && videoRef.current && !playing) {
-          videoRef.current.play().catch(() => {});
-          setPlaying(true);
-        }
+        if (!entry.isIntersecting) return;
+        setSrc("/assets/video.mp4");
+        observer.disconnect();
       },
-      { threshold: 0.5 }
+      /* start fetching a little before it is actually on screen */
+      { rootMargin: "300px 0px" }
     );
-    if (container) observer.observe(container);
-    return () => { if (container) observer.unobserve(container); };
-  }, [playing]);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [src]);
+
+  /* once the source exists, play it and follow the same autoplay behaviour */
+  useEffect(() => {
+    if (!src) return;
+    const el = videoRef.current;
+    if (!el) return;
+    el.play().catch(() => {});
+    setPlaying(true);
+  }, [src]);
 
   const onPlay = () => {
+    if (!src) setSrc("/assets/video.mp4");
     videoRef.current?.play().catch(() => {});
     setPlaying(true);
   };
@@ -62,9 +80,16 @@ export default function ProductionVideo() {
           <video
             ref={videoRef}
             className="absolute inset-0 z-10 h-full w-full object-cover"
-            controls autoPlay muted loop
+            /* preload="none" + no autoPlay: nothing is fetched until the
+               section nears the viewport. playsInline stops iOS hijacking
+               autoplay into fullscreen. */
+            preload="none"
+            muted
+            loop
+            playsInline
+            poster="/assets/banners/banner3.jpg"
           >
-            <source src="/assets/video.mp4" type="video/mp4" />
+            {src && <source src={src} type="video/mp4" />}
           </video>
 
           {!playing && (
