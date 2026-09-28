@@ -36,7 +36,7 @@ level craft. Cinematic scroll, 3D hero, restraint-driven luxury (obsidian + gold
 EOF
 
 ## Elevation Pass — Real Data + Cinematic Upgrade (2026-06-02)
-- **Real company data** injected site-wide from `lib/content.js`: PrintKing (SMC-Private) Ltd, Lahore, tagline "Passion · Quality · Innovation", phone +92 42 37150138-40, sales@printking.com.pk, real socials.
+- **Real company data** injected site-wide from `lib/content.js`: PrintKing (SMC-Private) Ltd, Lahore, tagline "Passion · Quality · Innovation", phone +92 42 37150138-40, sales.printking@gmail.com, real socials.
 - **Real management team** (CEO Muhammad Shafiq Chaudhary + Naveed Ehsan, Waqas Shafiq, Sohail Anjum, Alweena Tasneem, Hamza Shafiq) in new **Executive Team** section (initials placeholders + parallax cards).
 - **Real clients** (Bareezé, Warda, Nestlé, Telenor, ChenOne, Polo Ralph Lauren, Armani, etc.) in marquee + **Media Partners** strip (Heidelberg, Kodak, Apple, Xerox, Bobst, Techkon).
 - **Real machinery** (8 Heidelberg presses, Kodak Trendsetter CTP, Polar 92, Stahlfolder, hot foil) on machinery section/page.

@@ -1,5 +1,5 @@
 {
-  "summary": "Iteration 2 frontend-only regression + new-feature validation for PRINTKING. Verified ALL new sections (Executive Team, Production Video, Magnetic Cursor), real-data injection (counters 15+/8/60+/12000, real brands Bareezé/Warda/Nestlé/Telenor/ChenOne, media partners Heidelberg/Kodak/Apple/Xerox/Bobst/Techkon), navy palette, and confirmed previously-passing flows still work (testimonials rotator, machinery lightbox with real Heidelberg/Kodak names, portfolio, all 7 inner-page routes, quote-form validation, request-quote 3-step wizard -> wa.me deep-link with PrintKing real number 924237150138 and Luxury Rigid Box embedded, WhatsApp float, footer with sales@printking.com.pk + Lahore). No runtime error overlay, zero page errors, zero console errors, 3D hero canvas renders.",
+  "summary": "Iteration 2 frontend-only regression + new-feature validation for PRINTKING. Verified ALL new sections (Executive Team, Production Video, Magnetic Cursor), real-data injection (counters 15+/8/60+/12000, real brands Bareezé/Warda/Nestlé/Telenor/ChenOne, media partners Heidelberg/Kodak/Apple/Xerox/Bobst/Techkon), navy palette, and confirmed previously-passing flows still work (testimonials rotator, machinery lightbox with real Heidelberg/Kodak names, portfolio, all 7 inner-page routes, quote-form validation, request-quote 3-step wizard -> wa.me deep-link with PrintKing real number 924237150138 and Luxury Rigid Box embedded, WhatsApp float, footer with sales.printking@gmail.com + Lahore). No runtime error overlay, zero page errors, zero console errors, 3D hero canvas renders.",
   "backend_issues": {"critical": [], "minor": []},
   "frontend_issues": {
     "ui_bugs": [],
@@ -19,7 +19,7 @@
     "navigation_all_routes": "PASS - /about /services /portfolio /machinery /sustainability /contact /request-quote all load with no overlay",
     "quote_form_empty_validation": "PASS - empty submit shows validation toast",
     "request_quote_wizard": "PASS - product-luxury-rigid-box selectable -> wizard-next x2 -> wizard-name/company/email accept input -> wizard-submit triggers window.open with wa.me/924237150138 deep-link containing 'Luxury Rigid Box' product type; toast 'Opening WhatsApp with your request pre-filled…' shown",
-    "footer_real_contact": "PASS - sales@printking.com.pk and Lahore both present in footer; data-testid=whatsapp-float present",
+    "footer_real_contact": "PASS - sales.printking@gmail.com and Lahore both present in footer; data-testid=whatsapp-float present",
     "packaging_content_constraint": "PASS - portfolio entries are packaging-correct (Bareezé Couture Lookbook, Warda Signature Rigid Box, ChenOne Retail Paper Bag, Nestlé Folding Carton, RajBari Hang Tags, Élan Luxury Box, Royal Palm Annual Report, Telenor Corporate Diary, Firdous Home Textile Cards). No perfume bottles/jars/food items/standalone electronics depicted as products."
   },
   "test_report_links": [],
