@@ -18,10 +18,30 @@
   --surface-active:    #d5ccbf;   /* pressed state                      */
   --surface-glass:     rgba(250, 249, 247, 0.72);
 
+  /* Surface channels — same reason as --ink-rgb below */
+  --surface-base-rgb:     250 249 247;
+  --surface-primary-rgb:  244 241 236;
+  --surface-elevated-rgb: 237 233 226;
+  --surface-floating-rgb: 230 224 214;
+  --surface-hover-rgb:    221 214 203;
+
   /* Text */
   --color-platinum:    #1c1a17;   /* primary text (near-black warm)     */
   --text-secondary:    #5a5248;   /* secondary copy                     */
-  --text-tertiary:     #8a8076;   /* muted / placeholder                */
+  --text-tertiary:     #6f675d;   /* muted / placeholder (AA on cream)  */
+
+  /* Raw channels for the three text tiers. Tailwind can only apply an
+     alpha modifier (text-ink/55) to a colour expressed as channels, so the
+     theme-aware `ink` / `ink-secondary` / `ink-tertiary` utilities are
+     built from these — keep them in sync with the hex values above. */
+  --ink-rgb:           28 26 23;
+  --ink-secondary-rgb: 90 82 72;
+  --ink-tertiary-rgb:  111 103 93;
+
+  /* Gold tuned for TEXT on light surfaces — #c5a05a is only ~2.3:1 on cream,
+     this bronze passes AA while staying unmistakably on-brand. */
+  --text-gold:         #7a5c1e;
+  --text-gold-rgb:     122 92 30;
 
   /* Borders / dividers */
   --color-border:      rgba(0, 0, 0, 0.10);
@@ -112,10 +132,23 @@
   --surface-active:    #302a24;
   --surface-glass:     rgba(28, 24, 20, 0.65);
 
+  --surface-base-rgb:     13 11 9;
+  --surface-primary-rgb:  20 17 13;
+  --surface-elevated-rgb: 28 24 20;
+  --surface-floating-rgb: 36 31 26;
+  --surface-hover-rgb:    42 37 32;
+
   /* Text */
   --color-platinum:    #f0ebe2;
   --text-secondary:    #a89f93;
-  --text-tertiary:     #6b6155;
+  --text-tertiary:     #8a8076;
+
+  --ink-rgb:           240 235 226;
+  --ink-secondary-rgb: 168 159 147;
+  --ink-tertiary-rgb:  138 128 118;
+
+  --text-gold:         #d8b978;
+  --text-gold-rgb:     216 185 120;
 
   /* Borders / dividers */
   --color-border:      rgba(255, 255, 255, 0.07);

@@ -62,8 +62,9 @@ export function useStagger(selector = ":scope > *", opts = {}) {
   return ref;
 }
 
-/* Count-up animation triggered on scroll into view */
-export function useCountUp(target, { suffix = "", duration = 2 } = {}) {
+/* Count-up animation triggered on scroll into view.
+   `format` lets callers add thousands separators (e.g. 12,000 m²). */
+export function useCountUp(target, { suffix = "", duration = 2, format = (v) => Math.round(v) } = {}) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -76,7 +77,7 @@ export function useCountUp(target, { suffix = "", duration = 2 } = {}) {
         ease: "power2.out",
         scrollTrigger: { trigger: el, start: "top 90%", once: true },
         onUpdate: () => {
-          el.textContent = Math.round(obj.val) + suffix;
+          el.textContent = format(obj.val) + suffix;
         },
       });
     }, el);

@@ -16,7 +16,7 @@ const SustainabilityPage = lazy(() => import("@/pages/SustainabilityPage"));
 const ContactPage = lazy(() => import("@/pages/ContactPage"));
 const RequestQuotePage = lazy(() => import("@/pages/RequestQuotePage"));
 const FAQPage = lazy(() => import("@/pages/FAQPage"));
-const CaseStudiesPage = lazy(() => import("@/pages/CaseStudiesPage"));
+const BlogPage = lazy(() => import("@/pages/BlogPage"));
 
 function PageFallback() {
   return <div className="min-h-[50vh] bg-surface-base" aria-hidden="true" />;
@@ -42,7 +42,8 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/request-quote" element={<RequestQuotePage />} />
               <Route path="/faq" element={<FAQPage />} />
-              <Route path="/case-studies" element={<CaseStudiesPage />} />
+              <Route path="/case-studies" element={<Navigate to="/blog" replace />} />
+              <Route path="/blog" element={<BlogPage />} />
               </Routes>
             </Suspense>
           </Layout>

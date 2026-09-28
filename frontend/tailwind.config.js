@@ -39,18 +39,22 @@ module.exports = {
         whisper:        'rgba(255,255,255,0.08)',
 
         /* ── Semantic tokens (flip light ↔ dark via CSS var) ─ */
-        // page backgrounds
-        'surface-base':     'var(--surface-base)',
-        'surface-primary':  'var(--surface-primary)',
-        'surface-elevated': 'var(--surface-elevated)',
-        'surface-floating': 'var(--surface-floating)',
-        'surface-hover':    'var(--surface-hover)',
+        // page backgrounds — channels so bg-surface-*/50 style tints work
+        'surface-base':     'rgb(var(--surface-base-rgb) / <alpha-value>)',
+        'surface-primary':  'rgb(var(--surface-primary-rgb) / <alpha-value>)',
+        'surface-elevated': 'rgb(var(--surface-elevated-rgb) / <alpha-value>)',
+        'surface-floating': 'rgb(var(--surface-floating-rgb) / <alpha-value>)',
+        'surface-hover':    'rgb(var(--surface-hover-rgb) / <alpha-value>)',
         'surface-glass':    'var(--surface-glass)',
 
-        // readable text
-        'ink':          'var(--color-platinum)',    // primary text
-        'ink-secondary':'var(--text-secondary)',     // secondary copy
-        'ink-tertiary': 'var(--text-tertiary)',      // muted
+        // readable text — expressed as RGB channels so alpha modifiers
+        // (text-ink/55, text-ink-secondary/70) actually compile in Tailwind
+        'ink':          'rgb(var(--ink-rgb) / <alpha-value>)',    // primary text
+        'ink-secondary':'rgb(var(--ink-secondary-rgb) / <alpha-value>)', // secondary copy
+        'ink-tertiary': 'rgb(var(--ink-tertiary-rgb) / <alpha-value>)',  // muted
+
+        // gold tuned for TEXT on the current surface (see --text-gold)
+        'gold-ink':     'rgb(var(--text-gold-rgb) / <alpha-value>)',
 
         // borders
         'border-soft':  'var(--color-border)',

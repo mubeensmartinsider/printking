@@ -62,7 +62,7 @@ export default function Footer() {
 
           <Col title="Company">
             {FOOTER.company.map((c) => {
-              const map = { About: "/about", Portfolio: "/portfolio", "Case Studies": "/case-studies", Machinery: "/machinery", Sustainability: "/sustainability", FAQ: "/faq" };
+              const map = { About: "/about", Portfolio: "/portfolio", Blog: "/blog", Machinery: "/machinery", Sustainability: "/sustainability", FAQ: "/faq" };
               return <FLink key={c} to={map[c] || "/"}>{c}</FLink>;
             })}
           </Col>

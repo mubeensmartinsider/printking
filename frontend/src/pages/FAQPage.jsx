@@ -1,133 +1,43 @@
-import React, { useState } from "react";
-import { ChevronDown, Search } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { List, Search, X } from "lucide-react";
 import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
+import { ThemePill } from "../components/common/ThemeToggle";
+import FaqList from "../components/faq/FaqList";
+import { FAQ } from "../lib/content";
 
-const FAQ_DATA = [
-  {
-    category: "Ordering & Quotes",
-    items: [
-      {
-        q: "How do I request a quote?",
-        a: "You can request a quote through our online form at /request-quote, email us at sales@printking.com.pk, or call +92 42 37150138-40. We typically respond within 4 business hours with a detailed quotation.",
-      },
-      {
-        q: "What information do you need to provide a quote?",
-        a: "For an accurate quote, please provide: product type (rigid box, carton, bag, etc.), dimensions (L×W×H), quantity, material preferences, finish requirements, and if possible, artwork or reference images.",
-      },
-      {
-        q: "Do you have a minimum order quantity?",
-        a: "No minimum order restrictions. We handle everything from sample quantities (50-100 units) to full production runs (100,000+ units). Pricing scales with volume.",
-      },
-      {
-        q: "How long does it take to get a sample?",
-        a: "Sample production takes 24-48 hours from approved specifications. We can courier samples to your address for a nominal fee, or you can visit our facility to see them in person.",
-      },
-    ],
-  },
-  {
-    category: "Design & Artwork",
-    items: [
-      {
-        q: "Do you provide design services?",
-        a: "Yes, we have an in-house design studio that can create structural designs (dielines), artwork, and prepress files. Our design team works with you to ensure print-ready files that meet your exact specifications.",
-      },
-      {
-        q: "What file formats do you accept?",
-        a: "We accept AI, PSD, PDF, INDD, EPS, and CDR files. For best results, please provide files in CMYK color mode with 300 DPI resolution and any embedded fonts outlined.",
-      },
-      {
-        q: "Can you match my brand colors exactly?",
-        a: "Yes, we use Pantone Matching System (PMS) for exact color reproduction. Our Heidelberg presses are ISO-calibrated and we provide digital proofs for color approval before production.",
-      },
-    ],
-  },
-  {
-    category: "Materials & Finishes",
-    items: [
-      {
-        q: "What types of paper and board do you offer?",
-        a: "We stock a wide range: FSC-certified kraft, coated/uncoated art board, greyboard, specialty textured papers, rigid board, and imported substrates. Contact us for our full material catalog.",
-      },
-      {
-        q: "What finishing options are available?",
-        a: "Our finishing capabilities include: hot foil stamping (gold, silver, copper, custom), embossing, debossing, spot UV, matte/gloss lamination, soft-touch coating, edge painting, die-cutting, and magnetic closure assembly.",
-      },
-      {
-        q: "What is the difference between soft-touch and matte lamination?",
-        a: "Soft-touch lamination creates a velvety, tactile surface that feels premium to the touch. Matte lamination provides a non-reflective, smooth finish without the soft texture. Both are durable and protect the printed surface.",
-      },
-    ],
-  },
-  {
-    category: "Production & Timeline",
-    items: [
-      {
-        q: "What is the standard turnaround time?",
-        a: "Standard turnaround is 7-10 working days from artwork approval. Express production (48-72 hours) is available for urgent orders. Timeline depends on complexity, quantity, and finishing requirements.",
-      },
-      {
-        q: "Can I visit the production facility?",
-        a: "Absolutely. We welcome facility visits by appointment. You can see our Heidelberg presses, finishing equipment, and quality control processes in action. Contact our team to schedule a tour.",
-      },
-      {
-        q: "How do you ensure quality control?",
-        a: "We are ISO 9001:2015 certified. Every job passes through multiple QC checkpoints: pre-press verification, first-sheet approval, in-process inspection, and final 100% inspection before packing and dispatch.",
-      },
-    ],
-  },
-  {
-    category: "Shipping & Delivery",
-    items: [
-      {
-        q: "Do you deliver nationwide?",
-        a: "Yes, we deliver to all major cities across Pakistan including Lahore, Karachi, Islamabad, Faisalabad, and more. We use reliable courier and freight partners for timely delivery.",
-      },
-      {
-        q: "Do you ship internationally?",
-        a: "Yes, we have successfully shipped to 30+ countries. We handle all export documentation, freight coordination, and customs paperwork. International shipping costs depend on destination and order volume.",
-      },
-      {
-        q: "What are your payment terms?",
-        a: "Standard payment terms are 50% advance with the order and 50% before dispatch. We accept bank transfers, cheques, and cash. For established clients, customized terms may be available.",
-      },
-    ],
-  },
-  {
-    category: "Quality & Returns",
-    items: [
-      {
-        q: "What if the printed product doesn't meet my expectations?",
-        a: "We take quality seriously. If there is a manufacturing defect or error on our part, we will reprint or refund. We recommend approving a physical sample before full production to ensure complete satisfaction.",
-      },
-      {
-        q: "Do you offer a warranty on your products?",
-        a: "All our products are manufactured to ISO 9001:2015 standards. We stand behind our workmanship and materials. Any manufacturing defects are addressed promptly at no additional cost.",
-      },
-    ],
-  },
-];
+/* ============================================================
+   /faq — every answer on one page, grouped by topic.
+
+   A single, dense list: search, a live count, expand/collapse
+   all, and the theme control share one compact toolbar. No
+   layout chrome for its own sake, and every surface, border and
+   text colour is a theme token so light and dark both work.
+   ============================================================ */
+
+const TOTAL_QUESTIONS = FAQ.categories.reduce((n, c) => n + c.items.length, 0);
 
 export default function FAQPage() {
-  const [openCategory, setOpenCategory] = useState("Ordering & Quotes");
-  const [openItems, setOpenItems] = useState({});
-  const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
 
-  const toggleItem = (category, index) => {
-    const key = `${category}-${index}`;
-    setOpenItems((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
+  /* Search across questions AND answers */
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const all = FAQ.categories.flatMap((c) => c.items);
+    if (!q) return all;
+    return all.filter(
+      (item) => item.q.toLowerCase().includes(q) || item.a.toLowerCase().includes(q)
+    );
+  }, [query]);
 
-  const filteredData = FAQ_DATA.map((cat) => ({
-    ...cat,
-    items: cat.items.filter(
-      (item) =>
-        item.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.a.toLowerCase().includes(searchQuery.toLowerCase())
-    ),
-  })).filter((cat) => cat.items.length > 0);
+  /* Matching questions, grouped back into their topics */
+  const categories = useMemo(() => {
+    if (!query.trim()) return FAQ.categories;
+    return FAQ.categories
+      .map((c) => ({ ...c, items: c.items.filter((i) => results.some((r) => r.q === i.q)) }))
+      .filter((c) => c.items.length > 0);
+  }, [query, results]);
 
   return (
     <>
@@ -136,118 +46,85 @@ export default function FAQPage() {
         description="Find answers to common questions about PRINTKING's printing and packaging services, ordering process, materials, finishes, and delivery."
         path="/faq"
       />
-      <PageHero
-        eyebrow="QUESTIONS & ANSWERS"
-        title="Everything You Need to Know"
-        sub="Find answers to common questions about our services, process, and capabilities."
-      />
 
-      <section className="bg-obsidian py-24">
+      <PageHero eyebrow={FAQ.eyebrow} title={FAQ.headline} sub={FAQ.sub} tight />
+
+      <section className="bg-surface-base py-10 md:py-12">
         <div className="section-pad mx-auto max-w-[1200px]">
-          {/* Search */}
-          <div className="relative mx-auto mb-16 max-w-md">
-            <Search
-              size={18}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-platinum/40"
-            />
-            <input
-              type="text"
-              placeholder="Search questions..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full border-b border-white/15 bg-transparent py-4 pl-12 pr-4 text-base text-platinum placeholder:text-platinum/30 focus:border-gold focus:outline-none"
-            />
-          </div>
-
-          <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
-            {/* Category sidebar */}
-            <div className="flex flex-wrap gap-2 lg:flex-col lg:gap-1">
-              {FAQ_DATA.map((cat) => (
+          {/* ── Search, count, theme — one row ─────────────────────── */}
+          <div className="flex flex-col gap-3 border border-border-soft bg-surface-elevated px-4 py-3 shadow-[var(--shadow-card)] sm:flex-row sm:items-center">
+            <div className="relative w-full sm:max-w-sm">
+              <Search
+                size={14}
+                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-tertiary"
+              />
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search questions…"
+                aria-label="Search frequently asked questions"
+                data-testid="faq-search"
+                className="h-9 w-full border border-border-soft bg-surface-base pl-9 pr-9 text-sm text-ink placeholder:text-ink-tertiary focus:border-gold focus:outline-none focus-visible:ring-1 focus-visible:ring-gold"
+              />
+              {query && (
                 <button
-                  key={cat.category}
-                  onClick={() => {
-                    setOpenCategory(cat.category);
-                    setSearchQuery("");
-                  }}
-                  className={`label rounded-sm px-4 py-3 text-left transition-all duration-300 ${
-                    openCategory === cat.category
-                      ? "bg-gold text-obsidian"
-                      : "text-platinum/60 hover:bg-gold/10 hover:text-gold"
-                  }`}
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label="Clear search"
+                  data-testid="faq-search-clear"
+                  className="absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center text-ink-tertiary transition-colors duration-300 hover:text-gold-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  {cat.category}
+                  <X size={13} />
                 </button>
-              ))}
-            </div>
-
-            {/* FAQ items */}
-            <div className="space-y-4">
-              {filteredData
-                .filter((cat) => cat.category === openCategory)
-                .map((cat) => (
-                  <div key={cat.category}>
-                    <h2 className="display mb-8 text-2xl text-platinum sm:text-3xl">
-                      {cat.category}
-                    </h2>
-                    <div className="space-y-3">
-                      {cat.items.map((item, idx) => {
-                        const key = `${cat.category}-${idx}`;
-                        const isOpen = openItems[key];
-                        return (
-                          <div
-                            key={idx}
-                            className="border border-white/[0.06] bg-carbon transition-all duration-300 hover:border-gold/20"
-                          >
-                            <button
-                              onClick={() => toggleItem(cat.category, idx)}
-                              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-300 hover:text-gold"
-                            >
-                              <span className="text-sm font-medium text-platinum transition-colors duration-300 group-hover:text-gold sm:text-base">
-                                {item.q}
-                              </span>
-                              <ChevronDown
-                                size={16}
-                                className={`shrink-0 text-gold transition-transform duration-300 ${
-                                  isOpen ? "rotate-180" : ""
-                                }`}
-                              />
-                            </button>
-                            <div
-                              className={`overflow-hidden transition-all duration-400 ease-lux ${
-                                isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                              }`}
-                            >
-                              <p className="border-t border-white/[0.06] px-6 py-5 text-sm leading-relaxed text-platinum/60">
-                                {item.a}
-                              </p>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
-              {filteredData.length === 0 && (
-                <p className="py-20 text-center text-platinum/50">
-                  No questions match your search. Try different keywords.
-                </p>
               )}
             </div>
+
+            <span className="flex items-center gap-1.5 whitespace-nowrap text-xs text-ink-secondary sm:ml-1">
+              <List size={12} className="text-gold-ink" />
+              <span className="text-sm font-medium text-ink">{results.length}</span> of{" "}
+              {TOTAL_QUESTIONS}
+            </span>
+
+            <ThemePill testId="faq-theme-toggle" className="sm:ml-auto" />
           </div>
 
-          {/* Still have questions */}
-          <div className="mt-20 rounded-sm border border-gold/20 bg-gradient-to-br from-gold/5 to-transparent p-10 text-center">
-            <h3 className="display text-2xl text-platinum">Still have questions?</h3>
-            <p className="mt-3 text-sm text-platinum/55">
-              We're here to help. Contact our team for personalized assistance.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <button onClick={() => navigate("/contact")} className="btn-gold">
-                Contact Us
-              </button>
-              <button onClick={() => navigate("/request-quote")} className="btn-ghost">
-                Request a Quote
-              </button>
+          {/* ── The answers ───────────────────────────────────────── */}
+          <div className="mt-4">
+            {results.length === 0 ? (
+              <p className="border border-dashed border-border-soft bg-surface-elevated px-6 py-16 text-center text-sm text-ink-secondary">
+                No questions match “{query.trim()}”. Try a different keyword, or{" "}
+                <Link to="/contact" className="text-gold-ink underline underline-offset-4">
+                  ask us directly
+                </Link>
+                .
+              </p>
+            ) : (
+              <FaqList categories={categories} />
+            )}
+          </div>
+
+          {/* ── Enquiry ───────────────────────────────────────────── */}
+          <div className="relative mt-8 overflow-hidden border border-gold/30 bg-surface-elevated px-6 py-8 text-center">
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background: "radial-gradient(70% 120% at 50% 0%, var(--gold-100), transparent 70%)",
+              }}
+            />
+            <div className="relative">
+              <h2 className="display text-2xl text-ink sm:text-3xl">{FAQ.cta.title}</h2>
+              <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-ink-secondary">
+                {FAQ.cta.sub}
+              </p>
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+                <Link to={FAQ.cta.primary.to} className="btn-gold">
+                  {FAQ.cta.primary.label}
+                </Link>
+                <Link to={FAQ.cta.secondary.to} className="btn-ghost">
+                  {FAQ.cta.secondary.label}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

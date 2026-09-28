@@ -26,7 +26,7 @@ export const NAV_LINKS = [
   { label: "About", to: "/about" },
   { label: "Products", to: "/products" },
   { label: "Portfolio", to: "/portfolio" },
-  { label: "Case Studies", to: "/case-studies" },
+  { label: "Blog", to: "/blog" },
   { label: "Machinery", to: "/machinery" },
   { label: "Sustainability", to: "/sustainability" },
   { label: "FAQ", to: "/faq" },
@@ -621,6 +621,23 @@ export const MACHINERY = {
   headline: ["The Machines Behind", "the Craft."],
   sub: "A controlled, precision-calibrated production environment. Climate-regulated and built to international manufacturing standards — running six days a week with in-house colour management at every stage.",
   banner: "Total covered production area: 12,000 sq m — 8 Heidelberg presses — 60 production specialists",
+
+  /* Short proof-points for the page hero */
+  highlights: [
+    "12,000 m² covered production",
+    "8 Heidelberg presses",
+    "18,000 sheets / hour",
+    "60+ production specialists",
+  ],
+
+  /* Facility figures — the numeric values are count-up animated on the page */
+  stats: [
+    { value: 12000, suffix: " m²", label: "Covered production area", detail: "Climate-regulated press floor with in-line colour management." },
+    { value: 8, suffix: "", label: "Heidelberg machines", detail: "Offset, folding, cutting, die-cutting and CTP in-house." },
+    { value: 18000, suffix: " sph", label: "Peak press output", detail: "8-colour sheet-fed presses running at full speed." },
+    { value: 60, suffix: "+", label: "Production specialists", detail: "Press operators, engineers and QC technicians." },
+  ],
+
   items: [
     { name: "Heidelberg Speedmaster SX 102", category: "Offset Printing", spec: "8-color · 18,000 sph", size: "hero", img: "/assets/1.jpeg", specs: ["8-color sheet-fed", "18,000 sheets per hour", "Format up to 720×1020mm"], capability: "The benchmark press for premium commercial and packaging print worldwide." },
     { name: "Heidelberg Speedmaster CD 102", category: "Offset Printing", spec: "6-color · 15,000 sph", size: "small", img: "/assets/2.jpeg", specs: ["6-color sheet-fed", "15,000 sheets per hour", "Perfecting capability"], capability: "Versatile 6-color press for high-quality commercial and packaging work." },
@@ -632,6 +649,353 @@ export const MACHINERY = {
     { name: "Heidelberg Promatrix 106", category: "Die Cutting", spec: "±0.1mm tolerance", size: "small", img: "/assets/8.jpeg", specs: ["±0.1mm cutting tolerance", "7,500 sheets per hour", "Full-format 106×106cm"], capability: "Precision die-cutting for complex packaging structures and intricate shapes." },
     { name: "Heidelberg Dymatrix 106", category: "Die Cutting", spec: "Hot foil · emboss · die-cut", size: "small", img: "/assets/9.jpeg", specs: ["Hot foil stamping", "Embossing & debossing", "Combined die-cutting"], capability: "Multi-function finishing with foil stamping, embossing and die-cutting in one pass." },
   ],
+
+  /* The production flow the above machines serve — plate to pallet */
+  pipeline: [
+    { num: "01", title: "Pre-Press & Imaging", machine: "Heidelberg Suprasetter", desc: "Thermal CTP plates imaged at 2400 dpi with automatic plate loading, so every run starts from an identical, calibrated plate." },
+    { num: "02", title: "Proofing & Approval", machine: "In-house pre-press", desc: "FOGRA-standard contract proofs plus a full-size pre-production sample — approved by you before a single production plate is made." },
+    { num: "03", title: "Offset Printing", machine: "Speedmaster SX 102 / XL 106", desc: "8-colour sheet-fed presses running to 18,000 sheets per hour, with in-line spectrophotometry watching every sheet." },
+    { num: "04", title: "Folding & Gluing", machine: "Stahlfolder / Easyfold", desc: "Up to 300 metres per minute of multi-format folding with inline gluing for cartons, mailers and wraps." },
+    { num: "05", title: "Cutting & Finishing", machine: "Polar 115 / Promatrix / Dymatrix", desc: "Guillotine cutting, die-cutting, hot foil, embossing and debossing — all held to a ±0.1 mm tolerance." },
+    { num: "06", title: "QC, Packing & Dispatch", machine: "100% inspection checkpoint", desc: "Every finished unit is inspected, counted, palletised and documented — locally or freight-forwarded worldwide." },
+  ],
+
+  /* Assurance blocks shown under the machines */
+  standards: [
+    { title: "ISO 9001:2015", desc: "Certified quality management across pre-press, press and finishing — audited end to end." },
+    { title: "FOGRA colour proofs", desc: "Contract proofs matched to PSOcoated and PSOuncoated standards before approval." },
+    { title: "±0.1 mm tolerance", desc: "Registration, cutting and die-cutting accuracy verified on every job." },
+    { title: "FSC certified board", desc: "Chain-of-custody material from responsibly managed forests on every structure." },
+  ],
+
+  cta: {
+    title: "Put These Machines to Work on Your Job",
+    sub: "Send us your artwork or a simple brief — our pre-press team will come back with a specification, a price and a production date.",
+    primary: { label: "Request a Quote", to: "/request-quote" },
+    secondary: { label: "Talk to the Team", to: "/contact" },
+  },
+};
+
+export const FAQ = {
+  eyebrow: "QUESTIONS & ANSWERS",
+  headline: "Everything You Need to Know",
+  sub: "Find answers to common questions about our services, process, and capabilities.",
+
+  categories: [
+    {
+      category: "Ordering & Quotes",
+      items: [
+        {
+          q: "How do I request a quote?",
+          a: "You can request a quote through our online form at /request-quote, email us at sales@printking.com.pk, or call +92 42 37150138-40. We typically respond within 4 business hours with a detailed quotation.",
+        },
+        {
+          q: "What information do you need to provide a quote?",
+          a: "For an accurate quote, please provide: product type (rigid box, carton, bag, etc.), dimensions (L×W×H), quantity, material preferences, finish requirements, and if possible, artwork or reference images.",
+        },
+        {
+          q: "Do you have a minimum order quantity?",
+          a: "No minimum order restrictions. We handle everything from sample quantities (50-100 units) to full production runs (100,000+ units). Pricing scales with volume.",
+        },
+        {
+          q: "How long does it take to get a sample?",
+          a: "Sample production takes 24-48 hours from approved specifications. We can courier samples to your address for a nominal fee, or you can visit our facility to see them in person.",
+        },
+      ],
+    },
+    {
+      category: "Design & Artwork",
+      items: [
+        {
+          q: "Do you provide design services?",
+          a: "Yes, we have an in-house design studio that can create structural designs (dielines), artwork, and prepress files. Our design team works with you to ensure print-ready files that meet your exact specifications.",
+        },
+        {
+          q: "What file formats do you accept?",
+          a: "We accept AI, PSD, PDF, INDD, EPS, and CDR files. For best results, please provide files in CMYK color mode with 300 DPI resolution and any embedded fonts outlined.",
+        },
+        {
+          q: "Can you match my brand colors exactly?",
+          a: "Yes, we use Pantone Matching System (PMS) for exact color reproduction. Our Heidelberg presses are ISO-calibrated and we provide digital proofs for color approval before production.",
+        },
+      ],
+    },
+    {
+      category: "Materials & Finishes",
+      items: [
+        {
+          q: "What types of paper and board do you offer?",
+          a: "We stock a wide range: FSC-certified kraft, coated/uncoated art board, greyboard, specialty textured papers, rigid board, and imported substrates. Contact us for our full material catalog.",
+        },
+        {
+          q: "What finishing options are available?",
+          a: "Our finishing capabilities include: hot foil stamping (gold, silver, copper, custom), embossing, debossing, spot UV, matte/gloss lamination, soft-touch coating, edge painting, die-cutting, and magnetic closure assembly.",
+        },
+        {
+          q: "What is the difference between soft-touch and matte lamination?",
+          a: "Soft-touch lamination creates a velvety, tactile surface that feels premium to the touch. Matte lamination provides a non-reflective, smooth finish without the soft texture. Both are durable and protect the printed surface.",
+        },
+      ],
+    },
+    {
+      category: "Production & Timeline",
+      items: [
+        {
+          q: "What is the standard turnaround time?",
+          a: "Standard turnaround is 7-10 working days from artwork approval. Express production (48-72 hours) is available for urgent orders. Timeline depends on complexity, quantity, and finishing requirements.",
+        },
+        {
+          q: "Can I visit the production facility?",
+          a: "Absolutely. We welcome facility visits by appointment. You can see our Heidelberg presses, finishing equipment, and quality control processes in action. Contact our team to schedule a tour.",
+        },
+        {
+          q: "How do you ensure quality control?",
+          a: "We are ISO 9001:2015 certified. Every job passes through multiple QC checkpoints: pre-press verification, first-sheet approval, in-process inspection, and final 100% inspection before packing and dispatch.",
+        },
+      ],
+    },
+    {
+      category: "Shipping & Delivery",
+      items: [
+        {
+          q: "Do you deliver nationwide?",
+          a: "Yes, we deliver to all major cities across Pakistan including Lahore, Karachi, Islamabad, Faisalabad, and more. We use reliable courier and freight partners for timely delivery.",
+        },
+        {
+          q: "Do you ship internationally?",
+          a: "Yes, we have successfully shipped to 30+ countries. We handle all export documentation, freight coordination, and customs paperwork. International shipping costs depend on destination and order volume.",
+        },
+        {
+          q: "What are your payment terms?",
+          a: "Standard payment terms are 50% advance with the order and 50% before dispatch. We accept bank transfers, cheques, and cash. For established clients, customized terms may be available.",
+        },
+      ],
+    },
+    {
+      category: "Quality & Returns",
+      items: [
+        {
+          q: "What if the printed product doesn't meet my expectations?",
+          a: "We take quality seriously. If there is a manufacturing defect or error on our part, we will reprint or refund. We recommend approving a physical sample before full production to ensure complete satisfaction.",
+        },
+        {
+          q: "Do you offer a warranty on your products?",
+          a: "All our products are manufactured to ISO 9001:2015 standards. We stand behind our workmanship and materials. Any manufacturing defects are addressed promptly at no additional cost.",
+        },
+      ],
+    },
+  ],
+
+  cta: {
+    title: "Still have questions?",
+    sub: "We're here to help. Contact our team for personalised assistance.",
+    primary: { label: "Contact Us", to: "/contact" },
+    secondary: { label: "Request a Quote", to: "/request-quote" },
+  },
+};
+
+export const BLOG = {
+  eyebrow: "THE PRINTKING JOURNAL",
+  headline: "Notes From the Press Floor",
+  sub: "Project stories, material guides and production know-how — written by the people who run the machines.",
+
+  /* The case studies, rewritten as posts, plus craft/operations pieces */
+
+  posts: [
+    {
+      slug: "bareeze-lookbook-colour-accuracy",
+      title: "Matching a fashion lookbook to its fabric swatches",
+      category: "Case Study",
+      date: "2026-09-12",
+      readTime: 4,
+      author: "PrintKing Pre-Press",
+      client: "Bareezé Couture",
+      excerpt:
+        "A 48-page perfect-bound lookbook that had to hold its colour across coated stock — and match the season's fabric swatches, page after page.",
+      cover: "/assets/services/products.jpg",
+      tags: ["Offset Printing", "Pantone", "Lookbook"],
+      body: [
+        {
+          heading: "The brief",
+          text: "Bareezé needed a premium lookbook for their seasonal collection launch — 48 pages, perfect bound, that captured the brand's luxury aesthetic. The hard part was colour: every image had to hold the exact tone of the fabric swatches the design team was working from, with intricate line work surviving at reading distance.",
+        },
+        {
+          heading: "What we did",
+          text: "We ran the job on an 8-colour Heidelberg sheet-fed press with every colour Pantone-matched from a physical swatch rather than a screen value. The whole book was coated in matte lamination for a soft-touch surface, and selected pages carried spot UV to lift key details off the page without touching the images.",
+        },
+        {
+          heading: "The result",
+          text: "Colour held to 98% accuracy against the original fabric swatches, and the book landed in seven working days from artwork approval. Bareezé re-ordered for three consecutive seasons and featured the lookbook in their flagship store displays.",
+        },
+      ],
+      materials: ["200gsm coated art paper", "Matte lamination", "Spot UV coating", "Perfect bound"],
+      results: ["98% colour accuracy to fabric swatches", "Delivered in 7 working days", "Re-ordered for 3 consecutive seasons"],
+      quote: {
+        text: "The colour accuracy and finish quality exceeded our expectations. This lookbook represents our brand exactly as we envisioned.",
+        name: "Marketing Director",
+        role: "Bareezé Couture",
+      },
+    },
+    {
+      slug: "nestle-folding-carton-at-scale",
+      title: "Two million cartons, zero colour variation",
+      category: "Case Study",
+      date: "2026-08-21",
+      readTime: 5,
+      author: "PrintKing Production",
+      client: "Nestlé Pakistan",
+      excerpt:
+        "A folding carton redesign engineered for high-speed filling lines — and colour held steady across a two-million-unit run.",
+      cover: "/assets/services/foldingcartons.jpg",
+      tags: ["Folding Carton", "High Volume", "Food & Beverage"],
+      body: [
+        {
+          heading: "The brief",
+          text: "Nestlé needed a complete packaging redesign for a major product line. Beyond the graphics, the structure had to survive high-speed automated filling, and the print had to show zero tolerance for colour variation across millions of units.",
+        },
+        {
+          heading: "What we did",
+          text: "We engineered a new folding carton structure optimised for the filling line, with easy-open perforation and a board weight chosen for both the machine and the shelf. Production ran on our Heidelberg Speedmaster presses under ISO-certified quality control, with in-line checks through the run rather than only at the start.",
+        },
+        {
+          heading: "The result",
+          text: "Two million units delivered with no measurable colour variation across the run, and a 15% cost reduction against the previous supplier. The process is ISO 9001:2015 certified end to end.",
+        },
+      ],
+      materials: ["350gsm FSC-certified board", "Aqueous coating", "Food-safe inks", "Easy-open perforation"],
+      results: ["2 million units delivered", "Zero colour variation across run", "15% cost reduction vs previous supplier"],
+      quote: {
+        text: "PrintKing's consistency at scale is remarkable. They've become our go-to packaging partner for high-volume production.",
+        name: "Operations Manager",
+        role: "Nestlé Pakistan",
+      },
+    },
+    {
+      slug: "elan-luxury-rigid-box-unboxing",
+      title: "Designing an unboxing moment worth photographing",
+      category: "Case Study",
+      date: "2026-07-30",
+      readTime: 4,
+      author: "PrintKing Design Studio",
+      client: "Élan",
+      excerpt:
+        "A magnetic-closure rigid box with rose gold foil and a soft-touch lining — built so the box itself carries the brand.",
+      cover: "/assets/services/luxuryRigid.jpg",
+      tags: ["Luxury Rigid Box", "Foil Stamping", "Fashion"],
+      body: [
+        {
+          heading: "The brief",
+          text: "Élan wanted a premium rigid box for a luxury pret collection — one that would create an unforgettable unboxing experience and communicate exclusivity before the product was even opened.",
+        },
+        {
+          heading: "What we did",
+          text: "We designed a magnetic-closure rigid box with a telescopic lid, wrapped in premium textured paper. The exterior carries hot foil stamping in rose gold, the interior is lined in soft-touch, and the brand logo is embossed rather than printed so it reads by touch as well as by eye.",
+        },
+        {
+          heading: "The result",
+          text: "The collection took 'Best Packaging Design' at fashion week, unboxing posts on social rose sharply after launch, and the structure went on to earn a 200% repeat order rate. The box was featured in Vogue Pakistan.",
+        },
+      ],
+      materials: ["2mm rigid greyboard", "Textured wrapping paper", "Rose gold foil stamping", "Soft-touch interior", "Magnetic closure"],
+      results: ["Awarded 'Best Packaging Design'", "40% increase in unboxing posts", "200% repeat order rate"],
+      quote: {
+        text: "The unboxing experience PrintKing created for our collection was nothing short of spectacular. Every detail, from the foil stamping to the magnetic closure, reflects our commitment to luxury.",
+        name: "Brand Director",
+        role: "Élan",
+      },
+    },
+    {
+      slug: "pantone-colour-on-coated-sheet",
+      title: "Why your Pantone match needs a physical swatch",
+      category: "Print Craft",
+      date: "2026-09-02",
+      readTime: 3,
+      author: "PrintKing Pre-Press",
+      excerpt:
+        "A screen value is not a Pantone match. How we build a colour from a physical chip — and what to send us so the first proof is the right one.",
+      cover: "/assets/banners/mainbanner.jpg",
+      tags: ["Colour", "Pre-Press", "Proofing"],
+      body: [
+        {
+          heading: "Screen and paper are different worlds",
+          text: "Every screen emits light; every printed sheet reflects it. That is why a colour that looks perfect on a laptop can land a shade or two off on press, and why we ask for a physical swatch or a measured reference before we build a separation.",
+        },
+        {
+          heading: "What we work from",
+          text: "Send the Pantone code plus a physical chip, or a previously printed reference we can measure. From there we set the build on an ISO-calibrated press, run a contract proof, and only move to plate once that proof is approved.",
+        },
+        {
+          heading: "Files that give us the best chance",
+          text: "CMYK colour mode, 300 dpi at final size, embedded fonts outlined, and a one-page specification listing stock, finish and Pantones. With those in place most jobs reach an approved proof on the first pass — which is where the schedule really comes from.",
+        },
+      ],
+      materials: ["Contract proof (FOGRA standard)", "Pantone Solid Coated/ uncoated", "ISO-calibrated colour measurement"],
+      results: ["Fewer proof rounds", "Accurate first press", "Shorter approval cycles"],
+    },
+    {
+      slug: "choosing-board-for-a-luxury-rigid-box",
+      title: "Choosing board for a rigid box that survives unboxing",
+      category: "Materials",
+      date: "2026-08-08",
+      readTime: 3,
+      author: "PrintKing Design Studio",
+      excerpt:
+        "Greyboard, wrap, lining, closure — the four decisions that decide whether a rigid box feels premium or simply expensive.",
+      cover: "/assets/banners/rigidbanner.jpg",
+      tags: ["Rigid Box", "Board", "Materials"],
+      body: [
+        {
+          heading: "Start with the board, not the wrap",
+          text: "Everything structural starts with greyboard. Around 2mm is the sweet spot for a presentation box — rigid enough to feel solid, light enough to ship economically. Below that it flexes in the hand; above it, you are paying to move cardboard.",
+        },
+        {
+          heading: "Wrap is the first thing a hand touches",
+          text: "Textured wrapping paper reads as craft; coated stock reads as corporate. Both are valid, but the tactile choice should match how the brand behaves elsewhere. We keep a library of both so you can see real samples, not swatches.",
+        },
+        {
+          heading: "Lining and closure do the last 10%",
+          text: "A soft-touch or flocked interior changes the moment the lid lifts, and a magnetic closure makes the box feel deliberate. These are the details people remember — and the cheapest places to add perceived value.",
+        },
+      ],
+      materials: ["2mm greyboard", "Textured wrap", "Soft-touch / flock lining", "Magnetic closure"],
+      results: ["Consistent structure across runs", "Faster assembly", "Better perceived value"],
+    },
+    {
+      slug: "iso-9001-what-it-means-for-your-job",
+      title: "What ISO 9001:2015 actually means for your job",
+      category: "Operations",
+      date: "2026-07-14",
+      readTime: 4,
+      author: "PrintKing Quality",
+      excerpt:
+        "Certification is not a logo on a wall. Here is where the checkpoints sit between your artwork and your pallet — and what we check at each one.",
+      cover: "/assets/banners/awardbanner2.jpg",
+      tags: ["Quality", "ISO 9001:2015", "QC"],
+      body: [
+        {
+          heading: "Four checkpoints, not one final look",
+          text: "Quality control that happens at the end only tells you what went wrong. Our process checks at four points: pre-press file verification, first-sheet approval, in-process inspection during the run, and final inspection before packing. Most defects are caught at the first two, when they are still cheap to fix.",
+        },
+        {
+          heading: "What we hold ourselves to",
+          text: "Registration and cutting accuracy are verified to ±0.1 mm, and every finished unit is inspected before dispatch. On multi-million-unit runs, in-line measurement keeps colour steady rather than sampling it after the fact.",
+        },
+        {
+          heading: "Standards you can ask about",
+          text: "FSC-certified board with chain of custody, soy-based inks, water-based aqueous coatings where UV is not required, and FOGRA-standard contract proofs. Ask for the certificate that applies to your job and we will point you at it.",
+        },
+      ],
+      materials: ["ISO 9001:2015 certified process", "FSC-certified board", "FOGRA-standard proofs", "In-line spectrophotometry"],
+      results: ["±0.1 mm registration and cutting tolerance", "100% inspection before dispatch", "Documented export paperwork"],
+    },
+  ],
+
+  cta: {
+    title: "Want this level of detail on your job?",
+    sub: "Send us your artwork or a simple brief. Our pre-press team replies within four business hours with a specification and a date.",
+    primary: { label: "Request a Quote", to: "/request-quote" },
+    secondary: { label: "Talk to the Team", to: "/contact" },
+  },
 };
 
 export const VIDEO = {
@@ -710,7 +1074,7 @@ export const TEAM = LEADERSHIP.heads;
 export const FOOTER = {
   /* Products column of the footer — label + deep link to the product detail page */
   products: PRODUCTS.slice(0, 8).map((p) => ({ label: p.title, to: `/products/${p.slug}` })),
-  company: ["About", "Portfolio", "Case Studies", "Machinery", "Sustainability", "FAQ", "Blog", "Careers"],
+  company: ["About", "Portfolio", "Blog", "Machinery", "Sustainability", "FAQ", "Careers"],
   industries: INDUSTRIES.slice(0, 6).map((i) => i.name),
   certifications: ["ISO 9001:2015", "FOGRA", "FSC"],
 };

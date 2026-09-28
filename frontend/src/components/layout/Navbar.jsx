@@ -8,8 +8,12 @@ import ThemeToggle from "../common/ThemeToggle";
 const COMPACT_NAV_LINKS = [
   { label: "About",        to: "/about" },
   { label: "Products",     to: "/products", mega: true },
-  { label: "Portfolio",    to: "/portfolio" },
-  { label: "Case Studies", to: "/case-studies" },
+  // { label: "Portfolio",    to: "/portfolio" },
+  { label: "Blog",         to: "/blog" },
+  { label: "Machinery",       to: "/machinery" },
+  { label: "FAQ",             to: "/faq" },
+  { label: "Contact",         to: "/contact" },
+
 ];
 
 const MORE_LINKS = [
@@ -86,12 +90,21 @@ export default function Navbar() {
         .navbar-luxury {
           --color-platinum: #f0ebe2;
           --text-secondary: #a89f93;
-          --text-tertiary: #6b6155;
+          --text-tertiary: #8a8076;
+          /* the header is always dark, so pin the text channels too */
+          --ink-rgb: 240 235 226;
+          --ink-secondary-rgb: 168 159 147;
+          --ink-tertiary-rgb: 138 128 118;
+          --text-gold: #d8b978;
+          --text-gold-rgb: 216 185 120;
           --color-border: rgba(255, 255, 255, 0.12);
           --color-border-strong: rgba(255, 255, 255, 0.18);
           --surface-elevated: #1c1814;
           --surface-hover: #2a2520;
           --surface-floating: #241f1a;
+          --surface-elevated-rgb: 28 24 20;
+          --surface-hover-rgb: 42 37 32;
+          --surface-floating-rgb: 36 31 26;
           --color-gold: #c5a05a;
           --gold-whisper: rgba(197, 160, 90, 0.12);
           position: relative;
@@ -395,7 +408,7 @@ export default function Navbar() {
           })}
 
           {/* More Dropdown */}
-          <div ref={moreRef} className="relative">
+          {/* <div ref={moreRef} className="relative">
             <button
               onClick={() => setMoreOpen((v) => !v)}
               className={linkCls(isMoreActive || moreOpen)}
@@ -426,7 +439,7 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* ── Right Actions ── */}
