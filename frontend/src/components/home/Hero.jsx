@@ -10,7 +10,7 @@ export default function Hero() {
 
   // Banner images
   const banners = useMemo(() => [
-    "/assets/banners/mainbanner2.png",
+    "/assets/banners/mainbanner2.jpg",
     "/assets/banners/banner4.jpeg",
     "/assets/banners/awardbanner2.jpg",
     "/assets/banners/banner3.jpg",

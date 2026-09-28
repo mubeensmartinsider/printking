@@ -37,8 +37,8 @@ const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
 
   if (!banners || banners.length === 0) {
     return (
-      <div className="w-full h-96 bg-gray-200 flex items-center justify-center rounded-lg">
-        <p className="text-gray-500">No banners available</p>
+      <div className="flex h-96 w-full items-center justify-center rounded-lg bg-surface-elevated">
+        <p className="text-ink-tertiary">No banners available</p>
       </div>
     );
   }
@@ -46,7 +46,7 @@ const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
   return (
     <div
       ref={carouselRef}
-      className="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-900"
+      className="relative w-full overflow-hidden bg-surface-elevated"
       onMouseEnter={() => setIsAutoPlay(false)}
       onMouseLeave={() => setIsAutoPlay(true)}
     >
@@ -65,7 +65,7 @@ const BannerCarousel = ({ banners = [], autoPlayInterval = 5000 }) => {
               className="w-full h-full object-cover"
               loading={idx === currentIndex ? "eager" : "lazy"}
               decoding="async"
-              fetchPriority={idx === 0 ? "high" : "auto"}
+              fetchpriority={idx === 0 ? "high" : "auto"}
             />
           </div>
         ))}

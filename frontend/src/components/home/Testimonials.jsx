@@ -4,8 +4,8 @@ import { TESTIMONIALS } from "../../lib/content";
 import { useReveal, useStagger } from "../../lib/animations";
 /* Section background photo — a plain public URL. No import, no alias:
    a string can never fail at module-resolution time, so this cannot break
-   the build. The file is served straight from public/assets/clients.png. */
-const CLIENTS_PHOTO = "/assets/clients.png";
+   the build. The file is served straight from public/assets/clients.jpg. */
+const CLIENTS_PHOTO = "/assets/clients.jpg";
 
 /* The content file has name/title swapped: `name` holds the role,
    `title` holds the company, `company` holds the city. Normalise once

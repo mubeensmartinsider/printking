@@ -227,7 +227,7 @@ export const PRODUCTS = [
     short:
       "Fully bespoke packaging: structural design, prototyping and production under one roof, from first dieline to delivered pallet.",
     banner: "/assets/banners/mainbanner.jpg",
-    image: "/assets/services/custompackaging.png",
+    image: "/assets/services/custompackaging.jpg",
     highlights: ["Dieline engineering", "Rapid prototyping", "Any material", "Any finish"],
     description: [
       "Some products simply do not fit a catalogue. Our packaging engineers start from the physical object — its weight, fragility, shelf presence and shipping route — and design a structure that solves for all of it before a single sheet is printed.",
@@ -279,7 +279,7 @@ export const PRODUCTS = [
     tagline: "Built for the unboxing moment — kraft to coated, plain to full bleed.",
     short:
       "E-commerce and DTC mailers that survive the courier network and still look immaculate on the doorstep.",
-    banner: "/assets/banners/mainbanner2.png",
+    banner: "/assets/banners/mainbanner2.jpg",
     image: "/assets/services/mailer.jpg",
     highlights: ["Corrugated strength", "Full-bleed print", "Inside print option", "Flat-packed shipping"],
     description: [
@@ -305,7 +305,7 @@ export const PRODUCTS = [
     tagline: "Twisted rope, flat ribbon, euro handle — retail, gifting and luxury carry bags.",
     short:
       "Branded carry bags that turn a purchase into a walking advertisement for your store.",
-    banner: "/assets/banners/banner1.png",
+    banner: "/assets/banners/banner1.jpg",
     image: "/assets/services/paperbag.jpg",
     highlights: ["Rope & ribbon handles", "Reinforced top", "Matte & gloss", "Food-grade liners"],
     description: [
@@ -331,7 +331,7 @@ export const PRODUCTS = [
     tagline: "BOPP, kraft, foil, clear — die-cut, roll or sheet, in any shape or size.",
     short:
       "Product labels and brand stickers engineered to adhere cleanly and stay put through shelf life and handling.",
-    banner: "/assets/banners/Edge-Perfection-Banner-1.png",
+    banner: "/assets/banners/Edge-Perfection-Banner-1.jpg",
     image: "/assets/services/labels.jpg",
     highlights: ["Waterproof BOPP", "Roll & sheet", "Any die shape", "Pantone matched"],
     description: [
@@ -358,7 +358,7 @@ export const PRODUCTS = [
     short:
       "The small detail that carries your brand, size, price and care story — printed on both sides with a quality feel in hand.",
     banner: "/assets/banners/banner4.jpeg",
-    image: "/assets/services/hangtags.png",
+    image: "/assets/services/hangtags.jpg",
     highlights: ["Full colour both sides", "Eyelet punched", "Foil & emboss", "Spot UV"],
     description: [
       "A hang tag is handled more than any other printed piece in the store — customers turn it, feel it and read it before deciding. We print on substantial boards so it has presence rather than flimsiness.",
@@ -384,7 +384,7 @@ export const PRODUCTS = [
     short:
       "Lookbooks, product catalogues and brochures that hold thousands of products without ever looking cheap.",
     banner: "/assets/banners/banner3.jpg",
-    image: "/assets/services/catalogs.png",
+    image: "/assets/services/catalogs.jpg",
     highlights: ["Perfect & saddle bound", "FSC text papers", "Gatefold covers", "Colour-critical proofing"],
     description: [
       "Catalogue printing is a colour-accuracy exercise at scale. Every skin tone, fabric shade and product colour must repeat across dozens of pages and thousands of copies, which is why we proof against Pantone and monitor the run on press.",
@@ -410,7 +410,7 @@ export const PRODUCTS = [
     short:
       "The production engine behind everything we make: German-engineered offset printing with ISO-calibrated colour control.",
     banner: "/assets/banners/mainbanner.jpg",
-    image: "/assets/services/offset.png",
+    image: "/assets/services/offset.jpg",
     highlights: ["8-colour presses", "18,000 sph", "Pantone matching", "CTP plate imaging"],
     description: [
       "Printing is where a specification either delivers or fails. Our sheet-fed Heidelberg presses run eight colours in a single pass, with inline coating and automatic plate changing that keeps registration and colour stable across long runs.",
@@ -436,7 +436,7 @@ export const PRODUCTS = [
     short:
       "Everything your company hands out, printed consistently so every touchpoint looks like one brand.",
     banner: "/assets/banners/banner3.jpg",
-    image: "/assets/services/corporatebranding.png",
+    image: "/assets/services/corporatebranding.jpg",
     highlights: ["Brand-consistent colour", "Premium stocks", "Foil & emboss", "Rush turnaround"],
     description: [
       "Corporate stationery is judged in the hand — the weight of a business card, the feel of a letterhead, the crispness of an embossed folder. We print the full set together so the paper, colour and finish match exactly across every item.",
@@ -461,8 +461,8 @@ export const PRODUCTS = [
     tagline: "High-volume runs for any commercial requirement — fast turnaround, consistent quality.",
     short:
       "Large-scale offset production for businesses that need volume without a drop in standard.",
-    banner: "/assets/banners/mainbanner2.png",
-    image: "/assets/services/commercialmaterial.png",
+    banner: "/assets/banners/mainbanner2.jpg",
+    image: "/assets/services/commercialmaterial.jpg",
     highlights: ["High-volume runs", "24-hour production", "Sheet & web options", "Nationwide delivery"],
     description: [
       "When a campaign has to land on a date, capacity decides the outcome. With eight Heidelberg presses running six days a week we schedule long runs without pushing your delivery week.",
@@ -488,7 +488,7 @@ export const PRODUCTS = [
     short:
       "Everything a marketing calendar needs, produced to the same standard as your premium packaging.",
     banner: "/assets/banners/awardbanner2.jpg",
-    image: "/assets/services/promotional.png",
+    image: "/assets/services/promotional.jpg",
     highlights: ["Campaign scale", "Fast reprints", "Indoor & outdoor", "Bundle packing"],
     description: [
       "Promotional print is judged in seconds and handled roughly — so the material has to look sharp and survive. We print flyers, posters, standees, banners, tent cards and inserts on substrates matched to how they will be used.",
@@ -513,8 +513,8 @@ export const PRODUCTS = [
     tagline: "Spot UV, foil, emboss, soft-touch — the details that make packaging premium.",
     short:
       "Specialty finishes applied in-house that turn a well-printed sheet into a piece people keep.",
-    banner: "/assets/banners/Edge-Perfection-Banner-1.png",
-    image: "/assets/services/uvfinishing.png",
+    banner: "/assets/banners/Edge-Perfection-Banner-1.jpg",
+    image: "/assets/services/uvfinishing.jpg",
     highlights: ["Spot & flood UV", "Hot & cold foil", "Emboss & deboss", "Soft-touch & velvet"],
     description: [
       "Finishing is what separates packaging that looks printed from packaging that looks made. We run lamination, coating, foiling, embossing, die-cutting and laser work under one roof, so a job never leaves our control between processes.",
@@ -549,10 +549,10 @@ export const PRODUCT_PAGE = {
    light theme (the dark banners in PRODUCTS[].banner are only for social/OG). */
 export const CATEGORY_HEADER_IMAGES = {
   "Luxury Packaging": "/assets/banners/mainbanner.jpg",
-  "Boxes & Cartons": "/assets/banners/mainbanner2.png",
+  "Boxes & Cartons": "/assets/banners/mainbanner2.jpg",
   "Bags, Tags & Labels": "/assets/banners/banner4.jpeg",
   "Print & Publishing": "/assets/banners/mainbanner.jpg",
-  "Finishing & Effects": "/assets/banners/mainbanner2.png",
+  "Finishing & Effects": "/assets/banners/mainbanner2.jpg",
 };
 
 /* Header band image for a product (falls back to the product's own banner) */
@@ -566,19 +566,19 @@ export const BOX_FORMATS = [
   { id: "box-3", title: "Mailer Boxes", icon: "PackageOpen", image: "/assets/services/mailer.jpg", desc: "E-commerce and DTC packaging — kraft to coated, plain to full bleed, built for the unboxing moment." },
   { id: "box-4", title: "Paper Bags", icon: "ShoppingBag", image: "/assets/services/paperbag.jpg", desc: "Twisted rope, flat ribbon and euro handles. Retail, gifting and luxury carry bags." },
   { id: "box-5", title: "Labels & Stickers", icon: "Tag", image: "/assets/services/labels.jpg", desc: "BOPP, kraft, foil and clear stock — die-cut in roll or sheet format, any shape, any size." },
-  { id: "box-6", title: "Hang Tags", icon: "Tags", image: "/assets/services/hangtags.png", desc: "Garment, retail and product tags on premium board — full-colour both sides, eyelet punched." },
-  { id: "box-7", title: "Catalogs & Brochures", icon: "BookOpen", image: "/assets/services/catalogs.png", desc: "Saddle stitch, perfect bound and gatefold — printed to make brands look world-class." },
+  { id: "box-6", title: "Hang Tags", icon: "Tags", image: "/assets/services/hangtags.jpg", desc: "Garment, retail and product tags on premium board — full-colour both sides, eyelet punched." },
+  { id: "box-7", title: "Catalogs & Brochures", icon: "BookOpen", image: "/assets/services/catalogs.jpg", desc: "Saddle stitch, perfect bound and gatefold — printed to make brands look world-class." },
 ];
 
 /* ---- Home "Boxes | Banner | Services" section — right column ---- */
 export const SERVICE_LINES = [
-  { id: "svc-1", title: "Offset Printing", icon: "Printer", image: "/assets/services/offset.png", desc: "Eight-color Heidelberg precision — up to 18,000 sheets per hour, CMYK and Pantone matched." },
-  { id: "svc-2", title: "Custom Packaging", icon: "Box", image: "/assets/services/custompackaging.png", desc: "Every dimension, material and finish — fully bespoke from structural design to delivery." },
-  { id: "svc-3", title: "Corporate Branding", icon: "Briefcase", image: "/assets/services/corporatebranding.png", desc: "Letterheads, business cards, folders and envelopes — complete corporate identity print." },
-  { id: "svc-4", title: "Commercial Printing", icon: "Newspaper", image: "/assets/services/commercialmaterial.png", desc: "High-volume runs for any commercial requirement, with fast turnaround and consistent quality." },
-  { id: "svc-5", title: "Promotional Materials", icon: "Megaphone", image: "/assets/services/promotional.png", desc: "Flyers, posters, banners and inserts — campaign-ready print at production scale." },
-  { id: "svc-6", title: "UV & Finishing", icon: "Sparkles", image: "/assets/services/uvfinishing.png", desc: "Spot UV, matte lamination, soft-touch, hot foil, emboss and deboss — the details that make packaging premium." },
-  { id: "svc-7", title: "Design & Pre-Press", icon: "PenTool", image: "/assets/services/designprepress.png", desc: "In-house artwork, dielines and colour proofing — proofed, plated and press-ready." },
+  { id: "svc-1", title: "Offset Printing", icon: "Printer", image: "/assets/services/offset.jpg", desc: "Eight-color Heidelberg precision — up to 18,000 sheets per hour, CMYK and Pantone matched." },
+  { id: "svc-2", title: "Custom Packaging", icon: "Box", image: "/assets/services/custompackaging.jpg", desc: "Every dimension, material and finish — fully bespoke from structural design to delivery." },
+  { id: "svc-3", title: "Corporate Branding", icon: "Briefcase", image: "/assets/services/corporatebranding.jpg", desc: "Letterheads, business cards, folders and envelopes — complete corporate identity print." },
+  { id: "svc-4", title: "Commercial Printing", icon: "Newspaper", image: "/assets/services/commercialmaterial.jpg", desc: "High-volume runs for any commercial requirement, with fast turnaround and consistent quality." },
+  { id: "svc-5", title: "Promotional Materials", icon: "Megaphone", image: "/assets/services/promotional.jpg", desc: "Flyers, posters, banners and inserts — campaign-ready print at production scale." },
+  { id: "svc-6", title: "UV & Finishing", icon: "Sparkles", image: "/assets/services/uvfinishing.jpg", desc: "Spot UV, matte lamination, soft-touch, hot foil, emboss and deboss — the details that make packaging premium." },
+  { id: "svc-7", title: "Design & Pre-Press", icon: "PenTool", image: "/assets/services/designprepress.jpg", desc: "In-house artwork, dielines and colour proofing — proofed, plated and press-ready." },
 ];
 
 export const INDUSTRIES = [
