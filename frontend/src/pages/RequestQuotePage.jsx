@@ -150,7 +150,7 @@ export default function RequestQuotePage() {
                 </div>
               </div>
               <label className="flex items-center gap-3 text-sm text-ink/60">
-                <input type="checkbox" checked={data.whatsappOptIn} onChange={(e) => setData((d) => ({ ...d, whatsappOptIn: e.target.checked }))} className="h-4 w-4 accent-[#c5a05a]" />
+                <input type="checkbox" checked={data.whatsappOptIn} onChange={(e) => setData((d) => ({ ...d, whatsappOptIn: e.target.checked }))} className="h-4 w-4 accent-gold" />
                 I agree to be contacted via WhatsApp
               </label>
             </div>

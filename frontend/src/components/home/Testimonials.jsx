@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Star } from "lucide-react";
+import { Star, ShieldCheck } from "lucide-react";
 import { TESTIMONIALS } from "../../lib/content";
 import { useReveal, useStagger } from "../../lib/animations";
 /* Section background photo — a plain public URL. No import, no alias:
@@ -56,9 +56,17 @@ export default function Testimonials() {
             <span className="label text-[11px] font-semibold text-gold-soft">CLIENT VOICES</span>
             <h2 className="display mt-3 text-3xl text-white sm:text-4xl">What Our Clients Say.</h2>
           </div>
+          {/* Rating note.
+              This was a hard-coded "5.0 average rating" with five stars and
+              no verifiable source. Unsupported superlatives are exactly what a
+              procurement team checks, so unless a real review-platform figure
+              exists it is replaced with a factual, sourced statement.
+              To restore a rating, put it in content.js with a real source. */}
           <div className="flex items-center gap-2 pb-1 text-white/80">
-            <Stars size={15} />
-            <span className="text-[13px] font-medium">5.0 average rating</span>
+            <ShieldCheck size={15} className="text-gold-soft" aria-hidden="true" />
+            <span className="text-[13px] font-medium">
+              {TESTIMONIALS.length} client testimonials
+            </span>
           </div>
         </div>
 

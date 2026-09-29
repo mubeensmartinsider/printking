@@ -5,24 +5,24 @@ import { NAV_LINKS, COMPANY } from "../../lib/content";
 import MegaMenu from "./MegaMenu";
 import ThemeToggle from "../common/ThemeToggle";
 
-const COMPACT_NAV_LINKS = [
-  { label: "About",        to: "/about" },
-  { label: "Products",     to: "/products", mega: true },
-  { label: "Blog",         to: "/blog" },
-  { label: "Machinery",       to: "/machinery" },
-  { label: "FAQ",             to: "/faq" },
-  { label: "Contact",         to: "/contact" },
+/* ── SINGLE SOURCE OF TRUTH ────────────────────────────────────────────
+   Previously the navbar held THREE lists — COMPACT_NAV_LINKS, MORE_LINKS
+   and content.js NAV_LINKS — and they had already drifted apart (the mobile
+   menu rendered a fourth view of the same data). Everything now derives
+   from NAV_LINKS: `mega: true` marks the one item that opens a mega panel,
+   `primary: true` marks what stays in the always-visible desktop row. */
+const COMPACT_NAV_LINKS = NAV_LINKS.filter((l) => !l.secondary);
 
-];
-
-const MORE_LINKS = [
-  { label: "Machinery",       to: "/machinery" },
-  { label: "FAQ",             to: "/faq" },
-  { label: "Contact",         to: "/contact" },
-];
+/* Overflow items (desktop "+ More", and everything in the mobile drawer) */
+const MORE_LINKS = NAV_LINKS.filter((l) => l.secondary);
 
 /* pages searchable from the navbar */
 const SEARCH_PAGES = [...COMPACT_NAV_LINKS, ...MORE_LINKS];
+
+/* Read once at module level — safe since navbar never SSR-renders */
+const PREFERS_REDUCED_MOTION =
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const SOCIALS = [
   { label: "LinkedIn",  href: COMPANY.social.linkedin,  Icon: Linkedin },
@@ -375,10 +375,16 @@ export default function Navbar() {
                       if (!servicesRef.current?.contains(document.activeElement)) setMegaOpen(false);
                     }, 200);
                   }}
+                  onFocusCapture={() => setMegaOpen(true)}
+                  onBlurCapture={(e) => {
+                    if (!servicesRef.current?.contains(e.relatedTarget)) setMegaOpen(false);
+                  }}
                 >
                   <button
                     onClick={() => { navigate("/products"); setMegaOpen(false); }}
                     data-testid="nav-products"
+                    aria-expanded={megaOpen}
+                    aria-haspopup="true"
                     className={linkCls(location.pathname.startsWith("/products") || megaOpen)}
                   >
                     Products
@@ -469,7 +475,9 @@ export default function Navbar() {
             data-testid="mobile-menu-toggle"
             className="relative flex items-center justify-center w-9 h-9 text-ink lg:hidden rounded-lg border border-border-soft hover:bg-surface-elevated transition-colors duration-300"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav-drawer"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -478,6 +486,8 @@ export default function Navbar() {
 
       {/* ── Mobile Menu ── */}
       <div
+        id="mobile-nav-drawer"
+        aria-label="Mobile navigation"
         className={`navbar-luxury__mobile dark overflow-hidden border-t border-border-soft bg-surface-base backdrop-blur-[20px] transition-all duration-500 lg:hidden ${
           open ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
         }`}
@@ -497,12 +507,16 @@ export default function Navbar() {
                       : "text-ink/80 hover:text-ink hover:bg-surface-elevated border-transparent"
                   }`
                 }
-                style={{
-                  transitionDelay: open ? `${i * 40}ms` : "0ms",
-                  transform: open ? "translateX(0)" : "translateX(-20px)",
-                  opacity: open ? 1 : 0,
-                  transition: `all 0.3s cubic-bezier(0.16,1,0.3,1) ${open ? `${i * 40}ms` : "0ms"}`,
-                }}
+                style={
+                  PREFERS_REDUCED_MOTION
+                    ? undefined
+                    : {
+                        transitionDelay: open ? `${i * 40}ms` : "0ms",
+                        transform: open ? "translateX(0)" : "translateX(-20px)",
+                        opacity: open ? 1 : 0,
+                        transition: `all 0.3s cubic-bezier(0.16,1,0.3,1) ${open ? `${i * 40}ms` : "0ms"}`,
+                      }
+                }
               >
                 <span className="text-[15px] font-medium">{l.label}</span>
                 <span className="text-ink/20 text-xs">→</span>

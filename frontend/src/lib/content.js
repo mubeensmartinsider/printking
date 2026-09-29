@@ -22,13 +22,18 @@ export const COMPANY = {
   },
 };
 
+/* Single source of truth for site navigation.
+   - `mega: true`      → opens the Products mega panel on desktop
+   - `secondary: true` → overflow: lives under "+ More" and in the mobile drawer
+   Consumed by Navbar (desktop row, More menu, mobile drawer) and the
+   navbar search index. Adding a page here is all that is required. */
 export const NAV_LINKS = [
-  { label: "About", to: "/about" },
-  { label: "Products", to: "/products" },
-  { label: "Blog", to: "/blog" },
+  { label: "About",    to: "/about" },
+  { label: "Products", to: "/products", mega: true },
   { label: "Machinery", to: "/machinery" },
-  { label: "FAQ", to: "/faq" },
-  { label: "Contact", to: "/contact" },
+  { label: "Blog",     to: "/blog" },
+  { label: "FAQ",      to: "/faq", secondary: true },
+  { label: "Contact",  to: "/contact", secondary: true },
 ];
 
 export const HERO = {
@@ -73,11 +78,15 @@ export const ABOUT = {
     "Operating from a 12,000 m² state-of-the-art facility with eight Heidelberg presses, we serve fashion brands, corporates, FMCG companies, and institutions nationwide. Every project receives our signature attention to detail — from concept and design to press and finishing.",
   ],
   cta: "Discover Our Story",
+  /* Real facility photography from public/assets. Previously these were
+     hotlinked Unsplash stock shots — generic, unreliable (third-party
+     hotlink = single point of failure), and a poor proof of a 12,000 m²
+     plant with eight Heidelberg presses. Replace the filenames only. */
   images: [
-    { src: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1200&auto=format&fit=crop", caption: "Heidelberg Offset Press" },
-    { src: "https://images.unsplash.com/photo-1610018556010-6a11691bc905?q=80&w=1200&auto=format&fit=crop", caption: "Luxury Packaging Production" },
-    { src: "https://images.unsplash.com/photo-1556742059-47b93231f536?q=80&w=1200&auto=format&fit=crop", caption: "Foil Stamping & Embossing" },
-    { src: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=1200&auto=format&fit=crop", caption: "Climate-Controlled Print Floor" },
+    { src: "/assets/7.jpeg",   caption: "The press floor — Heidelberg Speedmaster line" },
+    { src: "/assets/5.jpeg",   caption: "Our press operators at work" },
+    { src: "/assets/3.jpeg",   caption: " Heidelberg control & makeready" },
+    { src: "/assets/1.jpeg",   caption: "Print floor detail" },
   ],
   vision: "Printing Excellence — delivering world-class quality, on time, every time.",
   mission: "To be Pakistan's most trusted printing partner through innovation, precision, and service.",
@@ -1077,11 +1086,13 @@ export const FOOTER = {
   certifications: ["ISO 9001:2015", "FOGRA", "FSC"],
 };
 
+/* Real photography from public/assets — the previous Unsplash hotlinks were
+   generic stock and a third-party single point of failure. */
 const IMG = {
-  rigid: "https://images.unsplash.com/photo-1610018556010-6a11691bc905?q=80&w=1200&auto=format&fit=crop",
-  box: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=1200&auto=format&fit=crop",
-  foil: "https://images.unsplash.com/photo-1556742059-47b93231f536?q=80&w=1200&auto=format&fit=crop",
-  press: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1200&auto=format&fit=crop",
+  rigid: "/assets/services/luxuryRigid.jpg",
+  box: "/assets/services/foldingcartons.jpg",
+  foil: "/assets/services/uvfinishing.jpg",
+  press: "/assets/1.jpeg",
 };
 
 

@@ -563,6 +563,23 @@
   animation-play-state: paused;
 }
 
+/* Reduced motion: the global rule in the base layer sets animation-duration
+   to ~0, which leaves a track frozen at translateX(-50%) — i.e. the row opens
+   already scrolled halfway and the reader cannot reach the first logos.
+   Stop the animation outright and let the row scroll natively instead, so all
+   logos stay reachable by touch/keyboard. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-row {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .marquee-track,
+  .marquee-track.marquee-reverse {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 /* visual-edits helper (do not remove) */
 @layer base {
   [data-debug-wrapper="true"] {

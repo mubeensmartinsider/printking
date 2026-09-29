@@ -46,7 +46,7 @@ const MarqueeRow = ({ logos, reverse, duration }) => (
           <div
             key={`${logo.name}-${idx}`}
             aria-hidden={clone || undefined}
-            className="group relative mx-2 flex h-14 w-24 shrink-0 items-center justify-center rounded-sm border border-border-strong bg-surface-elevated p-2.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:bg-surface-hover sm:h-20 sm:w-36"
+            className="group relative mx-2 flex h-14 w-24 shrink-0 items-center justify-center rounded-sm border border-border-strong bg-surface-elevated p-2.5 shadow-brand-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:bg-surface-hover hover:shadow-brand-card-hover sm:h-20 sm:w-36"
           >
             {/* Animated gold border shimmer on hover (existing utility) */}
             <span aria-hidden="true" className="card-border-shimmer" />

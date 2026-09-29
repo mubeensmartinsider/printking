@@ -146,7 +146,7 @@ export default function ServicesSection() {
           onBlur={(e) => {
             if (!e.currentTarget.contains(e.relatedTarget)) setPaused(false);
           }}
-          className="grid grid-cols-1 items-stretch overflow-hidden rounded-sm border border-border-soft bg-surface-elevated shadow-lg lg:grid-cols-[1fr_minmax(300px,400px)_1fr]"
+          className="grid grid-cols-1 items-stretch overflow-hidden rounded-sm border border-border-soft bg-surface-elevated shadow-brand-elevated lg:grid-cols-[1fr_minmax(300px,400px)_1fr]"
         >
           {/* LEFT — Boxes */}
           <div className="order-2 flex flex-col lg:order-1">

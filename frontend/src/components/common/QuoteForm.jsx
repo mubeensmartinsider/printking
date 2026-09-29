@@ -100,7 +100,7 @@ export default function QuoteForm({ compact = false, dense = false }) {
           data-testid="qf-whatsapp-optin" type="checkbox"
           checked={data.whatsappOptIn}
           onChange={(e) => setData((d) => ({ ...d, whatsappOptIn: e.target.checked }))}
-          className="h-4 w-4 accent-[#c5a05a]"
+          className="h-4 w-4 accent-gold"
         />
         I prefer to be contacted via WhatsApp
       </label>

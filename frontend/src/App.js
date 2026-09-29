@@ -1,7 +1,8 @@
 import "@/App.css";
 import "@/styles/responsive.css";
 import "@/styles/theme.css";
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
+import { useTheme } from "./context/ThemeContext";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -18,6 +19,27 @@ const BlogPage = lazy(() => import("@/pages/BlogPage"));
 
 function PageFallback() {
   return <div className="min-h-[50vh] bg-surface-base" aria-hidden="true" />;
+}
+
+/* Toaster — follows the active theme.
+   It was pinned to theme="dark" with a literal #1c1814, so in light mode a
+   dark toast looked pasted onto the page. The palette is read from the same
+   tokens the rest of the site uses. */
+function AppToaster() {
+  const { isDark } = useTheme();
+  return (
+    <Toaster
+      position="bottom-center"
+      theme={isDark ? "dark" : "light"}
+      toastOptions={{
+        style: {
+          background: isDark ? "#1c1814" : "#faf9f7",
+          border: isDark ? "1px solid rgba(197, 160, 90, 0.3)" : "1px solid rgba(0, 0, 0, 0.1)",
+          color: isDark ? "#e8e8e8" : "#1c1a17",
+        },
+      }}
+    />
+  );
 }
 
 function App() {
@@ -43,17 +65,7 @@ function App() {
               </Routes>
             </Suspense>
           </Layout>
-          <Toaster
-            position="bottom-center"
-            theme="dark"
-            toastOptions={{
-              style: {
-                background: "#1c1814",
-                border: "1px solid rgba(197, 160, 90,0.3)",
-                color: "#e8e8e8",
-              },
-            }}
-          />
+          <AppToaster />
         </BrowserRouter>
       </div>
     </ThemeProvider>

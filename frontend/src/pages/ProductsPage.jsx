@@ -80,12 +80,12 @@ export default function ProductsPage() {
       <section className="py-10 lg:py-12">
         <div className="section-pad mx-auto max-w-[1400px]">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter products by category">
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Filter products by category">
               {PRODUCT_CATEGORIES.map((cat) => (
                 <button
                   key={cat}
-                  role="tab"
-                  aria-selected={category === cat}
+                  type="button"
+                  aria-pressed={category === cat}
                   data-testid={`product-filter-${testId(cat)}`}
                   onClick={() => setCategory(cat)}
                   className={`rounded-full border px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] transition-all duration-300 sm:py-1.5 ${
