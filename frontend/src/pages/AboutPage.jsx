@@ -1,25 +1,50 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
 import SectionHeading from "../components/common/SectionHeading";
 import Img from "../components/common/Img";
 import { ABOUT, WHY_CHOOSE, FOOTER } from "../lib/content";
-import { useStagger } from "../lib/animations";
+import { useStagger, gsap } from "../lib/animations";
 
 const MILESTONES = [
   { year: "2009", title: "Founded in Lahore", desc: "Established as a full-service offset printing house with an obsession for finish quality and customer satisfaction." },
   { year: "2012", title: "First Heidelberg Press", desc: "Commissioned German-engineered Heidelberg presses, setting a new standard for colour precision and consistency." },
   { year: "2015", title: "CTP & Packaging Division", desc: "Added in-house Kodak Trendsetter Computer-to-Plate and launched a dedicated luxury packaging division." },
-  { year: "2018", title: "ISO 9001:2015 Certified", desc: "Achieved ISO 9001:2015 quality management across pre-press, press and post-press workflows." },
+  { year: "2018", title: "Documented Quality Management", desc: "Introduced formal, audited quality management across pre-press, press and post-press workflows." },
   { year: "2021", title: "12,000 m² Facility", desc: "Scaled to a climate-controlled 12,000 m² plant running eight state-of-the-art Heidelberg presses." },
   { year: "2024", title: "A National Brand Partner", desc: "Trusted by leading fashion houses, corporates and institutions across Pakistan and beyond." },
 ];
 
 export default function AboutPage() {
-  const navigate = useNavigate();
-  const timelineRef = useStagger("[data-ms]", { stagger: 0.1 });
-  const valuesRef = useStagger("[data-val]", { stagger: 0.06 });
+  const navigate     = useNavigate();
+  const timelineRef  = useStagger("[data-ms]", { stagger: 0.1 });
+  const valuesRef    = useStagger("[data-val]", { stagger: 0.06 });
+  const goldLineRef  = useRef(null);
+
+  /* Scroll-driven gold progress line that fills as you read through milestones */
+  useEffect(() => {
+    const line = goldLineRef.current;
+    if (!line || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        line,
+        { scaleY: 0, transformOrigin: "top center" },
+        {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: line.parentElement,
+            start: "top 70%",
+            end:   "bottom 30%",
+            scrub: 0.8,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    }, line);
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -79,7 +104,14 @@ export default function AboutPage() {
       <section className="border-t border-border-soft bg-surface-base py-28">
         <div className="section-pad mx-auto max-w-[1400px]">
           <SectionHeading eyebrow="MILESTONES" title="How We Grew" className="mb-20" />
-          <div ref={timelineRef} className="space-y-0 border-l border-border-soft/[0.1] pl-10">
+          <div ref={timelineRef} className="relative space-y-0 border-l border-border-soft/[0.1] pl-10">
+            {/* Scroll-driven gold fill line overlaid on the left border */}
+            <span
+              ref={goldLineRef}
+              aria-hidden="true"
+              className="pointer-events-none absolute left-0 top-0 w-px origin-top bg-gold"
+              style={{ height: "100%", scaleY: 0 }}
+            />
             {MILESTONES.map((m) => (
               <div key={m.year} data-ms className="relative pb-12 last:pb-0">
                 <span className="absolute -left-[46px] top-1 flex h-5 w-5 items-center justify-center rounded-full border border-gold bg-surface-base">

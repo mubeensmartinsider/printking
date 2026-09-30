@@ -215,7 +215,7 @@ export const VIDEO = {
   headline: "The Machine Behind Every Perfect Box.",
   sub: "Step inside a facility where German engineering meets Pakistani craftsmanship — where 18,000 sheets per hour become someone's most memorable unboxing moment.",
   stats: [
-    { label: "18,000 sheets/hr", pos: "top-left" },
+    { label: "15,000 sheets/hr", pos: "top-left" },
     { label: "ISO 9001:2015", pos: "top-right" },
     { label: "8-Color Precision", pos: "bottom-left" },
     { label: "Zero-Defect QC", pos: "bottom-right" },

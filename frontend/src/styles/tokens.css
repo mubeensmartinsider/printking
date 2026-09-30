@@ -64,6 +64,17 @@
      nothing, which left near-white label text on gold in dark mode. */
   --color-obsidian:    #0d0b09;
   --color-carbon:      #14110d;
+  /* Hero stats band — a deliberate, fixed accent that does NOT flip with the
+     theme. #2dabe2 was originally an inline style override on the hero band
+     that read as an accident; it is now a named token so it can be retuned
+     from one place. Brand decision: keep the cool accent separating the
+     banner from the page body. */
+  --color-band-accent:  #2dabe2;
+  --band-accent-soft:  #4fc3e8;
+  --band-accent-deep:  #1b8ab8;
+  --band-on-accent:    #ffffff;
+
+
   --color-graphite:    #1c1814;
 
   /* Muted copy helper (.text-muted-lux) — follows the text tier */

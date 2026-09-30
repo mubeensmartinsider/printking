@@ -35,6 +35,12 @@ module.exports = {
         'gold-soft':    '#d8b978',
         'gold-600':     '#b08a45',
         'gold-muted':   'rgba(197,160,90,0.37)',
+
+        /* Hero stats band — fixed accent, deliberately not theme-flipping.
+           Promoted from an inline override to a token (see tokens.css). */
+        'band-accent':      'var(--color-band-accent)',
+        'band-accent-soft': 'var(--band-accent-soft)',
+        'band-accent-deep': 'var(--band-accent-deep)',
         platinum:       '#f0ebe2',
         whisper:        'rgba(255,255,255,0.08)',
 
@@ -127,6 +133,19 @@ module.exports = {
         'spring':   'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
     },
+      /* Expose the shadow scale from tokens.css as utilities.
+         These tokens existed but had no way to be applied, so every card
+         hand-rolled `shadow-sm`/`shadow-lg` instead and the scale rotted.
+         The `brand-*` names keep them distinct from Tailwind's defaults so
+         the intent is explicit at the call site. */
+      boxShadow: {
+        'brand-card':        'var(--shadow-card)',
+        'brand-card-hover':  'var(--shadow-card-hover)',
+        'brand-elevated':    'var(--shadow-elevated)',
+        'brand-gold-glow':   'var(--shadow-gold-glow)',
+        'brand-input-focus': 'var(--shadow-input-focus)',
+      },
+
   },
   plugins: [require("tailwindcss-animate")],
 };

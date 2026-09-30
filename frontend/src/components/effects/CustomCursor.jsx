@@ -3,6 +3,13 @@ import React, { useEffect, useRef, useCallback } from "react";
 const IS_TOUCH = () =>
   typeof window !== "undefined" && "ontouchstart" in window;
 
+/* The global prefers-reduced-motion rule in index.css only neutralises CSS
+   transitions — it cannot stop this component's requestAnimationFrame loop or
+   the DOM writes it makes every frame. Respect it explicitly here. */
+const REDUCED_MOTION = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 const IDLE_TIMEOUT = 2000; // 2 seconds of inactivity → stop RAF
 
 export default function CustomCursor() {
@@ -17,7 +24,7 @@ export default function CustomCursor() {
   const lerp = useCallback((a, b, t) => a + (b - a) * t, []);
 
   useEffect(() => {
-    if (IS_TOUCH()) return;
+    if (IS_TOUCH() || REDUCED_MOTION()) return;
 
     document.body.classList.add("has-custom-cursor");
 

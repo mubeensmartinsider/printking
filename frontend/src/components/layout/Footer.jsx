@@ -18,7 +18,7 @@ const SocialIcon = ({ href, label, children }) => (
 
 const Col = ({ title, children }) => (
   <div>
-    <h4 className="label mb-5 text-gold-ink">{title}</h4>
+    <h3 className="label mb-5 text-gold-ink">{title}</h3>
     <ul className="space-y-3">{children}</ul>
   </div>
 );

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { gsap } from "../../lib/animations";
 
 /* Respect the visitor's motion preference in the spotlight rotator */
 const reducedMotion = () =>
@@ -93,7 +94,10 @@ const SPOTLIGHT_MS = 4500;
 function Spotlight({ items }) {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
-  const active = items[idx];
+  const active    = items[idx];
+  const photoRef  = useRef(null);
+  const copyRef   = useRef(null);
+  const prevIdx   = useRef(idx);
 
   useEffect(() => {
     if (paused || reducedMotion()) return undefined;
@@ -103,6 +107,31 @@ function Spotlight({ items }) {
     );
     return () => window.clearInterval(id);
   }, [paused, items.length]);
+
+  /* Animate the photo + copy panels every time idx changes */
+  useEffect(() => {
+    if (reducedMotion()) return;
+    const dir = idx > prevIdx.current ? 1 : -1;
+    prevIdx.current = idx;
+
+    const photo = photoRef.current;
+    const copy  = copyRef.current;
+    if (!photo || !copy) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        photo,
+        { clipPath: `inset(0 ${dir > 0 ? "100%" : "0%"} 0 ${dir > 0 ? "0%" : "100%"})`, opacity: 0.4 },
+        { clipPath: "inset(0 0% 0 0%)", opacity: 1, duration: 0.55, ease: "power3.inOut" }
+      );
+      gsap.fromTo(
+        copy,
+        { x: dir * 28, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.45, ease: "power2.out", delay: 0.1 }
+      );
+    });
+    return () => ctx.revert();
+  }, [idx]);
 
   const go = (dir) => setIdx((p) => (p + dir + items.length) % items.length);
   const counter = `${String(idx + 1).padStart(2, "0")} / ${String(items.length).padStart(2, "0")}`;
@@ -118,10 +147,12 @@ function Spotlight({ items }) {
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      {/* key resets the frame so the ratio is re-measured per machine */}
-      <PhotoFrame key={active.img} src={active.img} alt={active.name} />
+      {/* Photo panel — GSAP clip-path wipe drives the slide-in */}
+      <div ref={photoRef} className="overflow-hidden">
+        <PhotoFrame key={active.img} src={active.img} alt={active.name} />
+      </div>
 
-      <div className="flex flex-col justify-center gap-3 p-6 lg:p-10">
+      <div ref={copyRef} className="flex flex-col justify-center gap-3 p-6 lg:p-10">
         <div className="flex items-start justify-between gap-4">
           <span className="label text-gold-ink">{active.category}</span>
           <span className="label text-ink/35">{counter}</span>
