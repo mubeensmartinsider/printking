@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import SectionHeading from "../common/SectionHeading";
-import { useReveal, useStagger } from "../../lib/animations";
+import { useStagger, usePrefersReducedMotion } from "../../lib/animations";
 
 const LOGOS = [
   { name: "Bareeze",                 src: "/assets/brands/bareeze.png" },
@@ -31,39 +31,139 @@ const LOGOS = [
   { name: "Govt. of Punjab",         src: "/assets/brands/govtofpunjab.png" },
 ];
 
-const SECTORS = ["Fashion", "FMCG", "Retail", "Telecom", "Government", "Industry"];
+/* ── Gold particle canvas ──────────────────────────────────────────────
+   Tiny gold dots drift upward and fade, giving the section a premium
+   "printing press dust" feel. Canvas-only — zero layout impact.
 
+   The loop is gated three ways so it costs nothing while idle: it never
+   starts under prefers-reduced-motion, it stops whenever the section leaves
+   the viewport, and it stops when the tab is backgrounded. An unconditional
+   requestAnimationFrame loop burns a frame of CPU forever on every page
+   that mounts this section.                                            */
+const PARTICLE_COUNT = 38;
+
+function GoldParticles() {
+  const canvasRef = useRef(null);
+  const reduced = usePrefersReducedMotion();
+
+  useEffect(() => {
+    if (reduced) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let raf = null;
+    let visible = false;
+    let onScreen = true;
+
+    /* Scale the backing store by devicePixelRatio — at 1x the dots render
+       soft on every modern display. All drawing below is in CSS pixels. */
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(canvas.offsetWidth * dpr);
+      canvas.height = Math.floor(canvas.offsetHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+
+    const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+      x:  Math.random() * canvas.offsetWidth,
+      y:  Math.random() * canvas.offsetHeight,
+      r:  Math.random() * 1.8 + 0.5,
+      o:  Math.random() * 0.5 + 0.15,
+      vy: Math.random() * 0.35 + 0.15,
+      vx: (Math.random() - 0.5) * 0.25,
+      wo: Math.random() * Math.PI * 2,
+    }));
+
+    const draw = () => {
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      ctx.clearRect(0, 0, w, h);
+      particles.forEach((p) => {
+        p.wo += 0.012;
+        p.y -= p.vy;
+        p.x += p.vx + Math.sin(p.wo) * 0.22;
+        if (p.y < -8) { p.y = h + 8; p.x = Math.random() * w; }
+        if (p.x < -8) p.x = w + 8;
+        if (p.x > w + 8) p.x = -8;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(197,160,90,${(p.o * (0.65 + Math.sin(p.wo) * 0.35)).toFixed(3)})`;
+        ctx.fill();
+      });
+      raf = requestAnimationFrame(draw);
+    };
+
+    const start = () => {
+      if (raf === null && visible && onScreen) raf = requestAnimationFrame(draw);
+    };
+    const stop = () => {
+      if (raf !== null) cancelAnimationFrame(raf);
+      raf = null;
+    };
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible) start();
+        else stop();
+      },
+      { threshold: 0 }
+    );
+    io.observe(canvas);
+
+    const onVisibility = () => {
+      onScreen = document.visibilityState === "visible";
+      if (onScreen) start();
+      else stop();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      stop();
+      io.disconnect();
+      ro.disconnect();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [reduced]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-70"
+    />
+  );
+}
+
+/* ── Marquee row ─────────────────────────────────────────────────── */
 const MarqueeRow = ({ logos, reverse, duration }) => (
   <div className="marquee-row relative overflow-hidden pt-8 pb-0">
     <div
       className={`marquee-track ${reverse ? "marquee-reverse" : ""}`}
       style={{ "--marquee-duration": duration }}
     >
-      {/* List duplicated once for a seamless infinite loop; clones hidden from a11y */}
       {[...logos, ...logos].map((logo, idx) => {
         const clone = idx >= logos.length;
         return (
           <div
             key={`${logo.name}-${idx}`}
-            aria-hidden={clone || undefined}
-            className="group relative mx-2 flex h-14 w-24 shrink-0 items-center justify-center rounded-sm border border-border-strong bg-surface-elevated p-2.5 shadow-brand-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:bg-surface-hover hover:shadow-brand-card-hover sm:h-20 sm:w-36"
+            aria-hidden={clone ? true : undefined}
+            className="group relative mx-2 flex h-14 w-24 shrink-0 items-center justify-center rounded-sm border border-border-strong bg-surface-elevated p-2.5 shadow-brand-card transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/60 hover:bg-surface-hover hover:shadow-brand-card-hover sm:h-20 sm:w-36"
           >
-            {/* Animated gold border shimmer on hover (existing utility) */}
             <span aria-hidden="true" className="card-border-shimmer" />
-
-            {/* h-full/w-full + object-contain: the logo is scaled to fit
-                completely inside the card's padded area at any card size,
-                and stays centred - no overflow, no stretching. */}
             <img
               src={logo.src}
               alt={logo.name}
               loading="lazy"
               decoding="async"
               fetchpriority="low"
-              className="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-120"
+              className="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-110"
             />
-
-            {/* Tooltip — row pt-10 keeps it inside the overflow clip */}
             <span className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-1 -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-sm border border-gold/40 bg-surface-floating px-3 py-1 text-[11px] font-semibold text-ink opacity-0 shadow-md transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100">
               {logo.name}
             </span>
@@ -74,12 +174,11 @@ const MarqueeRow = ({ logos, reverse, duration }) => (
   </div>
 );
 
+/* ── ClientLogos ─────────────────────────────────────────────────── */
 export default function ClientLogos() {
-  const half = Math.ceil(LOGOS.length / 2);
-  const rowOne = LOGOS.slice(0, half);
-  const rowTwo = LOGOS.slice(half);
-
-  const chipsRef = useReveal({ y: 24, delay: 0.15 });
+  const half    = Math.ceil(LOGOS.length / 2);
+  const rowOne  = LOGOS.slice(0, half);
+  const rowTwo  = LOGOS.slice(half);
   const rowsRef = useStagger(":scope > *", { stagger: 0.15, y: 36 });
 
   return (
@@ -87,7 +186,7 @@ export default function ClientLogos() {
       data-testid="clients-section"
       className="relative overflow-hidden bg-surface-primary py-8 md:py-10"
     >
-      {/* Ambient backdrop — drifting gold glows, dot texture, gold hairlines */}
+      {/* Static ambient backdrop */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div
           className="glow-drift absolute -top-40 inset-x-0 mx-auto h-72 w-[42rem] rounded-full"
@@ -102,8 +201,10 @@ export default function ClientLogos() {
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
       </div>
 
+      {/* ✦ Floating gold dust particles */}
+      <GoldParticles />
+
       <div className="relative z-10 mx-auto max-w-[1600px] px-2 md:px-4 lg:px-6">
-        {/* Header */}
         <SectionHeading
           align="center"
           eyebrow="TRUSTED BY LEADERS"
@@ -112,29 +213,12 @@ export default function ClientLogos() {
           sub="From fashion houses to FMCG giants — leading brands across Pakistan rely on us for premium printing and packaging."
         />
 
-        {/* Gold diamond ornament */}
         <div aria-hidden="true" className="mx-auto mt-3 flex w-fit items-center justify-center gap-3">
           <span className="h-px w-12 bg-gradient-to-r from-transparent to-gold/60" />
           <span className="h-1.5 w-1.5 rotate-45 bg-gold" />
           <span className="h-px w-12 bg-gradient-to-l from-transparent to-gold/60" />
         </div>
 
-        {/* Count + sector chips */}
-        {/* <div ref={chipsRef} className="mt-3 flex flex-wrap items-center justify-center gap-2.5">
-          <span className="label rounded-full bg-gold px-4 py-1.5 text-obsidian">
-            {LOGOS.length} Brands
-          </span>
-          {SECTORS.map((s) => (
-            <span
-              key={s}
-              className="label rounded-full border border-gold/30 bg-surface-elevated/60 px-4 py-1.5 text-ink/70 transition-colors duration-300 hover:border-gold/60 hover:text-gold-ink"
-            >
-              {s}
-            </span>
-          ))}
-        </div> */}
-
-        {/* Two-row marquee: top scrolls right → left, bottom scrolls left → right */}
         <div ref={rowsRef} className="-mx-2 mt-4 flex flex-col md:-mx-4 lg:-mx-6">
           <MarqueeRow logos={rowOne} duration="48s" />
           <MarqueeRow logos={rowTwo} reverse duration="56s" />

@@ -55,7 +55,6 @@ export const TRUSTED = {
   metrics: [
     "15 Years of Printing Excellence",
     "8 Heidelberg Offset Presses",
-    "ISO 9001:2015 Certified",
     "24-Hour Print Production",
   ],
   brands: [
@@ -154,7 +153,7 @@ export const MANUFACTURING = {
     { icon: "Printer", title: "Offset Printing", desc: "Eight Heidelberg presses delivering millions of impressions monthly." },
     { icon: "Scissors", title: "Finishing", desc: "Die-cutting, lamination, UV coating, foil stamping & embossing." },
     { icon: "Package", title: "Packaging Assembly", desc: "Rigid box making, paper bag production & finishing." },
-    { icon: "Factory", title: "Quality Control", desc: "ISO 9001:2015 certified with 100% inspection protocols." },
+    { icon: "Factory", title: "Quality Control", desc: "Spectrophotometer-verified colour with 100% inspection protocols." },
   ],
 };
 
@@ -188,7 +187,6 @@ const tradeTerms = (
 ) => [
   { label: "Sample", value: "Digital or offset sample proofing is possible. Contact us for sampling charges." },
   { label: "MOQ", value: moq },
-  { label: "Certification", value: "ISO 9001:2015 certified manufacturing." },
   { label: "Delivery time", value: delivery },
   { label: "QC", value: "100% inspection before delivery." },
   { label: "Price", value: "Competitive prices offered — request a quotation for your specification." },
@@ -417,7 +415,7 @@ export const PRODUCTS = [
     category: "Print & Publishing",
     tagline: "Eight-colour Heidelberg precision — up to 18,000 sheets per hour.",
     short:
-      "The production engine behind everything we make: German-engineered offset printing with ISO-calibrated colour control.",
+      "The production engine behind everything we make: German-engineered offset printing with spectrophotometer-calibrated colour control.",
     banner: "/assets/banners/mainbanner.jpg",
     image: "/assets/services/offset.jpg",
     highlights: ["8-colour presses", "18,000 sph", "Pantone matching", "CTP plate imaging"],
@@ -613,11 +611,11 @@ export const PROCESS = [
 ];
 
 export const WHY_CHOOSE = [
-  { num: "01", title: "Heidelberg Precision", desc: "German-engineered Heidelberg offset presses deliver 18,000 sheets per hour with ISO-calibrated color accuracy and registration precision." },
+  { num: "01", title: "Heidelberg Precision", desc: "German-engineered Heidelberg offset presses deliver 18,000 sheets per hour with spectrophotometer-verified color accuracy and registration precision." },
   { num: "02", title: "Premium Materials", desc: "FSC-certified paper stocks, imported specialty substrates, archival-grade inks and premium coatings from international suppliers." },
   { num: "03", title: "In-House Expertise", desc: "Complete pre-press department with CTP technology, structural engineers for packaging design, and experienced press operators." },
   { num: "04", title: "Fast Production", desc: "Standard turnaround 7-10 working days. Express 48-72 hour production available for urgent print runs." },
-  { num: "05", title: "ISO Quality Standards", desc: "ISO 9001:2015 certified quality management. Every job inspected before shipment. Zero-compromise quality policy." },
+  { num: "05", title: "Quality Standards", desc: "Documented quality management across every production line. Every job inspected before shipment. Zero-compromise quality policy." },
   { num: "06", title: "Scalable Capacity", desc: "From sample quantities to full production runs. No minimum order restrictions. Scale your printing as your business grows." },
   { num: "07", title: "Competitive Pricing", desc: "Enterprise-grade printing equipment with streamlined operations means competitive pricing without quality compromise." },
   { num: "08", title: "Export Capability", desc: "Full export documentation and freight coordination. Successfully shipped to 30+ countries with complete paperwork support." },
@@ -646,11 +644,11 @@ export const MACHINERY = {
   ],
 
   items: [
-    { name: "Heidelberg Speedmaster SX 102", category: "Offset Printing", spec: "8-color · 18,000 sph", size: "hero", img: "/assets/1.jpeg", specs: ["8-color sheet-fed", "18,000 sheets per hour", "Format up to 720×1020mm"], capability: "The benchmark press for premium commercial and packaging print worldwide." },
-    { name: "Heidelberg Speedmaster CD 102", category: "Offset Printing", spec: "6-color · 15,000 sph", size: "small", img: "/assets/2.jpeg", specs: ["6-color sheet-fed", "15,000 sheets per hour", "Perfecting capability"], capability: "Versatile 6-color press for high-quality commercial and packaging work." },
-    { name: "Heidelberg Speedmaster XL 106", category: "Offset Printing", spec: "8-color · 18,000 sph", size: "small", img: "/assets/3.jpeg", specs: ["8-color sheet-fed", "18,000 sheets per hour", "Autoplate Advanced"], capability: "Flagship XL platform delivering maximum productivity and print quality." },
+    { name: "Heidelberg Speedmaster SX 102", category: "Offset Printing", spec: "6-color · 15,000 sph", size: "hero", img: "/assets/1.jpeg", specs: ["6-color sheet-fed", "18,000 sheets per hour", "Format up to 720×1020mm"], capability: "The benchmark press for premium commercial and packaging print worldwide." },
+    { name: "Heidelberg Speedmaster CD 102 5lx", category: "Offset Printing", spec: "5-color · 15,000 sph", size: "small", img: "/assets/2.jpeg", specs: ["5-color sheet-fed", "15,000 sheets per hour", "Perfecting capability"], capability: "Versatile 6-color press for high-quality commercial and packaging work." },
+    { name: "Heidelberg Speedmaster XL 106", category: "Offset Printing", spec: "6-color · 15,000 sph", size: "small", img: "/assets/3.jpeg", specs: ["6-color sheet-fed", "18,000 sheets per hour", "Autoplate Advanced"], capability: "Flagship XL platform delivering maximum productivity and print quality." },
     { name: "Heidelberg Stahlfolder", category: "Folding & Gluing", spec: "300 m/min · inline gluing", size: "wide", img: "/assets/4.jpeg", specs: ["300 metres per minute", "Multi-format capability", "Inline gluing"], capability: "High-speed folding and gluing for folding cartons and mailer boxes." },
-    { name: "Heidelberg Polar 115", category: "Cutting", spec: "Programmable · ±0.1mm", size: "small", img: "/assets/5.jpeg", specs: ["Programmable cutting", "±0.1mm precision", "115cm cutting width"], capability: "Precision guillotine cutting for exact sheet and finished product sizing." },
+    { name: "Heidelberg sm 74 lx coater", category: "Cutting", spec: "Programmable · ±0.1mm", size: "small", img: "/assets/5.jpeg", specs: ["Programmable cutting", "±0.1mm precision", "115cm cutting width"], capability: "Precision guillotine cutting for exact sheet and finished product sizing." },
     { name: "Heidelberg Suprasetter", category: "Computer-to-Plate", spec: "Kodak CTP · 2400 dpi", size: "small", img: "/assets/6.jpeg", specs: ["Thermal CTP imaging", "2400 dpi resolution", "Auto plate loading"], capability: "Precision plate imaging for razor-sharp reproduction of every detail." },
     { name: "Heidelberg Easyfold", category: "Folding & Gluing", spec: "Auto setup · 200 m/min", size: "small", img: "/assets/7.jpeg", specs: ["Automatic setup", "200 metres per minute", "Multi-pocket folding"], capability: "Automated folding system for consistent, high-speed carton production." },
     { name: "Heidelberg Promatrix 106", category: "Die Cutting", spec: "±0.1mm tolerance", size: "small", img: "/assets/8.jpeg", specs: ["±0.1mm cutting tolerance", "7,500 sheets per hour", "Full-format 106×106cm"], capability: "Precision die-cutting for complex packaging structures and intricate shapes." },
@@ -669,7 +667,6 @@ export const MACHINERY = {
 
   /* Assurance blocks shown under the machines */
   standards: [
-    { title: "ISO 9001:2015", desc: "Certified quality management across pre-press, press and finishing — audited end to end." },
     { title: "FOGRA colour proofs", desc: "Contract proofs matched to PSOcoated and PSOuncoated standards before approval." },
     { title: "±0.1 mm tolerance", desc: "Registration, cutting and die-cutting accuracy verified on every job." },
     { title: "FSC certified board", desc: "Chain-of-custody material from responsibly managed forests on every structure." },
@@ -723,7 +720,7 @@ export const FAQ = {
         },
         {
           q: "Can you match my brand colors exactly?",
-          a: "Yes, we use Pantone Matching System (PMS) for exact color reproduction. Our Heidelberg presses are ISO-calibrated and we provide digital proofs for color approval before production.",
+          a: "Yes, we use Pantone Matching System (PMS) for exact color reproduction. Our Heidelberg presses are spectrophotometer-calibrated and we provide digital proofs for color approval before production.",
         },
       ],
     },
@@ -757,7 +754,7 @@ export const FAQ = {
         },
         {
           q: "How do you ensure quality control?",
-          a: "We are ISO 9001:2015 certified. Every job passes through multiple QC checkpoints: pre-press verification, first-sheet approval, in-process inspection, and final 100% inspection before packing and dispatch.",
+          a: "Every job passes through multiple QC checkpoints: pre-press verification, first-sheet approval, in-process inspection, and final 100% inspection before packing and dispatch.",
         },
       ],
     },
@@ -787,7 +784,7 @@ export const FAQ = {
         },
         {
           q: "Do you offer a warranty on your products?",
-          a: "All our products are manufactured to ISO 9001:2015 standards. We stand behind our workmanship and materials. Any manufacturing defects are addressed promptly at no additional cost.",
+          a: "All our products are manufactured to documented, audited quality standards. We stand behind our workmanship and materials. Any manufacturing defects are addressed promptly at no additional cost.",
         },
       ],
     },
@@ -862,11 +859,11 @@ export const BLOG = {
         },
         {
           heading: "What we did",
-          text: "We engineered a new folding carton structure optimised for the filling line, with easy-open perforation and a board weight chosen for both the machine and the shelf. Production ran on our Heidelberg Speedmaster presses under ISO-certified quality control, with in-line checks through the run rather than only at the start.",
+          text: "We engineered a new folding carton structure optimised for the filling line, with easy-open perforation and a board weight chosen for both the machine and the shelf. Production ran on our Heidelberg Speedmaster presses under documented quality control, with in-line checks through the run rather than only at the start.",
         },
         {
           heading: "The result",
-          text: "Two million units delivered with no measurable colour variation across the run, and a 15% cost reduction against the previous supplier. The process is ISO 9001:2015 certified end to end.",
+          text: "Two million units delivered with no measurable colour variation across the run, and a 15% cost reduction against the previous supplier. The process ran under documented quality control end to end.",
         },
       ],
       materials: ["350gsm FSC-certified board", "Aqueous coating", "Food-safe inks", "Easy-open perforation"],
@@ -929,14 +926,14 @@ export const BLOG = {
         },
         {
           heading: "What we work from",
-          text: "Send the Pantone code plus a physical chip, or a previously printed reference we can measure. From there we set the build on an ISO-calibrated press, run a contract proof, and only move to plate once that proof is approved.",
+          text: "Send the Pantone code plus a physical chip, or a previously printed reference we can measure. From there we set the build on a spectrophotometer-calibrated press, run a contract proof, and only move to plate once that proof is approved.",
         },
         {
           heading: "Files that give us the best chance",
           text: "CMYK colour mode, 300 dpi at final size, embedded fonts outlined, and a one-page specification listing stock, finish and Pantones. With those in place most jobs reach an approved proof on the first pass — which is where the schedule really comes from.",
         },
       ],
-      materials: ["Contract proof (FOGRA standard)", "Pantone Solid Coated/ uncoated", "ISO-calibrated colour measurement"],
+      materials: ["Contract proof (FOGRA standard)", "Pantone Solid Coated/ uncoated", "Spectrophotometer colour measurement"],
       results: ["Fewer proof rounds", "Accurate first press", "Shorter approval cycles"],
     },
     {
@@ -967,34 +964,6 @@ export const BLOG = {
       materials: ["2mm greyboard", "Textured wrap", "Soft-touch / flock lining", "Magnetic closure"],
       results: ["Consistent structure across runs", "Faster assembly", "Better perceived value"],
     },
-    {
-      slug: "iso-9001-what-it-means-for-your-job",
-      title: "What ISO 9001:2015 actually means for your job",
-      category: "Operations",
-      date: "2026-07-14",
-      readTime: 4,
-      author: "PrintKing Quality",
-      excerpt:
-        "Certification is not a logo on a wall. Here is where the checkpoints sit between your artwork and your pallet — and what we check at each one.",
-      cover: "/assets/banners/awardbanner2.jpg",
-      tags: ["Quality", "ISO 9001:2015", "QC"],
-      body: [
-        {
-          heading: "Four checkpoints, not one final look",
-          text: "Quality control that happens at the end only tells you what went wrong. Our process checks at four points: pre-press file verification, first-sheet approval, in-process inspection during the run, and final inspection before packing. Most defects are caught at the first two, when they are still cheap to fix.",
-        },
-        {
-          heading: "What we hold ourselves to",
-          text: "Registration and cutting accuracy are verified to ±0.1 mm, and every finished unit is inspected before dispatch. On multi-million-unit runs, in-line measurement keeps colour steady rather than sampling it after the fact.",
-        },
-        {
-          heading: "Standards you can ask about",
-          text: "FSC-certified board with chain of custody, soy-based inks, water-based aqueous coatings where UV is not required, and FOGRA-standard contract proofs. Ask for the certificate that applies to your job and we will point you at it.",
-        },
-      ],
-      materials: ["ISO 9001:2015 certified process", "FSC-certified board", "FOGRA-standard proofs", "In-line spectrophotometry"],
-      results: ["±0.1 mm registration and cutting tolerance", "100% inspection before dispatch", "Documented export paperwork"],
-    },
   ],
 
   cta: {
@@ -1010,9 +979,7 @@ export const VIDEO = {
   headline: "Where Precision Printing Comes to Life.",
   sub: "A rare walk through our 12,000 m² plant — where German engineering meets Pakistani craftsmanship.",
   stats: [
-    { label: "18,000 sheets/hr", pos: "top-left" },
-    { label: "ISO 9001:2015", pos: "top-right" },
-    { label: "8-Color Heidelberg", pos: "bottom-left" },
+    { label: "15,000 sheets/hr", pos: "top-right" },
     { label: "Zero-Defect QC", pos: "bottom-right" },
   ],
   capabilities: [
@@ -1042,6 +1009,8 @@ export const TESTIMONIALS = [
   { quote: "PrintKing delivered our catalog printing with impeccable quality and on schedule. Their Heidelberg presses produce color accuracy that matches international standards.", name: "Marketing Director", title: "Fashion Retail Chain", company: "Lahore" },
   { quote: "We switched to PrintKing for all our packaging and commercial printing. Consistent quality, reliable delivery, and responsive service — exactly what a growing business needs.", name: "Operations Manager", title: "FMCG Company", company: "Karachi" },
   { quote: "From business cards to luxury packaging, PrintKing handles all our print requirements. Their attention to detail and production speed keeps our brand looking professional.", name: "Brand Manager", title: "Corporate Services", company: "Islamabad" },
+  { quote: "Our rigid boxes are the first thing a customer touches, and PrintKing gets that. Foil, emboss and colour all land exactly as approved, run after run.", name: "Head of Packaging", title: "Luxury Retail Brand", company: "Dubai" },
+  { quote: "We ship to three markets and every consignment clears without a surprise. Documentation, packing and freight are handled properly the first time.", name: "Export Manager", title: "Textile Exporter", company: "Sialkot" },
 ];
 
 export const GLOBAL_REACH = {
@@ -1083,7 +1052,7 @@ export const FOOTER = {
   products: PRODUCTS.slice(0, 8).map((p) => ({ label: p.title, to: `/products/${p.slug}` })),
   company: ["About", "Blog", "Machinery", "FAQ", "Careers"],
   industries: INDUSTRIES.slice(0, 6).map((i) => i.name),
-  certifications: ["ISO 9001:2015", "FOGRA", "FSC"],
+  certifications: ["FOGRA", "FSC"],
 };
 
 /* Real photography from public/assets — the previous Unsplash hotlinks were

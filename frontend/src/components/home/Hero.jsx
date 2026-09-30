@@ -51,19 +51,35 @@ export default function Hero() {
 
   // Banner images
   const banners = useMemo(() => [
-    "/assets/banners/mainbanner2.jpg",
     "/assets/banners/banner4.jpeg",
+    "/assets/banners/mainbanner2.jpg",
     "/assets/banners/awardbanner2.jpg",
     "/assets/banners/banner3.jpg",
     "/assets/banners/rigidbanner.jpg",
   ], []);
 
-  /* Subtle settle on the banner itself now that there is no text overlay to
-     choreograph. Skipped under prefers-reduced-motion. */
+  /* Band entrance + staggered icon float loops. Skipped under reduced-motion. */
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
-      gsap.from("[data-hero=band]", { y: 16, opacity: 0, duration: 0.8, ease: "power3.out" });
+      /* 1 — slide the whole band up from below */
+      gsap.from("[data-hero=band]", { y: 24, opacity: 0, duration: 0.9, ease: "power3.out" });
+
+      /* 2 — stagger the four stat blocks into view */
+      gsap.from("[data-hero=stat]", {
+        y: 20, opacity: 0, duration: 0.7, ease: "power2.out",
+        stagger: 0.12, delay: 0.3,
+      });
+
+      /* 3 — gentle perpetual float on each icon ring */
+      gsap.to("[data-hero=icon]", {
+        y: -6,
+        duration: 2.2,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: { each: 0.4, from: "start" },
+      });
     }, rootRef);
     return () => ctx.revert();
   }, []);
@@ -97,8 +113,8 @@ export default function Hero() {
             {HERO.stats.map((stat, idx) => {
               const Icon = STAT_ICONS[idx] || Award;
               return (
-                <div key={idx} className="hero-stat group flex items-center justify-center gap-2.5 sm:gap-3 md:gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/30 transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12 md:h-14 md:w-14">
+                <div key={idx} data-hero="stat" className="hero-stat group flex items-center justify-center gap-2.5 sm:gap-3 md:gap-4">
+                  <span data-hero="icon" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/30 transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12 md:h-14 md:w-14">
                     <Icon className="h-4 w-4 text-white sm:h-6 sm:w-6 md:h-7 md:w-7" strokeWidth={1.75} />
                   </span>
                   <div className="min-w-0 text-left">
