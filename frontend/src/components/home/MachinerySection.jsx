@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { MACHINERY } from "../../lib/content";
-import MachineryGrid from "../common/MachineryGrid";
+import MachineryCollage from "./MachineryCollage";
 
 export default function MachinerySection() {
   return (
     <section data-testid="machinery-section" className="bg-surface-primary pt-4 pb-12">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
-        {/* Heading row — copy on the left, facility stat + CTA on the right.
-            Stacking these instead of a full heading block saves ~100px. */}
-        <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        {/* One description for the whole collage: the photos below carry no
+            captions, so this block does the explaining for all nine
+            machines. Facility stat + CTA sit opposite it. */}
+        <div className="mb-7 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <span className="label text-gold-ink">{MACHINERY.eyebrow}</span>
             <h2 className="display mt-3 text-4xl leading-[1.08] text-ink sm:text-5xl">
@@ -34,7 +35,7 @@ export default function MachinerySection() {
           </div>
         </div>
 
-        <MachineryGrid items={MACHINERY.items} variant="spotlight" />
+        <MachineryCollage items={MACHINERY.items} />
       </div>
     </section>
   );
