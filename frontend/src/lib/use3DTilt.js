@@ -27,11 +27,15 @@ export default function use3DTilt({
      Without this a card that unmounts mid-tilt keeps a stale inline
      transform, which reappears when it remounts under fast navigation. */
   useEffect(() => {
+    /* Capture the node once. Reading ref.current inside the cleanup is
+       unreliable — React may already have nulled it or pointed it at a
+       different node by the time the cleanup runs on unmount. */
+    const el = ref.current;
     return () => {
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
-      if (ref.current) ref.current.style.transform = "";
+      if (el) el.style.transform = "";
     };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   const onMove = useCallback((e) => {
     if (reduced) return;
